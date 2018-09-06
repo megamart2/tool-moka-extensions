@@ -7,7 +7,7 @@ import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.service.AbstractMokaService;
 import org.eclipse.papyrus.moka.service.IMokaExecutionListener;
 
-import eu.megamart2.moka.extensions.nodes.NodeInfo;
+import eu.megamart2.moka.extensions.nodes.NodeInfoGenerator;
 import eu.megamart2.moka.extensions.utils.MegamartUtils;
 import eu.megamart2.moka.extensions.utils.StartControl;
 
@@ -25,12 +25,13 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	@Override
 	public void nodeVisited(ISemanticVisitor nodeVisitor) {
 		if(utils == null) utils = new MegamartUtils();
-		NodeInfo info = new NodeInfo(nodeVisitor,control);
+		NodeInfoGenerator info = new NodeInfoGenerator(nodeVisitor,control);
 		info.printSummary(utils);
 	}
 
 	@Override
 	public void nodeLeft(ISemanticVisitor nodeVisitor) {
+		
 	}
 
 	@Override
