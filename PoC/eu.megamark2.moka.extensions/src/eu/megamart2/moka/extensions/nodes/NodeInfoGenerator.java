@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 import org.eclipse.papyrus.moka.composites.Semantics.impl.Actions.IntermediateActions.CS_ReadSelfActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallBehaviorActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.InputPinActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.CompleteActions.StartObjectBehaviorActionActivation;
@@ -20,109 +22,79 @@ import org.eclipse.uml2.uml.internal.impl.PropertyImpl;
 import org.eclipse.uml2.uml.internal.impl.ReadStructuralFeatureActionImpl;
 import org.eclipse.uml2.uml.internal.impl.ValueSpecificationActionImpl;
 
-import eu.megamart2.moka.extensions.behaviors.BehaviorInfo;
+import eu.megamart2.moka.extensions.behaviors.ActionInfo;
+import eu.megamart2.moka.extensions.queue.InfoQueue;
 import eu.megamart2.moka.extensions.utils.MegamartUtils;
 import eu.megamart2.moka.extensions.utils.StartControl;
 
 @SuppressWarnings("restriction")
 public class NodeInfoGenerator {
 	
-	private LinkedList<String> summary;
+	//private LinkedList<String> summary;
 	
-	private final ISemanticVisitor nodeVisitor;
+	//private final ISemanticVisitor nodeVisitor;
 	
-	private StartControl control;
+	private final StartControl control;
 	
-	public NodeInfoGenerator(ISemanticVisitor nodeVisitor,StartControl control) {
-		this.nodeVisitor = nodeVisitor;
-		this.control = control;
-		summary = new LinkedList<String>();
-        computeSummary();
+	private final InfoQueue queue;
+	
+	public NodeInfoGenerator(StartControl control,InfoQueue queue) {
+		//this.nodeVisitor = nodeVisitor;
+        this.control = control;
+        this.queue = queue;
+		//summary = new LinkedList<String>();
+       // addToQueue();
 	}
-
-    private void computeSummary() {
+    public NodeInfo addToQueue(ISemanticVisitor nodeVisitor) { 
+    	 return performAction(nodeVisitor,true); 
+    	}
+    
+    public void complete(ISemanticVisitor nodeVisitor) { 
+    	performAction(nodeVisitor,false); 
+    	}
+    
+    public NodeInfo performAction(ISemanticVisitor nodeVisitor,boolean add) {
     	if(nodeVisitor instanceof StartObjectBehaviorActionActivation) {
 
-			summary.add("**** Start Object Behaviour ****");
-			summary.add("");
+			/*summary.add("**** Start Object Behaviour ****");
+			summary.add("");*/
 			control.setStarted(true);
-			return;
+			return null;
 		}
-		if(!control.getStarted()) return;
-		if(nodeVisitor instanceof CS_ReadSelfActionActivation) {
-			summary.add(">> Read self action activation \n");
-			((CS_ReadSelfActionActivation) nodeVisitor).getNode();
-			return;
-		}
-		String sr;
-		if(nodeVisitor instanceof ReadStructuralFeatureActionActivation) {
-			summary.add(">> Read structural feature");
-			ReadStructuralFeatureActionImpl node = 
-					(ReadStructuralFeatureActionImpl)((ReadStructuralFeatureActionActivation)nodeVisitor).node;
-			if(node.isSetName()) summary.add("   Name : " + node.getName());
-			if(node.getStructuralFeature() instanceof PropertyImpl) {
-				PropertyImpl pr = (PropertyImpl) node.getStructuralFeature();
-				summary.add("     Feature");
-				if(pr.isSetName()) summary.add("     Name : " + pr.getName());
-		        if(pr.getType() instanceof PrimitiveTypeImpl) {
-		        	PrimitiveTypeImpl pri = (PrimitiveTypeImpl) pr.getType();
-		        	if(pri.isSetName()) summary.add(" Type : " + pri.getName());
-		        }
-	            if(pr.eContainer() instanceof ClassImpl) { 
-	            	ClassImpl cl = (ClassImpl)pr.eContainer();
-	            	if(cl.isSetName())summary.add("     In class : " + cl.getName());
-			}   
-			return;
-		}
-			return;
-		}
-		if(nodeVisitor instanceof ValueSpecificationActionActivation) {
-			summary.add(">> Value Specification ");
-			ValueSpecificationActionImpl vs = (ValueSpecificationActionImpl) 
-					((ValueSpecificationActionActivation) nodeVisitor).node;
-			if(vs.isSetName()) summary.add("   Name : " + vs.getName());
-			if(vs.getValue() instanceof LiteralIntegerImpl) {
-				summary.add("   Type : Integer");
-				summary.add("   Value : " + 
-				String.valueOf(((LiteralIntegerImpl) vs.getValue()).getValue()));
-				summary.add("");
-				return;
-			}
-			// TODO complete value cases
-			return;
-		}
+		if(!control.getStarted()) return null;
 		if(nodeVisitor instanceof ActivityEdgeInstance) {
-			ActivityEdge edge = ((ActivityEdgeInstance) nodeVisitor).edge;
+		/*	ActivityEdge edge = ((ActivityEdgeInstance) nodeVisitor).edge;
 			if(edge == null) {
 				summary.add(">> Edge \n");
 				return;
 			}
 			sr = edge.getName();
 			summary.add(">> " + sr);
-			summary.add("");
-			return;
+			summary.add("");*/
+		//	return;
 			}
 		if(nodeVisitor instanceof ForkNodeActivation) {
-			summary.add(">> Fork activation \n");
-			return;
+			//summary.add(">> Fork activation \n");
+		//	return;
 		}
 		if(nodeVisitor instanceof InputPinActivation) {
-			summary.add(">> InputPinActivation \n");
-			return;
+			//summary.add(">> InputPinActivation \n");
+		//	return;
 		}
-		if(nodeVisitor instanceof ObjectNodeActivationWrapper) {
-			summary.add(">> Object node activation wrapper \n");
-			return;
-		}
-		if(nodeVisitor instanceof CallBehaviorActionActivation) {
+
+		if(nodeVisitor instanceof ActionActivation) {
 			
-			BehaviorInfo bInfo = new BehaviorInfo(nodeVisitor);
-			summary.add(bInfo.getInfo());
-		    summary.add("");
-			return;
+			NodeInfo bInfo = new ActionInfo(nodeVisitor);
+			if(add) {
+			queue.addToQueue(((ActionActivation) nodeVisitor).getNode(),bInfo);
+			return bInfo;
+			}
+			else
+			queue.complete(((ActionActivation) nodeVisitor).getNode(), nodeVisitor);
+			//summary.add(bInfo.getInfo());
+		    //summary.add("");
+			
     }
+		return null;
 		}
-    public void printSummary(MegamartUtils utils) {
-    	for(String line : summary) utils.writeLine(line);
-    }
 }

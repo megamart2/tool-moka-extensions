@@ -10,9 +10,9 @@ public abstract class PinInfo {
 	   this.pin = pin;
    }
    public String getInfo() {
-	   String info = "   ";
-	   if(pin.getNode().isSetName()) info = info + pin.getNode().getName() + " / ";
-	   return info + " Type : " + getTypeInfo() + " / Value : " + getValueInfo() + "\n";
+	   String info = "{ ";
+	   if(pin.getNode().isSetName()) info = info + "name = "+ pin.getNode().getName() + ",";
+	   return info + " type = " + getTypeInfo() + ", value = " + getValueInfo() + " }";
    }
    
    protected abstract String getValueInfo();

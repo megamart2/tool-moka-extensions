@@ -1,11 +1,12 @@
 package eu.megamart2.moka.extensions.nodes;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.papyrus.moka.fuml.Semantics.Actions.BasicActions.IPinActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue;
-import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallBehaviorActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.InputPinActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.OutputPinActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.PinActivation;
@@ -24,13 +25,13 @@ import eu.megamart2.moka.extensions.pins.UnlimitednaturalPinInfo;
 
 public class InOutInfo {
 
-	private LinkedList<PinInfo> inputs;
-	private LinkedList<PinInfo> outputs;
+	private ArrayList<PinInfo> inputs;
+	private ArrayList<PinInfo> outputs;
 	
-	public InOutInfo(CallBehaviorActionActivation visitor) {
+	public InOutInfo(ActionActivation visitor) {
 		
-		inputs = new LinkedList<PinInfo>();  // create the lists
-		outputs = new LinkedList<PinInfo>();
+		inputs = new ArrayList<PinInfo>();  // create the lists
+		outputs = new ArrayList<PinInfo>();
 		
 		List<IPinActivation> pins = visitor.pinActivations;
 		for(IPinActivation pin : pins) {
@@ -41,7 +42,7 @@ public class InOutInfo {
 		}
 	}
 	
-	public void completeInfo(CallBehaviorActionActivation visitor) {
+	public void completeInfo(ActionActivation visitor) {
 		List<IPinActivation> pins = visitor.pinActivations;
 		for(IPinActivation pin : pins) {
 			// outputs
@@ -53,13 +54,17 @@ public class InOutInfo {
 	
 	public String getInputsInfo() {
 		String info = "";
-		for(PinInfo inInfo : inputs) info = info + inInfo.getInfo();
+	    for(int i = 0; i < inputs.size() - 1; i++) 
+	    	info = info + inputs.get(i).getInfo() + ", ";
+	    if(inputs.size() > 0) info = info + inputs.get(inputs.size()-1).getInfo();
 		return info;
 	}
 	
 	public String getOutputsInfo() {
 		String info = "";
-		for(PinInfo outInfo : outputs) info = info + outInfo.getInfo();
+		for(int i = 0; i < outputs.size()-1; i++) 
+			info = info + outputs.get(i).getInfo() + ", ";
+		if(outputs.size() > 0) info = info + outputs.get(outputs.size()-1).getInfo();
 		return info;
 	}
 	
