@@ -43,7 +43,7 @@ public class ActionInfo implements NodeInfo{
 		inputInfo = "input pins : [" + inOutInfo.getInputsInfo() +"]]";
 		
 		// look if the node is complete and if it is complete the info
-		if(!type.contains("CallBehavior"))if(inOutInfo.getInputsInfo().isEmpty()) // TODO check cases 
+		if(isCompletable()) // TODO check cases 
 			completeInfo(nodeVisitor);
 	}
      
@@ -54,7 +54,7 @@ public class ActionInfo implements NodeInfo{
 	public void completeInfo(ISemanticVisitor nodeVisitor) {
 		ActionActivation cba = ((ActionActivation)nodeVisitor);
 		inOutInfo.completeInfo(cba);
-		outputInfo = "output pins : [" + inOutInfo.getOutputsInfo() + "]]";
+		outputInfo = "output pins : [" + inOutInfo.getOutputsInfo() + "]";
 		complete = true;
 	}
 	
@@ -72,4 +72,9 @@ public class ActionInfo implements NodeInfo{
 
 	@Override
 	public String getBehavior() { return behavior; }
+	
+	public boolean isCompletable() {
+		if(!type.contains("CallBehavior"))if(inOutInfo.getInputsInfo().isEmpty()) return true;
+		return false;
+	}
 }

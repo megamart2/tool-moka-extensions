@@ -44,14 +44,17 @@ extends AbstractMokaService implements IMokaExecutionListener {
         NodeInfo info = generator.addToQueue(nodeVisitor);
         if(info != null) {
         	
+        	if(!info.getInputInfo().isEmpty()) {
+        	
         	if(info.getBehavior() != null)
         	utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() + " [ name = " 
-        + info.getName() + ", behavior = " + info.getBehavior() + ", " + info.getInputInfo());
+        + info.getName() + ", behavior = " + info.getBehavior() + ", " + info.getInputInfo() + "]");
         	
         	else utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() + " [ name = " 
-        	    + info.getName() + ", " + info.getInputInfo());
+        	    + info.getName() + ", " + info.getInputInfo() + "]");
         	
         utils.writeLine("");
+        }
         }
 	}
 
@@ -61,9 +64,19 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		List<NodeInfo> infos = queue.getCompleteNodes();
 		
 		for(NodeInfo info : infos) {
+			
+			if(info.getInputInfo().isEmpty()) {
+				
+				utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
+				+ " [ name = " +  info.getName() + ", " + info.getInputInfo() + "], " + info.getOutputInfo() + "]");
+				utils.writeLine("");
+				
+			}
+			else {
 			utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
-			+ " [ name = " +  info.getName() + ", " + info.getOutputInfo());
+			+ " [ name = " +  info.getName() + ", " + info.getOutputInfo() + "]");
 			utils.writeLine("");
+			}
 		}
 	}
 
