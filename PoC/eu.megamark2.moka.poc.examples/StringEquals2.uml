@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_CiXW0Kd-Eeivk8ZZKqfBpA" name="StringEquals2">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_Pv8LYKd-Eeivk8ZZKqfBpA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xWLFsKd_Eeivk8ZZKqfBpA" name="StringEquals" classifierBehavior="_CjEhcKd-Eeivk8ZZKqfBpA" isActive="true">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_CjEhcKd-Eeivk8ZZKqfBpA" name="StringEquals" node="_Pvjw4Kd-Eeivk8ZZKqfBpA _Rvm9EKd-Eeivk8ZZKqfBpA _bCGcIKd-Eeivk8ZZKqfBpA _tjkzQKd-Eeivk8ZZKqfBpA _6zxeAKd-Eeivk8ZZKqfBpA _8DDUkKd-Eeivk8ZZKqfBpA">
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_mgGwgKd-Eeivk8ZZKqfBpA" target="_bCIRUKd-Eeivk8ZZKqfBpA" source="_Pv_OsKd-Eeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_mgRIkKd-Eeivk8ZZKqfBpA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_mgRIkad-Eeivk8ZZKqfBpA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_nTf8UKd-Eeivk8ZZKqfBpA" target="_bCIRU6d-Eeivk8ZZKqfBpA" source="_Rvu44Kd-Eeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_nTofMKd-Eeivk8ZZKqfBpA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_nTpGQKd-Eeivk8ZZKqfBpA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_-K1gcKd-Eeivk8ZZKqfBpA" name="false" target="_8DDUkKd-Eeivk8ZZKqfBpA" source="_tjkzQKd-Eeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_pynNoKd_Eeivk8ZZKqfBpA"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="__sF30Kd-Eeivk8ZZKqfBpA" name="true" target="_6zxeAKd-Eeivk8ZZKqfBpA" source="_tjkzQKd-Eeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_mlFhsKd_Eeivk8ZZKqfBpA" value="true"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_43g9oKtYEeif3MGqEWSuUA" target="_tjkzQKd-Eeivk8ZZKqfBpA" source="_bCHqQKd-Eeivk8ZZKqfBpA"/>
+        <node xmi:type="uml:ValueSpecificationAction" xmi:id="_Pvjw4Kd-Eeivk8ZZKqfBpA" name="String1">
+          <result xmi:type="uml:OutputPin" xmi:id="_Pv_OsKd-Eeivk8ZZKqfBpA" name="result" outgoing="_mgGwgKd-Eeivk8ZZKqfBpA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pv_Osad-Eeivk8ZZKqfBpA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pv_Osqd-Eeivk8ZZKqfBpA" value="1"/>
+          </result>
+          <value xmi:type="uml:LiteralString" xmi:id="_Wc6ZsKd-Eeivk8ZZKqfBpA" value="house2"/>
+        </node>
+        <node xmi:type="uml:ValueSpecificationAction" xmi:id="_Rvm9EKd-Eeivk8ZZKqfBpA" name="String2">
+          <result xmi:type="uml:OutputPin" xmi:id="_Rvu44Kd-Eeivk8ZZKqfBpA" name="result" outgoing="_nTf8UKd-Eeivk8ZZKqfBpA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rvu44ad-Eeivk8ZZKqfBpA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Rvu44qd-Eeivk8ZZKqfBpA" value="1"/>
+          </result>
+          <value xmi:type="uml:LiteralString" xmi:id="_X5240Kd-Eeivk8ZZKqfBpA" value="house"/>
+        </node>
+        <node xmi:type="uml:TestIdentityAction" xmi:id="_bCGcIKd-Eeivk8ZZKqfBpA" name="areEquals">
+          <first xmi:type="uml:InputPin" xmi:id="_bCIRUKd-Eeivk8ZZKqfBpA" name="first" incoming="_mgGwgKd-Eeivk8ZZKqfBpA">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bCIRUad-Eeivk8ZZKqfBpA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bCIRUqd-Eeivk8ZZKqfBpA" value="1"/>
+          </first>
+          <result xmi:type="uml:OutputPin" xmi:id="_bCHqQKd-Eeivk8ZZKqfBpA" name="result" outgoing="_43g9oKtYEeif3MGqEWSuUA" isControlType="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bCHqQad-Eeivk8ZZKqfBpA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bCHqQqd-Eeivk8ZZKqfBpA" value="1"/>
+          </result>
+          <second xmi:type="uml:InputPin" xmi:id="_bCIRU6d-Eeivk8ZZKqfBpA" name="second" incoming="_nTf8UKd-Eeivk8ZZKqfBpA">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bCIRVKd-Eeivk8ZZKqfBpA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bCIRVad-Eeivk8ZZKqfBpA" value="1"/>
+          </second>
+        </node>
+        <node xmi:type="uml:DecisionNode" xmi:id="_tjkzQKd-Eeivk8ZZKqfBpA" incoming="_43g9oKtYEeif3MGqEWSuUA" outgoing="_-K1gcKd-Eeivk8ZZKqfBpA __sF30Kd-Eeivk8ZZKqfBpA"/>
+        <node xmi:type="uml:FlowFinalNode" xmi:id="_6zxeAKd-Eeivk8ZZKqfBpA" name="FlowFinalNode8" incoming="__sF30Kd-Eeivk8ZZKqfBpA"/>
+        <node xmi:type="uml:FlowFinalNode" xmi:id="_8DDUkKd-Eeivk8ZZKqfBpA" name="FlowFinalNode9" incoming="_-K1gcKd-Eeivk8ZZKqfBpA"/>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_JMxHYKeAEeivk8ZZKqfBpA" name="StringEquals_Factory" node="_JMy8kaeAEeivk8ZZKqfBpA _JPwxAaeAEeivk8ZZKqfBpA _JPxYEqeAEeivk8ZZKqfBpA _JPymM6eAEeivk8ZZKqfBpA _JPzNQqeAEeivk8ZZKqfBpA">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_JMy8kKeAEeivk8ZZKqfBpA" name="result" type="_xWLFsKd_Eeivk8ZZKqfBpA" direction="return"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_JPymMaeAEeivk8ZZKqfBpA" name="createObjectAction to callConstructor" target="_JPx_IKeAEeivk8ZZKqfBpA" source="_JPxYEKeAEeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_JP4FwKeAEeivk8ZZKqfBpA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_JP4FwaeAEeivk8ZZKqfBpA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_JPymMqeAEeivk8ZZKqfBpA" name="callConstructor to returnParamNode" target="_JMy8kaeAEeivk8ZZKqfBpA" source="_JPzNQqeAEeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_JP4FwqeAEeivk8ZZKqfBpA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_JP4s0KeAEeivk8ZZKqfBpA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_JPz0UKeAEeivk8ZZKqfBpA" name="fork to startbehavior input pin" target="_JPzNQKeAEeivk8ZZKqfBpA" source="_JPzNQqeAEeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_JP4s0aeAEeivk8ZZKqfBpA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_JP4s0qeAEeivk8ZZKqfBpA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_JPz0UaeAEeivk8ZZKqfBpA" name="callConstructor to startBehavior" target="_JPzNQqeAEeivk8ZZKqfBpA" source="_JPx_IqeAEeivk8ZZKqfBpA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_JP4s06eAEeivk8ZZKqfBpA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_JP4s1KeAEeivk8ZZKqfBpA" value="1"/>
+        </edge>
+        <node xmi:type="uml:ActivityParameterNode" xmi:id="_JMy8kaeAEeivk8ZZKqfBpA" name="resultParameterNode" incoming="_JPymMqeAEeivk8ZZKqfBpA" type="_xWLFsKd_Eeivk8ZZKqfBpA" parameter="_JMy8kKeAEeivk8ZZKqfBpA">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_JMzjoKeAEeivk8ZZKqfBpA" value="1"/>
+        </node>
+        <node xmi:type="uml:CreateObjectAction" xmi:id="_JPwxAaeAEeivk8ZZKqfBpA" name="createObject" classifier="_xWLFsKd_Eeivk8ZZKqfBpA">
+          <result xmi:type="uml:OutputPin" xmi:id="_JPxYEKeAEeivk8ZZKqfBpA" name="result" outgoing="_JPymMaeAEeivk8ZZKqfBpA" type="_xWLFsKd_Eeivk8ZZKqfBpA">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_JPxYEaeAEeivk8ZZKqfBpA" value="1"/>
+          </result>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_JPxYEqeAEeivk8ZZKqfBpA" name="callConstructor" operation="_JPtGoKeAEeivk8ZZKqfBpA">
+          <result xmi:type="uml:OutputPin" xmi:id="_JPx_IqeAEeivk8ZZKqfBpA" name="result" outgoing="_JPz0UaeAEeivk8ZZKqfBpA" type="_xWLFsKd_Eeivk8ZZKqfBpA">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_JPymMKeAEeivk8ZZKqfBpA" value="1"/>
+          </result>
+          <target xmi:type="uml:InputPin" xmi:id="_JPx_IKeAEeivk8ZZKqfBpA" name="target" incoming="_JPymMaeAEeivk8ZZKqfBpA" type="_xWLFsKd_Eeivk8ZZKqfBpA">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_JPx_IaeAEeivk8ZZKqfBpA" value="1"/>
+          </target>
+        </node>
+        <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_JPymM6eAEeivk8ZZKqfBpA" name="start classifier behavior">
+          <object xmi:type="uml:InputPin" xmi:id="_JPzNQKeAEeivk8ZZKqfBpA" name="object" incoming="_JPz0UKeAEeivk8ZZKqfBpA" type="_xWLFsKd_Eeivk8ZZKqfBpA">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_JPzNQaeAEeivk8ZZKqfBpA" value="1"/>
+          </object>
+        </node>
+        <node xmi:type="uml:ForkNode" xmi:id="_JPzNQqeAEeivk8ZZKqfBpA" name="forkInstanciatedObject" incoming="_JPz0UaeAEeivk8ZZKqfBpA" outgoing="_JPymMqeAEeivk8ZZKqfBpA _JPz0UKeAEeivk8ZZKqfBpA"/>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_JPtGoKeAEeivk8ZZKqfBpA" name="StringEquals">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_JPwJ8KeAEeivk8ZZKqfBpA" name="return" type="_xWLFsKd_Eeivk8ZZKqfBpA" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_JNJh4KeAEeivk8ZZKqfBpA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JNKwAKeAEeivk8ZZKqfBpA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Create xmi:id="_JPwxAKeAEeivk8ZZKqfBpA" base_BehavioralFeature="_JPtGoKeAEeivk8ZZKqfBpA"/>
+</xmi:XMI>

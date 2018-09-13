@@ -1,0 +1,55 @@
+import uml : 'http://www.eclipse.org/uml2/5.0.0/UML'
+
+package uml
+
+context Element
+
+/**
+ * Declare a helper operation to map ok/warning verdict to ok/error
+ */
+ 
+def: asError (verdict : Boolean) : Boolean = if verdict then true else null endif
+
+
+/**
+ * ValueSpecificationAction validation
+ */
+context ValueSpecificationAction
+--
+-- ValueSpecificationAction should have a name
+--
+inv vsaShouldHaveName('[Moka] The \'name\' property of "' + self.toString() + '" is not set'):
+	self.name.size() > 0
+	
+inv vsaShouldHaveValue ('[Moka] The \'value\' property of "' + self.toString() + '" is not set'):
+	asError (not self.value.oclIsUndefined())
+	
+
+/**
+ * InputPin validation
+ */
+context InputPin
+
+inv inputPinShouldHaveType ('[Moka] The \'type\' property of "' + self.name + '" is not set'):
+	asError (not self.type.oclIsUndefined())
+	
+/**
+ * ObjectFlow validation
+ */
+context ObjectFlow
+
+
+inv pinTypesCompatibleInObjectFlow ('[Moka] Output/Input Pin types not compatible'):
+	let source:ActivityNode = self.source, target:ActivityNode = self.target in 
+		if source.oclIsTypeOf(OutputPin) and target.oclIsTypeOf(InputPin)
+		then
+			source.oclAsType(OutputPin).type = target.oclAsType(InputPin).type
+		else
+			true
+		endif	
+
+
+--inv pinTypesCompatibleInObjectFlow ('[Moka] Output/Input Pin types not compatible'):
+--self.target.oclAsType(InputPin).type = self.source.oclAsType(OutputPin).type
+
+endpackage
