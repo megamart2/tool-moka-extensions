@@ -17,4 +17,6 @@ public interface NodeInfo {
 	public boolean isComplete();
 	
 	public void completeInfo(ISemanticVisitor nodeVisitor);	
+	
+	public boolean isCompletable();
 }

@@ -40,7 +40,7 @@ public class ActionInfo implements NodeInfo{
 		
 		// input info 
 		inOutInfo = new InOutInfo(cba);
-		inputInfo = "input pins : [" + inOutInfo.getInputsInfo() +"]]";
+		inputInfo = "input pins : [" + inOutInfo.getInputsInfo() +"]";
 		
 		// look if the node is complete and if it is complete the info
 		if(isCompletable()) // TODO check cases 
@@ -73,6 +73,7 @@ public class ActionInfo implements NodeInfo{
 	@Override
 	public String getBehavior() { return behavior; }
 	
+	@Override
 	public boolean isCompletable() {
 		if(!type.contains("CallBehavior"))if(inOutInfo.getInputsInfo().isEmpty()) return true;
 		return false;

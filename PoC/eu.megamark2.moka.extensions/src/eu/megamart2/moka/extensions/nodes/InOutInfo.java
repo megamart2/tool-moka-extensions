@@ -10,26 +10,35 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.InputPi
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.OutputPinActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.PinActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.IntermediateActions.ValueSpecificationActionActivation;
-import org.eclipse.papyrus.moka.fuml.Semantics.impl.Activities.IntermediateActivities.ActivityExecution;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.BooleanValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.IntegerValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.RealValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.StringValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.UnlimitedNaturalValue;
+import org.eclipse.uml2.uml.ValueSpecification;
+import org.eclipse.uml2.uml.internal.impl.LiteralBooleanImpl;
+import org.eclipse.uml2.uml.internal.impl.LiteralIntegerImpl;
+import org.eclipse.uml2.uml.internal.impl.LiteralRealImpl;
+import org.eclipse.uml2.uml.internal.impl.LiteralStringImpl;
+import org.eclipse.uml2.uml.internal.impl.LiteralUnlimitedNaturalImpl;
+import org.eclipse.uml2.uml.internal.impl.ValueSpecificationActionImpl;
 
 import eu.megamart2.moka.extensions.pins.BooleanPinInfo;
 import eu.megamart2.moka.extensions.pins.IntegerPinInfo;
 import eu.megamart2.moka.extensions.pins.PinInfo;
 import eu.megamart2.moka.extensions.pins.RealPinInfo;
 import eu.megamart2.moka.extensions.pins.StringPinInfo;
+import eu.megamart2.moka.extensions.pins.StructuredPinInfo;
 import eu.megamart2.moka.extensions.pins.UnlimitednaturalPinInfo;
 
+@SuppressWarnings("restriction")
 public class InOutInfo {
 
 	private ArrayList<PinInfo> inputs;
 	private ArrayList<PinInfo> outputs;
 	
-	private boolean stop;
+	private boolean stop;     // for internal use
+	private boolean complete;
 	
 	public InOutInfo(ActionActivation visitor) {
 		
@@ -42,10 +51,12 @@ public class InOutInfo {
 			if(pin instanceof InputPinActivation){
 				createInfoObject((PinActivation)pin,true);
 			}
-		}
+		}	
+		complete = false;
 	}
 	
 	public void completeInfo(ActionActivation visitor) {
+		if(complete) return; // only one call per inOutInfoObject
 		List<IPinActivation> pins = visitor.pinActivations;
 		for(IPinActivation pin : pins) {
 			// outputs
@@ -53,6 +64,7 @@ public class InOutInfo {
 				createInfoObject((PinActivation)pin,false);
 			}
 		}
+		complete = true;
 	}
 	
 	public String getInputsInfo() {
@@ -105,29 +117,68 @@ public class InOutInfo {
 	     		   addToList(new UnlimitednaturalPinInfo(pin,value),input);
 	     		   return;
 	     	   }
+	     	   addToList(new StructuredPinInfo(pin),input);
 	     	  // TODO other types 
 		}
 	}
+
 	private void addToList(PinInfo pinInfo,boolean input) {
 	  if(input) inputs.add(pinInfo);
 	  else outputs.add(pinInfo);		 
 	}
 	private IValue findValue(PinActivation pin) {
 		
-		stop = false;
-		
 		IValue value = null;
 		
 		if(!pin.heldTokens.isEmpty()) value = pin.heldTokens.get(0).getValue(); 
 		
-		if(pin.getActionActivation() instanceof ValueSpecificationActionActivation) {
-			ActivityExecution act = (ActivityExecution)pin.getGroup().getActivityExecution();
-			if(act.activationGroup.getActivityExecution().getContext().getFeatureValues().get(0).getValues().isEmpty()) {
-				stop = true; return null;
+		if(pin.getActionActivation() instanceof ValueSpecificationActionActivation)
+			if(pin.getNode().eContainer() instanceof ValueSpecificationActionImpl) {
+				
+				 ValueSpecification valueSpe  = 
+						 ((ValueSpecificationActionImpl)pin.getNode().eContainer()).getValue();
+				 value = generateValue(valueSpe);
 			}
-			value = act.activationGroup.getActivityExecution().getContext().getFeatureValues().get(0).getValues().get(0);
+		
+		stop = (value == null);
+		return value;
+	}
+	private IValue generateValue(ValueSpecification specification) {
+		
+		if(specification instanceof LiteralBooleanImpl) {
+			boolean boo = ((LiteralBooleanImpl)specification).booleanValue();
+			BooleanValue result = new BooleanValue();
+			result.setValue(boo);
+			return result;
 		}
 		
-		return value;
+		if(specification instanceof LiteralIntegerImpl) {
+			int v = ((LiteralIntegerImpl)specification).getValue();
+	        IntegerValue result = new IntegerValue();
+	        result.setValue(v);
+	        return result;
+		}
+		
+		if(specification instanceof LiteralRealImpl) {
+			double v = ((LiteralRealImpl)specification).getValue();
+			RealValue result = new RealValue();
+			result.setValue(v);
+			return result;
+		}
+		
+		if(specification instanceof LiteralStringImpl) {
+			String v = ((LiteralStringImpl)specification).getValue();
+			StringValue result = new StringValue();
+			result.setValue(v);
+			return result;
+		}
+		
+		if(specification instanceof LiteralUnlimitedNaturalImpl) {
+			int v = ((LiteralUnlimitedNaturalImpl)specification).integerValue();
+	        UnlimitedNaturalValue result = new UnlimitedNaturalValue();
+	        result.setValue(v);
+	        return result;
+		}
+		return null;
 	}
 }

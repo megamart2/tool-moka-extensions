@@ -32,4 +32,8 @@ public class InfoQueue {
 		for(ActivityNode key : toRemove) map.remove(key);
 		return result;
 	}
+	
+	public NodeInfo getNodeInfo(ActivityNode nodeVisitor) { 
+		return map.get(nodeVisitor);
+	}
 }

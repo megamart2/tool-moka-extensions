@@ -8,8 +8,10 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
 import org.eclipse.papyrus.moka.service.AbstractMokaService;
 import org.eclipse.papyrus.moka.service.IMokaExecutionListener;
+import org.eclipse.uml2.uml.ActivityNode;
 
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
 import eu.megamart2.moka.extensions.nodes.NodeInfoGenerator;
@@ -45,6 +47,18 @@ extends AbstractMokaService implements IMokaExecutionListener {
         if(info != null) {
         	
         	if(!info.getInputInfo().isEmpty()) {
+        		
+        		if(info.isCompletable()) { // this infos do not wait to node left
+        			
+        			generator.complete(nodeVisitor);
+        			
+    				utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
+    				+ " [ name = " +  info.getName() + ", " + info.getInputInfo() + ", " 
+    						+ info.getOutputInfo() + "]");
+    				utils.writeLine("");
+        			
+        			return;
+        		}
         	
         	if(info.getBehavior() != null)
         	utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() + " [ name = " 
@@ -60,23 +74,20 @@ extends AbstractMokaService implements IMokaExecutionListener {
 
 	@Override
 	public void nodeLeft(ISemanticVisitor nodeVisitor) {
+
+		if(nodeVisitor instanceof ActionActivation) {
+		
+		if(!(queue.getNodeInfo((ActivityNode)((ActionActivation)nodeVisitor).getNode()).isCompletable()))
 		generator.complete(nodeVisitor);
+		
 		List<NodeInfo> infos = queue.getCompleteNodes();
 		
-		for(NodeInfo info : infos) {
+		for(NodeInfo info : infos)if(!info.isCompletable()){
 			
-			if(info.getInputInfo().isEmpty()) {
-				
-				utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
-				+ " [ name = " +  info.getName() + ", " + info.getInputInfo() + "], " + info.getOutputInfo() + "]");
-				utils.writeLine("");
-				
-			}
-			else {
 			utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
 			+ " [ name = " +  info.getName() + ", " + info.getOutputInfo() + "]");
 			utils.writeLine("");
-			}
+		}
 		}
 	}
 

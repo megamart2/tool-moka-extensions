@@ -1,6 +1,5 @@
 package eu.megamart2.moka.extensions.pins;
 
-import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.PinActivation;
 
 public abstract class PinInfo {
