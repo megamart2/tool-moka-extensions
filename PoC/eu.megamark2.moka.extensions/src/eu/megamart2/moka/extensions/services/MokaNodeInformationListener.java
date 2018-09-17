@@ -31,20 +31,28 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	private InfoQueue queue;
 	
 	private SimpleDateFormat dateFormat;
+	
+	//private ILaunch launcher;
 
 	@Override
 	public void init(ILaunch launcher, EObject modelElement){
 		control = new StartControl();
 		queue = new InfoQueue();
-		generator = new NodeInfoGenerator(control,queue);
+		generator = new NodeInfoGenerator(control,queue,launcher);
 		dateFormat = new SimpleDateFormat("dd/MM/yy hh:mm:ss");
+		//this.launcher = launcher;
 	}
 	
 	@Override
 	public void nodeVisited(ISemanticVisitor nodeVisitor) {
 		if(utils == null) utils = new MegamartUtils();
         NodeInfo info = generator.addToQueue(nodeVisitor);
-        if(info != null) {
+        
+       List<NodeInfo> infos = queue.getCompleteNodes();
+		
+		// TODO Experiment
+		for(NodeInfo in : infos) in.printSummary(utils);
+        /*if(info != null) {
         	
         	if(!info.getInputInfo().isEmpty()) {
         		
@@ -69,7 +77,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
         	
         utils.writeLine("");
         }
-        }
+        }*/ // TODO Experiment
 	}
 
 	@Override
@@ -77,17 +85,21 @@ extends AbstractMokaService implements IMokaExecutionListener {
 
 		if(nodeVisitor instanceof ActionActivation) {
 		
+			if(queue.getNodeInfo((ActivityNode)((ActionActivation)nodeVisitor).getNode()) != null)
 		if(!(queue.getNodeInfo((ActivityNode)((ActionActivation)nodeVisitor).getNode()).isCompletable()))
 		generator.complete(nodeVisitor);
 		
 		List<NodeInfo> infos = queue.getCompleteNodes();
 		
-		for(NodeInfo info : infos)if(!info.isCompletable()){
+		// TODO Experiment
+		for(NodeInfo info : infos) info.printSummary(utils);
+		
+		/*for(NodeInfo info : infos)if(!info.isCompletable()){
 			
 			utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
 			+ " [ name = " +  info.getName() + ", " + info.getOutputInfo() + "]");
 			utils.writeLine("");
-		}
+		}*/
 		}
 	}
 

@@ -15,7 +15,9 @@ public class InfoQueue {
 	
 	public InfoQueue() { map = new HashMap<ActivityNode,NodeInfo>(); }
 	
-	public void addToQueue(ActivityNode key,NodeInfo value) { map.put(key, value); }
+	public void addToQueue(ActivityNode key,NodeInfo value) { 
+		if(value != null) map.put(key, value);
+		}
 	
 	public void complete(ActivityNode key,ISemanticVisitor nodeVisitor) {
 		NodeInfo nodeInfo = map.get(key);

@@ -15,4 +15,5 @@ Require-Bundle: org.eclipse.papyrus.moka.service,
  org.eclipse.debug.ui,
  org.eclipse.papyrus.moka.fuml,
  org.eclipse.papyrus.moka.composites,
- org.eclipse.uml2.uml
+ org.eclipse.uml2.uml,
+ org.eclipse.papyrus.moka.debug

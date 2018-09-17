@@ -7,6 +7,7 @@ import org.eclipse.uml2.uml.internal.impl.CallBehaviorActionImpl;
 
 import eu.megamart2.moka.extensions.nodes.InOutInfo;
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
+import eu.megamart2.moka.extensions.utils.MegamartUtils;
 
 @SuppressWarnings("restriction")
 public class ActionInfo implements NodeInfo{
@@ -77,5 +78,11 @@ public class ActionInfo implements NodeInfo{
 	public boolean isCompletable() {
 		if(!type.contains("CallBehavior"))if(inOutInfo.getInputsInfo().isEmpty()) return true;
 		return false;
+	}
+
+	@Override
+	public void printSummary(MegamartUtils utils) {
+		// TODO Auto-generated method stub
+		
 	}
 }
