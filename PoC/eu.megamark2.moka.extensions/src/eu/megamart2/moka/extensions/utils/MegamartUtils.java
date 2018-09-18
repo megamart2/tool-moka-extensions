@@ -34,6 +34,14 @@ public class MegamartUtils {
 	}
 	
 	public void write(String line) {
+		line = line.replaceAll("  "," ");
+		line = line.replaceAll(",,",",");
+		line = line.replaceAll(", ,",",");
+		line = line.replaceAll(",}","}");
+		line = line.replaceAll(", }","}");
+		line = line.replaceAll(",]",",]");
+		line = line.replaceAll(", ]",",]");
+
 		try {
 			out.write(line);
 		} catch (IOException e) {

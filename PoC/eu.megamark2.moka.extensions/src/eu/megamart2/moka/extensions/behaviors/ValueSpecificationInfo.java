@@ -32,10 +32,10 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
                     IPinActivation pin = activation.pinActivations.get(0);
    				 ValueSpecification valueSpe  = 
 						 ((ValueSpecificationActionImpl)pin.getNode().eContainer()).getValue();
-					info.add(", value : " 
+					info.add(" value : " 
 							+ generateValue(valueSpe).getDescription());
 					// TODO type
-		info.add("]}\n");
+		info.add("]}");
 	}
 	@Override
 	public String getName() {
@@ -74,7 +74,10 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
 
 	@Override
 	public void printSummary(MegamartUtils utils) {
-       for(String sr : info) utils.write(sr);
+	   String line = "";
+       for(String sr : info) line = line + sr;
+       utils.write(line);
+       utils.write("\n\n");
 	}
 
 }

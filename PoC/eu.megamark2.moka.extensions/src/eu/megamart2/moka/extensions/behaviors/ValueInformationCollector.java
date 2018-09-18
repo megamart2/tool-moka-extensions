@@ -10,8 +10,10 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.BooleanValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.IntegerValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.RealValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.StringValue;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.StructuredValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.UnlimitedNaturalValue;
 import org.eclipse.uml2.uml.ValueSpecification;
+import org.eclipse.uml2.uml.internal.impl.ClassImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralBooleanImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralIntegerImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralRealImpl;
@@ -58,6 +60,12 @@ public abstract class ValueInformationCollector {
 						 + String.valueOf(((UnlimitedNaturalValue)token.getValue())
 								 .getValue().intValue());
 			 }
+			 if(token.getValue() instanceof StructuredValue) {
+				 return " type : Class, value : Object ";
+			 }
+		 }
+		 else if(value instanceof StructuredValue) {
+			 return " type : Class, value : Object ";
 		 }
 		 else if(value instanceof DefaultValueAdapter) {
 			DefaultValueAdapter adapter = (DefaultValueAdapter)value;
@@ -93,6 +101,9 @@ public abstract class ValueInformationCollector {
 			if(specification instanceof LiteralUnlimitedNaturalImpl) {
 				int v = ((LiteralUnlimitedNaturalImpl)specification).integerValue();
 		        return new ValueDescription("Unlimited natural",String.valueOf(v));
+			}
+			if(specification instanceof ClassImpl) {
+				return new ValueDescription("Class","Object");
 			}
 			return null;
 		}

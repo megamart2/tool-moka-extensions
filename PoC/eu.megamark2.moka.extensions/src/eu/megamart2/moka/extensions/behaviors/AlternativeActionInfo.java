@@ -74,13 +74,13 @@ public class AlternativeActionInfo extends ValueInformationCollector implements 
 			PinActivationVariableAdapter adapter  = 
 					new PinActivationVariableAdapter(target,inputPins.get(i));
 			
-				inputInfo.add("{ name : " + adapter.getName() + "," +
+				inputInfo.add("{ name : " + adapter.getName() + ", " +
 						getValueInfo(adapter.getValue())+ "}");
 				
 				if(i < (n - 1)) inputInfo.add(", ");	
 		}
 		} catch (DebugException e) { e.printStackTrace(); }
-		inputInfo.add(" ],");
+		inputInfo.add(" ]");
 		
 		if(isCompletable()) completeInfo(nodeVisitor);
 		}
@@ -113,12 +113,12 @@ public class AlternativeActionInfo extends ValueInformationCollector implements 
 	public void completeInfo(ISemanticVisitor nodeVisitor) {
      if(complete) return;
      
-     if(type.contains("alue") && type.contains("pecification")) {
+     if(type.contains("ead") && type.contains("eature")) {
     	 System.out.print("");
      }
      
      // outputs
-     outputInfo.add("Outputs : [ ");
+     outputInfo.add(", Outputs : [ ");
      
      int n = 0;
      for(IPinActivation pin : pins)if(pin instanceof OutputPinActivation) n++;
@@ -134,7 +134,7 @@ public class AlternativeActionInfo extends ValueInformationCollector implements 
     	 PinActivationVariableAdapter adapter = 
     			 new PinActivationVariableAdapter(target,outputPins.get(i));
     	 
-    	 outputInfo.add("{ name : " + adapter.getName() + ","
+    	 outputInfo.add("{ name : " + adapter.getName() + ", "
     			 + getValueInfo(adapter.getValue())+ "}");
     	 
     	 if(i < (n-1)) outputInfo.add(", ");
@@ -149,18 +149,43 @@ public class AlternativeActionInfo extends ValueInformationCollector implements 
 	
 	@Override
 	public void printSummary(MegamartUtils utils) {  // TODO print in the correct console
-		utils.write(type + "[ name = " + name);
-		if(behavior != null) utils.write(", behavior = " + behavior + ", ");
-		for(String sr : inputInfo) utils.write(sr);
-		utils.write(", ");
-		for(String sr : outputInfo) utils.write(sr);
-		utils.write("]\n");
+		
+		// completable nodes write all in one line
+		if(isCompletable()) {
+	    printPart(utils,true);
+	    String line = "";
+		for(String sr : outputInfo) line = line + sr;
+		utils.write(line);
+		utils.write("]\n\n");
+		return;
+		}
+		// first part
+		if(!complete) {
+            printPart(utils,true);
+			utils.write("]\n\n");
+			return;
+		}
+		// second part
+		printPart(utils,false);
+		utils.write("]\n\n");
 	}
 
 	@Override
 	public boolean isCompletable() {
 		if(type.contains("CallBehavior")) return false; // TODO inputs empty
 		return true;
+	}
+	private void printPart(MegamartUtils utils, boolean firstPart) {
+		String line = type + " [ name = " + name + ", ";
+		if(behavior != null)
+           line = line + "behavior = " + behavior;
+
+		if(firstPart) {
+			for(String sr : inputInfo) line = line + sr;
+		} else {
+			for(String sr : outputInfo) line = line + sr;
+		}
+		utils.write(line);
 	}
  
 }

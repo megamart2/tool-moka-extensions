@@ -48,36 +48,14 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		if(utils == null) utils = new MegamartUtils();
         NodeInfo info = generator.addToQueue(nodeVisitor);
         
+        // write first line for non completable nodes
+        if(info != null)if(!info.isCompletable()) printInfo(info);
+        
+       // if there is completed nodes
        List<NodeInfo> infos = queue.getCompleteNodes();
 		
 		// TODO Experiment
-		for(NodeInfo in : infos) in.printSummary(utils);
-        /*if(info != null) {
-        	
-        	if(!info.getInputInfo().isEmpty()) {
-        		
-        		if(info.isCompletable()) { // this infos do not wait to node left
-        			
-        			generator.complete(nodeVisitor);
-        			
-    				utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
-    				+ " [ name = " +  info.getName() + ", " + info.getInputInfo() + ", " 
-    						+ info.getOutputInfo() + "]");
-    				utils.writeLine("");
-        			
-        			return;
-        		}
-        	
-        	if(info.getBehavior() != null)
-        	utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() + " [ name = " 
-        + info.getName() + ", behavior = " + info.getBehavior() + ", " + info.getInputInfo() + "]");
-        	
-        	else utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() + " [ name = " 
-        	    + info.getName() + ", " + info.getInputInfo() + "]");
-        	
-        utils.writeLine("");
-        }
-        }*/ // TODO Experiment
+		for(NodeInfo in : infos)if(in != null) printInfo(in);
 	}
 
 	@Override
@@ -92,14 +70,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		List<NodeInfo> infos = queue.getCompleteNodes();
 		
 		// TODO Experiment
-		for(NodeInfo info : infos) info.printSummary(utils);
-		
-		/*for(NodeInfo info : infos)if(!info.isCompletable()){
-			
-			utils.writeLine(dateFormat.format(new Date()) + ", " + info.getType() 
-			+ " [ name = " +  info.getName() + ", " + info.getOutputInfo() + "]");
-			utils.writeLine("");
-		}*/
+		for(NodeInfo info : infos) printInfo(info);
 		}
 	}
 
@@ -108,4 +79,10 @@ extends AbstractMokaService implements IMokaExecutionListener {
 
 	@Override
 	public void valueDestroyed(IValue value) {}
+	
+	private void printInfo(NodeInfo info) {
+    	Date date = new Date();
+    	utils.write(dateFormat.format(date) + " ");
+    	info.printSummary(utils);
+	}
 }
