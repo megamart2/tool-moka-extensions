@@ -31,8 +31,6 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	private InfoQueue queue;
 	
 	private SimpleDateFormat dateFormat;
-	
-	//private ILaunch launcher;
 
 	@Override
 	public void init(ILaunch launcher, EObject modelElement){
@@ -40,7 +38,6 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		queue = new InfoQueue();
 		generator = new NodeInfoGenerator(control,queue,launcher);
 		dateFormat = new SimpleDateFormat("dd/MM/yy hh:mm:ss");
-		//this.launcher = launcher;
 	}
 	
 	@Override

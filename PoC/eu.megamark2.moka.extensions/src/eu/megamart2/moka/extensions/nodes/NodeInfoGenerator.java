@@ -6,7 +6,7 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionA
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.CompleteActions.StartObjectBehaviorActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.IntermediateActions.ValueSpecificationActionActivation;
 
-import eu.megamart2.moka.extensions.behaviors.AlternativeActionInfo;
+import eu.megamart2.moka.extensions.behaviors.ActionInfo;
 import eu.megamart2.moka.extensions.behaviors.ValueSpecificationInfo;
 import eu.megamart2.moka.extensions.queue.InfoQueue;
 import eu.megamart2.moka.extensions.utils.StartControl;
@@ -20,12 +20,9 @@ public class NodeInfoGenerator {
 	private final ILaunch launcher;
 	
 	public NodeInfoGenerator(StartControl control,InfoQueue queue,ILaunch launcher) {
-		//this.nodeVisitor = nodeVisitor;
         this.control = control;
         this.queue = queue;
         this.launcher = launcher;
-		//summary = new LinkedList<String>();
-       // addToQueue();
 	}
     public NodeInfo addToQueue(ISemanticVisitor nodeVisitor) { 
     	 return performAction(nodeVisitor,true); 
@@ -38,8 +35,6 @@ public class NodeInfoGenerator {
     public NodeInfo performAction(ISemanticVisitor nodeVisitor,boolean add) {
     	if(nodeVisitor instanceof StartObjectBehaviorActionActivation) {
 
-			/*summary.add("**** Start Object Behaviour ****");
-			summary.add("");*/
 			control.setStarted(true);
 			return null;
 		}
@@ -53,8 +48,7 @@ public class NodeInfoGenerator {
 		}
 		if(nodeVisitor instanceof ActionActivation && stop) {
 			
-			//NodeInfo bInfo = new ActionInfo(nodeVisitor);
-			info = new AlternativeActionInfo(nodeVisitor, launcher); // TODO Experiment
+			info = new ActionInfo(nodeVisitor, launcher); 
 			stop = false;
 		}
 		if(stop)return null;

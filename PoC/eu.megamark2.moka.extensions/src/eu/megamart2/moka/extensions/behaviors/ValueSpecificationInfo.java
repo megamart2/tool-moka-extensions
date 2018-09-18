@@ -37,29 +37,14 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
 					// TODO type
 		info.add("]}");
 	}
-	@Override
+
 	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+
 	public String getType() { return "Value specification"; }
-
-	@Override
-	public String getBehavior() { return null; }
-
-	@Override
-	public String getInputInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getOutputInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean isComplete() { return true; }
