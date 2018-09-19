@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Q9-jkLv9EeizS8zZTwzhZg" name="aspectj" metaclassReference="_jvfh0Lv9EeizS8zZTwzhZg _LlbVELv-Eei55t-yfar7Dg _twU7ULwCEei55t-yfar7Dg _ap19MLwDEei55t-yfar7Dg _Jzd8ULwLEei55t-yfar7Dg">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-trcLwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="__-uSgLwPEei55t-yfar7Dg" name="aspectj" nsURI="http:///schemas/aspectj/__-m9wLwPEei55t-yfar7Dg/0" nsPrefix="aspectj">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-4DgLwPEei55t-yfar7Dg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__-4DgbwPEei55t-yfar7Dg" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__-4DgrwPEei55t-yfar7Dg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__-4Dg7wPEei55t-yfar7Dg" key="Copyright" value="Atos Spain S.A."/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__-4DhLwPEei55t-yfar7Dg" key="Date" value="2018-09-19"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__-4DhbwPEei55t-yfar7Dg" key="Author" value="Jesús Gorroñogoitia"/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSgbwPEei55t-yfar7Dg" name="Aspect">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSgrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_g94V0Lv9EeizS8zZTwzhZg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSg7wPEei55t-yfar7Dg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="__-uShbwPEei55t-yfar7Dg" name="isPrivileged" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Boolean"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="__-uSh7wPEei55t-yfar7Dg" name="perType" ordered="false" upperBound="-1" eType="__-uSj7wPEei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSibwPEei55t-yfar7Dg" name="perPointCut" ordered="false" eType="__-uSlbwPEei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSi7wPEei55t-yfar7Dg" name="declaredParents" ordered="false" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSjbwPEei55t-yfar7Dg" name="declaredImplements" ordered="false" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="__-uSj7wPEei55t-yfar7Dg" name="AspectInstantiationType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSkLwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LYNmMLwDEei55t-yfar7Dg"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="__-uSkbwPEei55t-yfar7Dg" name="perthis"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="__-uSkrwPEei55t-yfar7Dg" name="pertarget" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="__-uSk7wPEei55t-yfar7Dg" name="percflow" value="2"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="__-uSlLwPEei55t-yfar7Dg" name="percflowbelow" value="3"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSlbwPEei55t-yfar7Dg" name="PointCut">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSlrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_HUtGwLv-Eei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSl7wPEei55t-yfar7Dg" name="base_StructuralFeature" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuralFeature"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSmbwPEei55t-yfar7Dg" name="OperationalPointCut" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSmrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_TXkbsLv-Eei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSm7wPEei55t-yfar7Dg" name="operation" ordered="false" lowerBound="1" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSnrwPEei55t-yfar7Dg" name="WithinCodePointCut" eSuperTypes="__-uSmbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSn7wPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ZBxlcLv-Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSobwPEei55t-yfar7Dg" name="ExecutionPointCut" eSuperTypes="__-uSmbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSorwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_kE_bQLv-Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSpLwPEei55t-yfar7Dg" name="CallPointCut" eSuperTypes="__-uSmbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSpbwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_pX5fULv-Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSp7wPEei55t-yfar7Dg" name="PreInitializationPointCut" eSuperTypes="__-uSobwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSqLwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_w5YTwLv-Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSqrwPEei55t-yfar7Dg" name="InitializationPointCut" eSuperTypes="__-uSobwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSq7wPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_0d15ALv-Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSrbwPEei55t-yfar7Dg" name="PropertyPointCut" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSrrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8oEvgLv-Eei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSr7wPEei55t-yfar7Dg" name="field" ordered="false" lowerBound="1" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSsrwPEei55t-yfar7Dg" name="GetPointCut" eSuperTypes="__-uSrbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSs7wPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_CGFQULv_Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uStbwPEei55t-yfar7Dg" name="SetPointCut" eSuperTypes="__-uSrbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uStrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_FBSdMLv_Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSuLwPEei55t-yfar7Dg" name="TypePointCut" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSubwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_OuiloLv_Eei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSurwPEei55t-yfar7Dg" name="type" lowerBound="1" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSvbwPEei55t-yfar7Dg" name="ThisPointCut" eSuperTypes="__-uSuLwPEei55t-yfar7Dg __-uSwbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSvrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XSwpcLv_Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSwbwPEei55t-yfar7Dg" name="ArgumentDefiningPointCut">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSwrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_qYEtcLv_Eei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uSw7wPEei55t-yfar7Dg" name="base_ArgumentDefiningPointCut_StructuralFeature" ordered="false" lowerBound="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSxLwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__-uSxbwPEei55t-yfar7Dg" key="originalName" value="base_StructuralFeature"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuralFeature"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="__-uSx7wPEei55t-yfar7Dg" name="argNames" lowerBound="1" upperBound="-1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSybwPEei55t-yfar7Dg" name="ArgsPointCut" eSuperTypes="__-uSuLwPEei55t-yfar7Dg __-uSwbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSyrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_aStzcLv_Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uSzbwPEei55t-yfar7Dg" name="TargetPointCut" eSuperTypes="__-uSuLwPEei55t-yfar7Dg __-uSwbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uSzrwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eInuALv_Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS0bwPEei55t-yfar7Dg" name="PointCutPointCut" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS0rwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_-PCQ0Lv_Eei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS1LwPEei55t-yfar7Dg" name="CFlowBelowPointCut" eSuperTypes="__-uS0bwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS1bwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_NNAsALwAEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS17wPEei55t-yfar7Dg" name="CFlowPointCut" eSuperTypes="__-uS0bwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS2LwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_VTvikLwAEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS2rwPEei55t-yfar7Dg" name="StaticInitializationPointCut" eSuperTypes="__-uSuLwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS27wPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_dqt0kLwAEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS3bwPEei55t-yfar7Dg" name="ExceptionPointCut" eSuperTypes="__-uSuLwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS3rwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_kFb1QLwAEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS4LwPEei55t-yfar7Dg" name="WithinPointCut" eSuperTypes="__-uSuLwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS4bwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_qW5zULwAEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS47wPEei55t-yfar7Dg" name="PointCutDisjunction" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS5LwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_0DyIULwAEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS5rwPEei55t-yfar7Dg" name="PointCutConjunction" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS57wPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_6IGbMLwAEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS6bwPEei55t-yfar7Dg" name="PointCutNegation" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS6rwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_RtAagLwCEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS7LwPEei55t-yfar7Dg" name="Advice">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS7bwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_pb4DkLwCEei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uS7rwPEei55t-yfar7Dg" name="base_BehavioralFeature" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="__-uS8LwPEei55t-yfar7Dg" name="adviceExecution" ordered="false" lowerBound="1" eType="__-uS8rwPEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="__-uS8rwPEei55t-yfar7Dg" name="AdviceExecutionType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS87wPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_RZnvALwDEei55t-yfar7Dg"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="__-uS9LwPEei55t-yfar7Dg" name="AroundAdvice"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="__-uS9bwPEei55t-yfar7Dg" name="BeforeAdvice" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="__-uS9rwPEei55t-yfar7Dg" name="AfterAdvice" value="2"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS97wPEei55t-yfar7Dg" name="AdviceExecutionPointCut" eSuperTypes="__-uSlbwPEei55t-yfar7Dg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS-LwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_yBRzILwCEei55t-yfar7Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uS-rwPEei55t-yfar7Dg" name="StaticCrossCuttingFeature">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uS-7wPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Bb2DsLwDEei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uS_LwPEei55t-yfar7Dg" name="base_Feature" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Feature"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uS_rwPEei55t-yfar7Dg" name="onType" ordered="false" lowerBound="1" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__-uTALwPEei55t-yfar7Dg" name="CrossCuttingConcern">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__-uTAbwPEei55t-yfar7Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_WSMAcLwDEei55t-yfar7Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__-uTArwPEei55t-yfar7Dg" name="base_Package" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_jvfh0Lv9EeizS8zZTwzhZg" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_LlbVELv-Eei55t-yfar7Dg" alias="StructuralFeature">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#StructuralFeature"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_twU7ULwCEei55t-yfar7Dg" alias="BehavioralFeature">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#BehavioralFeature"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_ap19MLwDEei55t-yfar7Dg" alias="Package">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_Jzd8ULwLEei55t-yfar7Dg" alias="Feature">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Feature"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_g94V0Lv9EeizS8zZTwzhZg" name="Aspect">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ljCjELv9EeizS8zZTwzhZg" name="base_Class" association="_li_fwLv9EeizS8zZTwzhZg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_V-2UELwLEei55t-yfar7Dg" name="isPrivileged" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_f69-8LwLEei55t-yfar7Dg" name="perType" type="_LYNmMLwDEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_im7O4LwLEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_im_gULwLEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_r2J-kLwLEei55t-yfar7Dg" name="perPointCut" type="_HUtGwLv-Eei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uq1ssLwLEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uq5-ILwLEei55t-yfar7Dg" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_yJtAQLwLEei55t-yfar7Dg" name="declaredParents">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Generalization"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0XoQYLwLEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0XtI4LwLEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_5MmbQLwLEei55t-yfar7Dg" name="declaredImplements">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#InterfaceRealization"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9d6fcLwLEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9d9iwLwLEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_li_fwLv9EeizS8zZTwzhZg" name="E_Aspect_Class3" memberEnd="_ljB8ALv9EeizS8zZTwzhZg _ljCjELv9EeizS8zZTwzhZg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ljB8ALv9EeizS8zZTwzhZg" name="extension_Aspect" type="_g94V0Lv9EeizS8zZTwzhZg" aggregation="composite" association="_li_fwLv9EeizS8zZTwzhZg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_C6MDQLv-Eei55t-yfar7Dg" memberEnd="_C6dwELv-Eei55t-yfar7Dg _C6hacLv-Eei55t-yfar7Dg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C6b64Lv-Eei55t-yfar7Dg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_C6ch8Lv-Eei55t-yfar7Dg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_C6dwELv-Eei55t-yfar7Dg" name="precedes" type="_g94V0Lv9EeizS8zZTwzhZg" association="_C6MDQLv-Eei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J54Q4LwMEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J6YAILwMEei55t-yfar7Dg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_C6hacLv-Eei55t-yfar7Dg" name="precededBy" type="_g94V0Lv9EeizS8zZTwzhZg" association="_C6MDQLv-Eei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KoOkoLwMEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Kod1MLwMEei55t-yfar7Dg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_HUtGwLv-Eei55t-yfar7Dg" name="PointCut">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_M8cyYbv-Eei55t-yfar7Dg" name="base_StructuralFeature" association="_M8ZvELv-Eei55t-yfar7Dg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#StructuralFeature"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_M8ZvELv-Eei55t-yfar7Dg" name="E_PointCut_StructuralFeature7" memberEnd="_M8cyYLv-Eei55t-yfar7Dg _M8cyYbv-Eei55t-yfar7Dg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_M8cyYLv-Eei55t-yfar7Dg" name="extension_PointCut" type="_HUtGwLv-Eei55t-yfar7Dg" aggregation="composite" association="_M8ZvELv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_TXkbsLv-Eei55t-yfar7Dg" name="OperationalPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_XZO6ULv-Eei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_iMSPYLwNEei55t-yfar7Dg" name="operation">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kt1mILwNEei55t-yfar7Dg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kt5QgLwNEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_ZBxlcLv-Eei55t-yfar7Dg" name="WithinCodePointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_jOR1sLv-Eei55t-yfar7Dg" general="_TXkbsLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_kE_bQLv-Eei55t-yfar7Dg" name="ExecutionPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_ohLSsLv-Eei55t-yfar7Dg" general="_TXkbsLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_pX5fULv-Eei55t-yfar7Dg" name="CallPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_r4XQ8Lv-Eei55t-yfar7Dg" general="_TXkbsLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_w5YTwLv-Eei55t-yfar7Dg" name="PreInitializationPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_55DkgLv-Eei55t-yfar7Dg" general="_kE_bQLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_0d15ALv-Eei55t-yfar7Dg" name="InitializationPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_5PS10Lv-Eei55t-yfar7Dg" general="_kE_bQLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_8oEvgLv-Eei55t-yfar7Dg" name="PropertyPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_AeluELv_Eei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_tex-sLwKEei55t-yfar7Dg" name="field">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5vRf8LwKEei55t-yfar7Dg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5vVKULwKEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_CGFQULv_Eei55t-yfar7Dg" name="GetPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_HP5p0Lv_Eei55t-yfar7Dg" general="_8oEvgLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_FBSdMLv_Eei55t-yfar7Dg" name="SetPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_IC1ioLv_Eei55t-yfar7Dg" general="_8oEvgLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_OuiloLv_Eei55t-yfar7Dg" name="TypePointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_TmOtULv_Eei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_bdnNYLwMEei55t-yfar7Dg" name="type" isOrdered="true">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Type"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ed5HgLwMEei55t-yfar7Dg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ed7jwLwMEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_XSwpcLv_Eei55t-yfar7Dg" name="ThisPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_g7jvsLv_Eei55t-yfar7Dg" general="_OuiloLv_Eei55t-yfar7Dg"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_wuLT4Lv_Eei55t-yfar7Dg" general="_qYEtcLv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_aStzcLv_Eei55t-yfar7Dg" name="ArgsPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_hh9oYLv_Eei55t-yfar7Dg" general="_OuiloLv_Eei55t-yfar7Dg"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_xTluELv_Eei55t-yfar7Dg" general="_qYEtcLv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_eInuALv_Eei55t-yfar7Dg" name="TargetPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_iFqyYLv_Eei55t-yfar7Dg" general="_OuiloLv_Eei55t-yfar7Dg"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_x8kZoLv_Eei55t-yfar7Dg" general="_qYEtcLv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_qYEtcLv_Eei55t-yfar7Dg" name="ArgumentDefiningPointCut">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_y3B2wLv_Eei55t-yfar7Dg" name="base_StructuralFeature" association="_y3BPsLv_Eei55t-yfar7Dg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#StructuralFeature"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_SEY0MLwMEei55t-yfar7Dg" name="argNames" isOrdered="true">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UqOOALwMEei55t-yfar7Dg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UqTGgLwMEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_y3BPsLv_Eei55t-yfar7Dg" name="E_ArgumentDefiningPointCut_StructuralFeature22" memberEnd="_y3BPsbv_Eei55t-yfar7Dg _y3B2wLv_Eei55t-yfar7Dg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_y3BPsbv_Eei55t-yfar7Dg" name="extension_ArgumentDefiningPointCut" type="_qYEtcLv_Eei55t-yfar7Dg" aggregation="composite" association="_y3BPsLv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_-PCQ0Lv_Eei55t-yfar7Dg" name="PointCutPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_HFzdMLwAEei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Iclp8LwAEei55t-yfar7Dg" memberEnd="_IcmRArwAEei55t-yfar7Dg _Icm4ELwAEei55t-yfar7Dg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IcmRALwAEei55t-yfar7Dg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IcmRAbwAEei55t-yfar7Dg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_IcmRArwAEei55t-yfar7Dg" name="selectedPointCut" type="_HUtGwLv-Eei55t-yfar7Dg" association="_Iclp8LwAEei55t-yfar7Dg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Icm4ELwAEei55t-yfar7Dg" name="selectedBy" type="_-PCQ0Lv_Eei55t-yfar7Dg" association="_Iclp8LwAEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SK6yoLwPEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SLI1ELwPEei55t-yfar7Dg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_NNAsALwAEei55t-yfar7Dg" name="CFlowBelowPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_SF2qQLwAEei55t-yfar7Dg" general="_-PCQ0Lv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_VTvikLwAEei55t-yfar7Dg" name="CFlowPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_bez9sLwAEei55t-yfar7Dg" general="_-PCQ0Lv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_dqt0kLwAEei55t-yfar7Dg" name="StaticInitializationPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_uZNLILwAEei55t-yfar7Dg" general="_OuiloLv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_kFb1QLwAEei55t-yfar7Dg" name="ExceptionPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_vAWqsLwAEei55t-yfar7Dg" general="_OuiloLv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_qW5zULwAEei55t-yfar7Dg" name="WithinPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_v3dR0LwAEei55t-yfar7Dg" general="_OuiloLv_Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_0DyIULwAEei55t-yfar7Dg" name="PointCutDisjunction">
+    <generalization xmi:type="uml:Generalization" xmi:id="_4rqSYLwAEei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_6IGbMLwAEei55t-yfar7Dg" name="PointCutConjunction">
+    <generalization xmi:type="uml:Generalization" xmi:id="_V32qULwCEei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_RtAagLwCEei55t-yfar7Dg" name="PointCutNegation">
+    <generalization xmi:type="uml:Generalization" xmi:id="_VOY2kLwCEei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Xv04kLwCEei55t-yfar7Dg" memberEnd="_Xv1foLwCEei55t-yfar7Dg _Xv1fobwCEei55t-yfar7Dg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Xv04kbwCEei55t-yfar7Dg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Xv04krwCEei55t-yfar7Dg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Xv1foLwCEei55t-yfar7Dg" name="composee" type="_HUtGwLv-Eei55t-yfar7Dg" association="_Xv04kLwCEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a7E2ILwOEei55t-yfar7Dg" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a7GrULwOEei55t-yfar7Dg" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Xv1fobwCEei55t-yfar7Dg" name="composite" type="_6IGbMLwAEei55t-yfar7Dg" association="_Xv04kLwCEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CqPTALwPEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CqUykLwPEei55t-yfar7Dg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_fauHsLwCEei55t-yfar7Dg" memberEnd="_fauuwrwCEei55t-yfar7Dg _favV0LwCEei55t-yfar7Dg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fauuwLwCEei55t-yfar7Dg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fauuwbwCEei55t-yfar7Dg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_fauuwrwCEei55t-yfar7Dg" name="composee" type="_HUtGwLv-Eei55t-yfar7Dg" association="_fauHsLwCEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8Gi8gLwOEei55t-yfar7Dg" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8GrfYLwOEei55t-yfar7Dg" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_favV0LwCEei55t-yfar7Dg" name="composite" type="_0DyIULwAEei55t-yfar7Dg" association="_fauHsLwCEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AhCx4LwPEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AhHqYLwPEei55t-yfar7Dg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_l-f9wLwCEei55t-yfar7Dg" memberEnd="_l-gk0LwCEei55t-yfar7Dg _l-gk0bwCEei55t-yfar7Dg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_l-f9wbwCEei55t-yfar7Dg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_l-f9wrwCEei55t-yfar7Dg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_l-gk0LwCEei55t-yfar7Dg" name="composee" type="_HUtGwLv-Eei55t-yfar7Dg" association="_l-f9wLwCEei55t-yfar7Dg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_l-gk0bwCEei55t-yfar7Dg" name="composite" type="_RtAagLwCEei55t-yfar7Dg" association="_l-f9wLwCEei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_pb4DkLwCEei55t-yfar7Dg" name="Advice">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_u9eq8bwCEei55t-yfar7Dg" name="base_BehavioralFeature" association="_u9eD4LwCEei55t-yfar7Dg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#BehavioralFeature"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_GlyNcLwNEei55t-yfar7Dg" name="adviceExecution" type="_RZnvALwDEei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_u9eD4LwCEei55t-yfar7Dg" name="E_Advice_BehavioralFeature38" memberEnd="_u9eq8LwCEei55t-yfar7Dg _u9eq8bwCEei55t-yfar7Dg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_u9eq8LwCEei55t-yfar7Dg" name="extension_Advice" type="_pb4DkLwCEei55t-yfar7Dg" aggregation="composite" association="_u9eD4LwCEei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_yBRzILwCEei55t-yfar7Dg" name="AdviceExecutionPointCut">
+    <generalization xmi:type="uml:Generalization" xmi:id="_36dNALwCEei55t-yfar7Dg" general="_HUtGwLv-Eei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_7XacELwCEei55t-yfar7Dg" memberEnd="_7XbDIrwCEei55t-yfar7Dg _7XbqMLwCEei55t-yfar7Dg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7XbDILwCEei55t-yfar7Dg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7XbDIbwCEei55t-yfar7Dg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_7XbDIrwCEei55t-yfar7Dg" name="selectedAdvice" type="_pb4DkLwCEei55t-yfar7Dg" association="_7XacELwCEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W1AOELwNEei55t-yfar7Dg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W1FGkLwNEei55t-yfar7Dg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_7XbqMLwCEei55t-yfar7Dg" name="selectedBy" type="_yBRzILwCEei55t-yfar7Dg" association="_7XacELwCEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fHqAwLwNEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fICbQLwNEei55t-yfar7Dg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_8EC4kLwCEei55t-yfar7Dg" visibility="public" memberEnd="_8EDforwCEei55t-yfar7Dg _8EEGsLwCEei55t-yfar7Dg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8EDfoLwCEei55t-yfar7Dg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8EDfobwCEei55t-yfar7Dg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8EDforwCEei55t-yfar7Dg" name="pointcut" type="_HUtGwLv-Eei55t-yfar7Dg" association="_8EC4kLwCEei55t-yfar7Dg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8EEGsLwCEei55t-yfar7Dg" name="advice" type="_pb4DkLwCEei55t-yfar7Dg" association="_8EC4kLwCEei55t-yfar7Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O5TtYLwOEei55t-yfar7Dg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O5WJoLwOEei55t-yfar7Dg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Bb2DsLwDEei55t-yfar7Dg" name="StaticCrossCuttingFeature">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_MwkmoLwLEei55t-yfar7Dg" name="base_Feature" association="_MwixcLwLEei55t-yfar7Dg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Feature"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_P0BwkLwLEei55t-yfar7Dg" name="onType">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Type"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R-nY0LwLEei55t-yfar7Dg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R-p1ELwLEei55t-yfar7Dg" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_LYNmMLwDEei55t-yfar7Dg" name="AspectInstantiationType">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_fS4gsLwKEei55t-yfar7Dg" name="perthis"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hRrvsLwKEei55t-yfar7Dg" name="pertarget"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lUp14LwKEei55t-yfar7Dg" name="percflow"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mdxaELwKEei55t-yfar7Dg" name="percflowbelow"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_RZnvALwDEei55t-yfar7Dg" name="AdviceExecutionType">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WsHfMLwKEei55t-yfar7Dg" name="AroundAdvice"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_YiiOQLwKEei55t-yfar7Dg" name="BeforeAdvice"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_bzuSMLwKEei55t-yfar7Dg" name="AfterAdvice"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_WSMAcLwDEei55t-yfar7Dg" name="CrossCuttingConcern">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cvD9QLwDEei55t-yfar7Dg" name="base_Package" association="_cvCvILwDEei55t-yfar7Dg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_cvCvILwDEei55t-yfar7Dg" name="E_CrossCuttingConcern_Package47" memberEnd="_cvDWMLwDEei55t-yfar7Dg _cvD9QLwDEei55t-yfar7Dg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_cvDWMLwDEei55t-yfar7Dg" name="extension_CrossCuttingConcern" type="_WSMAcLwDEei55t-yfar7Dg" aggregation="composite" association="_cvCvILwDEei55t-yfar7Dg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_MwixcLwLEei55t-yfar7Dg" name="E_StaticCrossCuttingFeature_Feature49" memberEnd="_Mwj_kLwLEei55t-yfar7Dg _MwkmoLwLEei55t-yfar7Dg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Mwj_kLwLEei55t-yfar7Dg" name="extension_StaticCrossCuttingFeature" type="_Bb2DsLwDEei55t-yfar7Dg" aggregation="composite" association="_MwixcLwLEei55t-yfar7Dg"/>
+  </packagedElement>
+</uml:Profile>
