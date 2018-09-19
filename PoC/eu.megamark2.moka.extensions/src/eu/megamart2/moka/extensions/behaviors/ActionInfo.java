@@ -1,29 +1,44 @@
 package eu.megamart2.moka.extensions.behaviors;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.eclipse.debug.core.DebugException;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.papyrus.moka.debug.engine.MokaDebugTarget;
+import org.eclipse.papyrus.moka.debug.model.data.mapping.variables.PinActivationVariableAdapter;
+import org.eclipse.papyrus.moka.fuml.Semantics.Actions.BasicActions.IPinActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.InputPinActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.OutputPinActivation;
 import org.eclipse.uml2.uml.internal.impl.ActionImpl;
 import org.eclipse.uml2.uml.internal.impl.CallBehaviorActionImpl;
 
-import eu.megamart2.moka.extensions.nodes.InOutInfo;
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
+import eu.megamart2.moka.extensions.utils.MegamartUtils;
 
 @SuppressWarnings("restriction")
-public class ActionInfo implements NodeInfo{
-	
+public class ActionInfo extends ValueInformationCollector implements NodeInfo {
+
 	private String name;
 	private String type;
 	private String behavior;
-	private String inputInfo;
-	private String outputInfo;
 	
-	private InOutInfo inOutInfo;
+	private final LinkedList <String> inputInfo;
+	private final LinkedList <String> outputInfo;
 	
+	private List<IPinActivation> pins;
+	private MokaDebugTarget target;
 	private boolean complete;
 	
-	public ActionInfo(ISemanticVisitor nodeVisitor){
+	public ActionInfo(ISemanticVisitor nodeVisitor,ILaunch Launcher) {
 		
 		complete = false;
+		
+		inputInfo = new LinkedList<String>();
+		outputInfo = new LinkedList<String>();
 		
 		// General info
 		ActionActivation cba = ((ActionActivation)nodeVisitor);
@@ -38,38 +53,118 @@ public class ActionInfo implements NodeInfo{
 			behavior = callBehavior.getBehavior().getName();
 		}
 		
-		// input info 
-		inOutInfo = new InOutInfo(cba);
-		inputInfo = "input pins : [" + inOutInfo.getInputsInfo() +"]]";
+		target = new MokaDebugTarget(Launcher);
+ 
+		pins = cba.pinActivations;
 		
-		// look if the node is complete and if it is complete the info
-		if(!type.contains("CallBehavior"))if(inOutInfo.getInputsInfo().isEmpty()) // TODO check cases 
-			completeInfo(nodeVisitor);
-	}
-     
+		// inputs 
+		inputInfo.add(", Inputs : [ ");
+		
+		int n = 0;
+		for(IPinActivation pin : pins)if(pin instanceof InputPinActivation) n++;
+        
+		ArrayList<IPinActivation> inputPins = new ArrayList<IPinActivation>(n);
+		
+		for(IPinActivation pin : pins)if(pin instanceof InputPinActivation)
+			inputPins.add(pin);
+		
+		try {
+		for(int i = 0; i < n; i++){
+			
+			PinActivationVariableAdapter adapter  = 
+					new PinActivationVariableAdapter(target,inputPins.get(i));
+			
+				inputInfo.add("{ name : " + adapter.getName() + ", " +
+						getValueInfo(adapter.getValue())+ "}");
+				
+				if(i < (n - 1)) inputInfo.add(", ");	
+		}
+		} catch (DebugException e) { e.printStackTrace(); }
+		inputInfo.add(" ]");
+		
+		if(isCompletable()) completeInfo(nodeVisitor);
+		}
+
 	@Override
 	public boolean isComplete() { return complete; }
-	
+
 	@Override
 	public void completeInfo(ISemanticVisitor nodeVisitor) {
-		ActionActivation cba = ((ActionActivation)nodeVisitor);
-		inOutInfo.completeInfo(cba);
-		outputInfo = "output pins : [" + inOutInfo.getOutputsInfo() + "]]";
-		complete = true;
-	}
+     if(complete) return;
+     
+     if(type.contains("ead") && type.contains("eature")) {
+    	 System.out.print("");
+     }
+     
+     // outputs
+     outputInfo.add(", Outputs : [ ");
+     
+     int n = 0;
+     for(IPinActivation pin : pins)if(pin instanceof OutputPinActivation) n++;
+     
+     ArrayList<IPinActivation> outputPins = new ArrayList<IPinActivation>(n);
+     for(IPinActivation pin : pins)if(pin instanceof OutputPinActivation)
+    	 outputPins.add(pin);
+     
+     try {
+     
+     for(int i = 0; i < n; i++) {
+    	 
+    	 PinActivationVariableAdapter adapter = 
+    			 new PinActivationVariableAdapter(target,outputPins.get(i));
+    	 
+    	 outputInfo.add("{ name : " + adapter.getName() + ", "
+    			 + getValueInfo(adapter.getValue())+ "}");
+    	 
+    	 if(i < (n-1)) outputInfo.add(", ");
+     }
+     } catch(DebugException e) { e.printStackTrace(); }
+    	 
+     outputInfo.add(" ]");
+     
+	 complete = true;	
+	 
+	} 
 	
 	@Override
-	public String getInputInfo() { return inputInfo; }
+	public void printSummary(MegamartUtils utils) {  // TODO print in the correct console
+		
+		// completable nodes write all in one line
+		if(isCompletable()) {
+	    printPart(utils,true);
+	    String line = "";
+		for(String sr : outputInfo) line = line + sr;
+		utils.write(line);
+		utils.write("]\n\n");
+		return;
+		}
+		// first part
+		if(!complete) {
+            printPart(utils,true);
+			utils.write("]\n\n");
+			return;
+		}
+		// second part
+		printPart(utils,false);
+		utils.write("]\n\n");
+	}
 
 	@Override
-	public String getOutputInfo() { return outputInfo; }
+	public boolean isCompletable() {
+		if(type.contains("CallBehavior")) return false; // TODO inputs empty
+		return true;
+	}
+	private void printPart(MegamartUtils utils, boolean firstPart) {
+		String line = type + " [ name = " + name + ", ";
+		if(behavior != null)
+           line = line + "behavior = " + behavior;
 
-	@Override
-	public String getName() { return name; }
-
-	@Override
-	public String getType() { return type; }
-
-	@Override
-	public String getBehavior() { return behavior; }
+		if(firstPart) {
+			for(String sr : inputInfo) line = line + sr;
+		} else {
+			for(String sr : outputInfo) line = line + sr;
+		}
+		utils.write(line);
+	}
+ 
 }
