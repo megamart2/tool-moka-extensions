@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:aspectj="https://megamart2-ecsel.eu/aspectj/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aspectj="https://megamart2-ecsel.eu/aspectj/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="https://megamart2-ecsel.eu/aspectj/ ../profiles/aspectj.profile.uml#_OwFNsMJVEeiYIeUYMCpofw">
   <uml:Model xmi:id="_rmbBsL2FEeidzutJ3INnWA" name="figure_model">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_sFgxcL2FEeidzutJ3INnWA">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -122,7 +122,7 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Egifdb2SEeidzutJ3INnWA" key="Author" value="Jesús Gorroñogoitia"/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O8u44L2PEeidzutJ3INnWA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="https://megamart2-ecsel.eu/aspectj/#/"/>
+        <references xmi:type="ecore:EPackage" href="../profiles/aspectj.profile.uml#_OwFNsMJVEeiYIeUYMCpofw"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../profiles/aspectj.profile.uml#_Q9-jkLv9EeizS8zZTwzhZg"/>
     </profileApplication>
@@ -132,7 +132,9 @@
   <aspectj:StaticCrossCuttingFeature xmi:id="_Vfm3YL2MEeidzutJ3INnWA" base_Feature="_KjGtkL2MEeidzutJ3INnWA" onType="_2LrwML2FEeidzutJ3INnWA"/>
   <aspectj:StaticCrossCuttingFeature xmi:id="_WmxTwL2MEeidzutJ3INnWA" base_Feature="_MJRaIL2MEeidzutJ3INnWA" onType="_2LrwML2FEeidzutJ3INnWA"/>
   <aspectj:CallPointCut xmi:id="_tRMn0L2NEeidzutJ3INnWA" base_StructuralFeature="_qOj9QL2NEeidzutJ3INnWA" operation="_7MfeAL2NEeidzutJ3INnWA _8IfMML2NEeidzutJ3INnWA"/>
-  <aspectj:PointCutConjunction xmi:id="_1O96ML2OEeidzutJ3INnWA" base_StructuralFeature="_x8n_sL2OEeidzutJ3INnWA" composee="_tRMn0L2NEeidzutJ3INnWA _n9q74L2REeidzutJ3INnWA"/>
-  <aspectj:TargetPointCut xmi:id="_n9q74L2REeidzutJ3INnWA" base_StructuralFeature="_FwvVUL2NEeidzutJ3INnWA" type="_2LrwML2FEeidzutJ3INnWA"/>
+  <aspectj:PointCutConjunction xmi:id="_1O96ML2OEeidzutJ3INnWA" base_StructuralFeature="_x8n_sL2OEeidzutJ3INnWA" composee="_n9q74L2REeidzutJ3INnWA"/>
+  <aspectj:TargetPointCut xmi:id="_n9q74L2REeidzutJ3INnWA" base_StructuralFeature="_FwvVUL2NEeidzutJ3INnWA" type="_2LrwML2FEeidzutJ3INnWA" base_ArgumentDefiningPointCut_StructuralFeature="_FwvVUL2NEeidzutJ3INnWA">
+    <argNames>p</argNames>
+  </aspectj:TargetPointCut>
   <aspectj:Advice xmi:id="_d_ciwL2SEeidzutJ3INnWA" base_BehavioralFeature="_cf-7IL2SEeidzutJ3INnWA" adviceExecution="AfterAdvice" pointcut="_1O96ML2OEeidzutJ3INnWA"/>
 </xmi:XMI>

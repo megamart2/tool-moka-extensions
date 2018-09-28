@@ -31,8 +31,8 @@
     <details key="VALIDATION_DELEGATES" value="IGNORE"/>
   </genAnnotations>
   <foreignModel>aspectj.profile.uml</foreignModel>
-  <genPackages xsi:type="genmodel:GenPackage" prefix="Aspectj" disposableProviderFactory="true"
-      ecorePackage="aspectj.ecore#/">
+  <genPackages xsi:type="genmodel:GenPackage" prefix="AspectJ" basePackage="org.eclipse.papyrus"
+      disposableProviderFactory="true" ecorePackage="aspectj.ecore#/">
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="aspectj.ecore#//AspectInstantiationType">
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="aspectj.ecore#//AspectInstantiationType/perthis"/>
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="aspectj.ecore#//AspectInstantiationType/pertarget"/>
