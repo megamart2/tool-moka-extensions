@@ -1,7 +1,7 @@
 package eu.megamart2.moka.extensions.behaviors;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.LinkedList; 
 import java.util.List;
 
 import org.eclipse.debug.core.DebugException;
@@ -20,7 +20,7 @@ import eu.megamart2.moka.extensions.nodes.NodeInfo;
 import eu.megamart2.moka.extensions.utils.MegamartUtils;
 
 @SuppressWarnings("restriction")
-public class ActionInfo extends ValueInformationCollector implements NodeInfo {
+public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 
 	private String name;
 	private String type;
@@ -54,7 +54,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo {
 		}
 		
 		target = new MokaDebugTarget(Launcher);
- 
+        
 		pins = cba.pinActivations;
 		
 		// inputs 
