@@ -1,16 +1,19 @@
 package eu.megamart2.moka.extensions.behaviors;
 
+import java.util.List;
+
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IValue;
 import org.eclipse.debug.core.model.IVariable;
 import org.eclipse.papyrus.moka.debug.model.data.mapping.values.DefaultValueAdapter;
 import org.eclipse.papyrus.moka.debug.model.data.mapping.values.ObjectTokenValueAdapter;
 import org.eclipse.papyrus.moka.fuml.Semantics.Activities.IntermediateActivities.IToken;
+import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IFeatureValue;
+import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IStructuredValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.BooleanValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.IntegerValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.RealValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.StringValue;
-import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.StructuredValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.UnlimitedNaturalValue;
 import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.internal.impl.ClassImpl;
@@ -60,12 +63,14 @@ public abstract class ValueInformationCollector {
 						 + String.valueOf(((UnlimitedNaturalValue)token.getValue())
 								 .getValue().intValue());
 			 }
-			 if(token.getValue() instanceof StructuredValue) {
-				 return " type : Class, value : Object ";
+			 if(token.getValue() instanceof IStructuredValue) {
+				 return getStructuredValueInfo(
+						 (IStructuredValue)token.getValue());
 			 }
 		 }
-		 else if(value instanceof StructuredValue) {
-			 return " type : Class, value : Object ";
+		 else if(value instanceof IStructuredValue) {
+			return getStructuredValueInfo(
+					 (IStructuredValue)value);
 		 }
 		 else if(value instanceof DefaultValueAdapter) {
 			DefaultValueAdapter adapter = (DefaultValueAdapter)value;
@@ -78,7 +83,7 @@ public abstract class ValueInformationCollector {
 				e.printStackTrace();
 			}
 		 }
-		 return "";
+		 return ""; 
 	 }
 		protected ValueDescription generateValue(ValueSpecification specification) {
 			
@@ -106,5 +111,48 @@ public abstract class ValueInformationCollector {
 				return new ValueDescription("Class","Object");
 			}
 			return null;
+		}
+		
+		protected String getStructuredValueInfo(IStructuredValue structure) {
+			
+			List<IFeatureValue> features = structure.getFeatureValues();
+			
+			String result = "type : Object, features : [";
+			
+			boolean first = true;
+			for(IFeatureValue feature : features) {
+				if(first) first = false;
+				else result += ", ";
+			result += getFeatureInfo(feature);
+			}
+			return result + "]";
+		}
+		
+		protected String getFeatureInfo(IFeatureValue feature) {
+			
+			String result = "{ " + feature.getFeature().getName();
+            
+			List<org.eclipse.papyrus.moka.fuml.Semantics
+			.Classes.Kernel.IValue> values = feature.getValues();
+			
+			boolean first = true;
+			if(values.size() > 0) {
+				result += ", values : [";
+				for(org.eclipse.papyrus.moka.fuml.Semantics.Classes
+						.Kernel.IValue value : values) {
+					if(first) {
+						result += "{ type : ";
+						first = false;
+					}
+					else result += ",{ type : ";
+					result +=
+						value.specify().getType().getName()
+						+ " value : "
+						+ value.specify().stringValue() + " }";
+				}
+				result += "]";
+			}
+		    
+			return result + "}";
 		}
 }
