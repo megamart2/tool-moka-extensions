@@ -17,7 +17,7 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
 
 	private ValueSpecificationActionActivation activation;
 	
-	private LinkedList<String> info;
+	private LinkedList<String> info; 
 	
 	public ValueSpecificationInfo(ISemanticVisitor nodeVisitor,ILaunch launcher) {
 			

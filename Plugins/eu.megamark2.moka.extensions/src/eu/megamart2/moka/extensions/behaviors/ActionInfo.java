@@ -22,7 +22,7 @@ import eu.megamart2.moka.extensions.utils.MegamartUtils;
 @SuppressWarnings("restriction")
 public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 
-	private String name;
+	private String name; 
 	private String type;
 	private String behavior;
 	

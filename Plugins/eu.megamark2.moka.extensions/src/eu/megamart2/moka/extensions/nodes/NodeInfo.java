@@ -10,7 +10,7 @@ public interface NodeInfo {
 	
 	public void completeInfo(ISemanticVisitor nodeVisitor);	
 	
-	public boolean isCompletable();
+	public boolean isCompletable(); 
 	
 	public void printSummary(MegamartUtils utils);
 }

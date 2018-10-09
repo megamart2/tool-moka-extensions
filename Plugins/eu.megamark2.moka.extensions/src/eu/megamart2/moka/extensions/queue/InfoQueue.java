@@ -11,7 +11,7 @@ import eu.megamart2.moka.extensions.nodes.NodeInfo;
 
 public class InfoQueue {
 
-	private HashMap<ActivityNode,NodeInfo> map;
+	private HashMap<ActivityNode,NodeInfo> map; 
 	
 	public InfoQueue() { map = new HashMap<ActivityNode,NodeInfo>(); }
 	

@@ -17,7 +17,7 @@ public class NodeInfoGenerator {
 	
 	private final InfoQueue queue;
 	
-	private final ILaunch launcher;
+	private final ILaunch launcher; 
 	
 	public NodeInfoGenerator(StartControl control,InfoQueue queue,ILaunch launcher) {
         this.control = control;

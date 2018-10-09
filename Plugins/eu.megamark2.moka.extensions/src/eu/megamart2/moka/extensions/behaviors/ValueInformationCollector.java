@@ -135,8 +135,15 @@ public abstract class ValueInformationCollector {
 			List<org.eclipse.papyrus.moka.fuml.Semantics
 			.Classes.Kernel.IValue> values = feature.getValues();
 			
+			if(values.size() == 1) {
+				result += ", type : " 
+			+ values.get(0).specify().getType().getName()
+			+ ", value : " + values.get(0).specify().stringValue();
+				return result + " }";  
+			}
+			
 			boolean first = true;
-			if(values.size() > 0) {
+			if(values.size() > 1) {
 				result += ", values : [";
 				for(org.eclipse.papyrus.moka.fuml.Semantics.Classes
 						.Kernel.IValue value : values) {

@@ -6,7 +6,7 @@ public class StartControl {
 	
 	public StartControl() { started = false; }
 	
-	public boolean getStarted() { return started; }
+	public boolean getStarted() { return started; }  
 	
 	public void setStarted(boolean started) { this.started = started; }
 }

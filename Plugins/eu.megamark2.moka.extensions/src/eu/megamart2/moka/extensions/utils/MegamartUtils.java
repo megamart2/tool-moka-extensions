@@ -12,14 +12,14 @@ public class MegamartUtils {
 
 	private IOConsoleOutputStream out;
 	
-	public MegamartUtils() {
+	public MegamartUtils() { 
 		if(out == null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
 				public void run() {
 			IConsole[] consoles = ConsolePlugin.getDefault()
 					.getConsoleManager().getConsoles();
-			IConsole iout = null;
+			IConsole iout = null; 
 			for(IConsole c : consoles)
 				if(c.getName().contains("fUML")) {
 					iout = c;

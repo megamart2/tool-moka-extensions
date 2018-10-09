@@ -26,7 +26,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 
 	private StartControl control;
 	
-	private NodeInfoGenerator generator;
+	private NodeInfoGenerator generator; 
 	
 	private InfoQueue queue;
 	
