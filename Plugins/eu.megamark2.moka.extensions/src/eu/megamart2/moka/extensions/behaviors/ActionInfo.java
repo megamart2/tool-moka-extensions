@@ -127,7 +127,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	} 
 	
 	@Override
-	public void printSummary(MegamartUtils utils) {  // TODO print in the correct console
+	public void printSummary(MegamartUtils utils) {  
 		
 		// completable nodes write all in one line
 		if(isCompletable()) {
@@ -151,7 +151,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 
 	@Override
 	public boolean isCompletable() {
-		if(type.contains("CallBehavior")) return false; // TODO inputs empty
+		if(type.contains("CallBehavior")) return false;
 		return true;
 	}
 	private void printPart(MegamartUtils utils, boolean firstPart) {

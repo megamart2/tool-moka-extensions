@@ -15,6 +15,7 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.IntegerValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.RealValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.StringValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.UnlimitedNaturalValue;
+import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.internal.impl.ClassImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralBooleanImpl;
@@ -23,6 +24,7 @@ import org.eclipse.uml2.uml.internal.impl.LiteralRealImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralStringImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralUnlimitedNaturalImpl;
 
+import eu.megamart2.moka.extensions.utils.HierarchyExplorer;
 import eu.megamart2.moka.extensions.utils.ValueDescription;
 
 @SuppressWarnings("restriction")
@@ -117,7 +119,8 @@ public abstract class ValueInformationCollector {
 			
 			List<IFeatureValue> features = structure.getFeatureValues();
 			
-			String result = "type : Object, features : [";
+			String result = getStructuredTypeInfo(structure) 
+			+ ", features : ["; 
 			
 			boolean first = true;
 			for(IFeatureValue feature : features) {
@@ -126,6 +129,23 @@ public abstract class ValueInformationCollector {
 			result += getFeatureInfo(feature);
 			}
 			return result + "]";
+		}
+		
+		protected String getStructuredTypeInfo(IStructuredValue structure) {
+			
+			String result = "type : Object of class ";
+			
+			List<Classifier> classifiers = structure.getTypes();
+			
+			if(classifiers.size() == 1)
+				return result + classifiers.get(0).getName();
+			else { // there are super classes in the list
+				HierarchyExplorer hierarchyExplorer =
+						new HierarchyExplorer();
+				Classifier finalClassifier = 
+						hierarchyExplorer.getFinalClassifier(classifiers);
+				return result  + finalClassifier.getName();
+			}
 		}
 		
 		protected String getFeatureInfo(IFeatureValue feature) {
