@@ -1,11 +1,14 @@
 package eu.megamart2.moka.extensions.services;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.eclipse.debug.core.ILaunch;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
@@ -15,14 +18,12 @@ import org.eclipse.uml2.uml.ActivityNode;
 
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
 import eu.megamart2.moka.extensions.nodes.NodeInfoGenerator;
+import eu.megamart2.moka.extensions.output.MegamartOutput;
 import eu.megamart2.moka.extensions.queue.InfoQueue;
-import eu.megamart2.moka.extensions.utils.MegamartUtils;
 import eu.megamart2.moka.extensions.utils.StartControl;
 
 public class MokaNodeInformationListener 
 extends AbstractMokaService implements IMokaExecutionListener {
-	
-	private MegamartUtils utils;
 
 	private StartControl control;
 	
@@ -31,6 +32,8 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	private InfoQueue queue;
 	
 	private SimpleDateFormat dateFormat;
+	
+	private EObject modelElement;
 
 	@Override
 	public void init(ILaunch launcher, EObject modelElement){
@@ -38,11 +41,21 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		queue = new InfoQueue();
 		generator = new NodeInfoGenerator(control,queue,launcher);
 		dateFormat = new SimpleDateFormat("dd/MM/yy hh:mm:ss");
+        
+		this.modelElement = modelElement;
+	}
+	
+	@Override
+	public void dispose() {
+		MegamartOutput.getInstance().dispose();
 	}
 	
 	@Override
 	public void nodeVisited(ISemanticVisitor nodeVisitor) {
-		if(utils == null) utils = new MegamartUtils();
+		
+	    if(MegamartOutput.getInstance().isDisposed())
+	    	MegamartOutput.getInstance().init(modelElement);
+		
         NodeInfo info = generator.addToQueue(nodeVisitor);
         
         // write first line for non completable nodes
@@ -79,7 +92,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	
 	private void printInfo(NodeInfo info) {
     	Date date = new Date();
-    	utils.write(dateFormat.format(date) + " ");
-    	info.printSummary(utils);
+    	MegamartOutput.getInstance().write(dateFormat.format(date) + " ");
+    	info.printSummary();
 	}
 }

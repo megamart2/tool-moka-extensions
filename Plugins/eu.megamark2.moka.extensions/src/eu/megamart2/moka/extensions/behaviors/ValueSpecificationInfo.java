@@ -10,7 +10,7 @@ import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.internal.impl.ValueSpecificationActionImpl;
 
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
-import eu.megamart2.moka.extensions.utils.MegamartUtils;
+import eu.megamart2.moka.extensions.output.MegamartOutput;
 
 @SuppressWarnings("restriction")
 public class ValueSpecificationInfo extends ValueInformationCollector implements NodeInfo {
@@ -58,11 +58,11 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
 	public boolean isCompletable() { return true; }
 
 	@Override
-	public void printSummary(MegamartUtils utils) {
+	public void printSummary() {
 	   String line = "";
        for(String sr : info) line = line + sr;
-       utils.write(line);
-       utils.write("\n\n");
+       MegamartOutput.getInstance().write(line);
+       MegamartOutput.getInstance().write("\n");
 	}
 
 }

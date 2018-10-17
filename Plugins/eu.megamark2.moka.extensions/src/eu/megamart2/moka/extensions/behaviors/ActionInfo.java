@@ -17,7 +17,7 @@ import org.eclipse.uml2.uml.internal.impl.ActionImpl;
 import org.eclipse.uml2.uml.internal.impl.CallBehaviorActionImpl;
 
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
-import eu.megamart2.moka.extensions.utils.MegamartUtils;
+import eu.megamart2.moka.extensions.output.MegamartOutput;
 
 @SuppressWarnings("restriction")
 public class ActionInfo extends ValueInformationCollector implements NodeInfo{
@@ -127,26 +127,28 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	} 
 	
 	@Override
-	public void printSummary(MegamartUtils utils) {  
+	public void printSummary() {  
+		
+		MegamartOutput utils = MegamartOutput.getInstance();
 		
 		// completable nodes write all in one line
 		if(isCompletable()) {
-	    printPart(utils,true);
+	    printPart(true);
 	    String line = "";
 		for(String sr : outputInfo) line = line + sr;
 		utils.write(line);
-		utils.write("]\n\n");
+		utils.write("]\n");
 		return;
 		}
 		// first part
 		if(!complete) {
-            printPart(utils,true);
-			utils.write("]\n\n");
+            printPart(true);
+			utils.write("]\n");
 			return;
 		}
 		// second part
-		printPart(utils,false);
-		utils.write("]\n\n");
+		printPart(false);
+		utils.write("]\n");
 	}
 
 	@Override
@@ -154,7 +156,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		if(type.contains("CallBehavior")) return false;
 		return true;
 	}
-	private void printPart(MegamartUtils utils, boolean firstPart) {
+	private void printPart(boolean firstPart) {
 		String line = type + " [ name = " + name + ", ";
 		if(behavior != null)
            line = line + "behavior = " + behavior;
@@ -164,7 +166,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		} else {
 			for(String sr : outputInfo) line = line + sr;
 		}
-		utils.write(line);
+		MegamartOutput.getInstance().write(line);
 	}
  
 }
