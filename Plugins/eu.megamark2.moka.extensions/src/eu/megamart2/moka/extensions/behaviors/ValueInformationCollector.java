@@ -69,7 +69,8 @@ public abstract class ValueInformationCollector {
 			 }
 			 
 			 if(token instanceof ObjectToken) {  // TODO check
-				return getReferenceValueInfo((ObjectToken)token);
+				String info = getReferenceValueInfo((ObjectToken)token);
+				if(info != null) return info;
 			 }
 			 
 			 if(token.getValue() instanceof IStructuredValue) {
@@ -123,10 +124,11 @@ public abstract class ValueInformationCollector {
 		
 		protected String getReferenceValueInfo(ObjectToken token) {
 			
-			 // TODO get object name
+			if(!(token.getValue() instanceof CS_Reference))
+				return null;
 			 
 			 String sr = 
-					 ((CS_Reference)((ObjectToken)token).getValue()).toString();
+					 ((CS_Reference)token.getValue()).toString();
 			 int n1 = sr.indexOf('(') + 1;
 			 String sr2 = sr.substring(n1);
 			 int n2 = sr2.indexOf('\n');

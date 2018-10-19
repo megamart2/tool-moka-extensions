@@ -47,7 +47,6 @@ public class NodeInfoGenerator {
 			stop = false;
 		}
 		if(nodeVisitor instanceof ActionActivation && stop) {
-			
 			info = new ActionInfo(nodeVisitor, launcher); 
 			stop = false;
 		}
