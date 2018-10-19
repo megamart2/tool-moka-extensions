@@ -39,7 +39,6 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
 	}
 
 	public String getName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

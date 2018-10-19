@@ -7,8 +7,6 @@ import org.eclipse.uml2.uml.Classifier;
 
 public class HierarchyExplorer {
 	
-	// TODO use List<Classifier> field to do void methods
-	
 	public Classifier getFinalClassifier(List<Classifier> classifiers) {
 		
 		classifiers = removeAbstract(classifiers);

@@ -92,7 +92,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	public void completeInfo(ISemanticVisitor nodeVisitor) {
      if(complete) return;
      
-     if(type.contains("ead") && type.contains("eature")) {
+     if(type.contains("self")) {
     	 System.out.print("");
      }
      
@@ -113,8 +113,12 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
     	 PinActivationVariableAdapter adapter = 
     			 new PinActivationVariableAdapter(target,outputPins.get(i));
     	 
-    	 outputInfo.add("{ name : " + adapter.getName() + ", "
-    			 + getValueInfo(adapter.getValue())+ "}");
+    	 outputInfo.add(getValueInfo(adapter.getValue()));
+    	 
+    	// String line = "{name : " + adapter.getName();
+    	 
+    		 
+
     	 
     	 if(i < (n-1)) outputInfo.add(", ");
      }
