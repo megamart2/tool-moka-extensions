@@ -10,6 +10,12 @@ context Element
  
 def: asError (verdict : Boolean) : Boolean = if verdict then true else null endif
 
+context NamedElement
+
+/**
+ * Get name
+ */ 
+ def: theName : String = if name.oclIsUndefined() then 'unnamed' else name endif
 
 /**
  * ValueSpecificationAction validation
@@ -18,38 +24,53 @@ context ValueSpecificationAction
 --
 -- ValueSpecificationAction should have a name
 --
-inv vsaShouldHaveName('[Moka] The \'name\' property of "' + self.toString() + '" is not set'):
-	self.name.size() > 0
+inv vsaShouldHaveName('[Moka-MegaMart] The \'name\' property of "' + self.toString() + '" is not set'):
+	not self.name.oclIsUndefined() and self.name.size() > 0
 	
-inv vsaShouldHaveValue ('[Moka] The \'value\' property of "' + self.toString() + '" is not set'):
+inv vsaShouldHaveValue ('[Moka-MegaMart] The \'value\' property of "' + self.toString() + '" is not set'):
 	asError (not self.value.oclIsUndefined())
 	
+inv vsaShouldHaveResult ('[Moka-MegaMart] The \'result\' property of "' + self.toString() + '" is not set'): 
+	asError (not self.result.oclIsUndefined()) --check
 
 /**
  * InputPin validation
  */
 context InputPin
 
-inv inputPinShouldHaveType ('[Moka] The \'type\' property of "' + self.name + '" is not set'):
+inv inputPinShouldHaveType ('[Moka-MegaMart] The \'type\' property of "' + self.theName + '" is not set'):
 	asError (not self.type.oclIsUndefined())
+	
+/**
+ * OutputPin validation
+ */
+context OutputPin
+
+inv outputPinShouldHaveType ('[Moka-MegaMart] The \'type\' property of "' + self.theName + '" is not set'):
+	asError (not self.type.oclIsUndefined())
+	
+/**
+ * There are not orphan output pins
+ */
+ 
+ inv noOrphansOutputPins ('[Moka-MegaMart] OutputPin "' + self.theName + '" is not connected by an object flow'): 
+ asError (ObjectFlow.allInstances()->exists(source = self or target = self))
 	
 /**
  * ObjectFlow validation
  */
 context ObjectFlow
 
-
-inv pinTypesCompatibleInObjectFlow ('[Moka] Output/Input Pin types not compatible'):
+/**
+ * Pins connected by objectFlow have compatible types
+ */
+inv pinTypesCompatibleInObjectFlow ('[Moka-MegaMart] Output/Input Pin types not compatible'):
 	let source:ActivityNode = self.source, target:ActivityNode = self.target in 
 		if source.oclIsTypeOf(OutputPin) and target.oclIsTypeOf(InputPin)
 		then
-			source.oclAsType(OutputPin).type = target.oclAsType(InputPin).type
+			asError(source.oclAsType(OutputPin).type = target.oclAsType(InputPin).type)
 		else
 			true
 		endif	
-
-
---inv pinTypesCompatibleInObjectFlow ('[Moka] Output/Input Pin types not compatible'):
---self.target.oclAsType(InputPin).type = self.source.oclAsType(OutputPin).type
 
 endpackage
