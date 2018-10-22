@@ -130,7 +130,7 @@
           </children>
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_hc1R0aU3EeiJNOHipgZNwQ" diagramLink="_oBw70K9mEeiD45YE_GYD8Q"/>
           <element xmi:type="uml:ValueSpecificationAction" href="AuthenticationWithOCLValidation.uml#_hcX-0KU3EeiJNOHipgZNwQ"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hc1R0qU3EeiJNOHipgZNwQ" x="315" y="248" width="41"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hc1R0qU3EeiJNOHipgZNwQ" x="235" y="248" width="41"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_7TUHoKU3EeiJNOHipgZNwQ" type="ValueSpecificationAction_Shape">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7Ut10KU3EeiJNOHipgZNwQ" source="PapyrusCSSForceValue">
@@ -439,6 +439,34 @@
           <element xmi:type="uml:ValueSpecificationAction" href="AuthenticationWithOCLValidation.uml#_OklfMK9YEeiD45YE_GYD8Q"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ok9Soq9YEeiD45YE_GYD8Q" x="623" y="247"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_B-1s0NONEeiyPvWz_WSTkA" type="ValueSpecificationAction_Shape">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CBeKENONEeiyPvWz_WSTkA" source="PapyrusCSSForceValue">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CBeKEdONEeiyPvWz_WSTkA" key="mutable" value="true"/>
+          </eAnnotations>
+          <children xmi:type="notation:DecorationNode" xmi:id="_B-3iANONEeiyPvWz_WSTkA" type="ValueSpecificationAction_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_B-3iAdONEeiyPvWz_WSTkA" type="ValueSpecificationAction_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_B-3iAtONEeiyPvWz_WSTkA" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_B-9ooNONEeiyPvWz_WSTkA" type="compartment_shape_display">
+            <styles xmi:type="notation:TitleStyle" xmi:id="_B-9oodONEeiyPvWz_WSTkA"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B-9ootONEeiyPvWz_WSTkA"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_B_AE4NONEeiyPvWz_WSTkA" type="OutputPin_ValueSpecificationActionResultShape">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CBeKEtONEeiyPvWz_WSTkA" source="PapyrusCSSForceValue">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CBeKE9ONEeiyPvWz_WSTkA" key="mutable" value="true"/>
+            </eAnnotations>
+            <children xmi:type="notation:DecorationNode" xmi:id="_B_AE4tONEeiyPvWz_WSTkA" type="OutputPin_ValueSpecificationActionResultNameLabel">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_B_AE49ONEeiyPvWz_WSTkA" x="2" y="-15"/>
+            </children>
+            <children xmi:type="notation:DecorationNode" xmi:id="_B_AE5NONEeiyPvWz_WSTkA" type="OutputPin_ValueSpecificationActionResultStereotypeLabel">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_B_AE5dONEeiyPvWz_WSTkA" y="15"/>
+            </children>
+            <element xmi:type="uml:OutputPin" href="AuthenticationWithOCLValidation.uml#_B-YZ0NONEeiyPvWz_WSTkA"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B_AE4dONEeiyPvWz_WSTkA" x="20" y="-15"/>
+          </children>
+          <element xmi:type="uml:ValueSpecificationAction" href="AuthenticationWithOCLValidation.uml#_B-Oo0NONEeiyPvWz_WSTkA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B-1s0dONEeiyPvWz_WSTkA" x="315" y="288"/>
+        </children>
         <element xmi:type="uml:Activity" href="AuthenticationWithOCLValidation.uml#_ot7P8KUuEeiJNOHipgZNwQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ouFoEaUuEeiJNOHipgZNwQ"/>
       </children>
@@ -446,7 +474,7 @@
       <element xmi:type="uml:Activity" href="AuthenticationWithOCLValidation.uml#_ot7P8KUuEeiJNOHipgZNwQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ouFoEqUuEeiJNOHipgZNwQ" y="20" width="1061" height="641"/>
     </children>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_ouFoE6UuEeiJNOHipgZNwQ" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_ouFoE6UuEeiJNOHipgZNwQ" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_ouFoFKUuEeiJNOHipgZNwQ"/>
     <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_ouFoFaUuEeiJNOHipgZNwQ" diagramKindId="org.eclipse.papyrus.uml.diagram.activity">
       <owner xmi:type="uml:Activity" href="AuthenticationWithOCLValidation.uml#_ot7P8KUuEeiJNOHipgZNwQ"/>
@@ -662,38 +690,46 @@
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yIQc8KzwEei9y9N0Lw5pCw" id="(1.0,0.525)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yIQc8azwEei9y9N0Lw5pCw" id="(0.0,0.525)"/>
     </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_I9G5UK9YEeiD45YE_GYD8Q" type="ObjectFlow_Edge" source="_hc7_gKU3EeiJNOHipgZNwQ" target="_QlmKIK9XEeiD45YE_GYD8Q">
+    <edges xmi:type="notation:Connector" xmi:id="_I9G5UK9YEeiD45YE_GYD8Q" type="ObjectFlow_Edge" source="_B_AE4NONEeiyPvWz_WSTkA" target="_QlmKIK9XEeiD45YE_GYD8Q">
       <children xmi:type="notation:DecorationNode" xmi:id="_I9HgYK9YEeiD45YE_GYD8Q" type="ObjectFlow_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_FbgA8NONEeiyPvWz_WSTkA" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgYa9YEeiD45YE_GYD8Q" x="-18" y="-21"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgYa9YEeiD45YE_GYD8Q" x="-35" y="-18"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_I9HgYq9YEeiD45YE_GYD8Q" type="ObjectFlow_WeightLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_FcA-UNONEeiyPvWz_WSTkA" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgY69YEeiD45YE_GYD8Q" y="20"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgY69YEeiD45YE_GYD8Q" y="19"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_I9HgZK9YEeiD45YE_GYD8Q" type="ObjectFlow_SelectionLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_Fc02oNONEeiyPvWz_WSTkA" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgZa9YEeiD45YE_GYD8Q" x="20" y="40"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgZa9YEeiD45YE_GYD8Q" x="19" y="39"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_I9HgZq9YEeiD45YE_GYD8Q" type="ObjectFlow_TransformationLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_Fde98NONEeiyPvWz_WSTkA" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgZ69YEeiD45YE_GYD8Q" x="-20" y="-60"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9HgZ69YEeiD45YE_GYD8Q" x="-19" y="-58"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_I9HgaK9YEeiD45YE_GYD8Q" type="ObjectFlow_KeywordLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_FeEz0NONEeiyPvWz_WSTkA" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9Hgaa9YEeiD45YE_GYD8Q" y="-20"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9Hgaa9YEeiD45YE_GYD8Q" x="-18" y="-18"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_I9Hgaq9YEeiD45YE_GYD8Q" type="ObjectFlow_GuardLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_FerQwNONEeiyPvWz_WSTkA" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9Hga69YEeiD45YE_GYD8Q" y="20"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9Hga69YEeiD45YE_GYD8Q" x="19" y="19"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_I9HgbK9YEeiD45YE_GYD8Q" type="ObjectFlow_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_FfQfkNONEeiyPvWz_WSTkA" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9Hgba9YEeiD45YE_GYD8Q" y="-20"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I9Hgba9YEeiD45YE_GYD8Q" x="1" y="-18"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_I9G5Ua9YEeiD45YE_GYD8Q"/>
       <element xmi:type="uml:ObjectFlow" href="AuthenticationWithOCLValidation.uml#_I8oYMK9YEeiD45YE_GYD8Q"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_I9G5Uq9YEeiD45YE_GYD8Q" points="[338, 285, -643984, -643984]$[338, 218, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Fa8AQNONEeiyPvWz_WSTkA" id="(0.5,0.5)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_Jn0DMK9YEeiD45YE_GYD8Q" type="ObjectFlow_Edge" source="_7TZAIKU3EeiJNOHipgZNwQ" target="_QlmKJ69XEeiD45YE_GYD8Q">
       <children xmi:type="notation:DecorationNode" xmi:id="_Jn0qQK9YEeiD45YE_GYD8Q" type="ObjectFlow_NameLabel">

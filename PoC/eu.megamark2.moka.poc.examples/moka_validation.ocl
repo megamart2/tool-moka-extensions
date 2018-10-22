@@ -72,5 +72,19 @@ inv pinTypesCompatibleInObjectFlow ('[Moka-MegaMart] Output/Input Pin types not 
 		else
 			true
 		endif	
+		
+context CallBehaviorAction
+
+/**
+ * Check type compatibility between arguments of the CallBehaviorAction and the parameters of the associated Activity (in behavior property)
+ * CallBehaviorAction has a behavior:Activity property. 
+ * CallBehaviorAction has a arguments:Collection<InputPin> property
+ * Activity has a paramertes:Collection<InputPin> property
+ * Elements in arguments and parameters must match for name and type.
+ */
+ 
+ inv argumentsMatchParameters: 
+ 	let parameters : Set (Parameter) = self.behavior.ownedParameter in  
+ 		self.argument->forAll(arg:InputPin|parameters->exists (par:Parameter|arg.name = par.name and arg.type = par.type))
 
 endpackage
