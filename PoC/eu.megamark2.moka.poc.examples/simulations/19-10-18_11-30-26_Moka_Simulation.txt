@@ -1,0 +1,2 @@
+19/10/18 12:20:30 Value Specification { name = string Outputs : [ value : type : String, value : Debug message]}
+19/10/18 12:20:31 CallBehaviorActionActivation [ name = callDebug, behavior = debug, Inputs : [ { name : s, type String, value : Debug message} ]]
