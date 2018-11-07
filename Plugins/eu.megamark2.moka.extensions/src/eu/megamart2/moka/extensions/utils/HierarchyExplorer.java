@@ -9,8 +9,6 @@ public class HierarchyExplorer {
 	
 	public Classifier getFinalClassifier(List<Classifier> classifiers) {
 		
-		classifiers = removeAbstract(classifiers);
-		
 		if(classifiers.size() == 1) return classifiers.get(0);
 		
 		for(Classifier classifier : classifiers)
@@ -24,16 +22,6 @@ public class HierarchyExplorer {
         	classifiers = changePlace(classifiers);
         }
 		return null;
-	}
-	
-	private List<Classifier> removeAbstract(List<Classifier> classifiers){
-		
-		List<Classifier> result = new LinkedList<Classifier>();
-		
-		for(Classifier classifier : classifiers)if(!classifier.isAbstract())
-			result.add(classifier);
-		
-		return result;
 	}
 	
 	private List<Classifier> changePlace(List<Classifier> classifiers){

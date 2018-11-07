@@ -1,6 +1,9 @@
 package eu.megamart2.moka.extensions.behaviors;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList; 
 import java.util.List;
 
@@ -18,6 +21,7 @@ import org.eclipse.uml2.uml.internal.impl.CallBehaviorActionImpl;
 
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
 import eu.megamart2.moka.extensions.output.MegamartOutput;
+import eu.megamart2.moka.extensions.ui.MokaEntry;
 
 @SuppressWarnings("restriction")
 public class ActionInfo extends ValueInformationCollector implements NodeInfo{
@@ -25,6 +29,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	private String name; 
 	private String type;
 	private String behavior;
+	private final String time;
 	
 	private final LinkedList <String> inputInfo;
 	private final LinkedList <String> outputInfo;
@@ -33,7 +38,13 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	private MokaDebugTarget target;
 	private boolean complete;
 	
+	private final MokaEntry entry;
+	
 	public ActionInfo(ISemanticVisitor nodeVisitor,ILaunch Launcher) {
+		
+		DateFormat format = new SimpleDateFormat("yy/MM/dd hh:mm:ss");
+		Date date = new Date();
+		time = format.format(date);
 		
 		complete = false;
 		
@@ -82,7 +93,10 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		} catch (DebugException e) { e.printStackTrace(); }
 		inputInfo.add(" ]");
 		
+		entry = new MokaEntry(this);
+		
 		if(isCompletable()) completeInfo(nodeVisitor);
+
 		}
 
 	@Override
@@ -91,10 +105,6 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	@Override
 	public void completeInfo(ISemanticVisitor nodeVisitor) {
      if(complete) return;
-     
-     if(type.contains("self")) {
-    	 System.out.print("");
-     }
      
      // outputs
      outputInfo.add(", Outputs : [ ");
@@ -142,17 +152,23 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		for(String sr : outputInfo) line = line + sr;
 		utils.write(line);
 		utils.write("]\n");
+		entry.addInfo(line + "]");
+		utils.releaseEntry(entry);
 		return;
 		}
 		// first part
 		if(!complete) {
             printPart(true);
 			utils.write("]\n");
+			entry.addInfo("]");
+			utils.releaseEntry(entry);
 			return;
 		}
 		// second part
 		printPart(false);
+		entry.addInfo("]");
 		utils.write("]\n");
+		utils.releaseEntry(entry);
 	}
 
 	@Override
@@ -162,15 +178,40 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	}
 	private void printPart(boolean firstPart) {
 		String line = type + " [ name = " + name + ", ";
-		if(behavior != null)
+		if(behavior != null) {
            line = line + "behavior = " + behavior;
+           entry.addInfo("behavior = " + behavior);
+		}
 
 		if(firstPart) {
-			for(String sr : inputInfo) line = line + sr;
+			for(String sr : inputInfo) {
+				line = line + sr;
+				entry.addInfo(sr);
+			}
 		} else {
-			for(String sr : outputInfo) line = line + sr;
+			for(String sr : outputInfo) {
+				line = line + sr;
+				entry.addInfo(sr);
+			}
 		}
 		MegamartOutput.getInstance().write(line);
 	}
- 
+
+	@Override
+	public String getName() { return name; }
+
+	@Override
+	public String getType() { return type; }
+
+	@Override
+	public List<String> getInputInfo() { return inputInfo; }
+
+	@Override
+	public List<String> getOutputInfo() { return outputInfo; }
+	
+	// Action has a Behavior
+	public String getBehavior() { return behavior; }
+
+	@Override
+	public String getTime() { return time; }
 }

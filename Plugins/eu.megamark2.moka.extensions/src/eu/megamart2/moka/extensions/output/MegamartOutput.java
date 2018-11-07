@@ -21,6 +21,8 @@ import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IOConsole;
 import org.eclipse.ui.console.IOConsoleOutputStream;
 
+import eu.megamart2.moka.extensions.ui.MokaEntry;
+
 public class MegamartOutput {
 	
 	private static MegamartOutput INSTANCE;
@@ -37,8 +39,11 @@ public class MegamartOutput {
 	
 	private boolean disposed;
 	
+	private final MegamartViewOutput viewOutput;
+	
 	private MegamartOutput() { 
         disposed = true;
+        viewOutput = new MegamartViewOutput();
 	}
 	
 	public static MegamartOutput getInstance() {
@@ -55,9 +60,15 @@ public class MegamartOutput {
 		newExecution = true;
 	}
 	
+	public void releaseEntry(MokaEntry entry) {
+		viewOutput.releaseEntry(entry);
+	}
+	
 	public void write(String line) {
 		
 		if(disposed) init(modelElement);
+		
+		if(outConsole == null) return;
 		
 		line = line.replaceAll("  "," ");
 		line = line.replaceAll(",,",",");

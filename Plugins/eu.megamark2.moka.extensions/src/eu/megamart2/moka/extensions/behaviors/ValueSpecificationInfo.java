@@ -1,6 +1,7 @@
 package eu.megamart2.moka.extensions.behaviors;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.papyrus.moka.fuml.Semantics.Actions.BasicActions.IPinActivation;
@@ -62,6 +63,24 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
        for(String sr : info) line = line + sr;
        MegamartOutput.getInstance().write(line);
        MegamartOutput.getInstance().write("\n");
+	}
+
+	@Override
+	public List<String> getInputInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getOutputInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTime() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

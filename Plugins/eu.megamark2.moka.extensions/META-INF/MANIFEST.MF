@@ -20,4 +20,6 @@ Require-Bundle: org.eclipse.papyrus.moka.service,
  org.eclipse.papyrus.moka.fuml,
  org.eclipse.emf.common,
  org.eclipse.uml2.uml.profile.standard,
- org.eclipse.papyrus.moka.composites.interfaces
+ org.eclipse.papyrus.moka.composites.interfaces,
+ javax.inject,
+ org.eclipse.ui

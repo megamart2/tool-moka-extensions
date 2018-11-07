@@ -28,8 +28,6 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	
 	private InfoQueue queue;
 	
-	private SimpleDateFormat dateFormat;
-	
 	private EObject modelElement;
 
 	@Override
@@ -37,7 +35,6 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		control = new StartControl();
 		queue = new InfoQueue();
 		generator = new NodeInfoGenerator(control,queue,launcher);
-		dateFormat = new SimpleDateFormat("dd/MM/yy hh:mm:ss");
         
 		this.modelElement = modelElement;
 	}
@@ -88,8 +85,6 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	public void valueDestroyed(IValue value) {}
 	
 	private void printInfo(NodeInfo info) {
-    	Date date = new Date();
-    	MegamartOutput.getInstance().write(dateFormat.format(date) + " ");
     	info.printSummary();
 	}
 }

@@ -8,5 +8,19 @@
             description="MegaMark2 Service">
       </service>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="eu.megamart2.moka.extensions.category.Megamart2"
+            name="Megamart2">
+      </category>
+      <view
+            category="eu.megamart2.moka.extensions.category.Megamart2"
+            class="eu.megamart2.moka.extensions.ui.MegamartView"
+            id="eu.megamart2.moka.extensions.view1"
+            name="Moka execution"
+            restorable="true">
+      </view>
+   </extension>
 
 </plugin>
