@@ -10,6 +10,7 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.IntermediateActions.
 import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.internal.impl.ValueSpecificationActionImpl;
 
+import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
 import eu.megamart2.moka.extensions.output.MegamartOutput;
 
@@ -66,19 +67,25 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
 	}
 
 	@Override
-	public List<String> getInputInfo() {
+	public List<MegamartAbstractInfoObject> getInputInfo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<String> getOutputInfo() {
+	public List<MegamartAbstractInfoObject> getOutputInfo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MegamartAbstractInfoObject generateInfoObject() {
 		// TODO Auto-generated method stub
 		return null;
 	}

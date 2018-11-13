@@ -25,65 +25,66 @@ import org.eclipse.uml2.uml.internal.impl.LiteralRealImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralStringImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralUnlimitedNaturalImpl;
 
-
+import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
+import eu.megamart2.moka.extensions.info.MegamartPrimitiveInfoObject;
 import eu.megamart2.moka.extensions.utils.HierarchyExplorer;
 import eu.megamart2.moka.extensions.utils.ValueDescription;
 
 @SuppressWarnings("restriction")
 public abstract class ValueInformationCollector {
 	
-	 protected String getValueInfo(IValue value) {
+	 protected MegamartAbstractInfoObject getValueInfo(IValue value,String name) {
 		 
 		 if(value instanceof ObjectTokenValueAdapter) {
 			 IToken token = ((ObjectTokenValueAdapter)value).getAdapted();
 			 
 			 // boolean
 			 if(token.getValue() instanceof BooleanValue) {
-				 return " type : Boolean, value : "
-						 + String.valueOf(((BooleanValue)token.getValue()).value);
+				 return new MegamartPrimitiveInfoObject(name,"Boolean",
+						 String.valueOf(((BooleanValue)token.getValue()).value));
 			 }
 			 
 			 // integer
 			 if(token.getValue() instanceof IntegerValue) {
-				 return " type : Integer, value : " 
-			 + String.valueOf((((IntegerValue)token.getValue()).value.intValue()));
+				 return new MegamartPrimitiveInfoObject(name,"Integer",
+						 String.valueOf((((IntegerValue)token.getValue()).value.intValue())));
 			 }
 			 
 			 // real
 			 if(token.getValue() instanceof RealValue) {
-				 return " type : Real, value : "
-						 + String.valueOf(((RealValue)token.getValue()).getValue());
+				 return new MegamartPrimitiveInfoObject(name,"Real",
+						 String.valueOf(((RealValue)token.getValue()).getValue()));
 			 }
 			 
 			 // string
 			 if(token.getValue() instanceof StringValue) {
-				 return " type String, value : "
-						 + ((StringValue)token.getValue()).getValue();
+				 return new MegamartPrimitiveInfoObject(name,"String",
+						 String.valueOf(((StringValue)token.getValue()).getValue()));
 			 }
 			 
 			 // unlimited natural
 			 if(token.getValue() instanceof UnlimitedNaturalValue) {
-				 return " type : Unlimited natural, value : "
-						 + String.valueOf(((UnlimitedNaturalValue)token.getValue())
-								 .getValue().intValue());
+				 return new MegamartPrimitiveInfoObject(name,"Unlimited Natural",
+						 String.valueOf(((UnlimitedNaturalValue)token.getValue()).getValue()));
 			 }
 			 
 			 if(token instanceof ObjectToken) {  // TODO check
-				String info = getReferenceValueInfo((ObjectToken)token);
+				MegamartAbstractInfoObject info = 
+						getReferenceValueInfo((ObjectToken)token);
 				if(info != null) return info;
 			 }
 			 
 			 if(token.getValue() instanceof IStructuredValue) {
-				 String line = getStructuredValueInfo(
-						 (IStructuredValue)token.getValue()); 
-				      if(line.contains("type") && line.contains("value"))
-						return line;
+				 
+				 return getStructuredValueInfo(
+						 (IStructuredValue)token.getValue(),name); 
 			 }
 		 }
 		 else if(value instanceof IStructuredValue) {
 			return getStructuredValueInfo(
-					 (IStructuredValue)value);
+					 (IStructuredValue)value,name);
 		 }
+		 /*
 		 else if(value instanceof DefaultValueAdapter) {
 			DefaultValueAdapter adapter = (DefaultValueAdapter)value;
 			try {
@@ -94,8 +95,8 @@ public abstract class ValueInformationCollector {
 			} catch (DebugException e) {
 				e.printStackTrace();
 			}
-		 }
-		 return ""; 
+		 }*/
+		 return null; 
 	 }
 		protected ValueDescription generateValue(ValueSpecification specification) {
 			
@@ -122,53 +123,54 @@ public abstract class ValueInformationCollector {
 			return null;
 		}
 		
-		protected String getReferenceValueInfo(ObjectToken token) {
+		private MegamartAbstractInfoObject getReferenceValueInfo(ObjectToken token) {
 			
+			// TODO use complex object instead primitive
 			if(!(token.getValue() instanceof CS_Reference))
 				return null;
 			 
-			 String sr = 
+			 String type = 
 					 ((CS_Reference)token.getValue()).toString();
-			 int n1 = sr.indexOf('(') + 1;
-			 String sr2 = sr.substring(n1);
+			 int n1 = type.indexOf('(') + 1;
+			 String sr2 = type.substring(n1);
 			 int n2 = sr2.indexOf('\n');
-			 sr = "{ " + token.getHolder().getNode().getName() +
-					 " type : " + sr2.substring(0,n2);	 
+			 type = sr2.substring(0,n2);	 
 			
-			 
+			 String value = "";
 			 List<IFeatureValue> features = 
 					 ((CS_Reference)token.getValue()).getFeatureValues();
 			if(features != null)if(features.size() > 0) {
-			sr += ", value : [";
 			boolean first = true;
 			for(IFeatureValue feature : features) {
 				if(first) first = false;
-				else sr += ", ";
-			sr += getFeatureInfo(feature);
+				else value += ", ";
+			value += getFeatureInfo(feature);
 			}
 			}
-			return sr + "]}";
+	
+			return new MegamartPrimitiveInfoObject(
+					token.getHolder().getNode().getName(),type,value);
 		}
 		
-		protected String getStructuredValueInfo(IStructuredValue structure) {
+		private MegamartAbstractInfoObject getStructuredValueInfo(IStructuredValue structure,String name) {
 			
 			List<IFeatureValue> features = structure.getFeatureValues();
 			
-			String result = getStructuredTypeInfo(structure) 
-			+ ", value : ["; 
+			String type = getStructuredTypeInfo(structure);  
 			
+			String value = "";		
 			boolean first = true;
 			for(IFeatureValue feature : features) {
 				if(first) first = false;
-				else result += ", ";
-			result += getFeatureInfo(feature);
+				else value += ", ";
+			value += getFeatureInfo(feature);
 			}
-			return result + "]";
+			return new MegamartPrimitiveInfoObject(name,type,value);
 		}
 		
-		protected String getStructuredTypeInfo(IStructuredValue structure) {
+		private String getStructuredTypeInfo(IStructuredValue structure) {
 			
-			String result = "type : ";
+			String result = "";
 			
 			List<Classifier> classifiers = structure.getTypes();
 			
@@ -183,7 +185,7 @@ public abstract class ValueInformationCollector {
 			}
 		}
 		
-		protected String getFeatureInfo(IFeatureValue feature) {
+		private String getFeatureInfo(IFeatureValue feature) {
 			
 			String result = "{ " + feature.getFeature().getName();
             

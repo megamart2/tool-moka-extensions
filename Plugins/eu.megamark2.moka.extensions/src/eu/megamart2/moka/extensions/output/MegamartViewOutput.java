@@ -7,14 +7,16 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
+import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
 import eu.megamart2.moka.extensions.ui.MegamartView;
-import eu.megamart2.moka.extensions.ui.MokaEntry;
 
 public class MegamartViewOutput {
 	
+	private static MegamartViewOutput INSTANCE;
+	
 	private MegamartView view;
 	
-	public MegamartViewOutput() {
+	private MegamartViewOutput() {
 		
 		Display.getDefault().asyncExec(new Runnable() {
 			@Override
@@ -32,9 +34,14 @@ public class MegamartViewOutput {
 		});
 	}
 	
-	public void releaseEntry(MokaEntry entry) {
+	public static MegamartViewOutput getInstance() {
+		if(INSTANCE == null) INSTANCE = new MegamartViewOutput();
+		return INSTANCE;
+	}
+	
+	public void releaseEntry(String time,MegamartAbstractInfoObject info) {
 		if(view == null) return;
-		view.addEntry(entry);
+		view.addEntry(info,time);
 	}
 
 }

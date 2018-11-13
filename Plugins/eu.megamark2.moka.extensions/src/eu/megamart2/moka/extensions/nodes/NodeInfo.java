@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 
+import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
+
 public interface NodeInfo {
 	
 	public boolean isComplete();
@@ -18,9 +20,11 @@ public interface NodeInfo {
 	
 	public String getType();
 	
-	public List<String> getInputInfo();
+	public List<MegamartAbstractInfoObject> getInputInfo();
 	
-	public List<String> getOutputInfo();
+	public List<MegamartAbstractInfoObject> getOutputInfo();
 	
 	public String getTime();
+	
+	public MegamartAbstractInfoObject generateInfoObject();
 }
