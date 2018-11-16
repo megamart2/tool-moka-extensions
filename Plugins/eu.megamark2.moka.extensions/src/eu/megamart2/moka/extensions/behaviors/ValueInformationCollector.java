@@ -187,6 +187,7 @@ public abstract class ValueInformationCollector {
 		
 		private String getFeatureInfo(IFeatureValue feature) {
 			
+			// TODO 
 			String result = "{ " + feature.getFeature().getName();
             
 			List<org.eclipse.papyrus.moka.fuml.Semantics

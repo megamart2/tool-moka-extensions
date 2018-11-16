@@ -18,6 +18,22 @@ public class MegamartFormatFacade {
 	public void setFormat(String formatString) {
         format.setFormat(formatString);
 	}
+	
+	public void setArrayFormat(String arrayFormat) {
+		format.setArrayFormat(arrayFormat);
+	}
+	
+	public void setArraySeparator(String arraySeparator) {
+		format.setArraySeparator(arraySeparator);
+	}
+	
+	public void setSeparatorAfterInOutTitle(boolean putSeparator) {
+		format.setSeparatorAfterInOutTitle(putSeparator);
+	}
+	
+	public void setInnerFormat(MegamartInfoFormat innerFormat) {
+		format.setInnerFormat(innerFormat);
+	}
 
 	public String format(MegamartAbstractInfoObject info) {
 		

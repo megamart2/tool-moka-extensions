@@ -16,9 +16,14 @@ public class MegamartInfoFormat {
 	
 	private String formatString;
 	
-	private final String arrayFormat;
+	private String arrayFormat;
 	
-	private final String arraySeparator;
+	private String arraySeparator;
+	
+	private boolean separatorAfterInOutTitle;
+	
+	private MegamartInfoFormat innerFormat;
+	
 	
 	public MegamartInfoFormat(String formatString) {
 		this(formatString,"[ %a ]",", ");
@@ -33,10 +38,27 @@ public class MegamartInfoFormat {
 		this.formatString = formatString;
 		this.arrayFormat = arrayFormat;
 		this.arraySeparator = arraySeparator;
+		innerFormat = this; // default
+	}
+	
+	public void setInnerFormat(MegamartInfoFormat innerFormat) {
+		this.innerFormat = innerFormat;
+	}
+	
+	public void setSeparatorAfterInOutTitle(boolean putSeparator) {
+		separatorAfterInOutTitle = putSeparator;
 	}
 	
 	public void setFormat(String formatString) {
 		this.formatString = formatString;
+	}
+	
+	public void setArrayFormat(String arrayFormat) {
+		this.arrayFormat = arrayFormat;
+	}
+	
+	public void setArraySeparator(String arraySeparator) {
+		this.arraySeparator = arraySeparator;
 	}
 	
 	private String baseFormat(MegamartAbstractInfoObject info, boolean inOut) {
@@ -84,11 +106,17 @@ public class MegamartInfoFormat {
 		String result = baseFormat(info,true);
 		
 		if(firstPart) {
-			String arrayString = "Input : " + formatArray(info.getInput());
+			 String arrayString;
+			 if(separatorAfterInOutTitle) arrayString = "Input : " + arraySeparator;
+			 else arrayString = "Input : ";
+			 arrayString += formatArray(info.getInput());
 		    return result.replaceAll("%v", arrayString);
 		}
 		
-		String arrayString = "Output : " + formatArray(info.getOutput());
+		String arrayString;
+		if(separatorAfterInOutTitle) arrayString = "Output : " + arraySeparator;
+		else arrayString = "Output : ";
+		arrayString += formatArray(info.getOutput());
 		return result.replaceAll("%v", arrayString);
 	}
 	
@@ -98,9 +126,12 @@ public class MegamartInfoFormat {
 		
 		String result = baseFormat(info,true);
 		
-		String arrayString = "Input : " +
-		formatArray(info.getInput()) + arraySeparator + "Output : " + 
-				formatArray(info.getOutput());
+		String arrayString;
+		if(separatorAfterInOutTitle) arrayString = "Input : " + arraySeparator;
+		else arrayString = "Input : ";
+	    arrayString += formatArray(info.getInput()) + arraySeparator + "Output : ";
+	    if(separatorAfterInOutTitle) arrayString += arraySeparator;
+		arrayString += formatArray(info.getOutput());
 		
 		return result.replaceAll("%v",arrayString);
 	}
@@ -111,11 +142,11 @@ public class MegamartInfoFormat {
 		boolean first = true;
 		for(MegamartAbstractInfoObject innerObject : innerObjects) {
            if(first && innerObject != null) {
-        	   arrayString = format(innerObject);
+        	   arrayString = innerFormat.format(innerObject);
         	   first = false;
            }
            else if(innerObject != null) 
-        	   arrayString += arraySeparator + format(innerObject);
+        	   arrayString += arraySeparator + innerFormat.format(innerObject);
 		}	
 		arrayString = arrayFormat.replaceAll("%a",arrayString);
 		return arrayString;
