@@ -1,12 +1,10 @@
 package eu.megamart2.moka.extensions.behaviors;
 
+import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IValue;
-import org.eclipse.debug.core.model.IVariable;
 import org.eclipse.papyrus.moka.composites.Semantics.impl.CompositeStructures.StructuredClasses.CS_Reference;
-import org.eclipse.papyrus.moka.debug.model.data.mapping.values.DefaultValueAdapter;
 import org.eclipse.papyrus.moka.debug.model.data.mapping.values.ObjectTokenValueAdapter;
 import org.eclipse.papyrus.moka.fuml.Semantics.Activities.IntermediateActivities.IToken;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IFeatureValue;
@@ -26,6 +24,7 @@ import org.eclipse.uml2.uml.internal.impl.LiteralStringImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralUnlimitedNaturalImpl;
 
 import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
+import eu.megamart2.moka.extensions.info.MegamartComplexInfoObject;
 import eu.megamart2.moka.extensions.info.MegamartPrimitiveInfoObject;
 import eu.megamart2.moka.extensions.utils.HierarchyExplorer;
 import eu.megamart2.moka.extensions.utils.ValueDescription;
@@ -136,20 +135,16 @@ public abstract class ValueInformationCollector {
 			 int n2 = sr2.indexOf('\n');
 			 type = sr2.substring(0,n2);	 
 			
-			 String value = "";
+			 List<MegamartAbstractInfoObject> innerObjects = 
+					 new LinkedList<MegamartAbstractInfoObject>();
 			 List<IFeatureValue> features = 
 					 ((CS_Reference)token.getValue()).getFeatureValues();
-			if(features != null)if(features.size() > 0) {
-			boolean first = true;
-			for(IFeatureValue feature : features) {
-				if(first) first = false;
-				else value += ", ";
-			value += getFeatureInfo(feature);
-			}
-			}
+			if(features != null)if(features.size() > 0)
+			for(IFeatureValue feature : features)
+                innerObjects.add(getFeatureInfo(feature));
 	
-			return new MegamartPrimitiveInfoObject(
-					token.getHolder().getNode().getName(),type,value);
+			return new MegamartComplexInfoObject(
+					token.getHolder().getNode().getName(),type,innerObjects);
 		}
 		
 		private MegamartAbstractInfoObject getStructuredValueInfo(IStructuredValue structure,String name) {
@@ -165,7 +160,7 @@ public abstract class ValueInformationCollector {
 				else value += ", ";
 			value += getFeatureInfo(feature);
 			}
-			return new MegamartPrimitiveInfoObject(name,type,value);
+			return new MegamartPrimitiveInfoObject(name,type,value); // TODO
 		}
 		
 		private String getStructuredTypeInfo(IStructuredValue structure) {
@@ -185,6 +180,60 @@ public abstract class ValueInformationCollector {
 			}
 		}
 		
+		private MegamartAbstractInfoObject getFeatureInfo(IFeatureValue feature) {
+			
+			String name = feature.getFeature().getName();
+			String visibility = feature.getFeature().getVisibility().toString();
+			
+			List<org.eclipse.papyrus.moka.fuml.Semantics
+			.Classes.Kernel.IValue> values = feature.getValues();
+			// TODO
+			if(values == null) return null;
+			if(values.isEmpty()) return null;
+			
+			if(values.size() == 1) {
+				MegamartAbstractInfoObject result = getFumlValueInfo(values.get(0),name);
+				if(result != null)
+				result.setVisibility(visibility);
+				return result;
+			}
+			
+			     List<MegamartAbstractInfoObject> innerObjects =
+			    		 new LinkedList<MegamartAbstractInfoObject>();
+			     for(org.eclipse.papyrus.moka.fuml.Semantics
+			.Classes.Kernel.IValue value : values)
+			    	 innerObjects.add(getFumlValueInfo(value));
+			     String type = feature.getFeature().getType().getName(); // TODO add null checking
+			     return new MegamartComplexInfoObject(name,type,innerObjects,visibility);
+			}
+		
+		private MegamartAbstractInfoObject getFumlValueInfo(
+				org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value) {
+			
+			if(value == null) return null;
+		    if(value.specify() == null) return null;
+		    
+		    return getFumlValueInfo(value,value.specify().getName());
+		}
+		
+		private MegamartAbstractInfoObject getFumlValueInfo(
+				org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value,String name) {
+			
+			if(value == null) return null;
+		    if(value.specify() == null) return null;
+		    if(value.specify().getType() == null) return null;
+		    
+		    String type = value.specify().getType().getName();
+            String[] primitiveTypes = {"Boolean","Integer","Real","String","Unlimited natural"};
+            
+           // TODO value.specify().getVisibility();
+            
+            for(String primitiveType : primitiveTypes)if(type.equalsIgnoreCase(primitiveType))
+            	return new MegamartPrimitiveInfoObject(name,type,value.specify().stringValue());
+		    
+			return null;
+		}
+		/*
 		private String getFeatureInfo(IFeatureValue feature) {
 			
 			// TODO 
@@ -221,5 +270,5 @@ public abstract class ValueInformationCollector {
 			}
 		    
 			return result + "}";
-		}
+		}*/
 }

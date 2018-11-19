@@ -53,7 +53,7 @@ public class MegamartView extends ViewPart{
 		    	
 		    	TreeItem item = new TreeItem(tree,SWT.NONE);
 		    	MegamartFormatFacade format = 
-		    			new MegamartFormatFacade("%n:%t");
+		    			new MegamartFormatFacade("%n : %t");
 		    	String component = format.format(entry);
 		    	format.setFormat("%v");
 		    	MegamartInfoFormat innerFormat = 
@@ -111,6 +111,15 @@ public class MegamartView extends ViewPart{
       
 	  parent.pack();
 	}
+	
+	public void clean() { 
+		Display.getDefault().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				tree.removeAll();
+			}	
+		});
+		}
 
 	@Override
 	public void setFocus() {}

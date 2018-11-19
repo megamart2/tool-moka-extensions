@@ -12,7 +12,7 @@ public class MegamartInfoFormat {
 	public static final String JSON_FORMAT = 
 			"{ name = %n, type = %t, value = %v }";
 	
-	public static final String UML_FORMAT =  "%n:%t=%v";
+	public static final String UML_FORMAT =  "%n : %t = %v";
 	
 	private String formatString;
 	

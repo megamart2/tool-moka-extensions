@@ -11,7 +11,6 @@ import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -19,8 +18,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import eu.megamart2.moka.extensions.constants.MegamartConstants;
-import eu.megamart2.moka.extensions.format.MegamartFormatFacade;
-import eu.megamart2.moka.extensions.format.MegamartInfoFormat;
+import eu.megamart2.moka.extensions.format.MegamartDialogInfoFormat;
 import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
 
 public class MegamartNodeDialog extends TitleAreaDialog {
@@ -96,19 +94,22 @@ public class MegamartNodeDialog extends TitleAreaDialog {
     	  infoLabel.setText("Information : ");
     	  GridDataFactory.swtDefaults().indent(hIndent,vIndent).applyTo(infoLabel);
     	  
-    	  MegamartFormatFacade format = new MegamartFormatFacade("%v");
+    	 /* MegamartFormatFacade format = new MegamartFormatFacade("%v");
     	  MegamartInfoFormat innerFormat = new MegamartInfoFormat(MegamartInfoFormat.UML_FORMAT);
     	  format.setInnerFormat(innerFormat);
     	  format.setArraySeparator("&&&&");
     	  format.setSeparatorAfterInOutTitle(true);
-    	  String[] infos = format.format(information).split("&&&&");
+    	  String[] infos = format.format(information).split("&&&&");*/
+    	  
+    	  MegamartDialogInfoFormat dFormat = new MegamartDialogInfoFormat();
+    	  String infoString = dFormat.format(information);
     	  
     	  Text infoText = new Text(composite,SWT.MULTI | SWT.BORDER | SWT.V_SCROLL | 
     			  SWT.H_SCROLL | SWT.READ_ONLY);
     	  GridDataFactory.fillDefaults().grab(true, true).indent(0, vIndent).applyTo(infoText);
-    	  String infoString = "";
+    	  /*String infoString = "";
     	  for(String info : infos)
-    		  infoString += info + "\n"; 
+    		  infoString += info + "\n"; */
     	  infoText.setText(infoString);
     	  /*
     	  Composite infoText = new Composite(composite,SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);

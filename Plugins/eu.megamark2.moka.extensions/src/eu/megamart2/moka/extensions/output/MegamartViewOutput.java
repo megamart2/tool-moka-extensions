@@ -43,5 +43,9 @@ public class MegamartViewOutput {
 		if(view == null) return;
 		view.addEntry(info,time);
 	}
+	
+	public void clean() {
+		if(view != null) view.clean();
+	}
 
 }

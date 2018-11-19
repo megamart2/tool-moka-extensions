@@ -4,8 +4,12 @@ public class MegamartPrimitiveInfoObject extends MegamartAbstractInfoObject {
 
 	private String value;
 	
-	public MegamartPrimitiveInfoObject(String name, String type,String value) {
-		super(name, type);
+	public MegamartPrimitiveInfoObject(String name,String type,String value) {
+		this(name,type,value,null);
+	}
+	
+	public MegamartPrimitiveInfoObject(String name, String type,String value,String visibility) {
+		super(name, type, visibility);
 		this.value = value;
 	}
 	

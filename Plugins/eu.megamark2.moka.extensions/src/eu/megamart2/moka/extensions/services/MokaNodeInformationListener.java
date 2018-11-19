@@ -1,7 +1,5 @@
 package eu.megamart2.moka.extensions.services;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.debug.core.ILaunch;
@@ -16,6 +14,7 @@ import org.eclipse.uml2.uml.ActivityNode;
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
 import eu.megamart2.moka.extensions.nodes.NodeInfoGenerator;
 import eu.megamart2.moka.extensions.output.MegamartOutput;
+import eu.megamart2.moka.extensions.output.MegamartViewOutput;
 import eu.megamart2.moka.extensions.queue.InfoQueue;
 import eu.megamart2.moka.extensions.utils.StartControl;
 
@@ -37,6 +36,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		generator = new NodeInfoGenerator(control,queue,launcher);
         
 		this.modelElement = modelElement;
+		MegamartViewOutput.getInstance().clean();
 	}
 	
 	@Override
