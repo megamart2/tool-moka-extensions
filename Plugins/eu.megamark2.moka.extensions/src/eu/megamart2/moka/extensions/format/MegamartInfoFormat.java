@@ -95,6 +95,8 @@ public class MegamartInfoFormat {
 			result = result.replaceAll("%v",arrayString);
 			
 		}
+		if(result.replaceAll(" ","").charAt(0) == ':')
+			result = result.replaceFirst(":",""); // this is for no name objects
 		
 		return result;
 	}

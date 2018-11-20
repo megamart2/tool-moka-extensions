@@ -27,7 +27,6 @@ import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
 import eu.megamart2.moka.extensions.info.MegamartComplexInfoObject;
 import eu.megamart2.moka.extensions.info.MegamartPrimitiveInfoObject;
 import eu.megamart2.moka.extensions.utils.HierarchyExplorer;
-import eu.megamart2.moka.extensions.utils.ValueDescription;
 
 @SuppressWarnings("restriction")
 public abstract class ValueInformationCollector {
@@ -83,41 +82,29 @@ public abstract class ValueInformationCollector {
 			return getStructuredValueInfo(
 					 (IStructuredValue)value,name);
 		 }
-		 /*
-		 else if(value instanceof DefaultValueAdapter) {
-			DefaultValueAdapter adapter = (DefaultValueAdapter)value;
-			try {
-				IVariable[] variables = adapter.getVariables();
-		        if(variables == null) return "";
-		        if(variables.length < 1) return "";
-				return " type : " + variables[0].getReferenceTypeName() + ", value : " ;
-			} catch (DebugException e) {
-				e.printStackTrace();
-			}
-		 }*/
 		 return null; 
 	 }
-		protected ValueDescription generateValue(ValueSpecification specification) {
+		protected MegamartAbstractInfoObject generateValue(ValueSpecification specification) {
 			
 			if(specification instanceof LiteralBooleanImpl) {
 				boolean boo = ((LiteralBooleanImpl)specification).booleanValue();
-                return new ValueDescription("Boolean",String.valueOf(boo));
+                return new MegamartPrimitiveInfoObject("","Boolean",String.valueOf(boo));
 			}	
 			if(specification instanceof LiteralIntegerImpl) {
 				int v = ((LiteralIntegerImpl)specification).getValue();
-                return new ValueDescription("Integer",String.valueOf(v));
+				return new MegamartPrimitiveInfoObject("","Integer",String.valueOf(v));
 			}
 			if(specification instanceof LiteralRealImpl) {
 				double v = ((LiteralRealImpl)specification).getValue();
-				return new ValueDescription("Real",String.valueOf(v));
+				return new MegamartPrimitiveInfoObject("","Real",String.valueOf(v));
 			}	
 			if(specification instanceof LiteralStringImpl)
-				return new ValueDescription
-						("String",((LiteralStringImpl)specification).getValue());
+				return new MegamartPrimitiveInfoObject("",
+						"String",((LiteralStringImpl)specification).getValue());
 
 			if(specification instanceof LiteralUnlimitedNaturalImpl) {
 				int v = ((LiteralUnlimitedNaturalImpl)specification).integerValue();
-		        return new ValueDescription("Unlimited natural",String.valueOf(v));
+				return new MegamartPrimitiveInfoObject("","Unlimited natural",String.valueOf(v));
 			}
 			return null;
 		}
@@ -226,49 +213,11 @@ public abstract class ValueInformationCollector {
 		    String type = value.specify().getType().getName();
             String[] primitiveTypes = {"Boolean","Integer","Real","String","Unlimited natural"};
             
-           // TODO value.specify().getVisibility();
+            String visibility = value.specify().getVisibility().getName();
             
             for(String primitiveType : primitiveTypes)if(type.equalsIgnoreCase(primitiveType))
-            	return new MegamartPrimitiveInfoObject(name,type,value.specify().stringValue());
+            	return new MegamartPrimitiveInfoObject(name,type,value.specify().stringValue(),visibility);
 		    
 			return null;
 		}
-		/*
-		private String getFeatureInfo(IFeatureValue feature) {
-			
-			// TODO 
-			String result = "{ " + feature.getFeature().getName();
-            
-			List<org.eclipse.papyrus.moka.fuml.Semantics
-			.Classes.Kernel.IValue> values = feature.getValues();
-			
-			if(values.size() == 1)if(values.get(0).specify() != null){
-				if(values.get(0).specify().getType() != null) {
-				result += ", type : " 
-			+ values.get(0).specify().getType().getName();
-				}
-			result += ", value : " + values.get(0).specify().stringValue();
-				return result + " }";  
-			}
-			
-			boolean first = true;
-			if(values.size() > 1) {
-				result += ", values : [";
-				for(org.eclipse.papyrus.moka.fuml.Semantics.Classes
-						.Kernel.IValue value : values) {
-					if(first) {
-						result += "{ type : ";
-						first = false;
-					}
-					else result += ",{ type : ";
-					result +=
-						value.specify().getType().getName()
-						+ " value : "
-						+ value.specify().stringValue() + " }";
-				}
-				result += "]";
-			}
-		    
-			return result + "}";
-		}*/
 }
