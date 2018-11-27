@@ -1,12 +1,10 @@
 package eu.megamart2.moka.extensions.behaviors;
 
+import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IValue;
-import org.eclipse.debug.core.model.IVariable;
 import org.eclipse.papyrus.moka.composites.Semantics.impl.CompositeStructures.StructuredClasses.CS_Reference;
-import org.eclipse.papyrus.moka.debug.model.data.mapping.values.DefaultValueAdapter;
 import org.eclipse.papyrus.moka.debug.model.data.mapping.values.ObjectTokenValueAdapter;
 import org.eclipse.papyrus.moka.fuml.Semantics.Activities.IntermediateActivities.IToken;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IFeatureValue;
@@ -25,150 +23,136 @@ import org.eclipse.uml2.uml.internal.impl.LiteralRealImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralStringImpl;
 import org.eclipse.uml2.uml.internal.impl.LiteralUnlimitedNaturalImpl;
 
-
+import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
+import eu.megamart2.moka.extensions.info.MegamartComplexInfoObject;
+import eu.megamart2.moka.extensions.info.MegamartPrimitiveInfoObject;
 import eu.megamart2.moka.extensions.utils.HierarchyExplorer;
-import eu.megamart2.moka.extensions.utils.ValueDescription;
 
 @SuppressWarnings("restriction")
 public abstract class ValueInformationCollector {
 	
-	 protected String getValueInfo(IValue value) {
+	 protected MegamartAbstractInfoObject getValueInfo(IValue value,String name) {
 		 
 		 if(value instanceof ObjectTokenValueAdapter) {
 			 IToken token = ((ObjectTokenValueAdapter)value).getAdapted();
 			 
 			 // boolean
 			 if(token.getValue() instanceof BooleanValue) {
-				 return " type : Boolean, value : "
-						 + String.valueOf(((BooleanValue)token.getValue()).value);
+				 return new MegamartPrimitiveInfoObject(name,"Boolean",
+						 String.valueOf(((BooleanValue)token.getValue()).value));
 			 }
 			 
 			 // integer
 			 if(token.getValue() instanceof IntegerValue) {
-				 return " type : Integer, value : " 
-			 + String.valueOf((((IntegerValue)token.getValue()).value.intValue()));
+				 return new MegamartPrimitiveInfoObject(name,"Integer",
+						 String.valueOf((((IntegerValue)token.getValue()).value.intValue())));
 			 }
 			 
 			 // real
 			 if(token.getValue() instanceof RealValue) {
-				 return " type : Real, value : "
-						 + String.valueOf(((RealValue)token.getValue()).getValue());
+				 return new MegamartPrimitiveInfoObject(name,"Real",
+						 String.valueOf(((RealValue)token.getValue()).getValue()));
 			 }
 			 
 			 // string
 			 if(token.getValue() instanceof StringValue) {
-				 return " type String, value : "
-						 + ((StringValue)token.getValue()).getValue();
+				 return new MegamartPrimitiveInfoObject(name,"String",
+						 String.valueOf(((StringValue)token.getValue()).getValue()));
 			 }
 			 
 			 // unlimited natural
 			 if(token.getValue() instanceof UnlimitedNaturalValue) {
-				 return " type : Unlimited natural, value : "
-						 + String.valueOf(((UnlimitedNaturalValue)token.getValue())
-								 .getValue().intValue());
+				 return new MegamartPrimitiveInfoObject(name,"Unlimited Natural",
+						 String.valueOf(((UnlimitedNaturalValue)token.getValue()).getValue()));
 			 }
 			 
 			 if(token instanceof ObjectToken) {  // TODO check
-				String info = getReferenceValueInfo((ObjectToken)token);
+				MegamartAbstractInfoObject info = 
+						getReferenceValueInfo((ObjectToken)token);
 				if(info != null) return info;
 			 }
 			 
 			 if(token.getValue() instanceof IStructuredValue) {
-				 String line = getStructuredValueInfo(
-						 (IStructuredValue)token.getValue()); 
-				      if(line.contains("type") && line.contains("value"))
-						return line;
+				 
+				 return getStructuredValueInfo(
+						 (IStructuredValue)token.getValue(),name); 
 			 }
 		 }
 		 else if(value instanceof IStructuredValue) {
 			return getStructuredValueInfo(
-					 (IStructuredValue)value);
+					 (IStructuredValue)value,name);
 		 }
-		 else if(value instanceof DefaultValueAdapter) {
-			DefaultValueAdapter adapter = (DefaultValueAdapter)value;
-			try {
-				IVariable[] variables = adapter.getVariables();
-		        if(variables == null) return "";
-		        if(variables.length < 1) return "";
-				return " type : " + variables[0].getReferenceTypeName() + ", value : " ;
-			} catch (DebugException e) {
-				e.printStackTrace();
-			}
-		 }
-		 return ""; 
+		 return null; 
 	 }
-		protected ValueDescription generateValue(ValueSpecification specification) {
+		protected MegamartAbstractInfoObject generateValue(ValueSpecification specification) {
 			
 			if(specification instanceof LiteralBooleanImpl) {
 				boolean boo = ((LiteralBooleanImpl)specification).booleanValue();
-                return new ValueDescription("Boolean",String.valueOf(boo));
+                return new MegamartPrimitiveInfoObject("","Boolean",String.valueOf(boo));
 			}	
 			if(specification instanceof LiteralIntegerImpl) {
 				int v = ((LiteralIntegerImpl)specification).getValue();
-                return new ValueDescription("Integer",String.valueOf(v));
+				return new MegamartPrimitiveInfoObject("","Integer",String.valueOf(v));
 			}
 			if(specification instanceof LiteralRealImpl) {
 				double v = ((LiteralRealImpl)specification).getValue();
-				return new ValueDescription("Real",String.valueOf(v));
+				return new MegamartPrimitiveInfoObject("","Real",String.valueOf(v));
 			}	
 			if(specification instanceof LiteralStringImpl)
-				return new ValueDescription
-						("String",((LiteralStringImpl)specification).getValue());
+				return new MegamartPrimitiveInfoObject("",
+						"String",((LiteralStringImpl)specification).getValue());
 
 			if(specification instanceof LiteralUnlimitedNaturalImpl) {
 				int v = ((LiteralUnlimitedNaturalImpl)specification).integerValue();
-		        return new ValueDescription("Unlimited natural",String.valueOf(v));
+				return new MegamartPrimitiveInfoObject("","Unlimited natural",String.valueOf(v));
 			}
 			return null;
 		}
 		
-		protected String getReferenceValueInfo(ObjectToken token) {
+		private MegamartAbstractInfoObject getReferenceValueInfo(ObjectToken token) {
 			
+			// TODO use complex object instead primitive
 			if(!(token.getValue() instanceof CS_Reference))
 				return null;
 			 
-			 String sr = 
+			 String type = 
 					 ((CS_Reference)token.getValue()).toString();
-			 int n1 = sr.indexOf('(') + 1;
-			 String sr2 = sr.substring(n1);
+			 int n1 = type.indexOf('(') + 1;
+			 String sr2 = type.substring(n1);
 			 int n2 = sr2.indexOf('\n');
-			 sr = "{ " + token.getHolder().getNode().getName() +
-					 " type : " + sr2.substring(0,n2);	 
+			 type = sr2.substring(0,n2);	 
 			
-			 
+			 List<MegamartAbstractInfoObject> innerObjects = 
+					 new LinkedList<MegamartAbstractInfoObject>();
 			 List<IFeatureValue> features = 
 					 ((CS_Reference)token.getValue()).getFeatureValues();
-			if(features != null)if(features.size() > 0) {
-			sr += ", value : [";
-			boolean first = true;
-			for(IFeatureValue feature : features) {
-				if(first) first = false;
-				else sr += ", ";
-			sr += getFeatureInfo(feature);
-			}
-			}
-			return sr + "]}";
+			if(features != null)if(features.size() > 0)
+			for(IFeatureValue feature : features)
+                innerObjects.add(getFeatureInfo(feature));
+	
+			return new MegamartComplexInfoObject(
+					token.getHolder().getNode().getName(),type,innerObjects);
 		}
 		
-		protected String getStructuredValueInfo(IStructuredValue structure) {
+		private MegamartAbstractInfoObject getStructuredValueInfo(IStructuredValue structure,String name) {
 			
 			List<IFeatureValue> features = structure.getFeatureValues();
 			
-			String result = getStructuredTypeInfo(structure) 
-			+ ", value : ["; 
+			String type = getStructuredTypeInfo(structure);  
 			
+			String value = "";		
 			boolean first = true;
 			for(IFeatureValue feature : features) {
 				if(first) first = false;
-				else result += ", ";
-			result += getFeatureInfo(feature);
+				else value += ", ";
+			value += getFeatureInfo(feature);
 			}
-			return result + "]";
+			return new MegamartPrimitiveInfoObject(name,type,value); // TODO
 		}
 		
-		protected String getStructuredTypeInfo(IStructuredValue structure) {
+		private String getStructuredTypeInfo(IStructuredValue structure) {
 			
-			String result = "type : ";
+			String result = "";
 			
 			List<Classifier> classifiers = structure.getTypes();
 			
@@ -183,40 +167,57 @@ public abstract class ValueInformationCollector {
 			}
 		}
 		
-		protected String getFeatureInfo(IFeatureValue feature) {
+		private MegamartAbstractInfoObject getFeatureInfo(IFeatureValue feature) {
 			
-			String result = "{ " + feature.getFeature().getName();
-            
+			String name = feature.getFeature().getName();
+			String visibility = feature.getFeature().getVisibility().toString();
+			
 			List<org.eclipse.papyrus.moka.fuml.Semantics
 			.Classes.Kernel.IValue> values = feature.getValues();
+			// TODO
+			if(values == null) return null;
+			if(values.isEmpty()) return null;
 			
-			if(values.size() == 1)if(values.get(0).specify() != null){
-				if(values.get(0).specify().getType() != null) {
-				result += ", type : " 
-			+ values.get(0).specify().getType().getName();
-				}
-			result += ", value : " + values.get(0).specify().stringValue();
-				return result + " }";  
+			if(values.size() == 1) {
+				MegamartAbstractInfoObject result = getFumlValueInfo(values.get(0),name);
+				if(result != null)
+				result.setVisibility(visibility);
+				return result;
 			}
 			
-			boolean first = true;
-			if(values.size() > 1) {
-				result += ", values : [";
-				for(org.eclipse.papyrus.moka.fuml.Semantics.Classes
-						.Kernel.IValue value : values) {
-					if(first) {
-						result += "{ type : ";
-						first = false;
-					}
-					else result += ",{ type : ";
-					result +=
-						value.specify().getType().getName()
-						+ " value : "
-						+ value.specify().stringValue() + " }";
-				}
-				result += "]";
+			     List<MegamartAbstractInfoObject> innerObjects =
+			    		 new LinkedList<MegamartAbstractInfoObject>();
+			     for(org.eclipse.papyrus.moka.fuml.Semantics
+			.Classes.Kernel.IValue value : values)
+			    	 innerObjects.add(getFumlValueInfo(value));
+			     String type = feature.getFeature().getType().getName(); // TODO add null checking
+			     return new MegamartComplexInfoObject(name,type,innerObjects,visibility);
 			}
+		
+		private MegamartAbstractInfoObject getFumlValueInfo(
+				org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value) {
+			
+			if(value == null) return null;
+		    if(value.specify() == null) return null;
 		    
-			return result + "}";
+		    return getFumlValueInfo(value,value.specify().getName());
+		}
+		
+		private MegamartAbstractInfoObject getFumlValueInfo(
+				org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value,String name) {
+			
+			if(value == null) return null;
+		    if(value.specify() == null) return null;
+		    if(value.specify().getType() == null) return null;
+		    
+		    String type = value.specify().getType().getName();
+            String[] primitiveTypes = {"Boolean","Integer","Real","String","Unlimited natural"};
+            
+            String visibility = value.specify().getVisibility().getName();
+            
+            for(String primitiveType : primitiveTypes)if(type.equalsIgnoreCase(primitiveType))
+            	return new MegamartPrimitiveInfoObject(name,type,value.specify().stringValue(),visibility);
+		    
+			return null;
 		}
 }

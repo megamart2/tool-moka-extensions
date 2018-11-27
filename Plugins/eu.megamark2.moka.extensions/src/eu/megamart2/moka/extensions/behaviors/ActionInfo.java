@@ -1,6 +1,9 @@
 package eu.megamart2.moka.extensions.behaviors;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList; 
 import java.util.List;
 
@@ -16,8 +19,13 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.OutputP
 import org.eclipse.uml2.uml.internal.impl.ActionImpl;
 import org.eclipse.uml2.uml.internal.impl.CallBehaviorActionImpl;
 
+import eu.megamart2.moka.extensions.format.MegamartFormatFacade;
+import eu.megamart2.moka.extensions.format.MegamartInfoFormat;
+import eu.megamart2.moka.extensions.info.MegamartAbstractInfoObject;
+import eu.megamart2.moka.extensions.info.MegamartInOutInfoObject;
 import eu.megamart2.moka.extensions.nodes.NodeInfo;
 import eu.megamart2.moka.extensions.output.MegamartOutput;
+import eu.megamart2.moka.extensions.output.MegamartViewOutput;
 
 @SuppressWarnings("restriction")
 public class ActionInfo extends ValueInformationCollector implements NodeInfo{
@@ -25,20 +33,24 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	private String name; 
 	private String type;
 	private String behavior;
+	private final String time;
 	
-	private final LinkedList <String> inputInfo;
-	private final LinkedList <String> outputInfo;
+	private final MegamartInOutInfoObject info;
 	
 	private List<IPinActivation> pins;
 	private MokaDebugTarget target;
-	private boolean complete;
 	
 	public ActionInfo(ISemanticVisitor nodeVisitor,ILaunch Launcher) {
 		
-		complete = false;
+		DateFormat format = new SimpleDateFormat("yy/MM/dd hh:mm:ss");
+		Date date = new Date();
+		time = format.format(date);
 		
-		inputInfo = new LinkedList<String>();
-		outputInfo = new LinkedList<String>();
+		List<MegamartAbstractInfoObject> inputInfo = 
+				new LinkedList<MegamartAbstractInfoObject>();
+		
+		List<MegamartAbstractInfoObject> outputInfo = 
+				new LinkedList<MegamartAbstractInfoObject>();
 		
 		// General info
 		ActionActivation cba = ((ActionActivation)nodeVisitor);
@@ -58,8 +70,6 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		pins = cba.pinActivations;
 		
 		// inputs 
-		inputInfo.add(", Inputs : [ ");
-		
 		int n = 0;
 		for(IPinActivation pin : pins)if(pin instanceof InputPinActivation) n++;
         
@@ -74,30 +84,26 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 			PinActivationVariableAdapter adapter  = 
 					new PinActivationVariableAdapter(target,inputPins.get(i));
 			
-				inputInfo.add("{ name : " + adapter.getName() + ", " +
-						getValueInfo(adapter.getValue())+ "}");
-				
-				if(i < (n - 1)) inputInfo.add(", ");	
+				inputInfo.add(getValueInfo(adapter.getValue(),adapter.getName()));
+					
 		}
 		} catch (DebugException e) { e.printStackTrace(); }
-		inputInfo.add(" ]");
+		
+		info = new MegamartInOutInfoObject(name,type,inputInfo,outputInfo,
+				isCompletable(),false);
 		
 		if(isCompletable()) completeInfo(nodeVisitor);
+        
 		}
 
 	@Override
-	public boolean isComplete() { return complete; }
+	public boolean isComplete() { return info.isComplete(); }
 
 	@Override
 	public void completeInfo(ISemanticVisitor nodeVisitor) {
-     if(complete) return;
-     
-     if(type.contains("self")) {
-    	 System.out.print("");
-     }
+     if(info.isComplete()) return;
      
      // outputs
-     outputInfo.add(", Outputs : [ ");
      
      int n = 0;
      for(IPinActivation pin : pins)if(pin instanceof OutputPinActivation) n++;
@@ -113,20 +119,12 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
     	 PinActivationVariableAdapter adapter = 
     			 new PinActivationVariableAdapter(target,outputPins.get(i));
     	 
-    	 outputInfo.add(getValueInfo(adapter.getValue()));
-    	 
-    	// String line = "{name : " + adapter.getName();
-    	 
-    		 
-
-    	 
-    	 if(i < (n-1)) outputInfo.add(", ");
+    	 info.getOutput().add(getValueInfo(adapter.getValue(),adapter.getName()));
+    	
      }
      } catch(DebugException e) { e.printStackTrace(); }
     	 
-     outputInfo.add(" ]");
-     
-	 complete = true;	
+     info.setComplete(true);
 	 
 	} 
 	
@@ -134,25 +132,13 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	public void printSummary() {  
 		
 		MegamartOutput utils = MegamartOutput.getInstance();
+		MegamartViewOutput viewOut = MegamartViewOutput.getInstance();
 		
-		// completable nodes write all in one line
-		if(isCompletable()) {
-	    printPart(true);
-	    String line = "";
-		for(String sr : outputInfo) line = line + sr;
-		utils.write(line);
-		utils.write("]\n");
-		return;
-		}
-		// first part
-		if(!complete) {
-            printPart(true);
-			utils.write("]\n");
-			return;
-		}
-		// second part
-		printPart(false);
-		utils.write("]\n");
+		MegamartFormatFacade consoleFormat = 
+				new MegamartFormatFacade(MegamartInfoFormat.JSON_FORMAT);
+		
+		utils.write(consoleFormat.format(info));
+		viewOut.releaseEntry(time, info);
 	}
 
 	@Override
@@ -160,17 +146,27 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		if(type.contains("CallBehavior")) return false;
 		return true;
 	}
-	private void printPart(boolean firstPart) {
-		String line = type + " [ name = " + name + ", ";
-		if(behavior != null)
-           line = line + "behavior = " + behavior;
 
-		if(firstPart) {
-			for(String sr : inputInfo) line = line + sr;
-		} else {
-			for(String sr : outputInfo) line = line + sr;
-		}
-		MegamartOutput.getInstance().write(line);
+	@Override
+	public String getName() { return name; }
+
+	@Override
+	public String getType() { return type; }
+
+	@Override
+	public List<MegamartAbstractInfoObject> getInputInfo() { return info.getInput(); }
+
+	@Override
+	public List<MegamartAbstractInfoObject> getOutputInfo() { return info.getOutput(); }
+	
+	// Action has a Behavior
+	public String getBehavior() { return behavior; }
+
+	@Override
+	public String getTime() { return time; }
+
+	@Override
+	public MegamartAbstractInfoObject generateInfoObject() {
+	 return info;
 	}
- 
 }

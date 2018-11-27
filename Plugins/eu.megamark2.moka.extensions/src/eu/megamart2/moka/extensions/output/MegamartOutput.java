@@ -59,17 +59,11 @@ public class MegamartOutput {
 		
 		if(disposed) init(modelElement);
 		
-		line = line.replaceAll("  "," ");
-		line = line.replaceAll(",,",",");
-		line = line.replaceAll(", ,",",");
-		line = line.replaceAll(",}","}");
-		line = line.replaceAll(", }","}");
-		line = line.replaceAll(",]",",]");
-		line = line.replaceAll(", ]",",]");
+		if(outConsole == null) return;
 
 		try {
-			outConsole.write(line);
-			writer.write(line);
+			outConsole.write(line + "\n");
+			writer.write(line + "\n");
 			//writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
