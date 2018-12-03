@@ -1,0 +1,95 @@
+import uml : 'http://www.eclipse.org/uml2/5.0.0/UML'
+
+package uml
+
+context Class
+/**Test constraint*/
+
+inv ClassUpperCaseName: name.at(1)=name.at(1).toUpperCase()
+
+context Element
+
+/**
+ * Declare a helper operation to map ok/warning verdict to ok/error
+ */
+ 
+def: asError (verdict : Boolean) : Boolean = if verdict then true else null endif
+
+context NamedElement
+
+/**
+ * Get name
+ */ 
+ def: theName : String = if name.oclIsUndefined() then 'unnamed' else name endif
+
+/**
+ * ValueSpecificationAction validation
+ */
+context ValueSpecificationAction
+--
+-- ValueSpecificationAction should have a name
+--
+inv Moka_ValueSpecificationAction_ShouldHaveAName:
+	not self.name.oclIsUndefined() and self.name.size() > 0
+	
+inv Moka_ValueSpecificationAction_vsaShouldHaveAValue:
+	asError (not self.value.oclIsUndefined())
+	
+inv Moka_ValueSpecificationAction_vsaShouldHaveAResult: 
+	asError (not self.result.oclIsUndefined()) --check
+
+/**
+ * InputPin validation
+ */
+context InputPin
+
+inv Moka_InputPin_ShouldHaveAType:
+	asError (not self.type.oclIsUndefined())
+	
+/**
+ * OutputPin validation
+ */
+context OutputPin
+
+inv Moka_OutputPin_ShouldHaveAType:
+	asError (not self.type.oclIsUndefined())
+	
+/**
+ * There are not orphan output pins
+ */
+ 
+ inv Moka_OutputPin_noOrphansOutputPins: 
+ asError (ObjectFlow.allInstances()->exists(source = self or target = self))
+	
+/**
+ * ObjectFlow validation
+ */
+context ObjectFlow
+
+/**
+ * Pins connected by objectFlow have compatible types
+ */
+inv Moka_ObjectFlow_pinTypesMustbeCompatibleInObjectFlow:
+	let source:ActivityNode = self.source, target:ActivityNode = self.target in 
+		if source.oclIsTypeOf(OutputPin) and target.oclIsTypeOf(InputPin)
+		then
+			asError(source.oclAsType(OutputPin).type = target.oclAsType(InputPin).type)
+		else
+			true
+		endif	
+		
+context CallBehaviorAction
+
+/**
+ * Check type compatibility between arguments of the CallBehaviorAction and the parameters of the associated Activity (in behavior property)
+ * CallBehaviorAction has a behavior:Activity property. 
+ * CallBehaviorAction has a arguments:Collection<InputPin> property
+ * Activity has a paramertes:Collection<InputPin> property
+ * Elements in arguments and parameters must match for name and type.
+ */
+ 
+ inv Moka_CallBehaviorAction_argumentsMatchParameters: 
+ 	let parameters : OrderedSet (Parameter) = self.behavior.ownedParameter in  
+ 		self.argument->forAll(arg:InputPin|parameters->exists (par:Parameter|arg.name = par.name and arg.type = par.type))
+
+ endpackage
