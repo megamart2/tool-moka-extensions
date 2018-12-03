@@ -12,13 +12,13 @@
          point="org.eclipse.ui.views">
       <category
             id="eu.megamart2.moka.extensions.category.Megamart2"
-            name="Megamart2">
+            name="%category.name">
       </category>
       <view
             category="eu.megamart2.moka.extensions.category.Megamart2"
             class="eu.megamart2.moka.extensions.ui.MegamartView"
             id="eu.megamart2.moka.extensions.view1"
-            name="Moka execution"
+            name="%view.name"
             restorable="true">
       </view>
    </extension>
