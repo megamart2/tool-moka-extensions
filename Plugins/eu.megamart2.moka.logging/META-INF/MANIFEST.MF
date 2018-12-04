@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Plugin.name
 Bundle-SymbolicName: eu.megamart2.moka.logging;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: eu.megamart2.moka.extensions
+Automatic-Module-Name: eu.megamart2.moka.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.papyrus.moka.service,
  org.eclipse.emf.ecore,

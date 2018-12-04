@@ -4,20 +4,20 @@
    <extension
          point="org.eclipse.papyrus.moka.service.service">
       <service
-            class="eu.megamart2.moka.extensions.services.MokaNodeInformationListener"
+            class="eu.megamart2.moka.logging.services.MokaNodeInformationListener"
             description="MegaMark2 Service">
       </service>
    </extension>
    <extension
          point="org.eclipse.ui.views">
       <category
-            id="eu.megamart2.moka.extensions.category.Megamart2"
+            id="eu.megamart2.moka.logging.category.Megamart2"
             name="%category.name">
       </category>
       <view
-            category="eu.megamart2.moka.extensions.category.Megamart2"
-            class="eu.megamart2.moka.extensions.ui.MegamartView"
-            id="eu.megamart2.moka.extensions.view1"
+            category="eu.megamart2.moka.logging.category.Megamart2"
+            class="eu.megamart2.moka.logging.ui.MegamartView"
+            id="eu.megamart2.moka.logging.view1"
             name="%view.name"
             restorable="true">
       </view>
