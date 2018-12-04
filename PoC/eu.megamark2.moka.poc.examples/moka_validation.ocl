@@ -83,8 +83,8 @@ context CallBehaviorAction
  * Elements in arguments and parameters must match for name and type.
  */
  
- inv argumentsMatchParameters: 
- 	let parameters : Set (Parameter) = self.behavior.ownedParameter in  
+ inv argumentsMatchParameters ('[Moka-MegaMart] XXX '): 
+ 	let parameters : OrderedSet (Parameter) = self.behavior.ownedParameter in  
  		self.argument->forAll(arg:InputPin|parameters->exists (par:Parameter|arg.name = par.name and arg.type = par.type))
 
 endpackage
