@@ -1,4 +1,4 @@
-# [![MegaM@Rt](images/MegaM@Rt2-logo-copy.gif)](https://megamart2-ecsel.eu/) MegaM@Rt project: Moka Extensions
+# [![MegaM@Rt](images/megamart2-logo.gif)](https://megamart2-ecsel.eu/) MegaM@Rt project: Moka Extensions
 
 This repository contains the code of number of plugins that extend the functionality of Papyrus Moka engine for fUML simulation. It also contains an update site to install them.
 
