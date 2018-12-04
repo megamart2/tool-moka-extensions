@@ -48,7 +48,20 @@ This will create a *megamart2-moka* folder into your local file system
 
 ![Moka validation view](images/moka-validation-view.png)
 
-Validation results are marked for affected model elements on the *Model Explorer* view of the *Papyrus Perspective*, and also in the graphical model view. If you double click on an validation issue in the *Model Validation* view, the corresponding element is highlighted in the model explorer. After fixin each validation issue you can validate again the model and check the results. 
+Validation results are marked for affected model elements on the *Model Explorer* view of the *Papyrus Perspective*, and also in the graphical model view. If you double click on an validation issue in the *Model Validation* view, the corresponding element is highlighted in the model explorer. After fixing each validation issue you can validate again the model and check the results. 
+
+## Execution and logging of UML models.
+Above *Authentication* model can be executed using Moka. Create a Moka execution configuration as described in the [Moka Documentation](https://wiki.eclipse.org/Papyrus/UserGuide/ModelExecution#Getting_started_with_Moka)
+
+Launch the Moka configuration for the *Authentication* model. The execution will be shown graphically in the Papyrus UML editor. Simultaneously, execution logs will be displayed in two views:
+* The fUML console view.
+* The new Moka execution view.
+
+![Moka execution view](images/moka-execution-view.png)
+
+In the execution view log entries are describing the inflows and outflows in/from any behavioral actions of the model, including information about the action, its inputs and outputs at the moment of the logging.
+Selecting any log entry with a double click opens a detail windows that renders the log information
+Log entries are populated in the temporal order they are provided, which corresponds to the order the actions are executed within the model.
 
 Main contact: Jesús Gorroñogoitia <jesus.gorronogoitia@atos.net>
 
