@@ -2,6 +2,11 @@ import uml : 'http://www.eclipse.org/uml2/5.0.0/UML'
 
 package uml
 
+context Class
+/**Test constraint*/
+
+inv ClassUpperCaseName: name.at(1)=name.at(1).toUpperCase()
+
 context Element
 
 /**
@@ -24,13 +29,13 @@ context ValueSpecificationAction
 --
 -- ValueSpecificationAction should have a name
 --
-inv vsaShouldHaveName('[Moka-MegaMart] The \'name\' property of "' + self.toString() + '" is not set'):
+inv Moka_ValueSpecificationAction_ShouldHaveAName:
 	not self.name.oclIsUndefined() and self.name.size() > 0
 	
-inv vsaShouldHaveValue ('[Moka-MegaMart] The \'value\' property of "' + self.toString() + '" is not set'):
+inv Moka_ValueSpecificationAction_vsaShouldHaveAValue:
 	asError (not self.value.oclIsUndefined())
 	
-inv vsaShouldHaveResult ('[Moka-MegaMart] The \'result\' property of "' + self.toString() + '" is not set'): 
+inv Moka_ValueSpecificationAction_vsaShouldHaveAResult: 
 	asError (not self.result.oclIsUndefined()) --check
 
 /**
@@ -38,7 +43,7 @@ inv vsaShouldHaveResult ('[Moka-MegaMart] The \'result\' property of "' + self.t
  */
 context InputPin
 
-inv inputPinShouldHaveType ('[Moka-MegaMart] The \'type\' property of "' + self.theName + '" is not set'):
+inv Moka_InputPin_ShouldHaveAType:
 	asError (not self.type.oclIsUndefined())
 	
 /**
@@ -46,14 +51,14 @@ inv inputPinShouldHaveType ('[Moka-MegaMart] The \'type\' property of "' + self.
  */
 context OutputPin
 
-inv outputPinShouldHaveType ('[Moka-MegaMart] The \'type\' property of "' + self.theName + '" is not set'):
+inv Moka_OutputPin_ShouldHaveAType:
 	asError (not self.type.oclIsUndefined())
 	
 /**
  * There are not orphan output pins
  */
  
- inv noOrphansOutputPins ('[Moka-MegaMart] OutputPin "' + self.theName + '" is not connected by an object flow'): 
+ inv Moka_OutputPin_noOrphansOutputPins: 
  asError (ObjectFlow.allInstances()->exists(source = self or target = self))
 	
 /**
@@ -64,7 +69,7 @@ context ObjectFlow
 /**
  * Pins connected by objectFlow have compatible types
  */
-inv pinTypesCompatibleInObjectFlow ('[Moka-MegaMart] Output/Input Pin types not compatible'):
+inv Moka_ObjectFlow_pinTypesMustbeCompatibleInObjectFlow:
 	let source:ActivityNode = self.source, target:ActivityNode = self.target in 
 		if source.oclIsTypeOf(OutputPin) and target.oclIsTypeOf(InputPin)
 		then
@@ -83,8 +88,8 @@ context CallBehaviorAction
  * Elements in arguments and parameters must match for name and type.
  */
  
- inv argumentsMatchParameters ('[Moka-MegaMart] XXX '): 
+ inv Moka_CallBehaviorAction_argumentsMatchParameters: 
  	let parameters : OrderedSet (Parameter) = self.behavior.ownedParameter in  
  		self.argument->forAll(arg:InputPin|parameters->exists (par:Parameter|arg.name = par.name and arg.type = par.type))
 
-endpackage
+ endpackage

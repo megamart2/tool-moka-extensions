@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+/**
+ * <copyright>
+ *
+ * Copyright (c) 2005 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *   IBM - Initial API and implementation
+ *
+ * </copyright>
+ *
+ * $Id$
+ */
+-->
+<plugin>
+   <extension point="org.eclipse.ui.startup">
+      <startup class="eu.megamart.papyrus.moka.validation.Startup"/>
+   </extension>
+   
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+         id="eu.megamart.papyrus.moka.validation.expressions.EObjectPropertyTester"
+         type="org.eclipse.emf.ecore.EObject"
+         namespace="eu.megamart.papyrus.moka.validation"
+         properties="ePackage"
+         class="eu.megamart.papyrus.moka.validation.expressions.EObjectPropertyTester">
+      </propertyTester>
+   </extension>
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext id="eu.megamart.papyrus.moka.validation">
+         <enablement>
+            <and>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <test
+                  property="eu.megamart.papyrus.moka.validation.ePackage"
+                  value="http://www.eclipse.org/uml2/5.0.0/UML"/>
+            </and>
+         </enablement>
+      </clientContext>
+      
+   <binding
+         context="eu.megamart.papyrus.moka.validation"
+         category="moka-validatation"/>
+   </extension>∫
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders"
+         id="oclProvider">
+      
+      <!-- Custom constraint provider using OCL documents -->
+      <constraintProvider
+            class="eu.megamart.papyrus.moka.validation.OCLConstraintProvider"
+            category="Constraints from an OCL Document">
+         <package namespaceUri="http://www.eclipse.org/uml2/5.0.0/UML"/>
+         <ocl path="constraints/moka.ocl"/>
+      </constraintProvider>
+  </extension>
+</plugin>

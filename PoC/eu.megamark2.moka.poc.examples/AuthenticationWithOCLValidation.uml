@@ -23,7 +23,7 @@
 } do AuthenticationEngineClassifierBehavior</body>
       </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2EcvsKUvEeiJNOHipgZNwQ" name="registeredAccount" type="_t6QK4KUuEeiJNOHipgZNwQ"/>
-      <ownedBehavior xmi:type="uml:Activity" xmi:id="_ot7P8KUuEeiJNOHipgZNwQ" name="AuthenticationEngineClassifierBehavior" node="_J8iXoKU0EeiJNOHipgZNwQ _Ydvh0KU1EeiJNOHipgZNwQ _hcX-0KU3EeiJNOHipgZNwQ _7S9iUKU3EeiJNOHipgZNwQ _bs7a0KVaEeiJNOHipgZNwQ _5_kS4KVaEeiJNOHipgZNwQ _8cg2cKVaEeiJNOHipgZNwQ _oAhf4KYJEeisDJLVYHRaZg _D-KZcKzvEei9y9N0Lw5pCw _vjiLgKzyEei9y9N0Lw5pCw _L3j4QK9YEeiD45YE_GYD8Q _OklfMK9YEeiD45YE_GYD8Q">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_ot7P8KUuEeiJNOHipgZNwQ" name="AuthenticationEngineClassifierBehavior" node="_J8iXoKU0EeiJNOHipgZNwQ _Ydvh0KU1EeiJNOHipgZNwQ _hcX-0KU3EeiJNOHipgZNwQ _7S9iUKU3EeiJNOHipgZNwQ _bs7a0KVaEeiJNOHipgZNwQ _5_kS4KVaEeiJNOHipgZNwQ _8cg2cKVaEeiJNOHipgZNwQ _oAhf4KYJEeisDJLVYHRaZg _D-KZcKzvEei9y9N0Lw5pCw _vjiLgKzyEei9y9N0Lw5pCw _L3j4QK9YEeiD45YE_GYD8Q _OklfMK9YEeiD45YE_GYD8Q _B-Oo0NONEeiyPvWz_WSTkA">
         <edge xmi:type="uml:ObjectFlow" xmi:id="_w0xPsKU4EeiJNOHipgZNwQ" name="OF1" target="_Yt8lwKzwEei9y9N0Lw5pCw" source="_J8mpEKU0EeiJNOHipgZNwQ">
           <guard xmi:type="uml:LiteralBoolean" xmi:id="_w1FYwKU4EeiJNOHipgZNwQ" value="true"/>
           <weight xmi:type="uml:LiteralInteger" xmi:id="_w1FYwaU4EeiJNOHipgZNwQ" value="1"/>
@@ -41,7 +41,7 @@
         <edge xmi:type="uml:ControlFlow" xmi:id="_rBSiMKYJEeisDJLVYHRaZg" target="_D-KZcKzvEei9y9N0Lw5pCw" source="_oAhf4KYJEeisDJLVYHRaZg"/>
         <edge xmi:type="uml:ControlFlow" xmi:id="_25xhwKtcEeif3MGqEWSuUA" target="_bs7a0KVaEeiJNOHipgZNwQ" source="_cKh6AKzzEei9y9N0Lw5pCw"/>
         <edge xmi:type="uml:ControlFlow" xmi:id="_yD9LwKzwEei9y9N0Lw5pCw" target="_vjiLgKzyEei9y9N0Lw5pCw" source="_D-KZcKzvEei9y9N0Lw5pCw"/>
-        <edge xmi:type="uml:ObjectFlow" xmi:id="_I8oYMK9YEeiD45YE_GYD8Q" target="_QkiaMK9XEeiD45YE_GYD8Q" source="_hcZ0AKU3EeiJNOHipgZNwQ">
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_I8oYMK9YEeiD45YE_GYD8Q" target="_QkiaMK9XEeiD45YE_GYD8Q" source="_B-YZ0NONEeiyPvWz_WSTkA">
           <guard xmi:type="uml:LiteralBoolean" xmi:id="_I9FEIK9YEeiD45YE_GYD8Q" value="true"/>
           <weight xmi:type="uml:LiteralInteger" xmi:id="_I9FEIa9YEeiD45YE_GYD8Q" value="1"/>
         </edge>
@@ -72,12 +72,12 @@
           </result>
         </node>
         <node xmi:type="uml:ValueSpecificationAction" xmi:id="_hcX-0KU3EeiJNOHipgZNwQ" name="user">
-          <result xmi:type="uml:OutputPin" xmi:id="_hcZ0AKU3EeiJNOHipgZNwQ" name="result" outgoing="_I8oYMK9YEeiD45YE_GYD8Q">
+          <result xmi:type="uml:OutputPin" xmi:id="_hcZ0AKU3EeiJNOHipgZNwQ" name="result">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hcZ0AaU3EeiJNOHipgZNwQ" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hcZ0AqU3EeiJNOHipgZNwQ" value="1"/>
           </result>
-          <value xmi:type="uml:LiteralString" xmi:id="_KZdwgK-CEeiuhcXvdM6qsA" value="myuser"/>
+          <value xmi:type="uml:LiteralString" xmi:id="_KZdwgK-CEeiuhcXvdM6qsA" value=""/>
         </node>
         <node xmi:type="uml:ValueSpecificationAction" xmi:id="_7S9iUKU3EeiJNOHipgZNwQ" name="passwd">
           <result xmi:type="uml:OutputPin" xmi:id="_7S-JYKU3EeiJNOHipgZNwQ" name="result" outgoing="_JnX-UK9YEeiD45YE_GYD8Q">
@@ -98,7 +98,7 @@
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QkZQQK9XEeiD45YE_GYD8Q" value="1"/>
           </argument>
           <argument xmi:type="uml:InputPin" xmi:id="_QkiaMK9XEeiD45YE_GYD8Q" name="username" incoming="_I8oYMK9YEeiD45YE_GYD8Q">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QkiaMa9XEeiD45YE_GYD8Q" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QkiaMq9XEeiD45YE_GYD8Q" value="1"/>
           </argument>
@@ -124,8 +124,7 @@
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u4YzNK9XEeiD45YE_GYD8Q" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u4YzNa9XEeiD45YE_GYD8Q" value="1"/>
           </argument>
-          <result xmi:type="uml:OutputPin" xmi:id="_cKh6AKzzEei9y9N0Lw5pCw" outgoing="_25xhwKtcEeif3MGqEWSuUA" isControlType="true">
-            <name xsi:nil="true"/>
+          <result xmi:type="uml:OutputPin" xmi:id="_cKh6AKzzEei9y9N0Lw5pCw" name="result" outgoing="_25xhwKtcEeif3MGqEWSuUA" isControlType="true">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
             <upperBound xmi:type="uml:LiteralInteger" xmi:id="_cKihEKzzEei9y9N0Lw5pCw" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u4aBUK9XEeiD45YE_GYD8Q" value="1"/>
@@ -147,6 +146,14 @@
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OkmtUq9YEeiD45YE_GYD8Q" value="1"/>
           </result>
           <value xmi:type="uml:LiteralString" xmi:id="_aQoPkK9YEeiD45YE_GYD8Q" value="mypassword2"/>
+        </node>
+        <node xmi:type="uml:ValueSpecificationAction" xmi:id="_B-Oo0NONEeiyPvWz_WSTkA" name="user2">
+          <result xmi:type="uml:OutputPin" xmi:id="_B-YZ0NONEeiyPvWz_WSTkA" name="result" outgoing="_I8oYMK9YEeiD45YE_GYD8Q">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B-YZ0dONEeiyPvWz_WSTkA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B-YZ0tONEeiyPvWz_WSTkA" value="1"/>
+          </result>
+          <value xmi:type="uml:LiteralString" xmi:id="_iriMgNONEeiyPvWz_WSTkA" value="myuser"/>
         </node>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:Activity" xmi:id="_rD0B4KUxEeiJNOHipgZNwQ" name="registerAccountOperation" specification="_IsPxQKUwEeiJNOHipgZNwQ" node="_5wvE4KXXEeiJNOHipgZNwQ _wD7y8KXYEeiJNOHipgZNwQ _9xIiwKXYEeiJNOHipgZNwQ">
