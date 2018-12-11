@@ -68,11 +68,10 @@ public class MegamartDialogInfoFormat {
 		
 		List<String> result = new LinkedList<String>();
 		
-		String line = " ";
+		String line = "Input : ";
 		for(int i = 0; i < level; i++) line += "  ";
 		
 		if(!info.getInput().isEmpty())if(info.getInput().get(0) != null){
-		line += "Input : ";
 		result.add(line);
 		formatInnerList(info.getInput(),result,level);
 		}
