@@ -42,13 +42,13 @@ public class MegamartFormatFacade {
 			MegamartInOutInfoObject inOutObject = 
 					(MegamartInOutInfoObject)info;
 			
-			if(inOutObject.isCompletable())
-				return format.formatCompletableInOut(inOutObject);
+			//if(inOutObject.isOnePhase())
+				return format.formatOnePhaseInOut(inOutObject);
 			
-			else if(inOutObject.isComplete())
-				return format.formatInOutObject(inOutObject, false);
+			//if(inOutObject.isComplete())
+				//return format.formatOnePhaseInOut(inOutObject);
 			
-			return format.formatInOutObject(inOutObject, true);
+			//return format.formatInOutObject(inOutObject, true);
 		}
 		return format.format(info);
 	}

@@ -78,7 +78,7 @@ public class MegamartInfoFormat {
 	
 	public String format(MegamartAbstractInfoObject info) {
 		
-		if(info == null) return "";
+		if(info == null) return null;
 		
 		String result = baseFormat(info,false);
 		
@@ -101,28 +101,7 @@ public class MegamartInfoFormat {
 		return result;
 	}
 	
-	public String formatInOutObject(MegamartInOutInfoObject info, boolean firstPart) {
-		
-		if(info == null) return "";
-		
-		String result = baseFormat(info,true);
-		
-		if(firstPart) {
-			 String arrayString;
-			 if(separatorAfterInOutTitle) arrayString = "Input : " + arraySeparator;
-			 else arrayString = "Input : ";
-			 arrayString += formatArray(info.getInput());
-		    return result.replaceAll("%v", arrayString);
-		}
-		
-		String arrayString;
-		if(separatorAfterInOutTitle) arrayString = "Output : " + arraySeparator;
-		else arrayString = "Output : ";
-		arrayString += formatArray(info.getOutput());
-		return result.replaceAll("%v", arrayString);
-	}
-	
-	public String formatCompletableInOut(MegamartInOutInfoObject info) {
+	public String formatOnePhaseInOut(MegamartInOutInfoObject info) {
 		
 		if(info == null) return "";
 		

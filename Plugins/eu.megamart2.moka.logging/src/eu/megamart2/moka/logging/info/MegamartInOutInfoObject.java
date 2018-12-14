@@ -9,7 +9,7 @@ public class MegamartInOutInfoObject extends MegamartAbstractInfoObject {
 	
 	private List<MegamartAbstractInfoObject> out;
 	
-	private final boolean completable;
+	private final boolean onePhase;
 	
 	private boolean complete;
 	
@@ -25,7 +25,7 @@ public class MegamartInOutInfoObject extends MegamartAbstractInfoObject {
 		super(name, type,visibility);
 		this.in = in;
 		this.out = out;
-		this.completable = completable;
+		this.onePhase = completable;
 		this.complete = complete;
 	}
 	
@@ -39,7 +39,7 @@ public class MegamartInOutInfoObject extends MegamartAbstractInfoObject {
 		return out; 
 		}
 	
-	public boolean isCompletable() { return completable; }
+	public boolean isOnePhase() { return onePhase; }
 	
 	public boolean isComplete() { return complete; }
 	

@@ -70,7 +70,7 @@ public class ValueSpecificationInfo extends ValueInformationCollector implements
 		}
 
 	@Override
-	public boolean isCompletable() { return true; }
+	public boolean isOnePhase() { return true; }
 
 	@Override
 	public void printSummary() {

@@ -50,10 +50,10 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	    if(MegamartOutput.getInstance().isDisposed())
 	    	MegamartOutput.getInstance().init(modelElement);
 		
-        NodeInfo info = generator.addToQueue(nodeVisitor);
+        generator.addToQueue(nodeVisitor);
         
-        // write first line for non completable nodes
-        if(info != null)if(!info.isCompletable()) printInfo(info);
+        // write first line for  nodes
+        //if(info != null)if(!info.isOnePhase()) printInfo(info);
         
        // if there is completed nodes
        List<NodeInfo> infos = queue.getCompleteNodes();
@@ -68,7 +68,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		if(nodeVisitor instanceof ActionActivation) {
 		
 			if(queue.getNodeInfo((ActivityNode)((ActionActivation)nodeVisitor).getNode()) != null)
-		if(!(queue.getNodeInfo((ActivityNode)((ActionActivation)nodeVisitor).getNode()).isCompletable()))
+		if(!(queue.getNodeInfo((ActivityNode)((ActionActivation)nodeVisitor).getNode()).isOnePhase()))
 		generator.complete(nodeVisitor);
 		
 		List<NodeInfo> infos = queue.getCompleteNodes();

@@ -56,11 +56,13 @@ public class MegamartOutput {
 	}
 	
 	public void write(String line) {
-		
-		if(disposed) init(modelElement);
-		
-		if(outConsole == null) return;
 
+		if(disposed) init(modelElement);
+		if(outConsole == null || writer == null) init(modelElement);
+		if(outConsole == null || writer == null) return;
+		if(line == null) return; // TODO check nulls
+		if(line.replaceAll(" ","").replaceAll("\n","").isEmpty()) return;
+		
 		try {
 			outConsole.write(line + "\n");
 			writer.write(line + "\n");

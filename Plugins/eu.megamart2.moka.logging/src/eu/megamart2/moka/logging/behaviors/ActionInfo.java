@@ -90,9 +90,9 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		} catch (DebugException e) { e.printStackTrace(); }
 		
 		info = new MegamartInOutInfoObject(name,type,inputInfo,outputInfo,
-				isCompletable(),false);
+				isOnePhase(),false);
 		
-		if(isCompletable()) completeInfo(nodeVisitor);
+		if(isOnePhase()) completeInfo(nodeVisitor);
         
 		}
 
@@ -142,7 +142,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 	}
 
 	@Override
-	public boolean isCompletable() {
+	public boolean isOnePhase() {
 		if(type.contains("CallBehavior")) return false;
 		return true;
 	}
