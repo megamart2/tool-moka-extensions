@@ -175,8 +175,14 @@ public abstract class ValueInformationCollector {
 			List<org.eclipse.papyrus.moka.fuml.Semantics
 			.Classes.Kernel.IValue> values = feature.getValues();
 			// TODO
-			if(values == null) return null;
-			if(values.isEmpty()) return null;
+			if(values == null) {
+				String type = feature.getFeature().getType().getName(); // TODO add null checking
+				return new MegamartPrimitiveInfoObject(name,type,"null",visibility);
+			}
+			if(values.isEmpty()) {
+				String type = feature.getFeature().getType().getName(); // TODO add null checking
+				return new MegamartPrimitiveInfoObject(name,type,"null",visibility);
+			}
 			
 			if(values.size() == 1) {
 				MegamartAbstractInfoObject result = getFumlValueInfo(values.get(0),name);
