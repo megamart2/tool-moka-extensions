@@ -963,7 +963,7 @@ activity makeDeposit() {
             </value>
           </node>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_ByjZoDRLEem_P6x9A8kojA" name="makeWithdrawal" specification="_fdDQgDODEemM8cY6ryq-Xw" node="_mTaHcDRLEem_P6x9A8kojA _ngzusDRLEem_P6x9A8kojA _pBLwwDRVEemURtjwiHksSw _scv4sDRVEemURtjwiHksSw _29JVUDRVEemURtjwiHksSw _4FfdcDRVEemURtjwiHksSw _GbB_oDRWEemURtjwiHksSw _3dciYDweEemGy_cHihQcbQ _DpPw4DwfEemGy_cHihQcbQ _qTZGcDwfEemGy_cHihQcbQ _KSQPwDwgEemGy_cHihQcbQ _bmySoDwgEemGy_cHihQcbQ _TGR0sDwhEemGy_cHihQcbQ _k7FukDwrEemGy_cHihQcbQ _wVJ-IDwrEemGy_cHihQcbQ">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_ByjZoDRLEem_P6x9A8kojA" name="makeWithdrawal" specification="_fdDQgDODEemM8cY6ryq-Xw" node="_mTaHcDRLEem_P6x9A8kojA _ngzusDRLEem_P6x9A8kojA _pBLwwDRVEemURtjwiHksSw _scv4sDRVEemURtjwiHksSw _29JVUDRVEemURtjwiHksSw _4FfdcDRVEemURtjwiHksSw _GbB_oDRWEemURtjwiHksSw _3dciYDweEemGy_cHihQcbQ _DpPw4DwfEemGy_cHihQcbQ _qTZGcDwfEemGy_cHihQcbQ _KSQPwDwgEemGy_cHihQcbQ _bmySoDwgEemGy_cHihQcbQ _TGR0sDwhEemGy_cHihQcbQ _k7FukDwrEemGy_cHihQcbQ _wVJ-IDwrEemGy_cHihQcbQ _89FPID50EempLJnQaz41Gg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_650TUDRiEemOmMDdngKDhw">
             <body>namespace structure::Account;
 
@@ -976,7 +976,7 @@ activity makeWithdrawal() {
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_ByNMAD5qEemZD_9QHqtu4Q" name="success" visibility="public" direction="return" effect="create">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_x-YVQDRVEemURtjwiHksSw" target="_scyU8DRVEemURtjwiHksSw" source="_pBX-ADRVEemURtjwiHksSw">
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_x-YVQDRVEemURtjwiHksSw" target="_89FPID50EempLJnQaz41Gg" source="_pBX-ADRVEemURtjwiHksSw">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_x-rQMDRVEemURtjwiHksSw" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_x-rQMTRVEemURtjwiHksSw" value="1"/>
           </edge>
@@ -1016,7 +1016,7 @@ activity makeWithdrawal() {
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_24m6gDwfEemGy_cHihQcbQ" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_24nhkDwfEemGy_cHihQcbQ" value="1"/>
           </edge>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_7FaSIDwfEemGy_cHihQcbQ" target="_qThpUDwfEemGy_cHihQcbQ" source="_pBX-ADRVEemURtjwiHksSw">
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_7FaSIDwfEemGy_cHihQcbQ" target="_qThpUDwfEemGy_cHihQcbQ" source="_89FPID50EempLJnQaz41Gg">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_7F2-EDwfEemGy_cHihQcbQ" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_7F3lIDwfEemGy_cHihQcbQ" value="1"/>
           </edge>
@@ -1049,6 +1049,10 @@ activity makeWithdrawal() {
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_BHM_ADwsEemGy_cHihQcbQ" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_BHNmEDwsEemGy_cHihQcbQ" value="1"/>
           </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_C319YD51EempLJnQaz41Gg" target="_scyU8DRVEemURtjwiHksSw" source="_89FPID50EempLJnQaz41Gg">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_C4PmAD51EempLJnQaz41Gg" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_C4PmAT51EempLJnQaz41Gg" value="1"/>
+          </edge>
           <node xmi:type="uml:ActivityParameterNode" xmi:id="_mTaHcDRLEem_P6x9A8kojA" name="amount" outgoing="_Az4J4DRWEemURtjwiHksSw" parameter="_6BZiID5pEemZD_9QHqtu4Q">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             <upperBound xmi:type="uml:LiteralInteger" xmi:id="_mTaugDRLEem_P6x9A8kojA" value="1"/>
@@ -1058,13 +1062,13 @@ activity makeWithdrawal() {
             <upperBound xmi:type="uml:LiteralInteger" xmi:id="_ng080DRLEem_P6x9A8kojA" value="1"/>
           </node>
           <node xmi:type="uml:ReadSelfAction" xmi:id="_pBLwwDRVEemURtjwiHksSw" name="context">
-            <result xmi:type="uml:OutputPin" xmi:id="_pBX-ADRVEemURtjwiHksSw" name="result" outgoing="_x-YVQDRVEemURtjwiHksSw _7FaSIDwfEemGy_cHihQcbQ" type="_owyiMDOCEemM8cY6ryq-Xw">
+            <result xmi:type="uml:OutputPin" xmi:id="_pBX-ADRVEemURtjwiHksSw" name="result" outgoing="_x-YVQDRVEemURtjwiHksSw" type="_owyiMDOCEemM8cY6ryq-Xw">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pBX-ATRVEemURtjwiHksSw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pBX-AjRVEemURtjwiHksSw" value="1"/>
             </result>
           </node>
           <node xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_scv4sDRVEemURtjwiHksSw" name="readBalance" structuralFeature="_8hNYsDOCEemM8cY6ryq-Xw">
-            <object xmi:type="uml:InputPin" xmi:id="_scyU8DRVEemURtjwiHksSw" name="object" incoming="_x-YVQDRVEemURtjwiHksSw" type="_owyiMDOCEemM8cY6ryq-Xw">
+            <object xmi:type="uml:InputPin" xmi:id="_scyU8DRVEemURtjwiHksSw" name="object" incoming="_C319YD51EempLJnQaz41Gg" type="_owyiMDOCEemM8cY6ryq-Xw">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_scyU8TRVEemURtjwiHksSw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_scyU8jRVEemURtjwiHksSw" value="1"/>
             </object>
@@ -1167,9 +1171,11 @@ activity makeWithdrawal() {
           </node>
           <node xmi:type="uml:ValueSpecificationAction" xmi:id="_k7FukDwrEemGy_cHihQcbQ" name="successTrue" incoming="_6IuxADwrEemGy_cHihQcbQ">
             <result xmi:type="uml:OutputPin" xmi:id="_k7HjwDwrEemGy_cHihQcbQ" name="result" outgoing="_9ujoMDwrEemGy_cHihQcbQ">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k7HjwTwrEemGy_cHihQcbQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k7HjwjwrEemGy_cHihQcbQ" value="1"/>
             </result>
+            <value xmi:type="uml:LiteralBoolean" xmi:id="_zWDqgD50EempLJnQaz41Gg" value="true"/>
           </node>
           <node xmi:type="uml:ValueSpecificationAction" xmi:id="_wVJ-IDwrEemGy_cHihQcbQ" name="successFalse" incoming="_3FRnEDwrEemGy_cHihQcbQ">
             <result xmi:type="uml:OutputPin" xmi:id="_wVKlMDwrEemGy_cHihQcbQ" name="result" outgoing="_BGud4DwsEemGy_cHihQcbQ">
@@ -1179,6 +1185,7 @@ activity makeWithdrawal() {
             </result>
             <value xmi:type="uml:LiteralBoolean" xmi:id="_03N0EDwrEemGy_cHihQcbQ" name="false"/>
           </node>
+          <node xmi:type="uml:ForkNode" xmi:id="_89FPID50EempLJnQaz41Gg" name="ForkNode40" incoming="_x-YVQDRVEemURtjwiHksSw" outgoing="_7FaSIDwfEemGy_cHihQcbQ _C319YD51EempLJnQaz41Gg"/>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:Activity" xmi:id="_0xkZ8Dt5Eem7JqJBgJPfiA" name="testMakeDeposit" node="_WxanUD5eEemZD_9QHqtu4Q _IocIMD5jEemZD_9QHqtu4Q _YgSxsD5jEemZD_9QHqtu4Q _nU7DoD5jEemZD_9QHqtu4Q _zZeaoD5jEemZD_9QHqtu4Q _Ce2eUD5kEemZD_9QHqtu4Q _X4yQUD5kEemZD_9QHqtu4Q _1giYUD5kEemZD_9QHqtu4Q">
           <ownedComment xmi:type="uml:Comment" xmi:id="_3Ah5gD5mEemZD_9QHqtu4Q">
@@ -1287,7 +1294,7 @@ activity testMakeDeposit() {
             <value xmi:type="uml:LiteralInteger" xmi:id="_BuPEQD5lEemZD_9QHqtu4Q" value="1050"/>
           </node>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_oRP6QD5pEemZD_9QHqtu4Q" name="testMakeWithdrawal" node="_oRP6WD5pEemZD_9QHqtu4Q _oRP6XD5pEemZD_9QHqtu4Q _oRQhVj5pEemZD_9QHqtu4Q _oRQhWz5pEemZD_9QHqtu4Q _oRQhYz5pEemZD_9QHqtu4Q _oRQhZD5pEemZD_9QHqtu4Q _oRQhcj5pEemZD_9QHqtu4Q _t6tnsD5qEemZD_9QHqtu4Q _7cMPsD5qEemZD_9QHqtu4Q _-OOScD5qEemZD_9QHqtu4Q">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_oRP6QD5pEemZD_9QHqtu4Q" name="testMakeWithdrawal" node="_oRP6WD5pEemZD_9QHqtu4Q _oRP6XD5pEemZD_9QHqtu4Q _oRQhVj5pEemZD_9QHqtu4Q _oRQhWz5pEemZD_9QHqtu4Q _oRQhYz5pEemZD_9QHqtu4Q _oRQhcj5pEemZD_9QHqtu4Q _t6tnsD5qEemZD_9QHqtu4Q _7cMPsD5qEemZD_9QHqtu4Q _-OOScD5qEemZD_9QHqtu4Q _AKUJsD6BEemq49KVBQySNQ">
           <ownedComment xmi:type="uml:Comment" xmi:id="_oRP6QT5pEemZD_9QHqtu4Q">
             <body>namespace structure::Account;
 
@@ -1324,10 +1331,6 @@ activity testMakeDeposit() {
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_oRP6Tz5pEemZD_9QHqtu4Q" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_oRP6UD5pEemZD_9QHqtu4Q" value="1"/>
           </edge>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_oRP6Uj5pEemZD_9QHqtu4Q" target="_oRQhZT5pEemZD_9QHqtu4Q" source="_oRQhYz5pEemZD_9QHqtu4Q">
-            <guard xmi:type="uml:LiteralBoolean" xmi:id="_oRP6Uz5pEemZD_9QHqtu4Q" value="true"/>
-            <weight xmi:type="uml:LiteralInteger" xmi:id="_oRP6VD5pEemZD_9QHqtu4Q" value="1"/>
-          </edge>
           <edge xmi:type="uml:ControlFlow" xmi:id="_oRP6Vz5pEemZD_9QHqtu4Q" target="_oRQhWz5pEemZD_9QHqtu4Q" source="_oRQhUD5pEemZD_9QHqtu4Q"/>
           <edge xmi:type="uml:ObjectFlow" xmi:id="_xMmPMD5qEemZD_9QHqtu4Q" name="successFlow" target="_t6tnsD5qEemZD_9QHqtu4Q" source="_atXCAD5qEemZD_9QHqtu4Q">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_xMzDgD5qEemZD_9QHqtu4Q" value="true"/>
@@ -1339,7 +1342,12 @@ activity testMakeDeposit() {
           <edge xmi:type="uml:ControlFlow" xmi:id="_C5JJcD5rEemZD_9QHqtu4Q" target="_-OOScD5qEemZD_9QHqtu4Q" source="_t6tnsD5qEemZD_9QHqtu4Q">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_jZKfED5rEemZD_9QHqtu4Q"/>
           </edge>
-          <edge xmi:type="uml:ControlFlow" xmi:id="_w9hxED5tEempLJnQaz41Gg" target="_oRQhZD5pEemZD_9QHqtu4Q" source="_oRQhWz5pEemZD_9QHqtu4Q"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_X0kqcD5_EempLJnQaz41Gg" target="_t6tnsD5qEemZD_9QHqtu4Q" source="_oRQhWz5pEemZD_9QHqtu4Q"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_IQmUUD6BEemq49KVBQySNQ" target="_AKl2gD6BEemq49KVBQySNQ" source="_oRQhYz5pEemZD_9QHqtu4Q">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_IRMKMD6BEemq49KVBQySNQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_IRMxQD6BEemq49KVBQySNQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_JvFrkD6BEemq49KVBQySNQ" target="_AKUJsD6BEemq49KVBQySNQ" source="_7cMPsD5qEemZD_9QHqtu4Q"/>
           <node xmi:type="uml:CreateObjectAction" xmi:id="_oRP6WD5pEemZD_9QHqtu4Q" name="account" classifier="_owyiMDOCEemM8cY6ryq-Xw">
             <result xmi:type="uml:OutputPin" xmi:id="_oRP6WT5pEemZD_9QHqtu4Q" name="result" outgoing="_oRP6Qj5pEemZD_9QHqtu4Q" type="_owyiMDOCEemM8cY6ryq-Xw">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oRP6Wj5pEemZD_9QHqtu4Q" value="1"/>
@@ -1369,7 +1377,7 @@ activity testMakeDeposit() {
             </result>
             <value xmi:type="uml:LiteralInteger" xmi:id="_oRQhWj5pEemZD_9QHqtu4Q" value="1450"/>
           </node>
-          <node xmi:type="uml:CallOperationAction" xmi:id="_oRQhWz5pEemZD_9QHqtu4Q" name="makeWithdrawal" incoming="_oRP6Vz5pEemZD_9QHqtu4Q" outgoing="_w9hxED5tEempLJnQaz41Gg" operation="_fdDQgDODEemM8cY6ryq-Xw">
+          <node xmi:type="uml:CallOperationAction" xmi:id="_oRQhWz5pEemZD_9QHqtu4Q" name="makeWithdrawal" incoming="_oRP6Vz5pEemZD_9QHqtu4Q" outgoing="_X0kqcD5_EempLJnQaz41Gg" operation="_fdDQgDODEemM8cY6ryq-Xw">
             <argument xmi:type="uml:InputPin" xmi:id="_oRQhXD5pEemZD_9QHqtu4Q" name="amount" incoming="_oRP6SD5pEemZD_9QHqtu4Q">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
               <upperBound xmi:type="uml:LiteralInteger" xmi:id="_oRQhXT5pEemZD_9QHqtu4Q" value="1"/>
@@ -1386,18 +1394,7 @@ activity testMakeDeposit() {
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oRQhYj5pEemZD_9QHqtu4Q" value="1"/>
             </target>
           </node>
-          <node xmi:type="uml:ForkNode" xmi:id="_oRQhYz5pEemZD_9QHqtu4Q" incoming="_oRP6Qj5pEemZD_9QHqtu4Q" outgoing="_oRP6Sz5pEemZD_9QHqtu4Q _oRP6Tj5pEemZD_9QHqtu4Q _oRP6Uj5pEemZD_9QHqtu4Q"/>
-          <node xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_oRQhZD5pEemZD_9QHqtu4Q" name="readNewBalance" visibility="protected" incoming="_w9hxED5tEempLJnQaz41Gg" structuralFeature="_8hNYsDOCEemM8cY6ryq-Xw">
-            <object xmi:type="uml:InputPin" xmi:id="_oRQhZT5pEemZD_9QHqtu4Q" name="object" incoming="_oRP6Uj5pEemZD_9QHqtu4Q" type="_owyiMDOCEemM8cY6ryq-Xw">
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oRQhZj5pEemZD_9QHqtu4Q" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oRQhZz5pEemZD_9QHqtu4Q" value="1"/>
-            </object>
-            <result xmi:type="uml:OutputPin" xmi:id="_oRQhaD5pEemZD_9QHqtu4Q" name="result">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oRQhaT5pEemZD_9QHqtu4Q" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oRQhaj5pEemZD_9QHqtu4Q" value="1"/>
-            </result>
-          </node>
+          <node xmi:type="uml:ForkNode" xmi:id="_oRQhYz5pEemZD_9QHqtu4Q" incoming="_oRP6Qj5pEemZD_9QHqtu4Q" outgoing="_oRP6Sz5pEemZD_9QHqtu4Q _oRP6Tj5pEemZD_9QHqtu4Q _IQmUUD6BEemq49KVBQySNQ"/>
           <node xmi:type="uml:ValueSpecificationAction" xmi:id="_oRQhcj5pEemZD_9QHqtu4Q" name="1050€">
             <result xmi:type="uml:OutputPin" xmi:id="_oRQhcz5pEemZD_9QHqtu4Q" name="result" outgoing="_oRP6SD5pEemZD_9QHqtu4Q">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -1406,17 +1403,32 @@ activity testMakeDeposit() {
             </result>
             <value xmi:type="uml:LiteralInteger" xmi:id="_oRQhdj5pEemZD_9QHqtu4Q" value="1050"/>
           </node>
-          <node xmi:type="uml:DecisionNode" xmi:id="_t6tnsD5qEemZD_9QHqtu4Q" name="" incoming="_xMmPMD5qEemZD_9QHqtu4Q" outgoing="_CNY2sD5rEemZD_9QHqtu4Q _C5JJcD5rEemZD_9QHqtu4Q" decisionInputFlow="_xMmPMD5qEemZD_9QHqtu4Q"/>
-          <node xmi:type="uml:ValueSpecificationAction" xmi:id="_7cMPsD5qEemZD_9QHqtu4Q" name="Success" incoming="_CNY2sD5rEemZD_9QHqtu4Q">
+          <node xmi:type="uml:DecisionNode" xmi:id="_t6tnsD5qEemZD_9QHqtu4Q" name="" incoming="_xMmPMD5qEemZD_9QHqtu4Q _X0kqcD5_EempLJnQaz41Gg" outgoing="_CNY2sD5rEemZD_9QHqtu4Q _C5JJcD5rEemZD_9QHqtu4Q" decisionInputFlow="_xMmPMD5qEemZD_9QHqtu4Q"/>
+          <node xmi:type="uml:ValueSpecificationAction" xmi:id="_7cMPsD5qEemZD_9QHqtu4Q" name="Success" visibility="protected" incoming="_CNY2sD5rEemZD_9QHqtu4Q" outgoing="_JvFrkD6BEemq49KVBQySNQ">
             <result xmi:type="uml:OutputPin" xmi:id="_7cM2wD5qEemZD_9QHqtu4Q" name="result">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7cM2wT5qEemZD_9QHqtu4Q" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7cM2wj5qEemZD_9QHqtu4Q" value="1"/>
             </result>
+            <value xmi:type="uml:LiteralBoolean" xmi:id="_nQhbED5_EempLJnQaz41Gg" value="true"/>
           </node>
           <node xmi:type="uml:ValueSpecificationAction" xmi:id="_-OOScD5qEemZD_9QHqtu4Q" name="Failure" incoming="_C5JJcD5rEemZD_9QHqtu4Q">
             <result xmi:type="uml:OutputPin" xmi:id="_-OO5gD5qEemZD_9QHqtu4Q" name="result">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-OO5gT5qEemZD_9QHqtu4Q" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-OO5gj5qEemZD_9QHqtu4Q" value="1"/>
+            </result>
+            <value xmi:type="uml:LiteralBoolean" xmi:id="_oMKj8D5_EempLJnQaz41Gg"/>
+          </node>
+          <node xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_AKUJsD6BEemq49KVBQySNQ" name="readBalance" incoming="_JvFrkD6BEemq49KVBQySNQ" structuralFeature="_8hNYsDOCEemM8cY6ryq-Xw">
+            <object xmi:type="uml:InputPin" xmi:id="_AKl2gD6BEemq49KVBQySNQ" name="object" incoming="_IQmUUD6BEemq49KVBQySNQ" type="_owyiMDOCEemM8cY6ryq-Xw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AKl2gT6BEemq49KVBQySNQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AKl2gj6BEemq49KVBQySNQ" value="1"/>
+            </object>
+            <result xmi:type="uml:OutputPin" xmi:id="_EHS8oD6BEemq49KVBQySNQ" name="result">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EHS8oT6BEemq49KVBQySNQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EHS8oj6BEemq49KVBQySNQ" value="1"/>
             </result>
           </node>
         </ownedBehavior>
@@ -2586,7 +2598,7 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
   <ActionLanguage:TextualRepresentation xmi:id="_nipUEDOCEemM8cY6ryq-Xw" base_Comment="_niotADOCEemM8cY6ryq-Xw" language="Alf"/>
   <BackupProfile:Backup xmi:id="_nip7IDOCEemM8cY6ryq-Xw" timestamp="2019-02-19 17:25:10.763" state="MERGED" base_Comment="_niotADOCEemM8cY6ryq-Xw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_oy2XsDOCEemM8cY6ryq-Xw" base_Comment="_oy1woDOCEemM8cY6ryq-Xw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_oy2-wDOCEemM8cY6ryq-Xw" timestamp="2019-03-04 11:39:33.521" state="MERGED" base_Comment="_oy1woDOCEemM8cY6ryq-Xw"/>
+  <BackupProfile:Backup xmi:id="_oy2-wDOCEemM8cY6ryq-Xw" timestamp="2019-03-04 13:00:25.072" state="MERGED" base_Comment="_oy1woDOCEemM8cY6ryq-Xw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_pkpoEDOCEemM8cY6ryq-Xw" base_Comment="_pkpBADOCEemM8cY6ryq-Xw" language="Alf"/>
   <BackupProfile:Backup xmi:id="_pkqPIDOCEemM8cY6ryq-Xw" timestamp="2019-02-19 17:25:11.389" state="MERGED" base_Comment="_pkpBADOCEemM8cY6ryq-Xw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_rTJKMTOCEemM8cY6ryq-Xw" base_Comment="_rTJKMDOCEemM8cY6ryq-Xw" language="Alf"/>
