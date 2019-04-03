@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0ZE0MEGJEemn1s2LqFObOg" type="PapyrusUMLStateMachineDiagram" name="State Machine Diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_0ZE0MUGJEemn1s2LqFObOg" type="StateMachine_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_0ZE0MkGJEemn1s2LqFObOg" type="StateMachine_NameLabel">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ZE0M0GJEemn1s2LqFObOg" width="700" height="20"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_0ZE0NEGJEemn1s2LqFObOg" type="StateMachine_RegionCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_0ZE0NUGJEemn1s2LqFObOg" type="Region_Shape">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0ZE0NkGJEemn1s2LqFObOg" source="RegionAnnotationKey">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0ZE0N0GJEemn1s2LqFObOg" key="RegionZoneKey" value=""/>
+        </eAnnotations>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_0ZE0OEGJEemn1s2LqFObOg" type="Region_SubvertexCompartment">
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ZE0OUGJEemn1s2LqFObOg"/>
+        </children>
+        <element xmi:type="uml:Region" href="eu.megamart2.moka.uc.ikelan.uml#_0Y9fcEGJEemn1s2LqFObOg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ZE0OkGJEemn1s2LqFObOg" width="700" height="280"/>
+      </children>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ZE0O0GJEemn1s2LqFObOg" y="20" width="700" height="280"/>
+    </children>
+    <element xmi:type="uml:StateMachine" href="eu.megamart2.moka.uc.ikelan.uml#_0VtXIEGJEemn1s2LqFObOg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ZE0PEGJEemn1s2LqFObOg" x="30" y="30" width="700" height="300"/>
+  </children>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_0ZE0PUGJEemn1s2LqFObOg" name="diagram_compatibility_version" stringValue="1.4.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_0ZE0PkGJEemn1s2LqFObOg"/>
+  <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_0ZE0P0GJEemn1s2LqFObOg" diagramKindId="org.eclipse.papyrus.uml.diagram.stateMachine">
+    <owner xmi:type="uml:Model" href="eu.megamart2.moka.uc.ikelan.uml#_0S7I4EGJEemn1s2LqFObOg"/>
+  </styles>
+  <element xmi:type="uml:StateMachine" href="eu.megamart2.moka.uc.ikelan.uml#_0VtXIEGJEemn1s2LqFObOg"/>
+</notation:Diagram>
