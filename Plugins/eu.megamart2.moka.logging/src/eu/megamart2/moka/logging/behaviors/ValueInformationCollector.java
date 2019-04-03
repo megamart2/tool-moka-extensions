@@ -120,7 +120,7 @@ public abstract class ValueInformationCollector {
 			 int n1 = type.indexOf('(') + 1;
 			 String sr2 = type.substring(n1);
 			 int n2 = sr2.indexOf('\n');
-			 type = sr2.substring(0,n2);	 
+			 if(n2 > -1) type = sr2.substring(0,n2);	 
 			
 			 List<MegamartAbstractInfoObject> innerObjects = 
 					 new LinkedList<MegamartAbstractInfoObject>();
