@@ -350,6 +350,53 @@ activity Increment_Factory(): Increment {
           </node>
           <node xmi:type="uml:ForkNode" xmi:id="__N5-oaeMEeikM4uVAw4ABw" name="forkInstanciatedObject" incoming="__N9B8aeMEeikM4uVAw4ABw" outgoing="__N2UQqeMEeikM4uVAw4ABw __N9B8KeMEeikM4uVAw4ABw"/>
         </ownedBehavior>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_1I_swC-XEemMMYX5aDFviA" name="Increment_Factory" node="_1JLS8C-XEemMMYX5aDFviA _1JNvMC-XEemMMYX5aDFviA _1JOWQS-XEemMMYX5aDFviA _1JVD8C-XEemMMYX5aDFviA _1JVrAi-XEemMMYX5aDFviA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2J_2wC-XEemMMYX5aDFviA">
+            <body>namespace BasicActiveObjectExample::Increment;
+
+activity Increment_Factory(): Increment {
+	}</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_1JKE0C-XEemMMYX5aDFviA" name="result" type="_343NwHXhEeKEDJ51kkuoUw" direction="return"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_1JUc4C-XEemMMYX5aDFviA" name="createObjectAction to callConstructor" target="_1JTOwC-XEemMMYX5aDFviA" source="_1JNvMS-XEemMMYX5aDFviA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_2Jx0UC-XEemMMYX5aDFviA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_2JybYC-XEemMMYX5aDFviA" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_1JUc4S-XEemMMYX5aDFviA" name="callConstructor to returnParamNode" target="_1JLS8C-XEemMMYX5aDFviA" source="_1JVrAi-XEemMMYX5aDFviA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_2JzCcC-XEemMMYX5aDFviA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_2JzpgC-XEemMMYX5aDFviA" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_1JWSEC-XEemMMYX5aDFviA" name="fork to startbehavior input pin" target="_1JVrAC-XEemMMYX5aDFviA" source="_1JVrAi-XEemMMYX5aDFviA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_2JzpgS-XEemMMYX5aDFviA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_2Jzpgi-XEemMMYX5aDFviA" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_1JWSES-XEemMMYX5aDFviA" name="callConstructor to startBehavior" target="_1JVrAi-XEemMMYX5aDFviA" source="_1JT10C-XEemMMYX5aDFviA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_2J0QkC-XEemMMYX5aDFviA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_2J0QkS-XEemMMYX5aDFviA" value="1"/>
+          </edge>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_1JLS8C-XEemMMYX5aDFviA" name="resultParameterNode" incoming="_1JUc4S-XEemMMYX5aDFviA" type="_343NwHXhEeKEDJ51kkuoUw" parameter="_1JKE0C-XEemMMYX5aDFviA">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1JL6AC-XEemMMYX5aDFviA" value="1"/>
+          </node>
+          <node xmi:type="uml:CreateObjectAction" xmi:id="_1JNvMC-XEemMMYX5aDFviA" name="createObject" classifier="_343NwHXhEeKEDJ51kkuoUw">
+            <result xmi:type="uml:OutputPin" xmi:id="_1JNvMS-XEemMMYX5aDFviA" name="result" outgoing="_1JUc4C-XEemMMYX5aDFviA" type="_343NwHXhEeKEDJ51kkuoUw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1JOWQC-XEemMMYX5aDFviA" value="1"/>
+            </result>
+          </node>
+          <node xmi:type="uml:CallOperationAction" xmi:id="_1JOWQS-XEemMMYX5aDFviA" name="callConstructor" operation="__NtKUKeMEeikM4uVAw4ABw">
+            <result xmi:type="uml:OutputPin" xmi:id="_1JT10C-XEemMMYX5aDFviA" name="result" outgoing="_1JWSES-XEemMMYX5aDFviA" type="_343NwHXhEeKEDJ51kkuoUw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1JT10S-XEemMMYX5aDFviA" value="1"/>
+            </result>
+            <target xmi:type="uml:InputPin" xmi:id="_1JTOwC-XEemMMYX5aDFviA" name="target" incoming="_1JUc4C-XEemMMYX5aDFviA" type="_343NwHXhEeKEDJ51kkuoUw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1JTOwS-XEemMMYX5aDFviA" value="1"/>
+            </target>
+          </node>
+          <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_1JVD8C-XEemMMYX5aDFviA" name="start classifier behavior">
+            <object xmi:type="uml:InputPin" xmi:id="_1JVrAC-XEemMMYX5aDFviA" name="object" incoming="_1JWSEC-XEemMMYX5aDFviA" type="_343NwHXhEeKEDJ51kkuoUw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1JVrAS-XEemMMYX5aDFviA" value="1"/>
+            </object>
+          </node>
+          <node xmi:type="uml:ForkNode" xmi:id="_1JVrAi-XEemMMYX5aDFviA" name="forkInstanciatedObject" incoming="_1JWSES-XEemMMYX5aDFviA" outgoing="_1JUc4S-XEemMMYX5aDFviA _1JWSEC-XEemMMYX5aDFviA"/>
+        </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_LmEtUHXkEeKEDJ51kkuoUw" name="increment" method="_cM6jwHXkEeKEDJ51kkuoUw"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_sXgyUKeKEeikM4uVAw4ABw" name="multiply" method="_vhUb4KeKEeikM4uVAw4ABw"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="__NtKUKeMEeikM4uVAw4ABw" name="Increment">
@@ -383,12 +430,14 @@ activity Increment_Factory(): Increment {
     </profileApplication>
   </uml:Model>
   <ActionLanguage:TextualRepresentation xmi:id="_o0R8IKeKEeikM4uVAw4ABw" base_Comment="_o0RVEKeKEeikM4uVAw4ABw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_o0UYYKeKEeikM4uVAw4ABw" timestamp="2018-08-24 13:01:01.809" state="MERGED" base_Comment="_o0RVEKeKEeikM4uVAw4ABw"/>
+  <BackupProfile:Backup xmi:id="_o0UYYKeKEeikM4uVAw4ABw" timestamp="2019-02-13 15:01:22.678" state="MERGED" base_Comment="_o0RVEKeKEeikM4uVAw4ABw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_sbWwgKeKEeikM4uVAw4ABw" base_Comment="_sbViYKeKEeikM4uVAw4ABw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_sbXXkKeKEeikM4uVAw4ABw" timestamp="2018-08-24 13:01:01.607" state="MERGED" base_Comment="_sbViYKeKEeikM4uVAw4ABw"/>
+  <BackupProfile:Backup xmi:id="_sbXXkKeKEeikM4uVAw4ABw" timestamp="2019-02-13 15:01:22.179" state="MERGED" base_Comment="_sbViYKeKEeikM4uVAw4ABw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_2r_S0KeKEeikM4uVAw4ABw" base_Comment="_2r-rwKeKEeikM4uVAw4ABw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_2r_54KeKEeikM4uVAw4ABw" timestamp="2018-08-29 13:24:54.764" base_Comment="_2r-rwKeKEeikM4uVAw4ABw"/>
+  <BackupProfile:Backup xmi:id="_2r_54KeKEeikM4uVAw4ABw" timestamp="2019-02-13 15:18:04.702" base_Comment="_2r-rwKeKEeikM4uVAw4ABw"/>
   <standard:Create xmi:id="__Nw0sKeMEeikM4uVAw4ABw" base_BehavioralFeature="__NtKUKeMEeikM4uVAw4ABw"/>
   <ActionLanguage:TextualRepresentation xmi:id="__TnlEaeMEeikM4uVAw4ABw" base_Comment="__TnlEKeMEeikM4uVAw4ABw" language="Alf"/>
   <BackupProfile:Backup xmi:id="__ToMIKeMEeikM4uVAw4ABw" timestamp="2018-08-24 13:01:02.042" state="MERGED" base_Comment="__TnlEKeMEeikM4uVAw4ABw"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_2PlhYC-XEemMMYX5aDFviA" base_Comment="_2J_2wC-XEemMMYX5aDFviA" language="Alf"/>
+  <BackupProfile:Backup xmi:id="_2Pn9oC-XEemMMYX5aDFviA" timestamp="2019-02-13 15:01:23.211" state="MERGED" base_Comment="_2J_2wC-XEemMMYX5aDFviA"/>
 </xmi:XMI>

@@ -24,6 +24,12 @@
       </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2EcvsKUvEeiJNOHipgZNwQ" name="registeredAccount" type="_t6QK4KUuEeiJNOHipgZNwQ"/>
       <ownedBehavior xmi:type="uml:Activity" xmi:id="_ot7P8KUuEeiJNOHipgZNwQ" name="AuthenticationEngineClassifierBehavior" node="_J8iXoKU0EeiJNOHipgZNwQ _Ydvh0KU1EeiJNOHipgZNwQ _rOcnwKU1EeiJNOHipgZNwQ _MR8d4KU2EeiJNOHipgZNwQ _m5tmsKU2EeiJNOHipgZNwQ _hcX-0KU3EeiJNOHipgZNwQ _7S9iUKU3EeiJNOHipgZNwQ _bs7a0KVaEeiJNOHipgZNwQ _5_kS4KVaEeiJNOHipgZNwQ _8cg2cKVaEeiJNOHipgZNwQ _6bRiAKVbEeiJNOHipgZNwQ _oAhf4KYJEeisDJLVYHRaZg _D-KZcKzvEei9y9N0Lw5pCw _vjiLgKzyEei9y9N0Lw5pCw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_g0BmYAHyEemh6qX-n9lCvQ">
+          <body>namespace AuthenticationEngine;
+
+activity AuthenticationEngineClassifierBehavior() {
+}</body>
+        </ownedComment>
         <edge xmi:type="uml:ObjectFlow" xmi:id="_w0xPsKU4EeiJNOHipgZNwQ" name="OF1" target="_Yt8lwKzwEei9y9N0Lw5pCw" source="_J8mpEKU0EeiJNOHipgZNwQ">
           <guard xmi:type="uml:LiteralBoolean" xmi:id="_w1FYwKU4EeiJNOHipgZNwQ" value="true"/>
           <weight xmi:type="uml:LiteralInteger" xmi:id="_w1FYwaU4EeiJNOHipgZNwQ" value="1"/>
@@ -157,7 +163,7 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_ifsCEKzvEei9y9N0Lw5pCw">
           <body>namespace AuthenticationEngine;
 
-activity registerAccountBehaviour() {
+activity registerAccountOperation() {
 }</body>
         </ownedComment>
         <edge xmi:type="uml:ObjectFlow" xmi:id="_4h4bIKt0EeiCm4CIpzP8RA" target="_Eq528KXZEeiJNOHipgZNwQ" source="_5wvE4KXXEeiJNOHipgZNwQ">
@@ -193,11 +199,11 @@ activity registerAccountBehaviour() {
           </result>
         </node>
       </ownedBehavior>
-      <ownedBehavior xmi:type="uml:Activity" xmi:id="_w4NpcKUxEeiJNOHipgZNwQ" name="authenticateOperation" specification="_gC-AEKUwEeiJNOHipgZNwQ" node="_4WQZAKXZEeiJNOHipgZNwQ _V93-IKXaEeiJNOHipgZNwQ _fLN3cKXaEeiJNOHipgZNwQ _4vpT8KXaEeiJNOHipgZNwQ _9lMtoKXaEeiJNOHipgZNwQ _uIqRsKXbEeiJNOHipgZNwQ _Fl_e0KXcEeiJNOHipgZNwQ _JS4AQKXcEeiJNOHipgZNwQ _3EWWUKYHEeisDJLVYHRaZg _ASL-4KYIEeisDJLVYHRaZg _r0RXgKtdEeif3MGqEWSuUA _Ye_S8KtfEeif3MGqEWSuUA _me3HIKtfEeif3MGqEWSuUA">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_w4NpcKUxEeiJNOHipgZNwQ" name="authenticateOperation" visibility="public" specification="_gC-AEKUwEeiJNOHipgZNwQ" node="_4WQZAKXZEeiJNOHipgZNwQ _V93-IKXaEeiJNOHipgZNwQ _fLN3cKXaEeiJNOHipgZNwQ _4vpT8KXaEeiJNOHipgZNwQ _9lMtoKXaEeiJNOHipgZNwQ _uIqRsKXbEeiJNOHipgZNwQ _Fl_e0KXcEeiJNOHipgZNwQ _JS4AQKXcEeiJNOHipgZNwQ _3EWWUKYHEeisDJLVYHRaZg _ASL-4KYIEeisDJLVYHRaZg _r0RXgKtdEeif3MGqEWSuUA _Ye_S8KtfEeif3MGqEWSuUA _me3HIKtfEeif3MGqEWSuUA">
         <ownedComment xmi:type="uml:Comment" xmi:id="_qIKH8KzyEei9y9N0Lw5pCw">
           <body>namespace AuthenticationEngine;
 
-activity authenticateBehavior() {
+activity authenticateOperation() {
 }</body>
         </ownedComment>
         <edge xmi:type="uml:ObjectFlow" xmi:id="_azuSwKXaEeiJNOHipgZNwQ" name="OF3" target="_V93-IKXaEeiJNOHipgZNwQ" source="_4WQZAKXZEeiJNOHipgZNwQ">
@@ -381,6 +387,12 @@ activity authenticateBehavior() {
         </node>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:Activity" xmi:id="_Wm6lMKYIEeisDJLVYHRaZg" name="AuthenticationEngine_Factory" node="_sdYYgNN2EeiuQ5GlwLYP-g _sd0dYNN2EeiuQ5GlwLYP-g _sd5V4NN2EeiuQ5GlwLYP-g _seAqoNN2EeiuQ5GlwLYP-g _seCf0NN2EeiuQ5GlwLYP-g">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_g0PBwAHyEemh6qX-n9lCvQ">
+          <body>namespace AuthenticationEngine;
+
+activity AuthenticationEngine_Factory(): AuthenticationEngine {
+	}</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Wm7MQKYIEeisDJLVYHRaZg" name="result" type="_rOXzcKUuEeiJNOHipgZNwQ" direction="return"/>
         <edge xmi:type="uml:ObjectFlow" xmi:id="_sd9AQNN2EeiuQ5GlwLYP-g" name="createObjectAction to callConstructor" target="_sd588NN2EeiuQ5GlwLYP-g" source="_sd1rgNN2EeiuQ5GlwLYP-g">
           <guard xmi:type="uml:LiteralBoolean" xmi:id="_sfAJINN2EeiuQ5GlwLYP-g" value="true"/>
@@ -425,8 +437,8 @@ activity authenticateBehavior() {
         <ownedComment xmi:type="uml:Comment" xmi:id="_-aNMMKzvEei9y9N0Lw5pCw">
           <body>namespace AuthenticationEngine;
 
-activity registerAccountBehavior(in engine:AuthenticationEngine, in account:Account) {
-	engine.registeredAccount = account;
+activity registerAccountBehavior(in engine: AuthenticationEngine,
+	in account: Account) {
 }</body>
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_TK07cazwEei9y9N0Lw5pCw" name="engine" type="_rOXzcKUuEeiJNOHipgZNwQ">
@@ -490,9 +502,9 @@ activity registerAccountBehavior(in engine:AuthenticationEngine, in account:Acco
         <ownedComment xmi:type="uml:Comment" xmi:id="_zgHV0KzyEei9y9N0Lw5pCw">
           <body>namespace AuthenticationEngine;
 
-activity authenticateBehavior(in engine:AuthenticationEngine, in account:Account):Boolean {
-	return engine.registeredAccount.username == account.username &amp; engine.registeredAccount.passwd == account.passwd;
-}</body>
+activity authenticateBehavior(in engine: AuthenticationEngine,
+	in account: Account): Boolean {
+	}</body>
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_zL35QKz0Eei9y9N0Lw5pCw" name="engine" type="_rOXzcKUuEeiJNOHipgZNwQ">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zL35Qaz0Eei9y9N0Lw5pCw" value="1"/>
@@ -713,13 +725,17 @@ activity authenticateBehavior(in engine:AuthenticationEngine, in account:Account
   </uml:Model>
   <standard:Create xmi:id="_Pbr9YKUzEeiJNOHipgZNwQ" base_BehavioralFeature="_aXvQsKUyEeiJNOHipgZNwQ"/>
   <ActionLanguage:TextualRepresentation xmi:id="_ifueUKzvEei9y9N0Lw5pCw" base_Comment="_ifsCEKzvEei9y9N0Lw5pCw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_ifwTgKzvEei9y9N0Lw5pCw" timestamp="2018-08-31 09:29:04.19" state="MERGED" base_Comment="_ifsCEKzvEei9y9N0Lw5pCw"/>
+  <BackupProfile:Backup xmi:id="_ifwTgKzvEei9y9N0Lw5pCw" timestamp="2018-12-17 12:58:24.361" state="MERGED" base_Comment="_ifsCEKzvEei9y9N0Lw5pCw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_-aOaUKzvEei9y9N0Lw5pCw" base_Comment="_-aNMMKzvEei9y9N0Lw5pCw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_-aPBYKzvEei9y9N0Lw5pCw" timestamp="2018-08-31 09:34:26.714" state="MERGED" base_Comment="_-aNMMKzvEei9y9N0Lw5pCw"/>
+  <BackupProfile:Backup xmi:id="_-aPBYKzvEei9y9N0Lw5pCw" timestamp="2018-12-17 12:58:23.759" state="MERGED" base_Comment="_-aNMMKzvEei9y9N0Lw5pCw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_-aQPgKzvEei9y9N0Lw5pCw" base_Comment="_-aPocKzvEei9y9N0Lw5pCw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_-aQPgazvEei9y9N0Lw5pCw" timestamp="2018-08-31 09:52:27.309" state="MERGED" base_Comment="_-aPocKzvEei9y9N0Lw5pCw"/>
+  <BackupProfile:Backup xmi:id="_-aQPgazvEei9y9N0Lw5pCw" timestamp="2018-12-17 12:58:23.862" state="MERGED" base_Comment="_-aPocKzvEei9y9N0Lw5pCw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_qILWEKzyEei9y9N0Lw5pCw" base_Comment="_qIKH8KzyEei9y9N0Lw5pCw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_qIL9IKzyEei9y9N0Lw5pCw" timestamp="2018-08-31 09:51:24.397" state="MERGED" base_Comment="_qIKH8KzyEei9y9N0Lw5pCw"/>
+  <BackupProfile:Backup xmi:id="_qIL9IKzyEei9y9N0Lw5pCw" timestamp="2018-12-17 12:58:24.055" state="MERGED" base_Comment="_qIKH8KzyEei9y9N0Lw5pCw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_zgH84KzyEei9y9N0Lw5pCw" base_Comment="_zgHV0KzyEei9y9N0Lw5pCw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_zgIj8KzyEei9y9N0Lw5pCw" timestamp="2018-08-31 10:06:38.26" state="MERGED" base_Comment="_zgHV0KzyEei9y9N0Lw5pCw"/>
+  <BackupProfile:Backup xmi:id="_zgIj8KzyEei9y9N0Lw5pCw" timestamp="2018-12-17 12:58:24.261" state="MERGED" base_Comment="_zgHV0KzyEei9y9N0Lw5pCw"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_g0HF8AHyEemh6qX-n9lCvQ" base_Comment="_g0BmYAHyEemh6qX-n9lCvQ" language="Alf"/>
+  <BackupProfile:Backup xmi:id="_g0KJQAHyEemh6qX-n9lCvQ" timestamp="2018-12-17 12:58:23.957" state="MERGED" base_Comment="_g0BmYAHyEemh6qX-n9lCvQ"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_g0Po0AHyEemh6qX-n9lCvQ" base_Comment="_g0PBwAHyEemh6qX-n9lCvQ" language="Alf"/>
+  <BackupProfile:Backup xmi:id="_g0QP4AHyEemh6qX-n9lCvQ" timestamp="2018-12-17 12:58:24.155" state="MERGED" base_Comment="_g0PBwAHyEemh6qX-n9lCvQ"/>
 </xmi:XMI>
