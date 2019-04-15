@@ -67,7 +67,7 @@
     <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_k9_AAKeKEeikM4uVAw4ABw" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
       <owner xmi:type="uml:Package" href="BasicActiveObjectExample.uml#_wLFCsHXhEeKEDJ51kkuoUw"/>
     </styles>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_k-AOIKeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_k-AOIKeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <element xmi:type="uml:Package" href="BasicActiveObjectExample.uml#_wLFCsHXhEeKEDJ51kkuoUw"/>
   </notation:Diagram>
   <notation:Diagram xmi:id="_J3YBwHXiEeKEDJ51kkuoUw" type="PapyrusUMLActivityDiagram" name="IncrementClassifierBehavior diagram" measurementUnit="Pixel">
@@ -271,7 +271,7 @@
     <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_k__yMKeKEeikM4uVAw4ABw" diagramKindId="org.eclipse.papyrus.uml.diagram.activity">
       <owner xmi:type="uml:Activity" href="BasicActiveObjectExample.uml#_Jq320HXiEeKEDJ51kkuoUw"/>
     </styles>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_lAHG8KeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_lAHG8KeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <element xmi:type="uml:Activity" href="BasicActiveObjectExample.uml#_Jq320HXiEeKEDJ51kkuoUw"/>
     <edges xmi:type="notation:Connector" xmi:id="_6ozwYHXiEeKEDJ51kkuoUw" type="ObjectFlow_Edge" source="_jGCCknXiEeKEDJ51kkuoUw" target="_pqKd8HXiEeKEDJ51kkuoUw">
       <children xmi:type="notation:DecorationNode" xmi:id="_6ozwY3XiEeKEDJ51kkuoUw" visible="false" type="ObjectFlow_NameLabel">
@@ -715,7 +715,7 @@
     <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_k-93cKeKEeikM4uVAw4ABw" diagramKindId="org.eclipse.papyrus.uml.diagram.activity">
       <owner xmi:type="uml:Activity" href="BasicActiveObjectExample.uml#_cM6jwHXkEeKEDJ51kkuoUw"/>
     </styles>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_k_FMMKeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_k_FMMKeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <element xmi:type="uml:Activity" href="BasicActiveObjectExample.uml#_cM6jwHXkEeKEDJ51kkuoUw"/>
     <edges xmi:type="notation:Connector" xmi:id="_9SuuEHXkEeKEDJ51kkuoUw" type="ObjectFlow_Edge" source="_4BnZwnXkEeKEDJ51kkuoUw" target="_wJH463X3EeKtD6JgZNlHOA">
       <children xmi:type="notation:DecorationNode" xmi:id="_9SuuE3XkEeKEDJ51kkuoUw" visible="false" type="ObjectFlow_NameLabel">
@@ -958,7 +958,7 @@
     <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_k8-TYKeKEeikM4uVAw4ABw" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
       <owner xmi:type="uml:Model" href="BasicActiveObjectExample.uml#_TEGMIHIVEeKn_eMfgI85Zw"/>
     </styles>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_k9EaAKeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_k9EaAKeKEeikM4uVAw4ABw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <element xmi:type="uml:Model" href="BasicActiveObjectExample.uml#_TEGMIHIVEeKn_eMfgI85Zw"/>
   </notation:Diagram>
   <css:ModelStyleSheets xmi:id="_S8LQsPueEeOaTf6ppV18tA"/>

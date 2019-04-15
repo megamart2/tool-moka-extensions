@@ -2378,55 +2378,49 @@ activity testPlusBehavior() {
             </result>
           </node>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_yBmtwDRoEemOmMDdngKDhw" name="TestPlusBehaviour_Factory" node="_yBnU0DRoEemOmMDdngKDhw _yBupkDRoEemOmMDdngKDhw _yBvQojRoEemOmMDdngKDhw _yBwewTRoEemOmMDdngKDhw _yBxF0DRoEemOmMDdngKDhw">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_yIVn4DRoEemOmMDdngKDhw">
-            <body>namespace tests::TestPlusBehaviour;
-
-activity TestPlusBehaviour_Factory(): TestPlusBehaviour {
-	}</body>
-          </ownedComment>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_yBmtwTRoEemOmMDdngKDhw" name="result" type="__DL8cDRiEemOmMDdngKDhw" direction="return"/>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_yBv3tDRoEemOmMDdngKDhw" name="createObjectAction to callConstructor" target="_yBv3sDRoEemOmMDdngKDhw" source="_yBvQoDRoEemOmMDdngKDhw">
-            <guard xmi:type="uml:LiteralBoolean" xmi:id="_yIUZwDRoEemOmMDdngKDhw" value="true"/>
-            <weight xmi:type="uml:LiteralInteger" xmi:id="_yIUZwTRoEemOmMDdngKDhw" value="1"/>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_0i6TYEP_EemJtKvxgtaRGA" name="TestPlusBehaviour_Factory" node="_0i_L4EP_EemJtKvxgtaRGA _0nji0EP_EemJtKvxgtaRGA _0nlYAEP_EemJtKvxgtaRGA _0nobUUP_EemJtKvxgtaRGA _0nqQgEP_EemJtKvxgtaRGA">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0i99wEP_EemJtKvxgtaRGA" name="result" type="__DL8cDRiEemOmMDdngKDhw" direction="return"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_0nn0QEP_EemJtKvxgtaRGA" name="createObjectAction to callConstructor" target="_0nl_EEP_EemJtKvxgtaRGA" source="_0nkJ4EP_EemJtKvxgtaRGA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_0nwXIEP_EemJtKvxgtaRGA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_0nw-MEP_EemJtKvxgtaRGA" value="1"/>
           </edge>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_yBwewDRoEemOmMDdngKDhw" name="callConstructor to returnParamNode" target="_yBnU0DRoEemOmMDdngKDhw" source="_yBxF0DRoEemOmMDdngKDhw">
-            <guard xmi:type="uml:LiteralBoolean" xmi:id="_yIUZwjRoEemOmMDdngKDhw" value="true"/>
-            <weight xmi:type="uml:LiteralInteger" xmi:id="_yIUZwzRoEemOmMDdngKDhw" value="1"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_0nobUEP_EemJtKvxgtaRGA" name="callConstructor to returnParamNode" target="_0i_L4EP_EemJtKvxgtaRGA" source="_0nqQgEP_EemJtKvxgtaRGA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_0nxlQEP_EemJtKvxgtaRGA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_0nxlQUP_EemJtKvxgtaRGA" value="1"/>
           </edge>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_yBxF0TRoEemOmMDdngKDhw" name="fork to startbehavior input pin" target="_yBwewjRoEemOmMDdngKDhw" source="_yBxF0DRoEemOmMDdngKDhw">
-            <guard xmi:type="uml:LiteralBoolean" xmi:id="_yIUZxDRoEemOmMDdngKDhw" value="true"/>
-            <weight xmi:type="uml:LiteralInteger" xmi:id="_yIVA0DRoEemOmMDdngKDhw" value="1"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_0nq3kEP_EemJtKvxgtaRGA" name="fork to startbehavior input pin" target="_0npCYEP_EemJtKvxgtaRGA" source="_0nqQgEP_EemJtKvxgtaRGA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_0nyMUEP_EemJtKvxgtaRGA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_0nyMUUP_EemJtKvxgtaRGA" value="1"/>
           </edge>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_yBxF0jRoEemOmMDdngKDhw" name="callConstructor to startBehavior" target="_yBxF0DRoEemOmMDdngKDhw" source="_yBv3sjRoEemOmMDdngKDhw">
-            <guard xmi:type="uml:LiteralBoolean" xmi:id="_yIVA0TRoEemOmMDdngKDhw" value="true"/>
-            <weight xmi:type="uml:LiteralInteger" xmi:id="_yIVA0jRoEemOmMDdngKDhw" value="1"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_0nreoEP_EemJtKvxgtaRGA" name="callConstructor to startBehavior" target="_0nqQgEP_EemJtKvxgtaRGA" source="_0nmmIUP_EemJtKvxgtaRGA">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_0nyzYEP_EemJtKvxgtaRGA" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_0nyzYUP_EemJtKvxgtaRGA" value="1"/>
           </edge>
-          <node xmi:type="uml:ActivityParameterNode" xmi:id="_yBnU0DRoEemOmMDdngKDhw" name="resultParameterNode" incoming="_yBwewDRoEemOmMDdngKDhw" type="__DL8cDRiEemOmMDdngKDhw" parameter="_yBmtwTRoEemOmMDdngKDhw">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_yBnU0TRoEemOmMDdngKDhw" value="1"/>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_0i_L4EP_EemJtKvxgtaRGA" name="resultParameterNode" incoming="_0nobUEP_EemJtKvxgtaRGA" type="__DL8cDRiEemOmMDdngKDhw" parameter="_0i99wEP_EemJtKvxgtaRGA">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_0jAaAEP_EemJtKvxgtaRGA" value="1"/>
           </node>
-          <node xmi:type="uml:CreateObjectAction" xmi:id="_yBupkDRoEemOmMDdngKDhw" name="createObject" classifier="__DL8cDRiEemOmMDdngKDhw">
-            <result xmi:type="uml:OutputPin" xmi:id="_yBvQoDRoEemOmMDdngKDhw" name="result" outgoing="_yBv3tDRoEemOmMDdngKDhw" type="__DL8cDRiEemOmMDdngKDhw">
-              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_yBvQoTRoEemOmMDdngKDhw" value="1"/>
+          <node xmi:type="uml:CreateObjectAction" xmi:id="_0nji0EP_EemJtKvxgtaRGA" name="createObject" classifier="__DL8cDRiEemOmMDdngKDhw">
+            <result xmi:type="uml:OutputPin" xmi:id="_0nkJ4EP_EemJtKvxgtaRGA" name="result" outgoing="_0nn0QEP_EemJtKvxgtaRGA" type="__DL8cDRiEemOmMDdngKDhw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_0nkw8EP_EemJtKvxgtaRGA" value="1"/>
             </result>
           </node>
-          <node xmi:type="uml:CallOperationAction" xmi:id="_yBvQojRoEemOmMDdngKDhw" name="callConstructor" operation="_yBqYIDRoEemOmMDdngKDhw">
-            <result xmi:type="uml:OutputPin" xmi:id="_yBv3sjRoEemOmMDdngKDhw" name="result" outgoing="_yBxF0jRoEemOmMDdngKDhw" type="__DL8cDRiEemOmMDdngKDhw">
-              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_yBv3szRoEemOmMDdngKDhw" value="1"/>
+          <node xmi:type="uml:CallOperationAction" xmi:id="_0nlYAEP_EemJtKvxgtaRGA" name="callConstructor" operation="_0nQA0EP_EemJtKvxgtaRGA">
+            <result xmi:type="uml:OutputPin" xmi:id="_0nmmIUP_EemJtKvxgtaRGA" name="result" outgoing="_0nreoEP_EemJtKvxgtaRGA" type="__DL8cDRiEemOmMDdngKDhw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_0nnNMEP_EemJtKvxgtaRGA" value="1"/>
             </result>
-            <target xmi:type="uml:InputPin" xmi:id="_yBv3sDRoEemOmMDdngKDhw" name="target" incoming="_yBv3tDRoEemOmMDdngKDhw" type="__DL8cDRiEemOmMDdngKDhw">
-              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_yBv3sTRoEemOmMDdngKDhw" value="1"/>
+            <target xmi:type="uml:InputPin" xmi:id="_0nl_EEP_EemJtKvxgtaRGA" name="target" incoming="_0nn0QEP_EemJtKvxgtaRGA" type="__DL8cDRiEemOmMDdngKDhw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_0nmmIEP_EemJtKvxgtaRGA" value="1"/>
             </target>
           </node>
-          <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_yBwewTRoEemOmMDdngKDhw" name="start classifier behavior">
-            <object xmi:type="uml:InputPin" xmi:id="_yBwewjRoEemOmMDdngKDhw" name="object" incoming="_yBxF0TRoEemOmMDdngKDhw" type="__DL8cDRiEemOmMDdngKDhw">
-              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_yBwewzRoEemOmMDdngKDhw" value="1"/>
+          <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_0nobUUP_EemJtKvxgtaRGA" name="start classifier behavior">
+            <object xmi:type="uml:InputPin" xmi:id="_0npCYEP_EemJtKvxgtaRGA" name="object" incoming="_0nq3kEP_EemJtKvxgtaRGA" type="__DL8cDRiEemOmMDdngKDhw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_0nppcEP_EemJtKvxgtaRGA" value="1"/>
             </object>
           </node>
-          <node xmi:type="uml:ForkNode" xmi:id="_yBxF0DRoEemOmMDdngKDhw" name="forkInstanciatedObject" incoming="_yBxF0jRoEemOmMDdngKDhw" outgoing="_yBwewDRoEemOmMDdngKDhw _yBxF0TRoEemOmMDdngKDhw"/>
+          <node xmi:type="uml:ForkNode" xmi:id="_0nqQgEP_EemJtKvxgtaRGA" name="forkInstanciatedObject" incoming="_0nreoEP_EemJtKvxgtaRGA" outgoing="_0nobUEP_EemJtKvxgtaRGA _0nq3kEP_EemJtKvxgtaRGA"/>
         </ownedBehavior>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_yBqYIDRoEemOmMDdngKDhw" name="TestPlusBehaviour">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_yBuCgDRoEemOmMDdngKDhw" name="return" type="__DL8cDRiEemOmMDdngKDhw" direction="return"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_0nQA0EP_EemJtKvxgtaRGA" name="TestPlusBehaviour">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0neDQEP_EemJtKvxgtaRGA" name="return" type="__DL8cDRiEemOmMDdngKDhw" direction="return"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_HH5c8DRnEemOmMDdngKDhw" name="TestMinusBehaviour" classifierBehavior="_HH5dQTRnEemOmMDdngKDhw" isActive="true">
@@ -3006,6 +3000,12 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_0j0SUEP_EemJtKvxgtaRGA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0j7AAEP_EemJtKvxgtaRGA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
   </uml:Model>
   <ActionLanguage:TextualRepresentation xmi:id="_bYg5gDOCEemM8cY6ryq-Xw" base_Comment="_bU3IkDOCEemM8cY6ryq-Xw" language="Alf"/>
   <BackupProfile:Backup xmi:id="_bYwxIDOCEemM8cY6ryq-Xw" timestamp="2019-03-04 15:40:18.462" state="MERGED" base_Comment="_bU3IkDOCEemM8cY6ryq-Xw"/>
@@ -3063,9 +3063,6 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
   <BackupProfile:Backup xmi:id="_jfZa0DRjEemOmMDdngKDhw" timestamp="2019-02-28 11:21:26.964" state="MERGED" base_Comment="_jfYMsDRjEemOmMDdngKDhw"/>
   <ActionLanguage:TextualRepresentation xmi:id="_HO6D4TRnEemOmMDdngKDhw" base_Comment="_HO6D4DRnEemOmMDdngKDhw" language="Alf"/>
   <BackupProfile:Backup xmi:id="_HO6D4jRnEemOmMDdngKDhw" timestamp="2019-02-28 11:21:25.665" state="MERGED" base_Comment="_HO6D4DRnEemOmMDdngKDhw"/>
-  <standard:Create xmi:id="_yBuCgTRoEemOmMDdngKDhw" base_BehavioralFeature="_yBqYIDRoEemOmMDdngKDhw"/>
-  <ActionLanguage:TextualRepresentation xmi:id="_yIVn4TRoEemOmMDdngKDhw" base_Comment="_yIVn4DRoEemOmMDdngKDhw" language="Alf"/>
-  <BackupProfile:Backup xmi:id="_yIWO8DRoEemOmMDdngKDhw" timestamp="2019-02-28 11:21:26.575" state="MERGED" base_Comment="_yIVn4DRoEemOmMDdngKDhw"/>
   <standard:Create xmi:id="_1rP4gDRpEemXM9lVUNAtww" base_BehavioralFeature="_1mAzMDRpEemXM9lVUNAtww"/>
   <ActionLanguage:TextualRepresentation xmi:id="_2UdNkDRpEemXM9lVUNAtww" base_Comment="_2UcmgDRpEemXM9lVUNAtww" language="Alf"/>
   <BackupProfile:Backup xmi:id="_2Ud0oDRpEemXM9lVUNAtww" timestamp="2019-02-28 11:21:25.204" state="MERGED" base_Comment="_2UcmgDRpEemXM9lVUNAtww"/>
@@ -3098,4 +3095,5 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
   <BackupProfile:Backup xmi:id="_oWZgAD5pEemZD_9QHqtu4Q" timestamp="2019-03-04 11:38:21.18" state="MERGED" base_Comment="_oWYR4D5pEemZD_9QHqtu4Q"/>
   <ActionLanguage:TextualRepresentation xmi:id="_bqFF8D6LEemq49KVBQySNQ" base_Comment="_bqD30D6LEemq49KVBQySNQ" language="Alf"/>
   <BackupProfile:Backup xmi:id="_bqGUED6LEemq49KVBQySNQ" timestamp="2019-03-04 15:40:18.712" state="MERGED" base_Comment="_bqD30D6LEemq49KVBQySNQ"/>
+  <standard:Create xmi:id="_0ni7wEP_EemJtKvxgtaRGA" base_BehavioralFeature="_0nQA0EP_EemJtKvxgtaRGA"/>
 </xmi:XMI>

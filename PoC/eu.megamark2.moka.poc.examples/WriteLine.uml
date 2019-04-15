@@ -118,7 +118,7 @@ activity debugBehaviour() {
           </argument>
         </node>
       </ownedBehavior>
-      <ownedBehavior xmi:type="uml:Activity" xmi:id="_QCMMcKeTEeiknfaktDb_VA" name="Debug_Factory" node="_QCOosKeTEeiknfaktDb_VA _QCThMKeTEeiknfaktDb_VA _QCUIQqeTEeiknfaktDb_VA _QCVWYaeTEeiknfaktDb_VA _QCV9cKeTEeiknfaktDb_VA">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_QCMMcKeTEeiknfaktDb_VA" name="Debug_Factory" node="_lNzOAFIKEem4fPXCPx2zxw _lN4GgFIKEem4fPXCPx2zxw _lN8X8lIKEem4fPXCPx2zxw _lOApYFIKEem4fPXCPx2zxw _lODsslIKEem4fPXCPx2zxw">
         <ownedComment xmi:type="uml:Comment" xmi:id="_QKX4EKeTEeiknfaktDb_VA">
           <body>namespace Debug;
 
@@ -126,44 +126,44 @@ activity Debug_Factory(): Debug {
 	}</body>
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_QCOBoKeTEeiknfaktDb_VA" name="result" type="_BVMl0KeOEeikM4uVAw4ABw" direction="return"/>
-        <edge xmi:type="uml:ObjectFlow" xmi:id="_QCUvVKeTEeiknfaktDb_VA" name="createObjectAction to callConstructor" target="_QCUvUKeTEeiknfaktDb_VA" source="_QCUIQKeTEeiknfaktDb_VA">
-          <guard xmi:type="uml:LiteralBoolean" xmi:id="_QKVb0KeTEeiknfaktDb_VA" value="true"/>
-          <weight xmi:type="uml:LiteralInteger" xmi:id="_QKWC4KeTEeiknfaktDb_VA" value="1"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_lOACUlIKEem4fPXCPx2zxw" name="createObjectAction to callConstructor" target="_lN_bQFIKEem4fPXCPx2zxw" source="_lN8X8FIKEem4fPXCPx2zxw">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_lOH-IFIKEem4fPXCPx2zxw" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_lOH-IVIKEem4fPXCPx2zxw" value="1"/>
         </edge>
-        <edge xmi:type="uml:ObjectFlow" xmi:id="_QCVWYKeTEeiknfaktDb_VA" name="callConstructor to returnParamNode" target="_QCOosKeTEeiknfaktDb_VA" source="_QCV9cKeTEeiknfaktDb_VA">
-          <guard xmi:type="uml:LiteralBoolean" xmi:id="_QKWC4aeTEeiknfaktDb_VA" value="true"/>
-          <weight xmi:type="uml:LiteralInteger" xmi:id="_QKWC4qeTEeiknfaktDb_VA" value="1"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_lOACU1IKEem4fPXCPx2zxw" name="callConstructor to returnParamNode" target="_lNzOAFIKEem4fPXCPx2zxw" source="_lODsslIKEem4fPXCPx2zxw">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_lOH-IlIKEem4fPXCPx2zxw" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_lOH-I1IKEem4fPXCPx2zxw" value="1"/>
         </edge>
-        <edge xmi:type="uml:ObjectFlow" xmi:id="_QCV9caeTEeiknfaktDb_VA" name="fork to startbehavior input pin" target="_QCVWYqeTEeiknfaktDb_VA" source="_QCV9cKeTEeiknfaktDb_VA">
-          <guard xmi:type="uml:LiteralBoolean" xmi:id="_QKWC46eTEeiknfaktDb_VA" value="true"/>
-          <weight xmi:type="uml:LiteralInteger" xmi:id="_QKWC5KeTEeiknfaktDb_VA" value="1"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_lOGwAFIKEem4fPXCPx2zxw" name="fork to startbehavior input pin" target="_lODssFIKEem4fPXCPx2zxw" source="_lODsslIKEem4fPXCPx2zxw">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_lOH-JFIKEem4fPXCPx2zxw" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_lOH-JVIKEem4fPXCPx2zxw" value="1"/>
         </edge>
-        <edge xmi:type="uml:ObjectFlow" xmi:id="_QCV9cqeTEeiknfaktDb_VA" name="callConstructor to startBehavior" target="_QCV9cKeTEeiknfaktDb_VA" source="_QCUvUqeTEeiknfaktDb_VA">
-          <guard xmi:type="uml:LiteralBoolean" xmi:id="_QKXRAKeTEeiknfaktDb_VA" value="true"/>
-          <weight xmi:type="uml:LiteralInteger" xmi:id="_QKXRAaeTEeiknfaktDb_VA" value="1"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_lOHXEFIKEem4fPXCPx2zxw" name="callConstructor to startBehavior" target="_lODsslIKEem4fPXCPx2zxw" source="_lOACUFIKEem4fPXCPx2zxw">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_lOH-JlIKEem4fPXCPx2zxw" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_lOIlMFIKEem4fPXCPx2zxw" value="1"/>
         </edge>
-        <node xmi:type="uml:ActivityParameterNode" xmi:id="_QCOosKeTEeiknfaktDb_VA" name="resultParameterNode" incoming="_QCVWYKeTEeiknfaktDb_VA" type="_BVMl0KeOEeikM4uVAw4ABw" parameter="_QCOBoKeTEeiknfaktDb_VA">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_QCOosaeTEeiknfaktDb_VA" value="1"/>
+        <node xmi:type="uml:ActivityParameterNode" xmi:id="_lNzOAFIKEem4fPXCPx2zxw" name="resultParameterNode" incoming="_lOACU1IKEem4fPXCPx2zxw" type="_BVMl0KeOEeikM4uVAw4ABw" parameter="_QCOBoKeTEeiknfaktDb_VA">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_lN3fcFIKEem4fPXCPx2zxw" value="1"/>
         </node>
-        <node xmi:type="uml:CreateObjectAction" xmi:id="_QCThMKeTEeiknfaktDb_VA" name="createObject" classifier="_BVMl0KeOEeikM4uVAw4ABw">
-          <result xmi:type="uml:OutputPin" xmi:id="_QCUIQKeTEeiknfaktDb_VA" name="result" outgoing="_QCUvVKeTEeiknfaktDb_VA" type="_BVMl0KeOEeikM4uVAw4ABw">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_QCUIQaeTEeiknfaktDb_VA" value="1"/>
+        <node xmi:type="uml:CreateObjectAction" xmi:id="_lN4GgFIKEem4fPXCPx2zxw" name="createObject" classifier="_BVMl0KeOEeikM4uVAw4ABw">
+          <result xmi:type="uml:OutputPin" xmi:id="_lN8X8FIKEem4fPXCPx2zxw" name="result" outgoing="_lOACUlIKEem4fPXCPx2zxw" type="_BVMl0KeOEeikM4uVAw4ABw">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_lN8X8VIKEem4fPXCPx2zxw" value="1"/>
           </result>
         </node>
-        <node xmi:type="uml:CallOperationAction" xmi:id="_QCUIQqeTEeiknfaktDb_VA" name="callConstructor" operation="_QCQd4KeTEeiknfaktDb_VA">
-          <result xmi:type="uml:OutputPin" xmi:id="_QCUvUqeTEeiknfaktDb_VA" name="result" outgoing="_QCV9cqeTEeiknfaktDb_VA" type="_BVMl0KeOEeikM4uVAw4ABw">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_QCUvU6eTEeiknfaktDb_VA" value="1"/>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_lN8X8lIKEem4fPXCPx2zxw" name="callConstructor" operation="_QCQd4KeTEeiknfaktDb_VA">
+          <result xmi:type="uml:OutputPin" xmi:id="_lOACUFIKEem4fPXCPx2zxw" name="result" outgoing="_lOHXEFIKEem4fPXCPx2zxw" type="_BVMl0KeOEeikM4uVAw4ABw">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_lOACUVIKEem4fPXCPx2zxw" value="1"/>
           </result>
-          <target xmi:type="uml:InputPin" xmi:id="_QCUvUKeTEeiknfaktDb_VA" name="target" incoming="_QCUvVKeTEeiknfaktDb_VA" type="_BVMl0KeOEeikM4uVAw4ABw">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_QCUvUaeTEeiknfaktDb_VA" value="1"/>
+          <target xmi:type="uml:InputPin" xmi:id="_lN_bQFIKEem4fPXCPx2zxw" name="target" incoming="_lOACUlIKEem4fPXCPx2zxw" type="_BVMl0KeOEeikM4uVAw4ABw">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_lN_bQVIKEem4fPXCPx2zxw" value="1"/>
           </target>
         </node>
-        <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_QCVWYaeTEeiknfaktDb_VA" name="start classifier behavior">
-          <object xmi:type="uml:InputPin" xmi:id="_QCVWYqeTEeiknfaktDb_VA" name="object" incoming="_QCV9caeTEeiknfaktDb_VA" type="_BVMl0KeOEeikM4uVAw4ABw">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_QCVWY6eTEeiknfaktDb_VA" value="1"/>
+        <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_lOApYFIKEem4fPXCPx2zxw" name="start classifier behavior">
+          <object xmi:type="uml:InputPin" xmi:id="_lODssFIKEem4fPXCPx2zxw" name="object" incoming="_lOGwAFIKEem4fPXCPx2zxw" type="_BVMl0KeOEeikM4uVAw4ABw">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_lODssVIKEem4fPXCPx2zxw" value="1"/>
           </object>
         </node>
-        <node xmi:type="uml:ForkNode" xmi:id="_QCV9cKeTEeiknfaktDb_VA" name="forkInstanciatedObject" incoming="_QCV9cqeTEeiknfaktDb_VA" outgoing="_QCVWYKeTEeiknfaktDb_VA _QCV9caeTEeiknfaktDb_VA"/>
+        <node xmi:type="uml:ForkNode" xmi:id="_lODsslIKEem4fPXCPx2zxw" name="forkInstanciatedObject" incoming="_lOHXEFIKEem4fPXCPx2zxw" outgoing="_lOACU1IKEem4fPXCPx2zxw _lOGwAFIKEem4fPXCPx2zxw"/>
       </ownedBehavior>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_QCQd4KeTEeiknfaktDb_VA" name="Debug">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_QCSTEKeTEeiknfaktDb_VA" name="return" type="_BVMl0KeOEeikM4uVAw4ABw" direction="return"/>

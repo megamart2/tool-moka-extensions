@@ -4,8 +4,8 @@ This repository contains the code of number of plugins that extend the functiona
 
 ## MegaM@Rt Extensions for Moka
 
-- eu.megamart2.moka.logging:
-- eu.megamart2.moka.validation:
+- eu.megamart2.moka.validation: this extensions adds additional EMF Validation to fUML models within Papyrus, checking potential model validation issues
+- eu.megamart2.moka.logging: this extension adds execution logging to Moka UML model execution
 
 ## Installation
 The installation of the MegaM@Rt Extensions for Moka follows the standard Eclipse plugin installation precedure.
@@ -18,8 +18,6 @@ MegaM@Rt Extensions for Moka require the following software requirements:
 - Moka
 
 Install Git, Eclipse 2018-09 Modeling, Papyrus and Moka before proceedding to install these Moka extensions. 
-
-Note: Eclipse needs to be configured with a default JRE instalation pointed to a JDK (not to a JRE)
 
 ### Installation precedure
 1. In a command line interface (CMI), pull the **MegaM@Rt Extensions for Moka Repository** to get the update site locally:
