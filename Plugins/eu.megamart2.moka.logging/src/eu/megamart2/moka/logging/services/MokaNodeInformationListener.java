@@ -16,12 +16,9 @@ import eu.megamart2.moka.logging.nodes.NodeInfoGenerator;
 import eu.megamart2.moka.logging.output.MegamartOutput;
 import eu.megamart2.moka.logging.output.MegamartViewOutput;
 import eu.megamart2.moka.logging.queue.InfoQueue;
-import eu.megamart2.moka.logging.utils.StartControl;
 
 public class MokaNodeInformationListener 
 extends AbstractMokaService implements IMokaExecutionListener {
-
-	private StartControl control;
 	
 	private NodeInfoGenerator generator; 
 	
@@ -31,9 +28,8 @@ extends AbstractMokaService implements IMokaExecutionListener {
 
 	@Override
 	public void init(ILaunch launcher, EObject modelElement){
-		control = new StartControl();
 		queue = new InfoQueue();
-		generator = new NodeInfoGenerator(control,queue,launcher);
+		generator = new NodeInfoGenerator(queue,launcher);
         
 		this.modelElement = modelElement;
 		MegamartViewOutput.getInstance().clean();

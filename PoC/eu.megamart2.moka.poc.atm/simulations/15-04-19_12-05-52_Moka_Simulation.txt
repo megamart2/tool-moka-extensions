@@ -1,0 +1,8 @@
+{ name = 5, type = Value specification, Input : [  ], Output : [ { type = Integer, value = 5 } ] }
+{ name = 5, type = Value specification, Input : [  ], Output : [ { type = Integer, value = 5 } ] }
+{ name = Body, type = StructuredActivityNodeActivation, Input : [  ], Output : [  ] }
+{ name = 1:ReturnStatement, type = StructuredActivityNodeActivation, Input : [  ], Output : [  ] }
+{ name = Test(==), type = TestIdentityActionActivation, Input : [ { name = Test(==).first, type = Integer, value = 5 }, { name = Test(==).second, type = Integer, value = 5 } ], Output : [  ] }
+{ name = Equal, type = CallBehaviorActionActivation, Input : [ { name = x, type = Integer, value = 5 }, { name = y, type = Integer, value = 5 } ], Output : [ { name = No name, type = Boolean, value = true } ] }
+{ name = context, type = CS_ReadSelfActionActivation, Input : [  ], Output : [  ] }
+{ name = setTestResult, type = CS_AddStructuralFeatureValueActionActivation, Input : [ { name = object, type = TestEqualBehaviour, value = [ { name = testResult, type = Boolean, value = null } ] }, { name = value, type = Boolean, value = true } ], Output : [  ] }

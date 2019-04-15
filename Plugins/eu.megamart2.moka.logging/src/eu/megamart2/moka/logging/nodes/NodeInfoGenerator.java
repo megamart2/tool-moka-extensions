@@ -9,18 +9,14 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.IntermediateActions.
 import eu.megamart2.moka.logging.behaviors.ActionInfo;
 import eu.megamart2.moka.logging.behaviors.ValueSpecificationInfo;
 import eu.megamart2.moka.logging.queue.InfoQueue;
-import eu.megamart2.moka.logging.utils.StartControl;
 
 public class NodeInfoGenerator {
-	
-	private final StartControl control;
 	
 	private final InfoQueue queue;
 	
 	private final ILaunch launcher; 
 	
-	public NodeInfoGenerator(StartControl control,InfoQueue queue,ILaunch launcher) {
-        this.control = control;
+	public NodeInfoGenerator(InfoQueue queue,ILaunch launcher) {
         this.queue = queue;
         this.launcher = launcher;
 	}
@@ -35,10 +31,10 @@ public class NodeInfoGenerator {
     public NodeInfo performAction(ISemanticVisitor nodeVisitor,boolean add) {
     	if(nodeVisitor instanceof StartObjectBehaviorActionActivation) {
 
-			control.setStarted(true);
+			// TODO
 			return null;
 		}
-		if(!control.getStarted()) return null;
+
 		NodeInfo info = null;
 		boolean stop = true;
 
