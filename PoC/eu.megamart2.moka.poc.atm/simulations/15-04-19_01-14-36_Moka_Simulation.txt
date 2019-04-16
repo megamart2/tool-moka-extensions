@@ -1,0 +1,29 @@
+{ name = ATM, type = CS_CreateObjectActionActivation, Input : [  ], Output : [  ] }
+{ name = MyCard, type = CS_CreateObjectActionActivation, Input : [  ], Output : [  ] }
+{ name = MyPin: 12345, type = Value specification, Input : [  ], Output : [ { type = Integer, value = 12345 } ] }
+{ name = setMyPin, type = CS_AddStructuralFeatureValueActionActivation, Input : [ { name = object, type = Card, value = [ { name = number, type = Integer, value = null }, { name = pin, type = Integer, value = null }, { name = account, type = Account, value = null } ] }, { name = value, type = Integer, value = 12345 } ], Output : [  ] }
+{ name = Amount: 2500€, type = Value specification, Input : [  ], Output : [ { type = Integer, value = 2500 } ] }
+{ name = MyAccount, type = CS_CreateObjectActionActivation, Input : [  ], Output : [  ] }
+{ name = MyBalance: 1500€, type = Value specification, Input : [  ], Output : [ { type = Integer, value = 1500 } ] }
+{ name = setMyBalance, type = CS_AddStructuralFeatureValueActionActivation, Input : [ { name = object, type = Account, value = [ { name = record, type = Record, value = null }, { name = number, type = Integer, value = null }, { name = balance, type = Integer, value = null } ] }, { name = value, type = Integer, value = 1500 } ], Output : [  ] }
+{ name = setMyAccount, type = CS_AddStructuralFeatureValueActionActivation, Input : [ { name = object, type = Card, value = [ { name = number, type = Integer, value = null }, { name = pin, type = Integer, value = 12345 }, { name = account, type = Account, value = null } ] }, { name = value, type = Account, value = [ { name = record, type = Record, value = null }, { name = number, type = Integer, value = null }, { name = balance, type = Integer, value = 1500 } ] } ], Output : [  ] }
+{ name = WrongPin:54321, type = Value specification, Input : [  ], Output : [ { type = Integer, value = 54321 } ] }
+{ name = ATM.deposit, type = CS_CallOperationActionActivation, Input : [ { name = pin, type = Integer, value = 54321 }, { name = card, type = Card, value = [ { name = number, type = Integer, value = null }, { name = pin, type = Integer, value = 12345 }, { name = account, type = Account, value = null } ] }, { name = amount, type = Integer, value = 2500 }, { name = target, type = Reference to ATM@ebed08c4-b92b-42c2-a42d-bfd6c33b2ffc(ATM), value = [  ] } ], Output : [  ] }
+{ name = context, type = CS_ReadSelfActionActivation, Input : [  ], Output : [  ] }
+{ name = startNewTransaction, type = CS_CallOperationActionActivation, Input : [ { name = target, type = Reference to ATM@ebed08c4-b92b-42c2-a42d-bfd6c33b2ffc(ATM), value = [  ] } ], Output : [  ] }
+{ name = context, type = CS_ReadSelfActionActivation, Input : [  ], Output : [  ] }
+{ name = createTransaction, type = CS_CreateObjectActionActivation, Input : [  ], Output : [  ] }
+{ name = setCurrentTransaction, type = CS_AddStructuralFeatureValueActionActivation, Input : [ { name = object, type = Reference to ATM@ebed08c4-b92b-42c2-a42d-bfd6c33b2ffc(ATM), value = [  ] }, { name = value, type = Transaction, value = [ { name = number, type = Integer, value = null }, { name = timeStamp, type = String, value = null } ] } ], Output : [  ] }
+{ name = validatePin, type = CS_CallOperationActionActivation, Input : [ { name = pin, type = Integer, value = 54321 }, { name = target, type = Card, value = [ { name = number, type = Integer, value = null }, { name = pin, type = Integer, value = 12345 }, { name = account, type = Account, value = null } ] } ], Output : [  ] }
+{ name = context, type = CS_ReadSelfActionActivation, Input : [  ], Output : [  ] }
+{ name = readPin, type = ReadStructuralFeatureActionActivation, Input : [ { name = object, type = Card, value = [ { name = number, type = Integer, value = null }, { name = pin, type = Integer, value = 12345 }, { name = account, type = Account, value = null } ] } ], Output : [  ] }
+{ name = Body, type = StructuredActivityNodeActivation, Input : [  ], Output : [  ] }
+{ name = 1:ReturnStatement, type = StructuredActivityNodeActivation, Input : [  ], Output : [  ] }
+{ name = Test(==), type = TestIdentityActionActivation, Input : [ { name = Test(==).first, type = Integer, value = 12345 }, { name = Test(==).second, type = Integer, value = 54321 } ], Output : [  ] }
+{ name = equals, type = CallBehaviorActionActivation, Input : [ { name = x, type = Integer, value = 12345 }, { name = y, type = Integer, value = 54321 } ], Output : [ { name = No name, type = Boolean, value = false } ] }
+{ name = SuccessFalse, type = Value specification, Input : [  ], Output : [ { type = Boolean, value = false } ] }
+{ name = context, type = CS_ReadSelfActionActivation, Input : [  ], Output : [  ] }
+{ name = endTransaction, type = CS_CallOperationActionActivation, Input : [ { name = target, type = Reference to ATM@ebed08c4-b92b-42c2-a42d-bfd6c33b2ffc(ATM), value = [  ] } ], Output : [  ] }
+{ name = context, type = CS_ReadSelfActionActivation, Input : [  ], Output : [  ] }
+{ name = readCurrentTransaction, type = ReadStructuralFeatureActionActivation, Input : [ { name = object, type = Reference to ATM@ebed08c4-b92b-42c2-a42d-bfd6c33b2ffc(ATM), value = [  ] } ], Output : [  ] }
+{ name = failure, type = Value specification, Input : [  ], Output : [ { type = Boolean, value = false } ] }
