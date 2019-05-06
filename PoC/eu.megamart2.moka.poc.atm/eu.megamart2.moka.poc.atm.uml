@@ -3260,13 +3260,14 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_JHhrcDtDEemGD6ArI0hHWQ" name="return" type="_l545ADtCEemGD6ArI0hHWQ" direction="return"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_TfLUQGsxEemujtrETadgfQ" name="ATMTest1" classifierBehavior="_UYCcoGs2EemujtrETadgfQ" isActive="true">
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_9e3NEGqTEemJ6P-AwIr2gw" name="ATMTest1$startATM" node="__O9m0GqVEemJ6P-AwIr2gw _6o7aYGqWEemJ6P-AwIr2gw _T2GDoGsqEemujtrETadgfQ _CMxVIGstEemujtrETadgfQ __Vg4gGtKEembZ8kknTtBBA _HQtNcGtLEembZ8kknTtBBA _RK5A0GtaEembZ8kknTtBBA _uy2kMGtaEembZ8kknTtBBA _MEtp0GtdEembZ8kknTtBBA">
+      <packagedElement xmi:type="uml:Class" xmi:id="_TfLUQGsxEemujtrETadgfQ" name="ATMTest" classifierBehavior="_UYCcoGs2EemujtrETadgfQ" isActive="true">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BVgSkG_mEemVh8CaNowtWQ" name="atm" visibility="public" type="_bSSVsDOCEemM8cY6ryq-Xw"/>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_9e3NEGqTEemJ6P-AwIr2gw" name="ATMTest$startATM" node="__O9m0GqVEemJ6P-AwIr2gw _6o7aYGqWEemJ6P-AwIr2gw _T2GDoGsqEemujtrETadgfQ _CMxVIGstEemujtrETadgfQ __Vg4gGtKEembZ8kknTtBBA _RK5A0GtaEembZ8kknTtBBA _uy2kMGtaEembZ8kknTtBBA _MEtp0GtdEembZ8kknTtBBA _Tw86MG_mEemVh8CaNowtWQ _WTZBwG_mEemVh8CaNowtWQ">
           <edge xmi:type="uml:ObjectFlow" xmi:id="_Fo2EkGqXEemJ6P-AwIr2gw" target="_8idH0GqWEemJ6P-AwIr2gw" source="__PBRMGqVEemJ6P-AwIr2gw">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_Fo7kIGqXEemJ6P-AwIr2gw" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_Fo7kIWqXEemJ6P-AwIr2gw" value="1"/>
           </edge>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_YM8IEGsqEemujtrETadgfQ" target="_VT3CIGsqEemujtrETadgfQ" source="_8icgwGqWEemJ6P-AwIr2gw">
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_YM8IEGsqEemujtrETadgfQ" target="_Tw86MG_mEemVh8CaNowtWQ" source="_8icgwGqWEemJ6P-AwIr2gw">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_YNMmwGsqEemujtrETadgfQ" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_YNNN0GsqEemujtrETadgfQ" value="1"/>
           </edge>
@@ -3275,8 +3276,7 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_DD4AoGtLEembZ8kknTtBBA" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_DD4nsGtLEembZ8kknTtBBA" value="1"/>
           </edge>
-          <edge xmi:type="uml:ControlFlow" xmi:id="_N1GukGtLEembZ8kknTtBBA" target="_HQtNcGtLEembZ8kknTtBBA" source="_T2GDoGsqEemujtrETadgfQ"/>
-          <edge xmi:type="uml:ObjectFlow" xmi:id="_PDoXMGtLEembZ8kknTtBBA" target="_Kc0kIGtLEembZ8kknTtBBA" source="__Vg4gGtKEembZ8kknTtBBA">
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_PDoXMGtLEembZ8kknTtBBA" target="_WTaP4G_mEemVh8CaNowtWQ" source="__Vg4gGtKEembZ8kknTtBBA">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_PEFDIGtLEembZ8kknTtBBA" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_PEFqMGtLEembZ8kknTtBBA" value="1"/>
           </edge>
@@ -3292,6 +3292,15 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_RAwtEGtdEembZ8kknTtBBA" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_RAwtEWtdEembZ8kknTtBBA" value="1"/>
           </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_cCWvsG_mEemVh8CaNowtWQ" target="_VT3CIGsqEemujtrETadgfQ" source="_Tw86MG_mEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_cCvxQG_mEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_cCvxQW_mEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_ktWJ4G_mEemVh8CaNowtWQ" target="_Y7PNwG_mEemVh8CaNowtWQ" source="_Tw86MG_mEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_ktmBgG_mEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_ktmBgW_mEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_00tSMG_qEem0Pt1Bz8d2Rw" target="_T2GDoGsqEemujtrETadgfQ" source="_WTZBwG_mEemVh8CaNowtWQ"/>
           <node xmi:type="uml:CreateObjectAction" xmi:id="__O9m0GqVEemJ6P-AwIr2gw" name="createATM" incoming="_GyBB8GstEemujtrETadgfQ" classifier="_bSSVsDOCEemM8cY6ryq-Xw">
             <result xmi:type="uml:OutputPin" xmi:id="__PBRMGqVEemJ6P-AwIr2gw" name="result" outgoing="_Fo2EkGqXEemJ6P-AwIr2gw" type="_bSSVsDOCEemM8cY6ryq-Xw">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__PBRMWqVEemJ6P-AwIr2gw" value="1"/>
@@ -3314,20 +3323,14 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8idH0mqWEemJ6P-AwIr2gw" value="1"/>
             </target>
           </node>
-          <node xmi:type="uml:CallOperationAction" xmi:id="_T2GDoGsqEemujtrETadgfQ" name="turnOn" outgoing="_N1GukGtLEembZ8kknTtBBA" operation="_vQYZUGqMEemJ6P-AwIr2gw">
-            <target xmi:type="uml:InputPin" xmi:id="_VT3CIGsqEemujtrETadgfQ" name="target" incoming="_YM8IEGsqEemujtrETadgfQ" type="_bSSVsDOCEemM8cY6ryq-Xw">
+          <node xmi:type="uml:CallOperationAction" xmi:id="_T2GDoGsqEemujtrETadgfQ" name="turnOn" incoming="_00tSMG_qEem0Pt1Bz8d2Rw" operation="_vQYZUGqMEemJ6P-AwIr2gw">
+            <target xmi:type="uml:InputPin" xmi:id="_VT3CIGsqEemujtrETadgfQ" name="target" incoming="_cCWvsG_mEemVh8CaNowtWQ" type="_bSSVsDOCEemM8cY6ryq-Xw">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VT3CIWsqEemujtrETadgfQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VT3CImsqEemujtrETadgfQ" value="1"/>
             </target>
           </node>
           <node xmi:type="uml:InitialNode" xmi:id="_CMxVIGstEemujtrETadgfQ" name="" outgoing="_GyBB8GstEemujtrETadgfQ"/>
           <node xmi:type="uml:ForkNode" xmi:id="__Vg4gGtKEembZ8kknTtBBA" name="" incoming="_RAkf0GtdEembZ8kknTtBBA" outgoing="_DDeYAGtLEembZ8kknTtBBA _PDoXMGtLEembZ8kknTtBBA _bvx74GtaEembZ8kknTtBBA _xlfq8GtaEembZ8kknTtBBA"/>
-          <node xmi:type="uml:SendSignalAction" xmi:id="_HQtNcGtLEembZ8kknTtBBA" name="Send:ATMReady" incoming="_N1GukGtLEembZ8kknTtBBA" signal="_XQGywGsyEemujtrETadgfQ">
-            <target xmi:type="uml:InputPin" xmi:id="_Kc0kIGtLEembZ8kknTtBBA" name="target" incoming="_PDoXMGtLEembZ8kknTtBBA" type="_TfLUQGsxEemujtrETadgfQ">
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Kc0kIWtLEembZ8kknTtBBA" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Kc0kImtLEembZ8kknTtBBA" value="1"/>
-            </target>
-          </node>
           <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_RK5A0GtaEembZ8kknTtBBA" name="startTestBehavior">
             <object xmi:type="uml:InputPin" xmi:id="_RK6O8GtaEembZ8kknTtBBA" name="object" incoming="_bvx74GtaEembZ8kknTtBBA" type="_TfLUQGsxEemujtrETadgfQ">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RK6O8WtaEembZ8kknTtBBA" value="1"/>
@@ -3346,19 +3349,46 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEu38mtdEembZ8kknTtBBA" value="1"/>
             </result>
           </node>
+          <node xmi:type="uml:ForkNode" xmi:id="_Tw86MG_mEemVh8CaNowtWQ" name="" incoming="_YM8IEGsqEemujtrETadgfQ" outgoing="_cCWvsG_mEemVh8CaNowtWQ _ktWJ4G_mEemVh8CaNowtWQ"/>
+          <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_WTZBwG_mEemVh8CaNowtWQ" name="setATM" visibility="public" outgoing="_00tSMG_qEem0Pt1Bz8d2Rw" structuralFeature="_BVgSkG_mEemVh8CaNowtWQ">
+            <object xmi:type="uml:InputPin" xmi:id="_WTaP4G_mEemVh8CaNowtWQ" name="object" incoming="_PDoXMGtLEembZ8kknTtBBA" type="_TfLUQGsxEemujtrETadgfQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WTaP4W_mEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WTaP4m_mEemVh8CaNowtWQ" value="1"/>
+            </object>
+            <result xmi:type="uml:OutputPin" xmi:id="_Y7OmsG_mEemVh8CaNowtWQ" name="result" type="_TfLUQGsxEemujtrETadgfQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y7OmsW_mEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Y7Omsm_mEemVh8CaNowtWQ" value="1"/>
+            </result>
+            <value xmi:type="uml:InputPin" xmi:id="_Y7PNwG_mEemVh8CaNowtWQ" name="value" incoming="_ktWJ4G_mEemVh8CaNowtWQ" type="_bSSVsDOCEemM8cY6ryq-Xw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y7PNwW_mEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Y7PNwm_mEemVh8CaNowtWQ" value="1"/>
+            </value>
+          </node>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_UYCcoGs2EemujtrETadgfQ" name="ATMTest1$behavior" node="_EZrtEGs3EemujtrETadgfQ _J-qYkGs3EemujtrETadgfQ _hivs8GtCEemujtrETadgfQ _c41hkGtNEembZ8kknTtBBA">
-          <edge xmi:type="uml:ControlFlow" xmi:id="_N951UGs3EemujtrETadgfQ" target="_J-qYkGs3EemujtrETadgfQ" source="_Ghcq0Gs3EemujtrETadgfQ"/>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_UYCcoGs2EemujtrETadgfQ" name="ATMTest$behavior" node="_EZrtEGs3EemujtrETadgfQ _J-qYkGs3EemujtrETadgfQ _hivs8GtCEemujtrETadgfQ _c41hkGtNEembZ8kknTtBBA _SdiHUG_iEemVh8CaNowtWQ _ieia4G_kEemVh8CaNowtWQ _CXW7sG_nEemVh8CaNowtWQ">
           <edge xmi:type="uml:ControlFlow" xmi:id="_pJ3OUGtNEembZ8kknTtBBA" target="_c41hkGtNEembZ8kknTtBBA" source="_hivs8GtCEemujtrETadgfQ"/>
           <edge xmi:type="uml:ControlFlow" xmi:id="_qDY3UGtNEembZ8kknTtBBA" target="_EZrtEGs3EemujtrETadgfQ" source="_c41hkGtNEembZ8kknTtBBA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_ShHxYG_jEemVh8CaNowtWQ" target="_J-qYkGs3EemujtrETadgfQ" source="_rqkiEG_jEemVh8CaNowtWQ"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_tu_Q4G_jEemVh8CaNowtWQ" target="_UKjCwG_iEemVh8CaNowtWQ" source="_Ghcq0Gs3EemujtrETadgfQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_tvK3EG_jEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_tvLeIG_jEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_-eL8oG_kEemVh8CaNowtWQ" target="_MFO2kG_kEemVh8CaNowtWQ" source="_lkT5AG_kEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_-eWUsG_kEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_-eW7wG_kEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_FjQP8G_nEemVh8CaNowtWQ" target="_iejpAG_kEemVh8CaNowtWQ" source="_CXXiwG_nEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_Fjb2IG_nEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_Fjb2IW_nEemVh8CaNowtWQ" value="1"/>
+          </edge>
           <node xmi:type="uml:CallBehaviorAction" xmi:id="_EZrtEGs3EemujtrETadgfQ" name="createTestCard" incoming="_qDY3UGtNEembZ8kknTtBBA" behavior="_jzYp8GsuEemujtrETadgfQ">
-            <result xmi:type="uml:OutputPin" xmi:id="_Ghcq0Gs3EemujtrETadgfQ" name="card" outgoing="_N951UGs3EemujtrETadgfQ" type="_cjthUDOCEemM8cY6ryq-Xw">
+            <result xmi:type="uml:OutputPin" xmi:id="_Ghcq0Gs3EemujtrETadgfQ" name="card" outgoing="_tu_Q4G_jEemVh8CaNowtWQ" type="_cjthUDOCEemM8cY6ryq-Xw">
               <upperBound xmi:type="uml:LiteralInteger" xmi:id="_Ghcq02s3EemujtrETadgfQ" value="1"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ghcq0Ws3EemujtrETadgfQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ghcq0ms3EemujtrETadgfQ" value="1"/>
             </result>
           </node>
-          <node xmi:type="uml:ActivityFinalNode" xmi:id="_J-qYkGs3EemujtrETadgfQ" name="" incoming="_N951UGs3EemujtrETadgfQ"/>
+          <node xmi:type="uml:ActivityFinalNode" xmi:id="_J-qYkGs3EemujtrETadgfQ" name="" incoming="_ShHxYG_jEemVh8CaNowtWQ"/>
           <node xmi:type="uml:InitialNode" xmi:id="_hivs8GtCEemujtrETadgfQ" name="" outgoing="_pJ3OUGtNEembZ8kknTtBBA"/>
           <node xmi:type="uml:AcceptEventAction" xmi:id="_c41hkGtNEembZ8kknTtBBA" name="Accept(ATMReady)" incoming="_pJ3OUGtNEembZ8kknTtBBA" outgoing="_qDY3UGtNEembZ8kknTtBBA">
             <result xmi:type="uml:OutputPin" xmi:id="_mj8U8GtNEembZ8kknTtBBA" name="result" type="_XQGywGsyEemujtrETadgfQ">
@@ -3368,7 +3398,82 @@ activity TestEqualBehaviour_Factory(): TestEqualBehaviour {
             </result>
             <trigger xmi:type="uml:Trigger" xmi:id="_mj7G0GtNEembZ8kknTtBBA" name="ATMReadyTrigger" event="_XfQpEGsyEemujtrETadgfQ"/>
           </node>
+          <node xmi:type="uml:CallBehaviorAction" xmi:id="_SdiHUG_iEemVh8CaNowtWQ" name="insertCard" behavior="_nepmIG_hEemVh8CaNowtWQ">
+            <argument xmi:type="uml:InputPin" xmi:id="_UKjCwG_iEemVh8CaNowtWQ" name="card" incoming="_tu_Q4G_jEemVh8CaNowtWQ" type="_cjthUDOCEemM8cY6ryq-Xw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_UKkQ4G_iEemVh8CaNowtWQ" value="1"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UKjCwW_iEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UKjCwm_iEemVh8CaNowtWQ" value="1"/>
+            </argument>
+            <argument xmi:type="uml:InputPin" xmi:id="_MFO2kG_kEemVh8CaNowtWQ" name="atm" incoming="_-eL8oG_kEemVh8CaNowtWQ" type="_bSSVsDOCEemM8cY6ryq-Xw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MFO2kW_kEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MFO2km_kEemVh8CaNowtWQ" value="1"/>
+            </argument>
+            <result xmi:type="uml:OutputPin" xmi:id="_rqkiEG_jEemVh8CaNowtWQ" name="card" outgoing="_ShHxYG_jEemVh8CaNowtWQ" type="_cjthUDOCEemM8cY6ryq-Xw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_MFZ1sG_kEemVh8CaNowtWQ" value="1"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rqkiEW_jEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rqkiEm_jEemVh8CaNowtWQ" value="1"/>
+            </result>
+          </node>
+          <node xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_ieia4G_kEemVh8CaNowtWQ" name="getATM" structuralFeature="_BVgSkG_mEemVh8CaNowtWQ">
+            <object xmi:type="uml:InputPin" xmi:id="_iejpAG_kEemVh8CaNowtWQ" name="object" incoming="_FjQP8G_nEemVh8CaNowtWQ" type="_TfLUQGsxEemujtrETadgfQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iejpAW_kEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iejpAm_kEemVh8CaNowtWQ" value="1"/>
+            </object>
+            <result xmi:type="uml:OutputPin" xmi:id="_lkT5AG_kEemVh8CaNowtWQ" name="result" outgoing="_-eL8oG_kEemVh8CaNowtWQ" type="_bSSVsDOCEemM8cY6ryq-Xw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lkT5AW_kEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lkT5Am_kEemVh8CaNowtWQ" value="1"/>
+            </result>
+          </node>
+          <node xmi:type="uml:ReadSelfAction" xmi:id="_CXW7sG_nEemVh8CaNowtWQ" name="this">
+            <result xmi:type="uml:OutputPin" xmi:id="_CXXiwG_nEemVh8CaNowtWQ" name="result" outgoing="_FjQP8G_nEemVh8CaNowtWQ" type="_TfLUQGsxEemujtrETadgfQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXXiwW_nEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CXXiwm_nEemVh8CaNowtWQ" value="1"/>
+            </result>
+          </node>
         </ownedBehavior>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_nepmIG_hEemVh8CaNowtWQ" name="ATMTest$insertCard" node="_Ij_2YG_iEemVh8CaNowtWQ _jdXFgG_iEemVh8CaNowtWQ _siGccG_iEemVh8CaNowtWQ _zC7FIG_iEemVh8CaNowtWQ _84m7YG_jEemVh8CaNowtWQ">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_OkVBIG_iEemVh8CaNowtWQ" name="card" type="_cjthUDOCEemM8cY6ryq-Xw"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_oxPZ8G_iEemVh8CaNowtWQ" name="card" type="_cjthUDOCEemM8cY6ryq-Xw" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GJLH0G_kEemVh8CaNowtWQ" name="atm" type="_bSSVsDOCEemM8cY6ryq-Xw"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_2uKn0G_iEemVh8CaNowtWQ" target="_zC7FIG_iEemVh8CaNowtWQ" source="_Ij_2YG_iEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_2uQHYG_iEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_2uQucG_iEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_3nv7MG_iEemVh8CaNowtWQ" target="_ulAvYG_iEemVh8CaNowtWQ" source="_zC7FIG_iEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_3n3P8G_iEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_3n3P8W_iEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_438-0G_iEemVh8CaNowtWQ" target="_jdXFgG_iEemVh8CaNowtWQ" source="_zC7FIG_iEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_44DsgG_iEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_44ETkG_iEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_HWKfYG_kEemVh8CaNowtWQ" target="_vyfPIG_iEemVh8CaNowtWQ" source="_84m7YG_jEemVh8CaNowtWQ">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_HWTCQG_kEemVh8CaNowtWQ" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_HWTpUG_kEemVh8CaNowtWQ" value="1"/>
+          </edge>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_Ij_2YG_iEemVh8CaNowtWQ" name="Card" outgoing="_2uKn0G_iEemVh8CaNowtWQ" parameter="_OkVBIG_iEemVh8CaNowtWQ">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_IkBEgG_iEemVh8CaNowtWQ" value="1"/>
+          </node>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_jdXFgG_iEemVh8CaNowtWQ" name="Card" incoming="_438-0G_iEemVh8CaNowtWQ" parameter="_oxPZ8G_iEemVh8CaNowtWQ">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_jdYToG_iEemVh8CaNowtWQ" value="1"/>
+          </node>
+          <node xmi:type="uml:SendSignalAction" xmi:id="_siGccG_iEemVh8CaNowtWQ" name="Send(cardInserted)" signal="_1QQEUGp8EemJ6P-AwIr2gw">
+            <argument xmi:type="uml:InputPin" xmi:id="_ulAvYG_iEemVh8CaNowtWQ" name="card" incoming="_3nv7MG_iEemVh8CaNowtWQ" type="_cjthUDOCEemM8cY6ryq-Xw">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_vygdQG_iEemVh8CaNowtWQ" value="1"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ulAvYW_iEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ulAvYm_iEemVh8CaNowtWQ" value="1"/>
+            </argument>
+            <target xmi:type="uml:InputPin" xmi:id="_vyfPIG_iEemVh8CaNowtWQ" name="target" incoming="_HWKfYG_kEemVh8CaNowtWQ" type="_bSSVsDOCEemM8cY6ryq-Xw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vyfPIW_iEemVh8CaNowtWQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vyfPIm_iEemVh8CaNowtWQ" value="1"/>
+            </target>
+          </node>
+          <node xmi:type="uml:ForkNode" xmi:id="_zC7FIG_iEemVh8CaNowtWQ" name="" incoming="_2uKn0G_iEemVh8CaNowtWQ" outgoing="_3nv7MG_iEemVh8CaNowtWQ _438-0G_iEemVh8CaNowtWQ"/>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_84m7YG_jEemVh8CaNowtWQ" name="ATM" outgoing="_HWKfYG_kEemVh8CaNowtWQ" parameter="_GJLH0G_kEemVh8CaNowtWQ">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_84nicG_jEemVh8CaNowtWQ" value="1"/>
+          </node>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_0vlQsG_hEemVh8CaNowtWQ" name="ATMTest$authenticateCard"/>
         <ownedReception xmi:type="uml:Reception" xmi:id="__2E0cGs1EemujtrETadgfQ" name="ATMReady" signal="_XQGywGsyEemujtrETadgfQ"/>
       </packagedElement>
     </packagedElement>
