@@ -1,0 +1,5 @@
+{ name = Executing run method, type = Value specification, Input : [  ], Output : [ { type = String, value = Executing run method! } ] }
+{ name = StandardOutputChannel, type = CS_ReadExtentActionActivation, Input : [  ], Output : [  ] }
+{ name = writeLine, type = CS_CallOperationActionActivation, Input : [ { name = value, type = String, value = Executing run method! }, { name = No name, type = StandardOutputChannel, value =  } ], Output : [  ] }
+{ name = log, type = CallBehaviorActionActivation, Input : [ { name = value, type = String, value = Executing run method! } ], Output : [  ] }
+{ name = this, type = SM_ReadSelfActionActivation, Input : [  ], Output : [  ] }

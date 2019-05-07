@@ -5,8 +5,10 @@ import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.CompleteActions.StartObjectBehaviorActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.IntermediateActions.ValueSpecificationActionActivation;
+import org.eclipse.papyrus.moka.fuml.statemachines.Semantics.StateMachines.TransitionActivationWrapper;
 
 import eu.megamart2.moka.logging.behaviors.ActionInfo;
+import eu.megamart2.moka.logging.behaviors.StateTransitionInfo;
 import eu.megamart2.moka.logging.behaviors.ValueSpecificationInfo;
 import eu.megamart2.moka.logging.queue.InfoQueue;
 
@@ -46,14 +48,25 @@ public class NodeInfoGenerator {
 			info = new ActionInfo(nodeVisitor, launcher); 
 			stop = false;
 		}
+		if(nodeVisitor instanceof TransitionActivationWrapper) {
+			info = new StateTransitionInfo((TransitionActivationWrapper)nodeVisitor);
+			stop = false;
+		}
 		if(stop)return null;
 			if(add) {
-			queue.addToQueue(((ActionActivation) nodeVisitor).getNode(),info);
+			queue.addToQueue(getNode(nodeVisitor),info);
 			return info;
 			}
 			else
-			queue.complete(((ActionActivation) nodeVisitor).getNode(), nodeVisitor);
+			queue.complete(getNode(nodeVisitor), nodeVisitor);
 			
 		return null;
 		}
+    private Object getNode (ISemanticVisitor visitor) {
+    	if(visitor instanceof ActionActivation)
+    		return ((ActionActivation) visitor).getNode();
+    	else if(visitor instanceof TransitionActivationWrapper)
+    		return ((TransitionActivationWrapper)visitor).getNode();
+    	return visitor;
+    }
 }

@@ -11,27 +11,27 @@ import eu.megamart2.moka.logging.nodes.NodeInfo;
 
 public class InfoQueue {
 
-	private HashMap<ActivityNode,NodeInfo> map; 
+	private HashMap<Object,NodeInfo> map; 
 	
-	public InfoQueue() { map = new HashMap<ActivityNode,NodeInfo>(); }
+	public InfoQueue() { map = new HashMap<Object,NodeInfo>(); }
 	
-	public void addToQueue(ActivityNode key,NodeInfo value) { 
+	public void addToQueue(Object key,NodeInfo value) { 
 		if(value != null) map.put(key, value);
 		}
 	
-	public void complete(ActivityNode key,ISemanticVisitor nodeVisitor) {
+	public void complete(Object key,ISemanticVisitor nodeVisitor) {
 		NodeInfo nodeInfo = map.get(key);
 		if(nodeInfo != null) nodeInfo.completeInfo(nodeVisitor);
 	}
 	
 	public List<NodeInfo> getCompleteNodes() {
 		List<NodeInfo> result = new LinkedList<NodeInfo>();
-		List<ActivityNode> toRemove = new LinkedList<ActivityNode>();
-		for(ActivityNode key : map.keySet())if(map.get(key).isComplete()) {
+		List<Object> toRemove = new LinkedList<Object>();
+		for(Object key : map.keySet())if(map.get(key).isComplete()) {
 			result.add(map.get(key));
 			toRemove.add(key);
 		}
-		for(ActivityNode key : toRemove) map.remove(key);
+		for(Object key : toRemove) map.remove(key);
 		return result;
 	}
 	
