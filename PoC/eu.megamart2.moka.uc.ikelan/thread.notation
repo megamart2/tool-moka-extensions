@@ -262,12 +262,12 @@
                 <element xmi:type="uml:Activity" href="thread.uml#_mrD6QFX8EemqEbB4BzIrCw"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_C9xakVYAEemqEbB4BzIrCw" x="-10" y="-10"/>
               </children>
-              <children xmi:type="notation:Shape" xmi:id="_tqua0GBfEemB6fhHco89Mw" type="Behavior_ExitBehaviorLabel">
-                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uZrLgGBfEemB6fhHco89Mw" source="PapyrusCSSForceValue">
-                  <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uZrLgWBfEemB6fhHco89Mw" key="mutable" value="true"/>
+              <children xmi:type="notation:Shape" xmi:id="_qKrxMGqUEemJ6P-AwIr2gw" type="Behavior_ExitBehaviorLabel">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qcItkGqUEemJ6P-AwIr2gw" source="PapyrusCSSForceValue">
+                  <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qcItkWqUEemJ6P-AwIr2gw" key="mutable" value="true"/>
                 </eAnnotations>
                 <element xmi:type="uml:Activity" href="thread.uml#_i4ascGArEemxHpsG4AoZMA"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_tqvB4GBfEemB6fhHco89Mw" x="-10" y="-10"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_qKrxMWqUEemJ6P-AwIr2gw" x="-10" y="-10"/>
               </children>
               <element xmi:type="uml:State" href="thread.uml#_n9OZME8LEemRqu2zcdPg8w"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n9h7MU8LEemRqu2zcdPg8w" x="539" y="374" width="241" height="77"/>
