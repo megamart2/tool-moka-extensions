@@ -125,7 +125,6 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
      } catch(DebugException e) { e.printStackTrace(); }
     	 
      info.setComplete(true);
-	 
 	} 
 	
 	@Override
