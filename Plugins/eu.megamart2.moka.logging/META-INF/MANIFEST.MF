@@ -22,5 +22,7 @@ Require-Bundle: org.eclipse.papyrus.moka.service,
  org.eclipse.uml2.uml.profile.standard,
  org.eclipse.papyrus.moka.composites.interfaces,
  javax.inject,
- org.eclipse.ui
+ org.eclipse.ui,
+ org.eclipse.papyrus.moka.fuml.statemachines,
+ org.eclipse.papyrus.moka.fuml.statemachines.interfaces
 Bundle-Vendor: %Plugin.providerName

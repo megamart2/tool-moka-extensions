@@ -67,6 +67,16 @@ public class MegamartInfoFormat {
 		if(info.getName() != null) infoName = info.getName();
 		String infoType = "Undefined";
 		if(info.getType() != null) infoType = info.getType();
+
+		if(infoType.contains("Reference to")) {
+			infoType = infoType.split("@")[0];
+			infoType = infoType.replaceAll("\\$","::");
+		}
+		
+		// logging
+		System.out.println(infoName);
+		System.out.println(infoType);
+		System.out.println();
 		
 		String result = formatString
                 .replaceAll("%n", infoName)
