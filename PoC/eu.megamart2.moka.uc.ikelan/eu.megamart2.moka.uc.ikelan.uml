@@ -1,6 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0S7I4EGJEemn1s2LqFObOg" name="ilerlan">
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0VtXIEGJEemn1s2LqFObOg" name="Ikerlan StateMachine">
-    <region xmi:type="uml:Region" xmi:id="_0Y9fcEGJEemn1s2LqFObOg" name="Region1"/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0S7I4EGJEemn1s2LqFObOg" name="ilerlan">
+  <packagedElement xmi:type="uml:Package" xmi:id="_C57RwHGeEem0RPpz3dAzVg" name="events">
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_ICHBoHGgEem0RPpz3dAzVg" name="SuccessEvent" signal="_Lxi9QHGfEem0RPpz3dAzVg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_K6MpEHGgEem0RPpz3dAzVg" name="FailureEvent" signal="_PSmpMHGfEem0RPpz3dAzVg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_PNnmEHGgEem0RPpz3dAzVg" name="First_time_waiting_Event" signal="_yDdZAHGfEem0RPpz3dAzVg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_T8TiwHGgEem0RPpz3dAzVg" name="Json_Rx_Event" signal="_1gA_cHGfEem0RPpz3dAzVg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_svP28HGrEem0RPpz3dAzVg" name="SMS_Event" signal="_64FQUHGfEem0RPpz3dAzVg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_xKRQwHGrEem0RPpz3dAzVg" name="SuccessfulTestsEvent" signal="_CuEVIHGgEem0RPpz3dAzVg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_1o5_QHGrEem0RPpz3dAzVg" name="RebootCompletedEvent" signal="_Fdo5wHGgEem0RPpz3dAzVg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_jqWskHI7EemCiZTPfEqgQQ" name="TestsCompletedEvent" signal="_HkwygHJJEemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_5xLu4HI9EemCiZTPfEqgQQ" name="JoinNetworkEvent" signal="_5o8Y4HI9EemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_zlP-0HJCEemCiZTPfEqgQQ" name="TestOKEvent" signal="_zX9JsHJCEemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_KJ7FoHJDEemCiZTPfEqgQQ" name="RunTestEvent" signal="_KBMncHJDEemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_WqQZsHJDEemCiZTPfEqgQQ" name="InstantRebootEvent" signal="_WZmukHJDEemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_trYPIHJHEemCiZTPfEqgQQ" name="MachineNeedsUpdateEvent" signal="_tdyfEHJHEemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_47ss0HJHEemCiZTPfEqgQQ" name="NothingToDoInMachineEvent" signal="_4N5LoHJHEemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_DRD-IHJIEemCiZTPfEqgQQ" name="InfoMachineNeededEvent" signal="_DJqVoHJIEemCiZTPfEqgQQ"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_PWmMkHJIEemCiZTPfEqgQQ" name="ActionsDoneEvent" signal="_PM9vcHJIEemCiZTPfEqgQQ"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_FHVkgHGeEem0RPpz3dAzVg" name="signals">
+    <packagedElement xmi:type="uml:Signal" xmi:id="_Lxi9QHGfEem0RPpz3dAzVg" name="Success"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_PSmpMHGfEem0RPpz3dAzVg" name="Failure"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_yDdZAHGfEem0RPpz3dAzVg" name="First_time_waiting"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_1gA_cHGfEem0RPpz3dAzVg" name="Json_Rx"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_64FQUHGfEem0RPpz3dAzVg" name="SMS"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_CuEVIHGgEem0RPpz3dAzVg" name="SuccessfulTests"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_Fdo5wHGgEem0RPpz3dAzVg" name="RebootCompleted"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_5o8Y4HI9EemCiZTPfEqgQQ" name="JoinNetworkEvent"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_zX9JsHJCEemCiZTPfEqgQQ" name="TestSuccess"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_KBMncHJDEemCiZTPfEqgQQ" name="RunTest"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_WZmukHJDEemCiZTPfEqgQQ" name="InstantReboot"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_tdyfEHJHEemCiZTPfEqgQQ" name="MachineNeedsUpdate"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_4N5LoHJHEemCiZTPfEqgQQ" name="NothingToDoInMachine"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_DJqVoHJIEemCiZTPfEqgQQ" name="InfoMachineNeeded"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_PM9vcHJIEemCiZTPfEqgQQ" name="ActionsDone"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_HkwygHJJEemCiZTPfEqgQQ" name="TestsCompleted"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_JV_WQHGeEem0RPpz3dAzVg" name="structure">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Ks4QsHGeEem0RPpz3dAzVg" name="IkerlanSystem" classifierBehavior="_0VtXIEGJEemn1s2LqFObOg">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_0VtXIEGJEemn1s2LqFObOg" name="Ikerlan StateMachine">
+        <region xmi:type="uml:Region" xmi:id="_0Y9fcEGJEemn1s2LqFObOg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_lDZG4HGdEem0RPpz3dAzVg" source="_NLIRQHGdEem0RPpz3dAzVg" target="_Po1p0HGdEem0RPpz3dAzVg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_nxK7wHGdEem0RPpz3dAzVg" source="_Po1p0HGdEem0RPpz3dAzVg" target="_TYd9QHGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_qWWF4HGrEem0RPpz3dAzVg" name="All_Ok_Trigger" event="_ICHBoHGgEem0RPpz3dAzVg"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_ocGIEHGdEem0RPpz3dAzVg" source="_TYd9QHGdEem0RPpz3dAzVg" target="_Wob5MHGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_C3b2EHGsEem0RPpz3dAzVg" name="All_OK_Trigger" event="_ICHBoHGgEem0RPpz3dAzVg"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_pFWgcHGdEem0RPpz3dAzVg" source="_Wob5MHGdEem0RPpz3dAzVg" target="_haIhMHGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_kQWikHGsEem0RPpz3dAzVg" name="FirstTimeWaitingTrigger" event="_PNnmEHGgEem0RPpz3dAzVg"/>
+            <trigger xmi:type="uml:Trigger" xmi:id="_n-jSoHGsEem0RPpz3dAzVg" name="JsonRxTrigger" event="_T8TiwHGgEem0RPpz3dAzVg"/>
+            <trigger xmi:type="uml:Trigger" xmi:id="_qPUbYHGsEem0RPpz3dAzVg" name="SMSTrigger" event="_svP28HGrEem0RPpz3dAzVg"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_t3QwQHGdEem0RPpz3dAzVg" source="_haIhMHGdEem0RPpz3dAzVg" target="_Wob5MHGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_19U6oHGsEem0RPpz3dAzVg" name="SuccessfulTestsTrigger" event="_xKRQwHGrEem0RPpz3dAzVg"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_wHGE4HGdEem0RPpz3dAzVg" source="_Po1p0HGdEem0RPpz3dAzVg" target="_ee3C4HGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_-6e4UHGrEem0RPpz3dAzVg" name="FailureTrigger" event="_K6MpEHGgEem0RPpz3dAzVg"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_yw-4QHGdEem0RPpz3dAzVg" source="_ee3C4HGdEem0RPpz3dAzVg" target="_Po1p0HGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_8ebQIHGsEem0RPpz3dAzVg" name="RebootDoneTrigger" event="_1o5_QHGrEem0RPpz3dAzVg"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_5BhCMHGdEem0RPpz3dAzVg" source="_TYd9QHGdEem0RPpz3dAzVg" target="_ee3C4HGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_ZgdRYHGsEem0RPpz3dAzVg" name="Error_Trigger" event="_K6MpEHGgEem0RPpz3dAzVg"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_-nd-EHGdEem0RPpz3dAzVg" source="_haIhMHGdEem0RPpz3dAzVg" target="_ee3C4HGdEem0RPpz3dAzVg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_xTm9gHGsEem0RPpz3dAzVg" name="ErrorTrigger" event="_K6MpEHGgEem0RPpz3dAzVg"/>
+          </transition>
+          <subvertex xmi:type="uml:State" xmi:id="_Po1p0HGdEem0RPpz3dAzVg" name="Initial setting">
+            <doActivity xmi:type="uml:Activity" xmi:id="_ZAhVcHGeEem0RPpz3dAzVg" name="doInitialSettings"/>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_TYd9QHGdEem0RPpz3dAzVg" name="Initial configuration">
+            <doActivity xmi:type="uml:Activity" xmi:id="_gwIFcHGeEem0RPpz3dAzVg" name="doInitialConfiguration"/>
+            <region xmi:type="uml:Region" xmi:id="_SVWgIHGtEem0RPpz3dAzVg" name="Region2">
+              <transition xmi:type="uml:Transition" xmi:id="_8H-pkHGtEem0RPpz3dAzVg" source="_SVb_sHGtEem0RPpz3dAzVg" target="_vFviUHGtEem0RPpz3dAzVg"/>
+              <transition xmi:type="uml:Transition" xmi:id="_9Q2WIHGtEem0RPpz3dAzVg" source="_vFviUHGtEem0RPpz3dAzVg" target="_gYJsgHGtEem0RPpz3dAzVg">
+                <trigger xmi:type="uml:Trigger" xmi:id="_c4KAAHI7EemCiZTPfEqgQQ" name="TestFinishedTrigger" event="_jqWskHI7EemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="__A7MoHGtEem0RPpz3dAzVg" source="_gYJsgHGtEem0RPpz3dAzVg" target="_vFviUHGtEem0RPpz3dAzVg">
+                <trigger xmi:type="uml:Trigger" xmi:id="_Nc5SQHJDEemCiZTPfEqgQQ" name="RunTestTrigger" event="_KJ7FoHJDEemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_Cz8LQHGuEem0RPpz3dAzVg" source="_gYJsgHGtEem0RPpz3dAzVg" target="_0rhfEHGtEem0RPpz3dAzVg">
+                <trigger xmi:type="uml:Trigger" xmi:id="_al36sHJDEemCiZTPfEqgQQ" name="InstantRebootTrigger" event="_WqQZsHJDEemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_DmqBoHGuEem0RPpz3dAzVg" source="_0rhfEHGtEem0RPpz3dAzVg" target="_vFviUHGtEem0RPpz3dAzVg"/>
+              <transition xmi:type="uml:Transition" xmi:id="_G7f2gHGuEem0RPpz3dAzVg" source="_gYJsgHGtEem0RPpz3dAzVg" target="_iEi84HGtEem0RPpz3dAzVg">
+                <trigger xmi:type="uml:Trigger" xmi:id="_55KmMHI9EemCiZTPfEqgQQ" name="JoinNetworkTrigger" event="_5xLu4HI9EemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_fKpiIHGuEem0RPpz3dAzVg" source="_gYJsgHGtEem0RPpz3dAzVg" target="_I_d5YHGuEem0RPpz3dAzVg">
+                <trigger xmi:type="uml:Trigger" xmi:id="_fBqYQHI9EemCiZTPfEqgQQ" name="ErrorTrigger" event="_K6MpEHGgEem0RPpz3dAzVg"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_f1nKsHGuEem0RPpz3dAzVg" source="_iEi84HGtEem0RPpz3dAzVg" target="_I_d5YHGuEem0RPpz3dAzVg">
+                <trigger xmi:type="uml:Trigger" xmi:id="_XFImkHI9EemCiZTPfEqgQQ" name="ErrorTrigger" event="_K6MpEHGgEem0RPpz3dAzVg"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_gerV0HGuEem0RPpz3dAzVg" source="_iEi84HGtEem0RPpz3dAzVg" target="_Z_P0QHGuEem0RPpz3dAzVg">
+                <trigger xmi:type="uml:Trigger" xmi:id="_PUHhUHI9EemCiZTPfEqgQQ" name="All_OK_Trigger" event="_ICHBoHGgEem0RPpz3dAzVg"/>
+              </transition>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_SVb_sHGtEem0RPpz3dAzVg" name="Initial Settings"/>
+              <subvertex xmi:type="uml:State" xmi:id="_gYJsgHGtEem0RPpz3dAzVg" name="Test done">
+                <doActivity xmi:type="uml:Activity" xmi:id="_rQ8J0HJDEemCiZTPfEqgQQ" name="checkTestAndStatus"/>
+                <region xmi:type="uml:Region" xmi:id="_EJ-ZkHI8EemCiZTPfEqgQQ" name="Region1">
+                  <transition xmi:type="uml:Transition" xmi:id="_r52oIHI8EemCiZTPfEqgQQ" source="_FhatoHI8EemCiZTPfEqgQQ" target="_jW9aAHI8EemCiZTPfEqgQQ">
+                    <trigger xmi:type="uml:Trigger" xmi:id="_z02hEHJCEemCiZTPfEqgQQ" name="TestOKTrigger" event="_zlP-0HJCEemCiZTPfEqgQQ"/>
+                  </transition>
+                  <transition xmi:type="uml:Transition" xmi:id="_bPTEcHI-EemCiZTPfEqgQQ" source="_Zjpa8HI-EemCiZTPfEqgQQ" target="_FhatoHI8EemCiZTPfEqgQQ"/>
+                  <transition xmi:type="uml:Transition" xmi:id="_xHITYHI-EemCiZTPfEqgQQ" source="_FhatoHI8EemCiZTPfEqgQQ" target="_UjnPkHI-EemCiZTPfEqgQQ">
+                    <trigger xmi:type="uml:Trigger" xmi:id="_55gyMHJCEemCiZTPfEqgQQ" name="ErrorTrigger" event="_K6MpEHGgEem0RPpz3dAzVg"/>
+                  </transition>
+                  <transition xmi:type="uml:Transition" xmi:id="_zrNZsHI-EemCiZTPfEqgQQ" source="_jW9aAHI8EemCiZTPfEqgQQ" target="_DB0z0HI-EemCiZTPfEqgQQ">
+                    <trigger xmi:type="uml:Trigger" xmi:id="_KTkJ0HJDEemCiZTPfEqgQQ" name="RunTestTrigger" event="_KJ7FoHJDEemCiZTPfEqgQQ"/>
+                  </transition>
+                  <transition xmi:type="uml:Transition" xmi:id="_0f93cHI-EemCiZTPfEqgQQ" source="_jW9aAHI8EemCiZTPfEqgQQ" target="_Bn7BoHI-EemCiZTPfEqgQQ">
+                    <trigger xmi:type="uml:Trigger" xmi:id="_AM6p8HJDEemCiZTPfEqgQQ" name="JoinNetworkTrigger" event="_5xLu4HI9EemCiZTPfEqgQQ"/>
+                  </transition>
+                  <transition xmi:type="uml:Transition" xmi:id="_50Aj8HI-EemCiZTPfEqgQQ" source="_jW9aAHI8EemCiZTPfEqgQQ" target="_fqYIoHI-EemCiZTPfEqgQQ">
+                    <trigger xmi:type="uml:Trigger" xmi:id="_WxkioHJDEemCiZTPfEqgQQ" name="InstantRebootTrigger" event="_WqQZsHJDEemCiZTPfEqgQQ"/>
+                  </transition>
+                  <subvertex xmi:type="uml:State" xmi:id="_FhatoHI8EemCiZTPfEqgQQ" name="Check Test Result"/>
+                  <subvertex xmi:type="uml:State" xmi:id="_jW9aAHI8EemCiZTPfEqgQQ" name="Check Status"/>
+                  <subvertex xmi:type="uml:FinalState" xmi:id="_Bn7BoHI-EemCiZTPfEqgQQ" name="JoinNetwork"/>
+                  <subvertex xmi:type="uml:FinalState" xmi:id="_DB0z0HI-EemCiZTPfEqgQQ" name="RunTests"/>
+                  <subvertex xmi:type="uml:FinalState" xmi:id="_UjnPkHI-EemCiZTPfEqgQQ" name="Safe Reboot"/>
+                  <subvertex xmi:type="uml:Pseudostate" xmi:id="_Zjpa8HI-EemCiZTPfEqgQQ" name=""/>
+                  <subvertex xmi:type="uml:FinalState" xmi:id="_fqYIoHI-EemCiZTPfEqgQQ" name="Instant Reboot"/>
+                </region>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_iEi84HGtEem0RPpz3dAzVg" name="Join network">
+                <doActivity xmi:type="uml:Activity" xmi:id="_3hGvoHGuEem0RPpz3dAzVg" name="joinNetwork"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_vFviUHGtEem0RPpz3dAzVg" name="Run test">
+                <doActivity xmi:type="uml:Activity" xmi:id="_uiAGoHGuEem0RPpz3dAzVg" name="runTests"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_0rhfEHGtEem0RPpz3dAzVg" name="Instant reboot">
+                <doActivity xmi:type="uml:Activity" xmi:id="_l4PbgHGuEem0RPpz3dAzVg" name="instant reboot"/>
+              </subvertex>
+              <subvertex xmi:type="uml:FinalState" xmi:id="_I_d5YHGuEem0RPpz3dAzVg" name="Safe Reboot"/>
+              <subvertex xmi:type="uml:FinalState" xmi:id="_Z_P0QHGuEem0RPpz3dAzVg" name="Idle/Waiting"/>
+            </region>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_Wob5MHGdEem0RPpz3dAzVg" name="Idle/Waiting">
+            <doActivity xmi:type="uml:Activity" xmi:id="_YoSmMHGfEem0RPpz3dAzVg" name="waitForMsg"/>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_ee3C4HGdEem0RPpz3dAzVg" name="Safe reboot">
+            <doActivity xmi:type="uml:Activity" xmi:id="_tJFmMHGeEem0RPpz3dAzVg" name="reboot"/>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_haIhMHGdEem0RPpz3dAzVg" name="Run">
+            <doActivity xmi:type="uml:Activity" xmi:id="_qWGhMHGeEem0RPpz3dAzVg" name="doRun"/>
+            <region xmi:type="uml:Region" xmi:id="_CWRGoXJEEemCiZTPfEqgQQ" name="Region2">
+              <transition xmi:type="uml:Transition" xmi:id="_G3eykHJFEemCiZTPfEqgQQ" source="_CWS70HJEEemCiZTPfEqgQQ" target="_Dvuz8HJEEemCiZTPfEqgQQ"/>
+              <transition xmi:type="uml:Transition" xmi:id="_OCg14HJFEemCiZTPfEqgQQ" source="_Dvuz8HJEEemCiZTPfEqgQQ" target="_bmP9IHJEEemCiZTPfEqgQQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_t4ooAHJHEemCiZTPfEqgQQ" name="MachineNeedsUpdateTrigger" event="_trYPIHJHEemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_PEWtYHJFEemCiZTPfEqgQQ" source="_Dvuz8HJEEemCiZTPfEqgQQ" target="_egqf0HJEEemCiZTPfEqgQQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_DZGf0HJIEemCiZTPfEqgQQ" name="InfoMachineNeededTrigger" event="_DRD-IHJIEemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_6C2XkHJGEemCiZTPfEqgQQ" source="_Dvuz8HJEEemCiZTPfEqgQQ" target="_IDHCwHJGEemCiZTPfEqgQQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_y6mGAHJHEemCiZTPfEqgQQ" name="NothingToDoInMachineTrigger" event="_47ss0HJHEemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_8VQfEHJGEemCiZTPfEqgQQ" source="_bmP9IHJEEemCiZTPfEqgQQ" target="_IDHCwHJGEemCiZTPfEqgQQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_Piq5sHJIEemCiZTPfEqgQQ" name="ActionsDoneTrigger" event="_PWmMkHJIEemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_9PB_sHJGEemCiZTPfEqgQQ" source="_egqf0HJEEemCiZTPfEqgQQ" target="_IDHCwHJGEemCiZTPfEqgQQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_TWdUYHJIEemCiZTPfEqgQQ" name="ActionsDoneTrigger" event="_PWmMkHJIEemCiZTPfEqgQQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_--6o8HJGEemCiZTPfEqgQQ" source="_IDHCwHJGEemCiZTPfEqgQQ" target="_IR2e0HJFEemCiZTPfEqgQQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_TndvYHJJEemCiZTPfEqgQQ" name="SuccessTrigger" event="_ICHBoHGgEem0RPpz3dAzVg"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_ABPBkHJHEemCiZTPfEqgQQ" source="_IDHCwHJGEemCiZTPfEqgQQ" target="_iqMhAHJEEemCiZTPfEqgQQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_dm5CYHJIEemCiZTPfEqgQQ" name="Failure_Event" event="_K6MpEHGgEem0RPpz3dAzVg"/>
+              </transition>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_CWS70HJEEemCiZTPfEqgQQ" name=""/>
+              <subvertex xmi:type="uml:State" xmi:id="_Dvuz8HJEEemCiZTPfEqgQQ" name="Manipulate Rx Message">
+                <doActivity xmi:type="uml:Activity" xmi:id="_90w_cHJFEemCiZTPfEqgQQ" name="decodeMessage"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_bmP9IHJEEemCiZTPfEqgQQ" name="Command Machine">
+                <doActivity xmi:type="uml:Activity" xmi:id="_C93AMHJGEemCiZTPfEqgQQ" name="commandMachine"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_egqf0HJEEemCiZTPfEqgQQ" name="Query Machine">
+                <doActivity xmi:type="uml:Activity" xmi:id="_cYeZYHJGEemCiZTPfEqgQQ" name="query"/>
+              </subvertex>
+              <subvertex xmi:type="uml:FinalState" xmi:id="_iqMhAHJEEemCiZTPfEqgQQ" name="Safe Reboot"/>
+              <subvertex xmi:type="uml:FinalState" xmi:id="_IR2e0HJFEemCiZTPfEqgQQ" name="Idle/Waiting"/>
+              <subvertex xmi:type="uml:State" xmi:id="_IDHCwHJGEemCiZTPfEqgQQ" name="ReplyBackend">
+                <doActivity xmi:type="uml:Activity" xmi:id="_Q9fj0HJGEemCiZTPfEqgQQ" name="analyseActionsResults"/>
+              </subvertex>
+            </region>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_NLIRQHGdEem0RPpz3dAzVg" name=""/>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_a-CngHGdEem0RPpz3dAzVg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a-EcsHGdEem0RPpz3dAzVg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
 </uml:Model>
