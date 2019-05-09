@@ -1,4 +1,0 @@
-{ name = Status, type = CS_AcceptEventActionActivation, Input : [  ], Output : [  ] }
-{ name = StartActiveObjectController, type = CallBehaviorActionActivation, Input : [  ], Output : [  ] }
-{ name = This, type = CS_ReadSelfActionActivation, Input : [  ], Output : [  ] }
-{ name = a, type = ReadStructuralFeatureActionActivation, Input : [ { name = No name, type = Launcher, value = [  ] } ], Output : [  ] }

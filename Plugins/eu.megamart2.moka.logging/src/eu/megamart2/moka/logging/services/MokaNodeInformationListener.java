@@ -42,7 +42,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	
 	@Override
 	public void nodeVisited(ISemanticVisitor nodeVisitor) {
-		
+		System.out.println(nodeVisitor.getClass().toString());
 	    if(MegamartOutput.getInstance().isDisposed())
 	    	MegamartOutput.getInstance().init(modelElement);
 		
