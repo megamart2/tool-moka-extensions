@@ -3,7 +3,9 @@ package eu.megamart2.moka.logging.behaviors;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IValue;
+import org.eclipse.debug.core.model.IVariable;
 import org.eclipse.papyrus.moka.composites.Semantics.impl.CompositeStructures.StructuredClasses.CS_Reference;
 import org.eclipse.papyrus.moka.debug.model.data.mapping.values.ObjectTokenValueAdapter;
 import org.eclipse.papyrus.moka.fuml.Semantics.Activities.IntermediateActivities.IToken;
@@ -34,6 +36,8 @@ public abstract class ValueInformationCollector {
 	 protected MegamartAbstractInfoObject getValueInfo(IValue value,String name) {
 		 
 		 if(value instanceof ObjectTokenValueAdapter) {
+			 RecurssionChecker recurssionChecker = new RecurssionChecker(value);
+			 if(recurssionChecker.check()) {
 			 IToken token = ((ObjectTokenValueAdapter)value).getAdapted();
 			 
 			 // boolean
@@ -81,6 +85,7 @@ public abstract class ValueInformationCollector {
 		 else if(value instanceof IStructuredValue) {
 			return getStructuredValueInfo(
 					 (IStructuredValue)value,name);
+		 }
 		 }
 		 return null; 
 	 }
@@ -225,5 +230,47 @@ public abstract class ValueInformationCollector {
             	return new MegamartPrimitiveInfoObject(name,type,value.specify().stringValue(),visibility);
 		    
 			return null;
+		}
+		
+		private class RecurssionChecker {
+			int level;
+			boolean finish;
+			List<IValue> step;
+			
+			RecurssionChecker(IValue value){
+				List<IValue> list = new LinkedList<IValue>();
+				list.add(value);
+				this.step = list;
+				level = 0;
+				finish = false;
+			}
+			
+			boolean check() {
+				while(!finish){
+					try {
+						nextStep();
+					} catch (DebugException e) {
+						e.printStackTrace();
+						return false;
+					}
+					if(finish) return true;
+					if(level > 100) return false;
+				}
+				return true;
+			}
+			
+			void nextStep() throws DebugException {
+				List<IValue> list = new LinkedList<IValue>();
+				for(IValue value : step) {
+					IVariable[] variables = value.getVariables();
+					if(variables != null)for(IVariable variable : variables) {
+						list.add(variable.getValue());
+					}
+				}
+				step = list;
+				if(step.isEmpty())finish = true;
+				level++;
+			}
+			
 		}
 }

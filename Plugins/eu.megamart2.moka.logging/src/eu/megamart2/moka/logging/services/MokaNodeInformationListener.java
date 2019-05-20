@@ -42,6 +42,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	
 	@Override
 	public void nodeVisited(ISemanticVisitor nodeVisitor) {
+		try {
 		System.out.println(nodeVisitor.getClass().toString());
 	    if(MegamartOutput.getInstance().isDisposed())
 	    	MegamartOutput.getInstance().init(modelElement);
@@ -53,14 +54,18 @@ extends AbstractMokaService implements IMokaExecutionListener {
         
        // if there is completed nodes
        List<NodeInfo> infos = queue.getCompleteNodes();
-		
-		// TODO Experiment
+
 		for(NodeInfo in : infos)if(in != null) printInfo(in);
+		} catch(Exception e) {
+		//	e.printStackTrace();
+			System.out.println("ERROR *****");
+			return;
+		}
 	}
 
 	@Override
 	public void nodeLeft(ISemanticVisitor nodeVisitor) {
-
+        try {
 		if(nodeVisitor instanceof ActionActivation) {
 		
 			if(queue.getNodeInfo((ActivityNode)((ActionActivation)nodeVisitor).getNode()) != null)
@@ -72,6 +77,11 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		// TODO Experiment
 		for(NodeInfo info : infos) printInfo(info);
 		}
+        }catch(Exception e) {
+        //	e.printStackTrace();
+        	System.out.println("ERROR *****");
+        	return;
+        }
 	}
 
 	@Override
