@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aspectj="http:///schemas/aspectj/_pMtT0GTzEemc8KTgT20mug/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/aspectj/_pMtT0GTzEemc8KTgT20mug/0 pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_pMzacGTzEemc8KTgT20mug">
   <uml:Model xmi:id="_0S7I4EGJEemn1s2LqFObOg" name="ilerlan">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_rU6fAHYhEemHd4vF-9W63A">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -182,12 +182,60 @@
                     </result>
                   </node>
                 </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_KnNMIHrWEemQkOybBcGrOA" name="handleMessage" specification="__jyiAHrVEemQkOybBcGrOA">
+                  <language>JAVA</language>
+                  <body>		// FIXME Aspect - inject logging traces describing the message type received,
+		// using PrintUtils advice
+
+		int messageType = -1;
+		try {
+			String messageTypeStr = topic.split(&quot;/&quot;)[2];
+			messageType = Integer.parseInt(messageTypeStr);
+		} catch (Exception e) {
+			PrintUtils.error(&quot;Error parsing message type&quot;);
+		}
+
+		PrintUtils.step(&quot;Message Received with Type: &quot; + messageType);
+
+		switch (messageType) {
+		case MessageType.connectivityMsgType: // Connectivity test
+			processConnectivityMsg(message, messageType);
+			break;
+		case MessageType.onboardingMsgType: // Onboarding
+			processOnboardingMsg(message, messageType);
+			break;
+		case MessageType.remoteParametersUpdateMsgType: // Remote Parameters Updating
+			processRemoteParametersUpdateMsg(message, messageType);
+			break;
+		case MessageType.eoMsgType: // After onboarding
+			try {
+				processEoMsg(message, messageType);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			break;
+		case MessageType.fotaMsgType: // FOTA v2 message
+			processFotaMsg(message, messageType);
+			break;
+		default:
+			PrintUtils.warning(&quot;Message type not recognized&quot;);
+		}
+
+		// FIXME Aspect - inject logging traces successful processing of the message
+		// type received, using PrintUtils advice</body>
+                </ownedBehavior>
                 <ownedOperation xmi:type="uml:Operation" xmi:id="_SfCQwHh1EemVbo553a6mZQ" name="decodeMessage" method="_edOroHh2EemVbo553a6mZQ">
                   <ownedParameter xmi:type="uml:Parameter" xmi:id="_SfCQwXh1EemVbo553a6mZQ" name="message" type="_6723kHf2EemC4Orf_QdZ5A"/>
                   <ownedParameter xmi:type="uml:Parameter" xmi:id="_341YwHh1EemVbo553a6mZQ" name="action" type="_o6X1YHh1EemVbo553a6mZQ" direction="return"/>
                 </ownedOperation>
                 <ownedOperation xmi:type="uml:Operation" xmi:id="_3gcowHiHEemVbo553a6mZQ" name="MessageManager">
                   <ownedParameter xmi:type="uml:Parameter" xmi:id="_3gcowXiHEemVbo553a6mZQ" type="_fyS0oHVWEeme376GG5yfoQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="__jyiAHrVEemQkOybBcGrOA" name="handleMessage" method="_KnNMIHrWEemQkOybBcGrOA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_FZAo8HrWEemQkOybBcGrOA" name="message" type="_baN9sHrTEemQkOybBcGrOA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_IZdiMHrWEemQkOybBcGrOA" name="topic">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedParameter>
                 </ownedOperation>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_6723kHf2EemC4Orf_QdZ5A" name="Message">
@@ -268,7 +316,13 @@
               </packagedElement>
               <packagedElement xmi:type="uml:Package" xmi:id="_x_jPQHVWEeme376GG5yfoQ" name="utils">
                 <packagedElement xmi:type="uml:Class" xmi:id="_zNzLEHVWEeme376GG5yfoQ" name="NetworkUtils"/>
-                <packagedElement xmi:type="uml:Class" xmi:id="_0qKbYHVWEeme376GG5yfoQ" name="PrintUtils"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="_0qKbYHVWEeme376GG5yfoQ" name="PrintUtils">
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vPU1AHrVEemQkOybBcGrOA" name="log">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_3Jt4sHrVEemQkOybBcGrOA" name="text">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
                 <packagedElement xmi:type="uml:Class" xmi:id="_186csHVWEeme376GG5yfoQ" name="ResultACK"/>
                 <packagedElement xmi:type="uml:Class" xmi:id="_3fAhkHVWEeme376GG5yfoQ" name="StringUtils"/>
                 <packagedElement xmi:type="uml:Class" xmi:id="_44utkHVWEeme376GG5yfoQ" name="SystemUtils"/>
@@ -1731,6 +1785,74 @@
         </ownedBehavior>
       </packagedElement>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_RochoHrTEemQkOybBcGrOA" name="imports">
+      <packagedElement xmi:type="uml:Package" xmi:id="_V8fJsHrTEemQkOybBcGrOA" name="org">
+        <packagedElement xmi:type="uml:Package" xmi:id="_XRQkQHrTEemQkOybBcGrOA" name="json">
+          <packagedElement xmi:type="uml:Package" xmi:id="_Y1ORYHrTEemQkOybBcGrOA" name="me">
+            <packagedElement xmi:type="uml:Class" xmi:id="_baN9sHrTEemQkOybBcGrOA" name="JSONObject"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_lEzFQHrWEemQkOybBcGrOA" name="aspects">
+      <packagedElement xmi:type="uml:Class" xmi:id="_xNmDEHrWEemQkOybBcGrOA" name="LoggingAspect">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_A56VgHrYEemC8cOyacIKAQ" name="logging"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-je0MHrYEemC8cOyacIKAQ" name="logging" specification="_Lhq-YHrYEemC8cOyacIKAQ">
+          <language>JAVA</language>
+          <body>//System.out.println(&quot;logging&quot;);
+		// name of the method
+		String name = thisJoinPoint.getSignature().getName();
+		// in - arguments
+		Object[] objects = thisJoinPoint.getArgs();
+		String info = &quot;Starting method : &quot; + name + &quot;\n\n >> Input : &quot;;
+		for(Object ob : objects) {
+			info += &quot;\n    - &quot; + ob.getClass().getName() + &quot; = &quot; + ob.toString();
+		}
+		
+		PrintUtils.log(info);
+		
+		try{
+			proceed();
+			PrintUtils.log(name + &quot; finish without exceptions&quot;);
+		} catch(Exception e) {
+			PrintUtils.error(&quot; &quot; + name + &quot; throwed an exception&quot;);
+			e.printStackTrace();
+		}</body>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Lhq-YHrYEemC8cOyacIKAQ" name="loggingAdvice" method="_-je0MHrYEemC8cOyacIKAQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_yVYKgHrWEemQkOybBcGrOA" name="VerificationAspect">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Pwy0wHrZEemC8cOyacIKAQ" name="MessageManager_process_pointcut"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VjXQUHrZEemC8cOyacIKAQ" name="args_pointcut"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-JFhwHrZEemC8cOyacIKAQ" name="verification_pointcut"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tLWY0HraEemC8cOyacIKAQ" name="verification">
+          <language>JAVA</language>
+          <body>try {
+    	//System.out.println(&quot;Verifiying&quot;);
+		JSONVerificationFactory.getVerifier(messageType).verify(message);
+		proceed(message,messageType);
+	} catch (JSONException e) {
+		// Error during verification
+		PrintUtils.error(&quot; JSONException throwed during verification&quot;);
+		e.printStackTrace();
+	}</body>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_IMeSQHraEemC8cOyacIKAQ" name="verificationAdvice"/>
+      </packagedElement>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_3cLsQHrWEemQkOybBcGrOA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3cOvkHrWEemQkOybBcGrOA" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvkXrWEemQkOybBcGrOA" key="Version" value="0.0.16"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvknrWEemQkOybBcGrOA" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvk3rWEemQkOybBcGrOA" key="Copyright" value="(c) Atos Spain S.A. 2019"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvlHrWEemQkOybBcGrOA" key="Date" value="2019-04-22"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvlXrWEemQkOybBcGrOA" key="Author" value="Jesús Gorroñogoitia"/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3cOIgHrWEemQkOybBcGrOA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_pMzacGTzEemc8KTgT20mug"/>
+        </eAnnotations>
+        <appliedProfile xmi:type="uml:Profile" href="pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_wW2AAFbhEemeMqmugX5-_g"/>
+      </profileApplication>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_a-CngHGdEem0RPpz3dAzVg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a-EcsHGdEem0RPpz3dAzVg" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
@@ -1747,4 +1869,17 @@
   <standard:Create xmi:id="_iwcD4HYeEemHd4vF-9W63A" base_BehavioralFeature="_eimxgHYeEemHd4vF-9W63A"/>
   <standard:Create xmi:id="_VdwMcHf4EemC4Orf_QdZ5A" base_BehavioralFeature="_UHYPYHf4EemC4Orf_QdZ5A"/>
   <standard:Create xmi:id="_4ruwIHiHEemVbo553a6mZQ" base_BehavioralFeature="_3gcowHiHEemVbo553a6mZQ"/>
+  <aspectj:Aspect xmi:id="_4QxK4HrWEemQkOybBcGrOA" base_Class="_xNmDEHrWEemQkOybBcGrOA"/>
+  <aspectj:Aspect xmi:id="_5EBMwHrWEemQkOybBcGrOA" base_Class="_yVYKgHrWEemQkOybBcGrOA"/>
+  <aspectj:CallPointCut xmi:id="_FDfaAHrYEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_A56VgHrYEemC8cOyacIKAQ" signature="static void MessageManager.*(..)"/>
+  <aspectj:Advice xmi:id="_MzMQoHrYEemC8cOyacIKAQ" base_BehavioralFeature="_Lhq-YHrYEemC8cOyacIKAQ" pointcut="_FDfaAHrYEemC8cOyacIKAQ"/>
+  <aspectj:CallPointCut xmi:id="_VAZtMHrZEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_Pwy0wHrZEemC8cOyacIKAQ" composite="_ArBTAHraEemC8cOyacIKAQ" signature="void MessageManager.process*(JSONObject,int)"/>
+  <aspectj:ArgsPointCut xmi:id="_XVt-wHrZEemC8cOyacIKAQ" base_StructuralFeature="_VjXQUHrZEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_VjXQUHrZEemC8cOyacIKAQ" composite="_ArBTAHraEemC8cOyacIKAQ">
+    <argNames>message</argNames>
+    <argNames>messageType</argNames>
+    <type xmi:type="uml:Class" href="#_baN9sHrTEemQkOybBcGrOA"/>
+    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </aspectj:ArgsPointCut>
+  <aspectj:CompositePointCut xmi:id="_ArBTAHraEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_-JFhwHrZEemC8cOyacIKAQ" composee="_VAZtMHrZEemC8cOyacIKAQ _XVt-wHrZEemC8cOyacIKAQ"/>
+  <aspectj:Advice xmi:id="_cb6nEHraEemC8cOyacIKAQ" base_BehavioralFeature="_IMeSQHraEemC8cOyacIKAQ" pointcut="_ArBTAHraEemC8cOyacIKAQ"/>
 </xmi:XMI>
