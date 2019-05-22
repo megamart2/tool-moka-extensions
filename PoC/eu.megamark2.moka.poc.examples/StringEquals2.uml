@@ -5,7 +5,7 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
     <packagedElement xmi:type="uml:Class" xmi:id="_xWLFsKd_Eeivk8ZZKqfBpA" name="StringEquals" classifierBehavior="_CjEhcKd-Eeivk8ZZKqfBpA" isActive="true">
-      <ownedBehavior xmi:type="uml:Activity" xmi:id="_CjEhcKd-Eeivk8ZZKqfBpA" name="StringEquals" node="_Pvjw4Kd-Eeivk8ZZKqfBpA _Rvm9EKd-Eeivk8ZZKqfBpA _bCGcIKd-Eeivk8ZZKqfBpA _tjkzQKd-Eeivk8ZZKqfBpA _6zxeAKd-Eeivk8ZZKqfBpA _8DDUkKd-Eeivk8ZZKqfBpA">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_CjEhcKd-Eeivk8ZZKqfBpA" name="StringEquals" specification="_JPtGoKeAEeivk8ZZKqfBpA" node="_Pvjw4Kd-Eeivk8ZZKqfBpA _Rvm9EKd-Eeivk8ZZKqfBpA _bCGcIKd-Eeivk8ZZKqfBpA _tjkzQKd-Eeivk8ZZKqfBpA _6zxeAKd-Eeivk8ZZKqfBpA _8DDUkKd-Eeivk8ZZKqfBpA">
         <edge xmi:type="uml:ObjectFlow" xmi:id="_mgGwgKd-Eeivk8ZZKqfBpA" target="_bCIRUKd-Eeivk8ZZKqfBpA" source="_Pv_OsKd-Eeivk8ZZKqfBpA">
           <guard xmi:type="uml:LiteralBoolean" xmi:id="_mgRIkKd-Eeivk8ZZKqfBpA" value="true"/>
           <weight xmi:type="uml:LiteralInteger" xmi:id="_mgRIkad-Eeivk8ZZKqfBpA" value="1"/>
@@ -39,6 +39,7 @@
         </node>
         <node xmi:type="uml:TestIdentityAction" xmi:id="_bCGcIKd-Eeivk8ZZKqfBpA" name="areEquals">
           <first xmi:type="uml:InputPin" xmi:id="_bCIRUKd-Eeivk8ZZKqfBpA" name="first" incoming="_mgGwgKd-Eeivk8ZZKqfBpA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bCIRUad-Eeivk8ZZKqfBpA" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bCIRUqd-Eeivk8ZZKqfBpA" value="1"/>
           </first>
@@ -48,6 +49,7 @@
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bCHqQqd-Eeivk8ZZKqfBpA" value="1"/>
           </result>
           <second xmi:type="uml:InputPin" xmi:id="_bCIRU6d-Eeivk8ZZKqfBpA" name="second" incoming="_nTf8UKd-Eeivk8ZZKqfBpA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bCIRVKd-Eeivk8ZZKqfBpA" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bCIRVad-Eeivk8ZZKqfBpA" value="1"/>
           </second>
@@ -97,7 +99,7 @@
         </node>
         <node xmi:type="uml:ForkNode" xmi:id="_E3BUgtOFEeiIGc9nm4Rtnw" name="forkInstanciatedObject" incoming="_E3BUhNOFEeiIGc9nm4Rtnw" outgoing="_E3AtctOFEeiIGc9nm4Rtnw _E3BUg9OFEeiIGc9nm4Rtnw"/>
       </ownedBehavior>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_JPtGoKeAEeivk8ZZKqfBpA" name="StringEquals">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_JPtGoKeAEeivk8ZZKqfBpA" name="StringEquals" method="_CjEhcKd-Eeivk8ZZKqfBpA">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_JPwJ8KeAEeivk8ZZKqfBpA" name="return" type="_xWLFsKd_Eeivk8ZZKqfBpA" direction="return"/>
       </ownedOperation>
     </packagedElement>
