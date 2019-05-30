@@ -31,9 +31,9 @@ import eu.megamart2.moka.logging.info.MegamartPrimitiveInfoObject;
 import eu.megamart2.moka.logging.utils.HierarchyExplorer;
 
 @SuppressWarnings("restriction")
-public abstract class ValueInformationCollector {
+public class ValueInformationCollector {
 	
-	 protected MegamartAbstractInfoObject getValueInfo(IValue value,String name) {
+	 public MegamartAbstractInfoObject getValueInfo(IValue value,String name) {
 		 
 		 if(value instanceof ObjectTokenValueAdapter) {
 			 RecurssionChecker recurssionChecker = new RecurssionChecker(value);

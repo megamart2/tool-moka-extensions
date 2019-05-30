@@ -101,7 +101,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 
 	@Override
 	public void completeInfo(ISemanticVisitor nodeVisitor) {
-     if(info.isComplete()) return;
+     //if(info.isComplete()) return;
      
      // outputs
      
@@ -118,7 +118,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
     	 
     	 PinActivationVariableAdapter adapter = 
     			 new PinActivationVariableAdapter(target,outputPins.get(i));
-    	 
+    	 System.out.println("TOKENS > > " + outputPins.get(i).getTokens().toString());
     	 info.getOutput().add(getValueInfo(adapter.getValue(),adapter.getName()));
     	
      }
@@ -142,7 +142,7 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 
 	@Override
 	public boolean isOnePhase() {
-		if(type.contains("CallBehavior")) return false;
+		if(type.contains("CallBehavior") || type.contains("ActionActivation")) return false; // TODO
 		return true;
 	}
 
