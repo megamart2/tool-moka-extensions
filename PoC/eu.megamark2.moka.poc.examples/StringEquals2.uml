@@ -54,7 +54,7 @@
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bCIRVad-Eeivk8ZZKqfBpA" value="1"/>
           </second>
         </node>
-        <node xmi:type="uml:DecisionNode" xmi:id="_tjkzQKd-Eeivk8ZZKqfBpA" incoming="_43g9oKtYEeif3MGqEWSuUA" outgoing="_-K1gcKd-Eeivk8ZZKqfBpA __sF30Kd-Eeivk8ZZKqfBpA"/>
+        <node xmi:type="uml:DecisionNode" xmi:id="_tjkzQKd-Eeivk8ZZKqfBpA" name="Check Equals" incoming="_43g9oKtYEeif3MGqEWSuUA" outgoing="_-K1gcKd-Eeivk8ZZKqfBpA __sF30Kd-Eeivk8ZZKqfBpA"/>
         <node xmi:type="uml:FlowFinalNode" xmi:id="_6zxeAKd-Eeivk8ZZKqfBpA" name="FlowFinalNode8" incoming="__sF30Kd-Eeivk8ZZKqfBpA"/>
         <node xmi:type="uml:FlowFinalNode" xmi:id="_8DDUkKd-Eeivk8ZZKqfBpA" name="FlowFinalNode9" incoming="_-K1gcKd-Eeivk8ZZKqfBpA"/>
       </ownedBehavior>
