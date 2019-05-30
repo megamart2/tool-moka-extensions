@@ -5,9 +5,11 @@ import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.CompleteActions.StartObjectBehaviorActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.IntermediateActions.ValueSpecificationActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Activities.IntermediateActivities.DecisionNodeActivation;
 import org.eclipse.papyrus.moka.fuml.statemachines.Semantics.StateMachines.TransitionActivationWrapper;
 
 import eu.megamart2.moka.logging.behaviors.ActionInfo;
+import eu.megamart2.moka.logging.behaviors.DecisionInfo;
 import eu.megamart2.moka.logging.behaviors.StateTransitionInfo;
 import eu.megamart2.moka.logging.behaviors.ValueSpecificationInfo;
 import eu.megamart2.moka.logging.queue.InfoQueue;
@@ -39,7 +41,10 @@ public class NodeInfoGenerator {
 
 		NodeInfo info = null;
 		boolean stop = true;
-
+        if(nodeVisitor instanceof DecisionNodeActivation && stop) {
+        	info = new DecisionInfo(nodeVisitor);
+        	stop = false;
+        }
 		if(nodeVisitor instanceof ValueSpecificationActionActivation && stop) {
 			info = new ValueSpecificationInfo(nodeVisitor,launcher);
 			stop = false;
