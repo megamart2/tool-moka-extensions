@@ -182,8 +182,7 @@ public class MegamartOutput {
 				} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException
 						| SecurityException e) {
 					e.printStackTrace();
-				}
-				        
+				}	        
 			}
 			return null;
 		}
