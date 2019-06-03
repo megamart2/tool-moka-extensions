@@ -4,13 +4,20 @@ import java.util.List;
 
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.moka.fuml.Semantics.Activities.IntermediateActivities.IActivityNodeActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
 import org.eclipse.papyrus.moka.service.AbstractMokaService;
 import org.eclipse.papyrus.moka.service.IMokaExecutionListener;
 import org.eclipse.uml2.uml.ActivityNode;
+import org.eclipse.uml2.uml.Node;
 
+import eu.megamart2.moka.logging.format.MegamartFormatFacade;
+import eu.megamart2.moka.logging.format.MegamartInfoFormat;
+import eu.megamart2.moka.logging.info.MegamartAbstractInfoObject;
+import eu.megamart2.moka.logging.mapping.ModelMap;
+import eu.megamart2.moka.logging.mapping.NodeElement;
 import eu.megamart2.moka.logging.nodes.NodeInfo;
 import eu.megamart2.moka.logging.nodes.NodeInfoGenerator;
 import eu.megamart2.moka.logging.output.MegamartOutput;
@@ -19,7 +26,66 @@ import eu.megamart2.moka.logging.queue.InfoQueue;
 
 public class MokaNodeInformationListener 
 extends AbstractMokaService implements IMokaExecutionListener {
+
+	private int index;
 	
+	@Override
+	public void init(ILaunch launcher, EObject modelElement){
+		ModelMap.getInstance().reset();
+		
+		//queue = new InfoQueue();
+		//generator = new NodeInfoGenerator(queue,launcher);
+        
+		//this.modelElement = modelElement;
+		MegamartViewOutput.getInstance().clean();
+	}
+	
+	@Override
+	public void nodeVisited(ISemanticVisitor nodeVisitor) {
+	 if(nodeVisitor instanceof ActionActivation) {
+		 ActionActivation actionActivation = (ActionActivation)nodeVisitor;
+		 NodeElement nodeElement = new NodeElement(actionActivation,index);
+		 index++;
+		 ModelMap.getInstance().addNode(nodeElement);
+	 }
+	     ModelMap.getInstance().update();
+	     List<MegamartAbstractInfoObject> infos = ModelMap.getInstance().getCompleteNodes();
+	     for(MegamartAbstractInfoObject info : infos) printSummary(info.getTime(),info);
+	}
+
+	@Override
+	public void nodeLeft(ISemanticVisitor nodeVisitor) {
+		ModelMap.getInstance().update();
+		List<MegamartAbstractInfoObject> infos = ModelMap.getInstance().getCompleteNodes();
+	    for(MegamartAbstractInfoObject info : infos) printSummary(info.getTime(),info);
+	}
+
+	@Override
+	public void valueCreated(IValue value) {
+		ModelMap.getInstance().update();
+	}
+
+	@Override
+	public void valueDestroyed(IValue value) {}
+	
+	private void printSummary(String time,MegamartAbstractInfoObject info) {  
+		
+		MegamartOutput utils = MegamartOutput.getInstance();
+		MegamartViewOutput viewOut = MegamartViewOutput.getInstance();
+		
+		MegamartFormatFacade consoleFormat = 
+				new MegamartFormatFacade(MegamartInfoFormat.JSON_FORMAT);
+		
+		utils.write(consoleFormat.format(info));
+		viewOut.releaseEntry(time, info);
+	}
+	
+	
+	
+	
+	
+	
+	/*
 	private NodeInfoGenerator generator; 
 	
 	private InfoQueue queue;
@@ -93,4 +159,5 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	private void printInfo(NodeInfo info) {
     	info.printSummary();
 	}
+	*/
 }

@@ -146,8 +146,8 @@ public class ActionInfo extends ValueInformationCollector implements NodeInfo{
 		return true;
 	}
 
-	@Override
-	public String getName() { return name; }
+	//@Override
+	//public String getName() { return name; }
 
 	@Override
 	public String getType() { return type; }

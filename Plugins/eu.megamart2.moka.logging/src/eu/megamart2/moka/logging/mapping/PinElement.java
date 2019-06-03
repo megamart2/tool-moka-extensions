@@ -61,9 +61,11 @@ public class PinElement implements MapElement{
 	    if(object != null) {
 	    	ready = true;
 	        if(source instanceof IPinActivation) ModelMap.getInstance()
-	        .getPinElement((IPinActivation)source).update();
-	        if(target instanceof IPinActivation) ModelMap.getInstance()
-	        .getPinElement((IPinActivation)target).update();
+	        .getPinElement((IPinActivation)source).update(object);
+	        if(target instanceof IPinActivation) {
+	         ModelMap.getInstance()
+	        .getPinElement((IPinActivation)target);
+	        }
 	        
 	    } else ready = false;
 	}

@@ -79,7 +79,8 @@ public class MegamartOutput {
 	   // file
 	   if(newExecution || file == null) {  
 		   
-			// look for project folder
+			// look for pr
+		if(modelElement == null) return;
 		List<Adapter> adapters = modelElement.eAdapters();
 		String uri;
 		String projectPath = null;

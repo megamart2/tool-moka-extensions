@@ -16,7 +16,7 @@ public interface NodeInfo {
 	
 	public void printSummary();
 	
-	public String getName();
+	//public String getName();
 	
 	public String getType();
 	

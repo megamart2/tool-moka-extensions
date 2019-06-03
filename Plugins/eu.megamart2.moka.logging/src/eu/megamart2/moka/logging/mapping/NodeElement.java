@@ -1,39 +1,61 @@
 package eu.megamart2.moka.logging.mapping;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.uml2.uml.Node;
+import org.eclipse.papyrus.moka.fuml.Semantics.Actions.BasicActions.IPinActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
 
 import eu.megamart2.moka.logging.info.MegamartAbstractInfoObject;
 import eu.megamart2.moka.logging.info.MegamartInOutInfoObject;
 
 public class NodeElement implements MapElement, Comparable<NodeElement>{
  
-	private PinElement[] pins;
+	private List<PinElement> pins;
 	
 	private final int place;
 	
-	private final Node node;
+	private final ActionActivation node;
 	
+	private final String time;
 	
-	public NodeElement(Node node, int place) {
+	public NodeElement(ActionActivation node, int place) {
 		this.place = place;
 		this.node = node;
+		List<IPinActivation> pinActivations = node.pinActivations;
+		if(pinActivations != null && !pinActivations.isEmpty()) {
+		pins = new LinkedList<PinElement>();
+		ModelMap modelMap = ModelMap.getInstance();
+		for(IPinActivation activation : pinActivations) {
+			PinElement element = new PinElement(activation);
+			pins.add(element);
+		    modelMap.addPin(element);
+		}
+		}
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy hh:mm:ss");
+		time = format.format(new Date());
 	}
+	
+	public String getTime() { return time; }
 
 	@Override
 	public boolean isReady() {
-		for(PinElement pin : pins)if(!pin.isReady())return false;
+		for(PinElement pin : pins)if(pin == null || !pin.isReady())return false;
 		return true;
 	}
 
 	@Override
 	public void update() {
-		for(PinElement pin : pins)pin.update();
+	    List<IPinActivation> activations = node.pinActivations;
+	    if((pins == null || pins.isEmpty()) && 
+	    		(activations == null || activations.isEmpty())) return;
+	    
+		if(pins.isEmpty()) return;
+		for(PinElement pin : pins)if(pin != null)pin.update();
 	}
 	
-	public Node getNode() { return node; }
+	public ActionActivation getNode() { return node; }
 	
 	@Override
 	public boolean equals(Object other) {
@@ -52,7 +74,7 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
 	    	if(pin.isInput()) in.add(pin.getInfo());
 	    	else out.add(pin.getInfo());
 	    }
-	    return new MegamartInOutInfoObject(node.getName(),
+	    return new MegamartInOutInfoObject(node.getNode().getName(),
 	    		node.getClass().getName(),in,out,false,true);
 	}
 }

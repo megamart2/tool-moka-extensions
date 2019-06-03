@@ -52,10 +52,10 @@ public class StateTransitionInfo implements NodeInfo {
 		// TODO view entry
 	}
 
-	@Override
-	public String getName() {
-		return wrapper.getNode().getName();
-	}
+	//@Override
+	//public String getName() {
+		//return wrapper.getNode().getName();
+	//}
 
 	@Override
 	public String getType() { return " State transition "; }
