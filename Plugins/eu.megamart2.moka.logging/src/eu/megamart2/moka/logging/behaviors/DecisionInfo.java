@@ -51,8 +51,8 @@ public class DecisionInfo implements NodeInfo {
 		viewOut.releaseEntry(time, info);
 	}
 
-	@Override
-	public String getName() { return name; }
+	//@Override
+	//public String getName() { return name; }
 
 	@Override
 	public String getType() { return "Decision node"; }

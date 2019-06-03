@@ -38,6 +38,10 @@ public class ModelMap {
 	
 	public void removeNode(NodeElement node) { nodes.remove(node); }
 	
+	public void update() {
+		for(NodeElement node : nodes)node.update();
+	}
+	
 	public void addPin(PinElement pin) { pinMap.put(pin.getActivation(),pin); }
 	
 	public List<MegamartAbstractInfoObject> getCompleteNodes(){
