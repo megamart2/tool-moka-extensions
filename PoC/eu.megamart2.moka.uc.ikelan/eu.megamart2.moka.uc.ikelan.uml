@@ -1824,8 +1824,8 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_yVYKgHrWEemQkOybBcGrOA" name="VerificationAspect">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Pwy0wHrZEemC8cOyacIKAQ" name="MessageManager_process_pointcut"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_VjXQUHrZEemC8cOyacIKAQ" name="args_pointcut"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_-JFhwHrZEemC8cOyacIKAQ" name="verification_pointcut"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tLWY0HraEemC8cOyacIKAQ" name="verification">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-JFhwHrZEemC8cOyacIKAQ" name="verification"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tLWY0HraEemC8cOyacIKAQ" name="verification" specification="_IMeSQHraEemC8cOyacIKAQ">
           <language>JAVA</language>
           <body>try {
     	//System.out.println(&quot;Verifiying&quot;);
@@ -1837,7 +1837,7 @@
 		e.printStackTrace();
 	}</body>
         </ownedBehavior>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_IMeSQHraEemC8cOyacIKAQ" name="verificationAdvice"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_IMeSQHraEemC8cOyacIKAQ" name="verificationAdvice" method="_tLWY0HraEemC8cOyacIKAQ"/>
       </packagedElement>
       <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_3cLsQHrWEemQkOybBcGrOA">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3cOvkHrWEemQkOybBcGrOA" source="PapyrusVersion">
@@ -1869,8 +1869,8 @@
   <standard:Create xmi:id="_iwcD4HYeEemHd4vF-9W63A" base_BehavioralFeature="_eimxgHYeEemHd4vF-9W63A"/>
   <standard:Create xmi:id="_VdwMcHf4EemC4Orf_QdZ5A" base_BehavioralFeature="_UHYPYHf4EemC4Orf_QdZ5A"/>
   <standard:Create xmi:id="_4ruwIHiHEemVbo553a6mZQ" base_BehavioralFeature="_3gcowHiHEemVbo553a6mZQ"/>
-  <aspectj:Aspect xmi:id="_4QxK4HrWEemQkOybBcGrOA" base_Class="_xNmDEHrWEemQkOybBcGrOA"/>
-  <aspectj:Aspect xmi:id="_5EBMwHrWEemQkOybBcGrOA" base_Class="_yVYKgHrWEemQkOybBcGrOA"/>
+  <aspectj:Aspect xmi:id="_4QxK4HrWEemQkOybBcGrOA" base_Class="_xNmDEHrWEemQkOybBcGrOA" isPrivileged="true"/>
+  <aspectj:Aspect xmi:id="_5EBMwHrWEemQkOybBcGrOA" base_Class="_yVYKgHrWEemQkOybBcGrOA" isPrivileged="true"/>
   <aspectj:CallPointCut xmi:id="_FDfaAHrYEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_A56VgHrYEemC8cOyacIKAQ" signature="static void MessageManager.*(..)"/>
   <aspectj:Advice xmi:id="_MzMQoHrYEemC8cOyacIKAQ" base_BehavioralFeature="_Lhq-YHrYEemC8cOyacIKAQ" pointcut="_FDfaAHrYEemC8cOyacIKAQ"/>
   <aspectj:CallPointCut xmi:id="_VAZtMHrZEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_Pwy0wHrZEemC8cOyacIKAQ" composite="_ArBTAHraEemC8cOyacIKAQ" signature="void MessageManager.process*(JSONObject,int)"/>
