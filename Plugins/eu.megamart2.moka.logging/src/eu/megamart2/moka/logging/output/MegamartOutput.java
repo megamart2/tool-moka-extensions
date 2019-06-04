@@ -59,13 +59,12 @@ public class MegamartOutput {
 
 		if(disposed) init(modelElement);
 		if(outConsole == null || writer == null) init(modelElement);
-		if(outConsole == null || writer == null) return;
 		if(line == null) return; // TODO check nulls
 		if(line.replaceAll(" ","").replaceAll("\n","").isEmpty()) return;
 		
 		try {
-			outConsole.write(line + "\n");
-			writer.write(line + "\n");
+			if(outConsole != null) outConsole.write(line + "\n");
+			if(writer != null) writer.write(line + "\n");
 			//writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -75,6 +74,25 @@ public class MegamartOutput {
 	public void init(EObject modelElement) {
 	   
 		this.modelElement = modelElement;
+		
+		// console
+		if(outConsole == null) {
+			Display.getDefault().asyncExec(new Runnable() {
+				@Override
+				public void run() {
+			IConsole[] consoles = ConsolePlugin.getDefault()
+					.getConsoleManager().getConsoles();
+			IConsole iout = null; 
+			for(IConsole c : consoles)
+				if(c.getName().contains("fUML")) {
+					iout = c;
+					break;
+				}
+			if(iout instanceof IOConsole) {
+				outConsole = ((IOConsole) iout).newOutputStream();
+			}
+				}
+			});
 		
 	   // file
 	   if(newExecution || file == null) {  
@@ -125,30 +143,11 @@ public class MegamartOutput {
         }
         newExecution = false;
 	   }
-		
-		// console
-		if(outConsole == null) {
-			Display.getDefault().asyncExec(new Runnable() {
-				@Override
-				public void run() {
-			IConsole[] consoles = ConsolePlugin.getDefault()
-					.getConsoleManager().getConsoles();
-			IConsole iout = null; 
-			for(IConsole c : consoles)
-				if(c.getName().contains("fUML")) {
-					iout = c;
-					break;
-				}
-			if(iout instanceof IOConsole) {
-				outConsole = ((IOConsole) iout).newOutputStream();
-			}
-				}
-			});
 		}
 		
 		// file writer
 		try {
-			writer = new BufferedWriter(new FileWriter(file));
+			if(file != null) writer = new BufferedWriter(new FileWriter(file));
 		} catch (IOException e) {
 			e.printStackTrace(); 
 		  }
@@ -157,6 +156,7 @@ public class MegamartOutput {
 	}
 	
 	public void dispose() {
+		if(writer == null) return;
 		try {
 			writer.close();
 		} catch (IOException e) {

@@ -32,11 +32,6 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	@Override
 	public void init(ILaunch launcher, EObject modelElement){
 		ModelMap.getInstance().reset();
-		
-		//queue = new InfoQueue();
-		//generator = new NodeInfoGenerator(queue,launcher);
-        
-		//this.modelElement = modelElement;
 		MegamartViewOutput.getInstance().clean();
 	}
 	
@@ -81,7 +76,12 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	}
 	
 	
-	
+	@Override
+	public void dispose() {
+		ModelMap.getInstance().update();
+		List<MegamartAbstractInfoObject> infos = ModelMap.getInstance().getAllNodes();
+	    for(MegamartAbstractInfoObject info : infos) printSummary(info.getTime(),info);
+	}
 	
 	
 	

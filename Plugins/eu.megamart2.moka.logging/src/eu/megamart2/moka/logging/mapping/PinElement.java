@@ -50,14 +50,15 @@ public class PinElement implements MapElement{
 
 	@Override
 	public void update() {
+		if(ready) return;
 		List<IToken> tokens = activation.getTokens();
 		if(tokens.isEmpty()) {
 			ready = false;
 			return;
 		}
-		IValue v = tokens.get(0).getValue();
+		//IValue v = tokens.get(0).getValue();
 		InfoFactory infoFactory = new InfoFactory();
-		object = infoFactory.createInfoObject(v,activation.getNode().getName());
+		object = infoFactory.getValueInfo(tokens.get(0),activation.getNode().getName());
 	    if(object != null) {
 	    	ready = true;
 	        if(source instanceof IPinActivation) ModelMap.getInstance()

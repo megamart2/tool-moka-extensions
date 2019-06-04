@@ -41,6 +41,7 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
 
 	@Override
 	public boolean isReady() {
+		if(pins == null) return true;
 		for(PinElement pin : pins)if(pin == null || !pin.isReady())return false;
 		return true;
 	}
@@ -70,11 +71,13 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
 	public MegamartAbstractInfoObject getInfoObject() {
 		List<MegamartAbstractInfoObject> in = new LinkedList<MegamartAbstractInfoObject>();
 	    List<MegamartAbstractInfoObject> out = new LinkedList<MegamartAbstractInfoObject>();
-	    for(PinElement pin : pins) {
+	    if(pins != null)for(PinElement pin : pins) {
 	    	if(pin.isInput()) in.add(pin.getInfo());
 	    	else out.add(pin.getInfo());
 	    }
-	    return new MegamartInOutInfoObject(node.getNode().getName(),
+	    MegamartAbstractInfoObject result = new MegamartInOutInfoObject(node.getNode().getName(),
 	    		node.getClass().getName(),in,out,false,true);
+	    result.setTime(time);
+	    return result;
 	}
 }

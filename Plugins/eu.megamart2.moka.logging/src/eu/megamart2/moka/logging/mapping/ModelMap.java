@@ -47,10 +47,24 @@ public class ModelMap {
 	public List<MegamartAbstractInfoObject> getCompleteNodes(){
 		List<MegamartAbstractInfoObject> result = new LinkedList<MegamartAbstractInfoObject>();
 		List<NodeElement> toRemove = new LinkedList<NodeElement>();
-	    for(NodeElement element : nodes)if(element.isReady()) {
+	    for(NodeElement element : nodes) {
+	    	if(element.isReady()) {
 	    	result.add(element.getInfoObject());
 	    	toRemove.add(element);
+	    	}
+	    	else break;
 	    }
+	    for(NodeElement element : toRemove) nodes.remove(element);
+		return result;
+	}
+	
+	public List<MegamartAbstractInfoObject> getAllNodes(){
+		List<MegamartAbstractInfoObject> result = new LinkedList<MegamartAbstractInfoObject>();
+		List<NodeElement> toRemove = new LinkedList<NodeElement>();
+	    for(NodeElement element : nodes) {
+	    	result.add(element.getInfoObject());
+	    	toRemove.add(element);
+	    	}
 	    for(NodeElement element : toRemove) nodes.remove(element);
 		return result;
 	}
