@@ -13,7 +13,7 @@ public class MegamartInfoFormat {
 			"{ name = %n, type = %t, value = %v }";
 	
 	public static final String UML_FORMAT =  "%n : %t = %v";
-	
+	 
 	private String formatString;
 	
 	private String arrayFormat;
