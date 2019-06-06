@@ -16,9 +16,9 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
 	
 	private final int place;
 	
-	private final ActionActivation node;
+	private ActionActivation node;
 	
-	private final String time;
+	protected final String time;
 	
 	public NodeElement(ActionActivation node, int place) {
 		this.place = place;
@@ -33,6 +33,12 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
 		    modelMap.addPin(element);
 		}
 		}
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy hh:mm:ss");
+		time = format.format(new Date());
+	}
+	
+	protected NodeElement(int place) {
+		this.place = place;
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy hh:mm:ss");
 		time = format.format(new Date());
 	}
@@ -56,7 +62,7 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
 		for(PinElement pin : pins)if(pin != null)pin.update();
 	}
 	
-	public ActionActivation getNode() { return node; }
+	public Object getNode() { return node; }
 	
 	@Override
 	public boolean equals(Object other) {
