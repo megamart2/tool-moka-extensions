@@ -5,8 +5,11 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -74,11 +77,13 @@ public class MegamartView extends ViewPart{
 		
 	  map = new HashMap<TreeItem,MegamartAbstractInfoObject>();
 			
-	  parent.setLayout(new FillLayout());
+	  GridLayoutFactory.fillDefaults().applyTo(parent);
 	  
 	  tree = new Tree(parent,SWT.NONE);
+	  GridDataFactory.fillDefaults().grab(true,true).applyTo(parent);
 	  tree.setLinesVisible(true);
 	  tree.setHeaderVisible(true);
+	  
 	  
 	  TreeColumn timeColumn = new TreeColumn(tree,SWT.LEFT);
 	  timeColumn.setText("Timestamp");
@@ -108,7 +113,18 @@ public class MegamartView extends ViewPart{
 		    dialog.open();
 		}
       });
-      
+      parent.addControlListener(new ControlListener() {
+		@Override
+		public void controlMoved(ControlEvent e) {}
+
+		@Override
+		public void controlResized(ControlEvent e) {
+			int width = parent.getSize().x/3;
+			timeColumn.setWidth(width);
+			componentColumn.setWidth(width);
+			messageColumn.setWidth(width);
+		}  
+      });
 	  parent.pack();
 	}
 	
