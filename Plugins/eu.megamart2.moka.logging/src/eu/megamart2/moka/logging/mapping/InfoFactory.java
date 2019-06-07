@@ -72,7 +72,6 @@ public class InfoFactory {
 			 }
 			 
 			 if(token.getValue() instanceof IStructuredValue) {
-				 
 				 return getStructuredValueInfo(
 						 (IStructuredValue)token.getValue(),name); 
 			 }
@@ -188,7 +187,6 @@ public class InfoFactory {
 				result.setVisibility(visibility);
 				return result;
 			}
-			
 			     List<MegamartAbstractInfoObject> innerObjects =
 			    		 new LinkedList<MegamartAbstractInfoObject>();
 			     for(org.eclipse.papyrus.moka.fuml.Semantics
