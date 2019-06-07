@@ -10,6 +10,7 @@ import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionA
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Activities.IntermediateActivities.DecisionNodeActivation;
 import org.eclipse.papyrus.moka.service.AbstractMokaService;
 import org.eclipse.papyrus.moka.service.IMokaExecutionListener;
+import org.eclipse.papyrus.moka.fuml.statemachines.Semantics.StateMachines.StateMachineSemanticVisitor;
 
 import eu.megamart2.moka.logging.format.MegamartFormatFacade;
 import eu.megamart2.moka.logging.format.MegamartInfoFormat;
@@ -17,6 +18,7 @@ import eu.megamart2.moka.logging.info.MegamartAbstractInfoObject;
 import eu.megamart2.moka.logging.mapping.DecisionNode;
 import eu.megamart2.moka.logging.mapping.ModelMap;
 import eu.megamart2.moka.logging.mapping.NodeElement;
+import eu.megamart2.moka.logging.mapping.StateElement;
 import eu.megamart2.moka.logging.output.MegamartOutput;
 import eu.megamart2.moka.logging.output.MegamartViewOutput;
 
@@ -39,6 +41,8 @@ extends AbstractMokaService implements IMokaExecutionListener {
 		 nodeElement = new NodeElement(actionActivation,index);
 	 } else if(nodeVisitor instanceof DecisionNodeActivation) {
 		nodeElement = new DecisionNode((DecisionNodeActivation)nodeVisitor,index);
+	 } else if(nodeVisitor instanceof StateMachineSemanticVisitor) {
+		 nodeElement = new StateElement((StateMachineSemanticVisitor)nodeVisitor,index);
 	 }
 	if(nodeElement != null) {
 		index++;
@@ -57,7 +61,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	}
 
 	@Override
-	public void valueCreated(IValue value) {
+	public void valueCreated(IValue value) {	
 		ModelMap.getInstance().update();
 	}
 

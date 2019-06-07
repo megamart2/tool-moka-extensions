@@ -32,6 +32,10 @@ public class MegamartView extends ViewPart{
 	
 	private Tree tree;
 	
+	private Composite composite;
+	
+	private TreeColumn timeColumn,componentColumn,messageColumn;
+	
 	private final Shell shell;
 	
 	private Map<TreeItem,MegamartAbstractInfoObject> map;
@@ -70,12 +74,25 @@ public class MegamartView extends ViewPart{
 		    	tree.pack();
 			}	
     	});
+    	Display.getDefault().asyncExec(new Runnable() {
+    		@Override
+    		public void run() { resize(); }
+    	});
+    }
+    
+    private void resize() {
+		int width = composite.getSize().x/3;
+		if(timeColumn.getWidth() == width) return;
+		timeColumn.setWidth(width);
+		componentColumn.setWidth(width);
+		messageColumn.setWidth(width);
     }
 
 	@Override
 	public void createPartControl(Composite parent) {
 		
 	  map = new HashMap<TreeItem,MegamartAbstractInfoObject>();
+	  this.composite = parent;
 			
 	  GridLayoutFactory.fillDefaults().applyTo(parent);
 	  
@@ -85,17 +102,14 @@ public class MegamartView extends ViewPart{
 	  tree.setHeaderVisible(true);
 	  
 	  
-	  TreeColumn timeColumn = new TreeColumn(tree,SWT.LEFT);
+	  timeColumn = new TreeColumn(tree,SWT.LEFT);
 	  timeColumn.setText("Timestamp");
-	  timeColumn.setWidth(250);
 	  
-	  TreeColumn componentColumn = new TreeColumn(tree,SWT.LEFT);
+	  componentColumn = new TreeColumn(tree,SWT.LEFT);
 	  componentColumn.setText("Component");
-	  componentColumn.setWidth(250);
 	  
-	  TreeColumn messageColumn = new TreeColumn(tree,SWT.LEFT);
+	  messageColumn = new TreeColumn(tree,SWT.LEFT);
 	  messageColumn.setText("Information");
-	  messageColumn.setWidth(250);
 	  
       tree.addListener(SWT.MouseDoubleClick,new Listener() {
 		@Override
@@ -113,19 +127,23 @@ public class MegamartView extends ViewPart{
 		    dialog.open();
 		}
       });
-      parent.addControlListener(new ControlListener() {
+
+	  parent.pack();
+	  parent.addControlListener(new ControlListener() {
 		@Override
 		public void controlMoved(ControlEvent e) {}
-
 		@Override
 		public void controlResized(ControlEvent e) {
-			int width = parent.getSize().x/3;
-			timeColumn.setWidth(width);
-			componentColumn.setWidth(width);
-			messageColumn.setWidth(width);
-		}  
-      });
-	  parent.pack();
+			System.out.println("\nRESIZE SUMMARY :");
+			System.out.println(" -- parent : " + parent.getSize());
+			System.out.print(" -- tree : " + tree.getSize());
+			System.out.println(" -- columns : " + timeColumn.getWidth());
+			System.out.println("*****************************\n");
+			tree.setSize(parent.getSize());
+			tree.pack();
+			System.out.print(" -- tree : " + tree.getSize());
+		}	  
+	  });
 	}
 	
 	public void clean() { 
