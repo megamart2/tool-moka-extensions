@@ -82,10 +82,15 @@ public class MegamartView extends ViewPart{
     
     private void resize() {
 		int width = composite.getSize().x/3;
-		if(timeColumn.getWidth() == width) return;
+		if(timeColumn.getWidth() != width) {
 		timeColumn.setWidth(width);
 		componentColumn.setWidth(width);
 		messageColumn.setWidth(width);
+		}
+		tree.setSize(composite.getSize());
+		GridDataFactory.fillDefaults().grab(true,true).applyTo(tree);
+		tree.pack(true);
+		tree.redraw();
     }
 
 	@Override
@@ -156,10 +161,11 @@ public class MegamartView extends ViewPart{
 			messageColumn.setWidth(width);
 			}
 			
+			GridDataFactory.fillDefaults().grab(true, true).applyTo(tree);
+			tree.redraw();
+			
 			System.out.print(" -- tree : " + tree.getSize());
 			System.out.println(" -- columns : " + timeColumn.getWidth());
-			//tree.setSize(parent.getSize());
-			//parent.pack();
 			//parent.reskin(SWT.ALL);
 			//tree.redraw();
 			//System.out.print(" -- tree resized : " + tree.getSize());
