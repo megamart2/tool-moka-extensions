@@ -129,19 +129,41 @@ public class MegamartView extends ViewPart{
       });
 
 	  parent.pack();
+	  
+	  tree.addControlListener(new ControlListener() {
+		@Override
+		public void controlMoved(ControlEvent e) {
+			System.out.println(" ----- Tree Moved -----");
+		}
+		@Override
+		public void controlResized(ControlEvent e) {}  
+	  });
+	  
 	  parent.addControlListener(new ControlListener() {
 		@Override
-		public void controlMoved(ControlEvent e) {}
+		public void controlMoved(ControlEvent e) {
+			System.out.println(" ----- Parent Moved -----");
+		}
 		@Override
 		public void controlResized(ControlEvent e) {
 			System.out.println("\nRESIZE SUMMARY :");
 			System.out.println(" -- parent : " + parent.getSize());
+			
+			int width = composite.getSize().x/3;
+			if(timeColumn.getWidth() != width) {
+			timeColumn.setWidth(width);
+			componentColumn.setWidth(width);
+			messageColumn.setWidth(width);
+			}
+			
 			System.out.print(" -- tree : " + tree.getSize());
 			System.out.println(" -- columns : " + timeColumn.getWidth());
+			//tree.setSize(parent.getSize());
+			//parent.pack();
+			//parent.reskin(SWT.ALL);
+			//tree.redraw();
+			//System.out.print(" -- tree resized : " + tree.getSize());
 			System.out.println("*****************************\n");
-			tree.setSize(parent.getSize());
-			tree.pack();
-			System.out.print(" -- tree : " + tree.getSize());
 		}	  
 	  });
 	}
