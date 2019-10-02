@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aspectj="http:///schemas/aspectj/_pMtT0GTzEemc8KTgT20mug/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/aspectj/_pMtT0GTzEemc8KTgT20mug/0 pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_pMzacGTzEemc8KTgT20mug">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aspectj="http:///schemas/aspectj/_9eOQELkEEemRs-7mz7m8IA/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/aspectj/_9eOQELkEEemRs-7mz7m8IA/5 pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_9eR6cLkEEemRs-7mz7m8IA">
   <uml:Model xmi:id="_0S7I4EGJEemn1s2LqFObOg" name="ilerlan">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_rU6fAHYhEemHd4vF-9W63A">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -720,7 +720,7 @@
                   <transition xmi:type="uml:Transition" xmi:id="_-nd-EHGdEem0RPpz3dAzVg" source="_haIhMHGdEem0RPpz3dAzVg" target="_ee3C4HGdEem0RPpz3dAzVg">
                     <trigger xmi:type="uml:Trigger" xmi:id="_xTm9gHGsEem0RPpz3dAzVg" name="ErrorTrigger" event="_K6MpEHGgEem0RPpz3dAzVg"/>
                   </transition>
-                  <subvertex xmi:type="uml:State" xmi:id="_Po1p0HGdEem0RPpz3dAzVg" name="Initial setting">
+                  <subvertex xmi:type="uml:State" xmi:id="_Po1p0HGdEem0RPpz3dAzVg" name="InitialSettings">
                     <doActivity xmi:type="uml:Activity" xmi:id="_ZAhVcHGeEem0RPpz3dAzVg" name="doInitialSetting" node="_b0LvgHY2EembTvGAIlRKjw _e-u_8HY2EembTvGAIlRKjw _pUhIAHY2EembTvGAIlRKjw _4xWpcHY2EembTvGAIlRKjw _T2QaMHY3EembTvGAIlRKjw _aCf6AHY3EembTvGAIlRKjw _1myw8HZBEembTvGAIlRKjw">
                       <edge xmi:type="uml:ControlFlow" xmi:id="_nKeSUHY2EembTvGAIlRKjw" target="_e-u_8HY2EembTvGAIlRKjw" source="_b0LvgHY2EembTvGAIlRKjw"/>
                       <edge xmi:type="uml:ObjectFlow" xmi:id="_zdqiQHY2EembTvGAIlRKjw" target="_1myw8HZBEembTvGAIlRKjw" source="_pUkLUHY2EembTvGAIlRKjw">
@@ -785,7 +785,7 @@
                       <node xmi:type="uml:ForkNode" xmi:id="_1myw8HZBEembTvGAIlRKjw" incoming="_zdqiQHY2EembTvGAIlRKjw" outgoing="_6Y3_4HZBEembTvGAIlRKjw _7oTAYHZBEembTvGAIlRKjw __UdJEHZBEembTvGAIlRKjw"/>
                     </doActivity>
                   </subvertex>
-                  <subvertex xmi:type="uml:State" xmi:id="_TYd9QHGdEem0RPpz3dAzVg" name="Initial configuration">
+                  <subvertex xmi:type="uml:State" xmi:id="_TYd9QHGdEem0RPpz3dAzVg" name="InitialConfiguration">
                     <region xmi:type="uml:Region" xmi:id="_SVWgIHGtEem0RPpz3dAzVg" name="Region2">
                       <transition xmi:type="uml:Transition" xmi:id="_8H-pkHGtEem0RPpz3dAzVg" source="_SVb_sHGtEem0RPpz3dAzVg" target="_vFviUHGtEem0RPpz3dAzVg"/>
                       <transition xmi:type="uml:Transition" xmi:id="_9Q2WIHGtEem0RPpz3dAzVg" source="_vFviUHGtEem0RPpz3dAzVg" target="_gYJsgHGtEem0RPpz3dAzVg">
@@ -802,7 +802,7 @@
                         <trigger xmi:type="uml:Trigger" xmi:id="_55KmMHI9EemCiZTPfEqgQQ" name="JoinNetworkTrigger" event="_5xLu4HI9EemCiZTPfEqgQQ"/>
                       </transition>
                       <subvertex xmi:type="uml:Pseudostate" xmi:id="_SVb_sHGtEem0RPpz3dAzVg" name="Initial Settings"/>
-                      <subvertex xmi:type="uml:State" xmi:id="_gYJsgHGtEem0RPpz3dAzVg" name="Test done">
+                      <subvertex xmi:type="uml:State" xmi:id="_gYJsgHGtEem0RPpz3dAzVg" name="TestDone">
                         <region xmi:type="uml:Region" xmi:id="_EJ-ZkHI8EemCiZTPfEqgQQ" name="Region1">
                           <transition xmi:type="uml:Transition" xmi:id="_r52oIHI8EemCiZTPfEqgQQ" source="_FhatoHI8EemCiZTPfEqgQQ" target="_jW9aAHI8EemCiZTPfEqgQQ">
                             <trigger xmi:type="uml:Trigger" xmi:id="_z02hEHJCEemCiZTPfEqgQQ" name="TestSuccessTrigger" event="_zlP-0HJCEemCiZTPfEqgQQ"/>
@@ -1033,7 +1033,7 @@
                           <subvertex xmi:type="uml:Pseudostate" xmi:id="_Zjpa8HI-EemCiZTPfEqgQQ" name=""/>
                         </region>
                       </subvertex>
-                      <subvertex xmi:type="uml:State" xmi:id="_iEi84HGtEem0RPpz3dAzVg" name="Joining network">
+                      <subvertex xmi:type="uml:State" xmi:id="_iEi84HGtEem0RPpz3dAzVg" name="JoiningNetwork">
                         <doActivity xmi:type="uml:Activity" xmi:id="_3hGvoHGuEem0RPpz3dAzVg" name="doJoinNetwork" node="_ZeraUHfvEemC4Orf_QdZ5A _bX-eQHfvEemC4Orf_QdZ5A _oemWQHfvEemC4Orf_QdZ5A _qBfFUHfvEemC4Orf_QdZ5A _1elawHfvEemC4Orf_QdZ5A _SZxiQHfxEemC4Orf_QdZ5A">
                           <edge xmi:type="uml:ObjectFlow" xmi:id="_luwE0HfvEemC4Orf_QdZ5A" target="_SZxiQHfxEemC4Orf_QdZ5A" source="_ZesocHfvEemC4Orf_QdZ5A">
                             <guard xmi:type="uml:LiteralBoolean" xmi:id="_lvaMIHfvEemC4Orf_QdZ5A" value="true"/>
@@ -1096,7 +1096,7 @@
                           <node xmi:type="uml:ForkNode" xmi:id="_SZxiQHfxEemC4Orf_QdZ5A" name="" incoming="_luwE0HfvEemC4Orf_QdZ5A" outgoing="_VDR7IHfxEemC4Orf_QdZ5A _X3XMUHfxEemC4Orf_QdZ5A _ZwwW4HfxEemC4Orf_QdZ5A"/>
                         </doActivity>
                       </subvertex>
-                      <subvertex xmi:type="uml:State" xmi:id="_vFviUHGtEem0RPpz3dAzVg" name="Running test">
+                      <subvertex xmi:type="uml:State" xmi:id="_vFviUHGtEem0RPpz3dAzVg" name="RunningTest">
                         <doActivity xmi:type="uml:Activity" xmi:id="_uiAGoHGuEem0RPpz3dAzVg" name="doRunTest" node="_TUoOoHZJEembTvGAIlRKjw _c84s4HZKEembTvGAIlRKjw _menh0HZKEembTvGAIlRKjw _8HwNcHZKEembTvGAIlRKjw _GQwdwHZLEembTvGAIlRKjw _DETRYHZiEemjvPHdFsApug _98QhwHfbEemwmKELbIeX3w">
                           <edge xmi:type="uml:ObjectFlow" xmi:id="_Z6rqsHZLEembTvGAIlRKjw" target="_98QhwHfbEemwmKELbIeX3w" source="_TUpcwHZJEembTvGAIlRKjw">
                             <guard xmi:type="uml:LiteralBoolean" xmi:id="_Z7h_QHZLEembTvGAIlRKjw" value="true"/>
@@ -1174,12 +1174,12 @@
                           <node xmi:type="uml:ForkNode" xmi:id="_98QhwHfbEemwmKELbIeX3w" name="" incoming="_Z6rqsHZLEembTvGAIlRKjw" outgoing="_AphZQHfcEemwmKELbIeX3w _BWAEwHfcEemwmKELbIeX3w"/>
                         </doActivity>
                       </subvertex>
-                      <subvertex xmi:type="uml:State" xmi:id="_0rhfEHGtEem0RPpz3dAzVg" name="Instant rebooting">
+                      <subvertex xmi:type="uml:State" xmi:id="_0rhfEHGtEem0RPpz3dAzVg" name="InstantRebooting">
                         <doActivity xmi:type="uml:Activity" xmi:id="_l4PbgHGuEem0RPpz3dAzVg" name="doInstantReboot"/>
                       </subvertex>
                     </region>
                   </subvertex>
-                  <subvertex xmi:type="uml:State" xmi:id="_Wob5MHGdEem0RPpz3dAzVg" name="Idle/Waiting">
+                  <subvertex xmi:type="uml:State" xmi:id="_Wob5MHGdEem0RPpz3dAzVg" name="IdleWaiting">
                     <doActivity xmi:type="uml:Activity" xmi:id="_YoSmMHGfEem0RPpz3dAzVg" name="doWaitForMsg" node="_vxRyUHfyEemC4Orf_QdZ5A _wpFkEHfyEemC4Orf_QdZ5A _9L3vMHfyEemC4Orf_QdZ5A">
                       <edge xmi:type="uml:ObjectFlow" xmi:id="_6m-wkHfyEemC4Orf_QdZ5A" target="_wpGyMHfyEemC4Orf_QdZ5A" source="_vxTAcHfyEemC4Orf_QdZ5A">
                         <guard xmi:type="uml:LiteralBoolean" xmi:id="_6nr7MHfyEemC4Orf_QdZ5A" value="true"/>
@@ -1213,7 +1213,7 @@
                       </node>
                     </doActivity>
                   </subvertex>
-                  <subvertex xmi:type="uml:State" xmi:id="_ee3C4HGdEem0RPpz3dAzVg" name="Safe rebooting">
+                  <subvertex xmi:type="uml:State" xmi:id="_ee3C4HGdEem0RPpz3dAzVg" name="SafeRebooting">
                     <doActivity xmi:type="uml:Activity" xmi:id="_tJFmMHGeEem0RPpz3dAzVg" name="doReboot"/>
                   </subvertex>
                   <subvertex xmi:type="uml:State" xmi:id="_haIhMHGdEem0RPpz3dAzVg" name="Running">
@@ -1840,15 +1840,15 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_IMeSQHraEemC8cOyacIKAQ" name="verificationAdvice" method="_tLWY0HraEemC8cOyacIKAQ"/>
       </packagedElement>
       <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_3cLsQHrWEemQkOybBcGrOA">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3cOvkHrWEemQkOybBcGrOA" source="PapyrusVersion">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvkXrWEemQkOybBcGrOA" key="Version" value="0.0.16"/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvknrWEemQkOybBcGrOA" key="Comment" value=""/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvk3rWEemQkOybBcGrOA" key="Copyright" value="(c) Atos Spain S.A. 2019"/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvlHrWEemQkOybBcGrOA" key="Date" value="2019-04-22"/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cOvlXrWEemQkOybBcGrOA" key="Author" value="Jesús Gorroñogoitia"/>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LLmmoN4TEem_5drSgJ8Keg" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LLmmod4TEem_5drSgJ8Keg" key="Version" value="0.0.21"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LLmmot4TEem_5drSgJ8Keg" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LLmmo94TEem_5drSgJ8Keg" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LLmmpN4TEem_5drSgJ8Keg" key="Date" value="2019-08-07"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LLmmpd4TEem_5drSgJ8Keg" key="Author" value=""/>
         </eAnnotations>
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3cOIgHrWEemQkOybBcGrOA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_pMzacGTzEemc8KTgT20mug"/>
+          <references xmi:type="ecore:EPackage" href="pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_9eR6cLkEEemRs-7mz7m8IA"/>
         </eAnnotations>
         <appliedProfile xmi:type="uml:Profile" href="pathmap://ASPECTJ_PROFILES/aspectj.profile.uml#_wW2AAFbhEemeMqmugX5-_g"/>
       </profileApplication>
@@ -1871,14 +1871,12 @@
   <standard:Create xmi:id="_4ruwIHiHEemVbo553a6mZQ" base_BehavioralFeature="_3gcowHiHEemVbo553a6mZQ"/>
   <aspectj:Aspect xmi:id="_4QxK4HrWEemQkOybBcGrOA" base_Class="_xNmDEHrWEemQkOybBcGrOA" isPrivileged="true"/>
   <aspectj:Aspect xmi:id="_5EBMwHrWEemQkOybBcGrOA" base_Class="_yVYKgHrWEemQkOybBcGrOA" isPrivileged="true"/>
-  <aspectj:CallPointCut xmi:id="_FDfaAHrYEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_A56VgHrYEemC8cOyacIKAQ" signature="static void MessageManager.*(..)"/>
+  <aspectj:CallPointCut xmi:id="_FDfaAHrYEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_A56VgHrYEemC8cOyacIKAQ"/>
   <aspectj:Advice xmi:id="_MzMQoHrYEemC8cOyacIKAQ" base_BehavioralFeature="_Lhq-YHrYEemC8cOyacIKAQ" pointcut="_FDfaAHrYEemC8cOyacIKAQ"/>
-  <aspectj:CallPointCut xmi:id="_VAZtMHrZEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_Pwy0wHrZEemC8cOyacIKAQ" composite="_ArBTAHraEemC8cOyacIKAQ" signature="void MessageManager.process*(JSONObject,int)"/>
+  <aspectj:CallPointCut xmi:id="_VAZtMHrZEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_Pwy0wHrZEemC8cOyacIKAQ" composite="_ArBTAHraEemC8cOyacIKAQ"/>
   <aspectj:ArgsPointCut xmi:id="_XVt-wHrZEemC8cOyacIKAQ" base_StructuralFeature="_VjXQUHrZEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_VjXQUHrZEemC8cOyacIKAQ" composite="_ArBTAHraEemC8cOyacIKAQ">
     <argNames>message</argNames>
     <argNames>messageType</argNames>
-    <type xmi:type="uml:Class" href="#_baN9sHrTEemQkOybBcGrOA"/>
-    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
   </aspectj:ArgsPointCut>
   <aspectj:CompositePointCut xmi:id="_ArBTAHraEemC8cOyacIKAQ" base_PointCut_StructuralFeature="_-JFhwHrZEemC8cOyacIKAQ" composee="_VAZtMHrZEemC8cOyacIKAQ _XVt-wHrZEemC8cOyacIKAQ"/>
   <aspectj:Advice xmi:id="_cb6nEHraEemC8cOyacIKAQ" base_BehavioralFeature="_IMeSQHraEemC8cOyacIKAQ" pointcut="_ArBTAHraEemC8cOyacIKAQ"/>
