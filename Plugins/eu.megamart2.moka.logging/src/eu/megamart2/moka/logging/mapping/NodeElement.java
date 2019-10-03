@@ -14,9 +14,9 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
  
 	private List<PinElement> pins;
 	
-	private final int place;
+	protected int place;
 	
-	private ActionActivation node;
+	protected ActionActivation node;
 	
 	protected final String time;
 	
@@ -86,4 +86,6 @@ public class NodeElement implements MapElement, Comparable<NodeElement>{
 	    result.setTime(time);
 	    return result;
 	}
+	
+	public int getPlace() { return place; }
 }

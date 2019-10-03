@@ -47,6 +47,10 @@ public class MegamartOutput {
 		return INSTANCE;
 	}
 	
+	public void setModel(EObject model) {
+		this.modelElement = model;
+	}
+	
 	public void setFolder(File folder) {
 		this.folder = folder;
 	}
@@ -65,7 +69,7 @@ public class MegamartOutput {
 		try {
 			if(outConsole != null) outConsole.write(line + "\n");
 			if(writer != null) writer.write(line + "\n");
-			//writer.newLine();
+			writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -93,13 +97,16 @@ public class MegamartOutput {
 			}
 				}
 			});
+		}
 		
 	   // file
 	   if(newExecution || file == null) {  
 		   
 			// look for pr
 		if(modelElement == null) return;
-		List<Adapter> adapters = modelElement.eAdapters();
+			List<Adapter> adapters = modelElement.eAdapters();
+		
+		
 		String uri;
 		String projectPath = null;
 		ResourceSpy spy = new ResourceSpy();
@@ -124,7 +131,6 @@ public class MegamartOutput {
 						break;
 					}
 			}
-			
 		   
         if(projectPath != null) {
    
@@ -143,7 +149,6 @@ public class MegamartOutput {
         }
         newExecution = false;
 	   }
-		}
 		
 		// file writer
 		try {

@@ -152,7 +152,7 @@ public class ValueInformationCollector {
 				else value += ", ";
 			value += getFeatureInfo(feature);
 			}
-			return new MegamartPrimitiveInfoObject(name,type,value); // TODO
+			return new MegamartPrimitiveInfoObject(name,type,value);
 		}
 		
 		private String getStructuredTypeInfo(IStructuredValue structure) {
@@ -179,7 +179,7 @@ public class ValueInformationCollector {
 			
 			List<org.eclipse.papyrus.moka.fuml.Semantics
 			.Classes.Kernel.IValue> values = feature.getValues();
-			// TODO
+		
 			if(values == null) {
 				String type = feature.getFeature().getType().getName(); // TODO add null checking
 				return new MegamartPrimitiveInfoObject(name,type,"null",visibility);
