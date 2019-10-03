@@ -3,6 +3,8 @@ package eu.megamart2.moka.logging.nodes;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallBehaviorActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallOperationActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.CompleteActions.StartObjectBehaviorActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.IntermediateActions.ValueSpecificationActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Activities.IntermediateActivities.DecisionNodeActivation;
@@ -10,6 +12,7 @@ import org.eclipse.papyrus.moka.fuml.statemachines.Semantics.StateMachines.Trans
 
 import eu.megamart2.moka.logging.behaviors.ActionInfo;
 import eu.megamart2.moka.logging.behaviors.DecisionInfo;
+import eu.megamart2.moka.logging.behaviors.StartComplexActionInfo;
 import eu.megamart2.moka.logging.behaviors.StateTransitionInfo;
 import eu.megamart2.moka.logging.behaviors.ValueSpecificationInfo;
 import eu.megamart2.moka.logging.queue.InfoQueue;
@@ -33,6 +36,7 @@ public class NodeInfoGenerator {
     	}
     
     public NodeInfo performAction(ISemanticVisitor nodeVisitor,boolean add) {
+    	
     	if(nodeVisitor instanceof StartObjectBehaviorActionActivation) {
 
 			// TODO
@@ -50,7 +54,11 @@ public class NodeInfoGenerator {
 			stop = false;
 		}
 		if(nodeVisitor instanceof ActionActivation && stop) {
-			info = new ActionInfo(nodeVisitor, launcher); 
+			
+			if(nodeVisitor instanceof CallBehaviorActionActivation || nodeVisitor instanceof CallOperationActionActivation
+					|| nodeVisitor instanceof StartObjectBehaviorActionActivation)
+                 info = new StartComplexActionInfo(nodeVisitor, launcher);
+			else info = new ActionInfo(nodeVisitor, launcher); 
 			stop = false;
 		}
 		if(nodeVisitor instanceof TransitionActivationWrapper) {

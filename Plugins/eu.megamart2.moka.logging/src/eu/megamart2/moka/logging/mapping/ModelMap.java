@@ -18,6 +18,8 @@ public class ModelMap {
 	
 	private List<NodeElement> nodes;
 	
+	private List<ComplexNodeFinish> futureNodes;
+	
 	private ModelMap() { reset(); }
 	
 	public static ModelMap getInstance() {
@@ -28,6 +30,7 @@ public class ModelMap {
 	public void reset() {
 		pinMap = new HashMap<IPinActivation,PinElement>();
 		nodes = new LinkedList<NodeElement>();
+		futureNodes = new LinkedList<ComplexNodeFinish>();
 	}
 	
 	public void addNode(NodeElement node) {
@@ -36,10 +39,23 @@ public class ModelMap {
 		Collections.sort(nodes);
 	}
 	
-	public void removeNode(NodeElement node) { nodes.remove(node); }
+	public void removeNode(NodeElement node) { 
+		if(node instanceof ComplexNodeStart) {
+			futureNodes.add(((ComplexNodeStart) node).getFinishInfo());
+		}
+		nodes.remove(node); 
+		}
 	
 	public void update() {
 		for(NodeElement node : nodes)node.update();
+		for(ComplexNodeFinish node : futureNodes) {
+			node.update();
+			if(node.isReady()) {
+				node.setPlace(nodes.get(nodes.size()-1).getPlace() + 1);
+			    nodes.add(node);
+			    futureNodes.remove(node);
+			}
+		}
 	}
 	
 	public void addPin(PinElement pin) { pinMap.put(pin.getActivation(),pin); }
@@ -54,7 +70,7 @@ public class ModelMap {
 	    	}
 	    	else break;
 	    }
-	    for(NodeElement element : toRemove) nodes.remove(element);
+	    for(NodeElement element : toRemove) removeNode(element);
 		return result;
 	}
 	

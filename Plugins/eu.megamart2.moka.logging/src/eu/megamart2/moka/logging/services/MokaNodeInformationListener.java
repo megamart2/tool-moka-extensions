@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.Loci.LociL1.ISemanticVisitor;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.ActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallBehaviorActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.BasicActions.CallOperationActionActivation;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Actions.CompleteActions.StartObjectBehaviorActionActivation;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Activities.IntermediateActivities.DecisionNodeActivation;
 import org.eclipse.papyrus.moka.service.AbstractMokaService;
 import org.eclipse.papyrus.moka.service.IMokaExecutionListener;
@@ -15,6 +18,7 @@ import org.eclipse.papyrus.moka.fuml.statemachines.Semantics.StateMachines.State
 import eu.megamart2.moka.logging.format.MegamartFormatFacade;
 import eu.megamart2.moka.logging.format.MegamartInfoFormat;
 import eu.megamart2.moka.logging.info.MegamartAbstractInfoObject;
+import eu.megamart2.moka.logging.mapping.ComplexNodeStart;
 import eu.megamart2.moka.logging.mapping.DecisionNode;
 import eu.megamart2.moka.logging.mapping.ModelMap;
 import eu.megamart2.moka.logging.mapping.NodeElement;
@@ -31,14 +35,19 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	public void init(ILaunch launcher, EObject modelElement){
 		ModelMap.getInstance().reset();
 		MegamartViewOutput.getInstance().clean();
+		MegamartOutput.getInstance().setModel(modelElement);
 	}
 	
 	@Override
 	public void nodeVisited(ISemanticVisitor nodeVisitor) {
 		NodeElement nodeElement = null;
 		if(nodeVisitor instanceof ActionActivation) {
-		 ActionActivation actionActivation = (ActionActivation)nodeVisitor;
-		 nodeElement = new NodeElement(actionActivation,index);
+			ActionActivation actionActivation = (ActionActivation)nodeVisitor;
+			if(nodeVisitor instanceof CallBehaviorActionActivation || nodeVisitor instanceof StartObjectBehaviorActionActivation
+					|| nodeVisitor instanceof CallOperationActionActivation)
+				  nodeElement = new ComplexNodeStart(actionActivation,index);		
+			else nodeElement = new NodeElement(actionActivation,index);
+			
 	 } else if(nodeVisitor instanceof DecisionNodeActivation) {
 		nodeElement = new DecisionNode((DecisionNodeActivation)nodeVisitor,index);
 	 } else if(nodeVisitor instanceof StateMachineSemanticVisitor) {
@@ -46,7 +55,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	 }
 	if(nodeElement != null) {
 		index++;
-		ModelMap.getInstance().addNode(nodeElement);
+		ModelMap.getInstance().addNode(nodeElement);  // TODO adding node
 	}
 	     ModelMap.getInstance().update();
 	     List<MegamartAbstractInfoObject> infos = ModelMap.getInstance().getCompleteNodes();
