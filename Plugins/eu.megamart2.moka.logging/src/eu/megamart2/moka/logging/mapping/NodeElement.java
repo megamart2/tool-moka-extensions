@@ -12,7 +12,7 @@ import eu.megamart2.moka.logging.info.MegamartInOutInfoObject;
 
 public class NodeElement implements MapElement, Comparable<NodeElement>{
  
-	private List<PinElement> pins;
+	protected List<PinElement> pins;
 	
 	protected int place;
 	

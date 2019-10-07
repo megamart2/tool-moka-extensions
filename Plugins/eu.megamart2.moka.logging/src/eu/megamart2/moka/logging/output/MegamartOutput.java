@@ -63,7 +63,13 @@ public class MegamartOutput {
 
 		if(disposed) init(modelElement);
 		if(outConsole == null || writer == null) init(modelElement);
-		if(line == null) return; // TODO check nulls
+		if(file != null && !file.exists())
+			try {
+				file.createNewFile();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		if(line == null) return; 
 		if(line.replaceAll(" ","").replaceAll("\n","").isEmpty()) return;
 		
 		try {

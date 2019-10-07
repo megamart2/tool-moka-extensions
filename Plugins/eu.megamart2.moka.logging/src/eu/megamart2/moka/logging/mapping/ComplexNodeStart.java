@@ -14,5 +14,4 @@ public class ComplexNodeStart extends NodeElement {
 	public ComplexNodeFinish getFinishInfo() {
 		return new ComplexNodeFinish(node);
 	}
-
 }
