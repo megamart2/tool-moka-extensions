@@ -51,7 +51,8 @@ public class ModelMap {
 		for(ComplexNodeFinish node : futureNodes) {
 			node.update();
 			if(node.isReady()) {
-				node.setPlace(nodes.get(nodes.size()-1).getPlace() + 1);
+				if(nodes.isEmpty()) node.setPlace(1);
+				else node.setPlace(nodes.get(nodes.size()-1).getPlace() + 1);
 			    nodes.add(node);
 			    futureNodes.remove(node);
 			}
