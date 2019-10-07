@@ -66,6 +66,7 @@ public class MegamartOutput {
 		if(file != null && !file.exists())
 			try {
 				file.createNewFile();
+				writer  = new BufferedWriter(new FileWriter(file));
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
