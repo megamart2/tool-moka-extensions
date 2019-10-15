@@ -101,7 +101,12 @@ public class MegamartView extends ViewPart{
 			
 	  GridLayoutFactory.fillDefaults().applyTo(parent);
 	  
-	  tree = new Tree(parent,SWT.NONE);
+	 // Composite composite = new Composite(parent,SWT.H_SCROLL);
+	  GridLayoutFactory.fillDefaults().applyTo(composite);
+	  GridDataFactory.fillDefaults().grab(true,true).applyTo(composite);
+      
+	  
+	  tree = new Tree(composite,SWT.NONE);
 	  GridDataFactory.fillDefaults().grab(true,true).applyTo(parent);
 	  tree.setLinesVisible(true);
 	  tree.setHeaderVisible(true);
