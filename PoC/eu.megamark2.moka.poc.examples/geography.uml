@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_8vShcPTkEemYHI9to7fc9Q" name="eu">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_9JM2QPTkEemYHI9to7fc9Q">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_82mDUPTkEemYHI9to7fc9Q" name="ContinentClassifierBehavior" visibility="public" node="_jx5vcPTnEemYHI9to7fc9Q _S5a58PToEemYHI9to7fc9Q _Nd7sMPTpEemYHI9to7fc9Q">
+      <edge xmi:type="uml:ObjectFlow" xmi:id="_wwaiYPTpEemYHI9to7fc9Q" target="_NeGEQPTpEemYHI9to7fc9Q" source="_jyKOIPTnEemYHI9to7fc9Q">
+        <guard xmi:type="uml:LiteralBoolean" xmi:id="_ww0LAPTpEemYHI9to7fc9Q" value="true"/>
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_ww0yEPTpEemYHI9to7fc9Q" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ObjectFlow" xmi:id="_LKnJQPTqEemYHI9to7fc9Q" target="_tfEtcPTpEemYHI9to7fc9Q" source="_S5jc0PToEemYHI9to7fc9Q">
+        <guard xmi:type="uml:LiteralBoolean" xmi:id="_LK_jwPTqEemYHI9to7fc9Q" value="true"/>
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_LK_jwfTqEemYHI9to7fc9Q" value="1"/>
+      </edge>
+      <node xmi:type="uml:ReadSelfAction" xmi:id="_jx5vcPTnEemYHI9to7fc9Q" name="this">
+        <result xmi:type="uml:OutputPin" xmi:id="_jyKOIPTnEemYHI9to7fc9Q" name="result" outgoing="_wwaiYPTpEemYHI9to7fc9Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jyKOIfTnEemYHI9to7fc9Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jyKOIvTnEemYHI9to7fc9Q" value="1"/>
+        </result>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_S5a58PToEemYHI9to7fc9Q" name="Europe">
+        <result xmi:type="uml:OutputPin" xmi:id="_S5jc0PToEemYHI9to7fc9Q" name="result" outgoing="_LKnJQPTqEemYHI9to7fc9Q">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S5jc0fToEemYHI9to7fc9Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S5jc0vToEemYHI9to7fc9Q" value="1"/>
+        </result>
+        <value xmi:type="uml:LiteralString" xmi:id="_3DOkQPTpEemYHI9to7fc9Q" value="Europe"/>
+      </node>
+      <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_Nd7sMPTpEemYHI9to7fc9Q" name="setContinentName" structuralFeature="_CpKpcPTmEemYHI9to7fc9Q">
+        <object xmi:type="uml:InputPin" xmi:id="_NeGEQPTpEemYHI9to7fc9Q" name="object" incoming="_wwaiYPTpEemYHI9to7fc9Q" type="_JGCbsPTlEemYHI9to7fc9Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NeGEQfTpEemYHI9to7fc9Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NeGEQvTpEemYHI9to7fc9Q" value="1"/>
+        </object>
+        <result xmi:type="uml:OutputPin" xmi:id="_te6VYPTpEemYHI9to7fc9Q" name="result" type="_JGCbsPTlEemYHI9to7fc9Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_te6VYfTpEemYHI9to7fc9Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_te6VYvTpEemYHI9to7fc9Q" value="1"/>
+        </result>
+        <value xmi:type="uml:InputPin" xmi:id="_tfEtcPTpEemYHI9to7fc9Q" name="value" incoming="_LKnJQPTqEemYHI9to7fc9Q">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tfEtcfTpEemYHI9to7fc9Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tfEtcvTpEemYHI9to7fc9Q" value="1"/>
+        </value>
+      </node>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_JGCbsPTlEemYHI9to7fc9Q" name="Continent" visibility="package" isActive="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_W5IYIPTlEemYHI9to7fc9Q" name="Countries" type="_iP-7oPTlEemYHI9to7fc9Q">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PBZxcPTmEemYHI9to7fc9Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PBssYPTmEemYHI9to7fc9Q" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CpKpcPTmEemYHI9to7fc9Q" name="Cname">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_y5LQUPWGEemNlP1g0aH2Iw" name="ClassifierBehavior" node="_RL2SsPWJEemNlP1g0aH2Iw _dih7gPWJEemNlP1g0aH2Iw _2G3ZsPWZEemfAtwtn1nDBA __bCW8PWdEemfAtwtn1nDBA _4Th20PWfEemfAtwtn1nDBA _DMg9IPWhEemfAtwtn1nDBA _69f30PWhEemfAtwtn1nDBA _jH7pcPZoEemDuvAw_rNn1w _ZHseIPZpEemDuvAw_rNn1w _hiKJAPZpEemDuvAw_rNn1w __WK5cPZrEemDuvAw_rNn1w _u08hkPmGEem3HNoVaUnc0Q _lMVWoPmIEem3HNoVaUnc0Q">
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_V1apYPWKEemNlP1g0aH2Iw" target="_4uKmYPWJEemNlP1g0aH2Iw" source="_djasUPWJEemNlP1g0aH2Iw">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_V1_RIPWKEemNlP1g0aH2Iw" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_V1_RIfWKEemNlP1g0aH2Iw" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_S6JiYPWbEemfAtwtn1nDBA" target="_RMDuEPWJEemNlP1g0aH2Iw" source="_2HDm8PWZEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_S7MrQPWbEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_S7N5YPWbEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_NsI9sPWhEemfAtwtn1nDBA" target="_DMmcsPWhEemfAtwtn1nDBA" source="__bEzMPWdEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_Ns1hQPWhEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_Ns1hQfWhEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_4jDOoPWhEemfAtwtn1nDBA" target="_GJu8MPWhEemfAtwtn1nDBA" source="_4TxHYPWfEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_4kA38PWhEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_4kA38fWhEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_Dz7tAPWiEemfAtwtn1nDBA" target="_69jiMPWhEemfAtwtn1nDBA" source="_z9zOsPWJEemNlP1g0aH2Iw">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_D0xagPWiEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_D0xagfWiEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_yFf_gPZpEemDuvAw_rNn1w" target="_hicc4PZpEemDuvAw_rNn1w" source="_jITc4PZoEemDuvAw_rNn1w">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_yHZc8PZpEemDuvAw_rNn1w" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_yHaEAPZpEemDuvAw_rNn1w" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_y8JToPZpEemDuvAw_rNn1w" target="_lDvZYPZpEemDuvAw_rNn1w" source="_ZH7usPZpEemDuvAw_rNn1w">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_y9uA8PZpEemDuvAw_rNn1w" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_y9uoAPZpEemDuvAw_rNn1w" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_VqLHAPZsEemDuvAw_rNn1w" target="_NRRiYPZsEemDuvAw_rNn1w" source="_lDpSwPZpEemDuvAw_rNn1w">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_VrZ2EPZsEemDuvAw_rNn1w" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_VrZ2EfZsEemDuvAw_rNn1w" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_XQ2usPchEemqRsZuFTa-Kw" target="__WRnIPZrEemDuvAw_rNn1w" source="_GJo1kPWhEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_XSr6sPchEemqRsZuFTa-Kw" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_XSshwPchEemqRsZuFTa-Kw" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_1ofnEPmIEem3HNoVaUnc0Q" target="_qSv20PmIEem3HNoVaUnc0Q" source="_u1mo4PmGEem3HNoVaUnc0Q">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_1qkDoPmIEem3HNoVaUnc0Q" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_1qoVEPmIEem3HNoVaUnc0Q" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_4hueAPmIEem3HNoVaUnc0Q" target="_lMegkPmIEem3HNoVaUnc0Q" source="_NRPGIPZsEemDuvAw_rNn1w">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_4kQNkPmIEem3HNoVaUnc0Q" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_4kRbsPmIEem3HNoVaUnc0Q" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_70J4EPmIEem3HNoVaUnc0Q" target="_Gf6LEPWiEemfAtwtn1nDBA" source="_qSpJIPmIEem3HNoVaUnc0Q">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_73KIwPmIEem3HNoVaUnc0Q" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_73KIwfmIEem3HNoVaUnc0Q" value="1"/>
+        </edge>
+        <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_RL2SsPWJEemNlP1g0aH2Iw" name="setName" structuralFeature="_CpKpcPTmEemYHI9to7fc9Q">
+          <object xmi:type="uml:InputPin" xmi:id="_RMDuEPWJEemNlP1g0aH2Iw" name="object" incoming="_S6JiYPWbEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RMDuEfWJEemNlP1g0aH2Iw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RMDuEvWJEemNlP1g0aH2Iw" value="1"/>
+          </object>
+          <result xmi:type="uml:OutputPin" xmi:id="_z9zOsPWJEemNlP1g0aH2Iw" name="result" outgoing="_Dz7tAPWiEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z9zOsfWJEemNlP1g0aH2Iw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z9zOsvWJEemNlP1g0aH2Iw" value="1"/>
+          </result>
+          <value xmi:type="uml:InputPin" xmi:id="_4uKmYPWJEemNlP1g0aH2Iw" name="Input" incoming="_V1apYPWKEemNlP1g0aH2Iw">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </value>
+        </node>
+        <node xmi:type="uml:ValueSpecificationAction" xmi:id="_dih7gPWJEemNlP1g0aH2Iw" name="Europe">
+          <result xmi:type="uml:OutputPin" xmi:id="_djasUPWJEemNlP1g0aH2Iw" name="result" outgoing="_V1apYPWKEemNlP1g0aH2Iw">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_djasUfWJEemNlP1g0aH2Iw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_djasUvWJEemNlP1g0aH2Iw" value="1"/>
+          </result>
+          <value xmi:type="uml:LiteralString" xmi:id="_ZoOzsPWKEemNlP1g0aH2Iw" value="Europe"/>
+        </node>
+        <node xmi:type="uml:CreateObjectAction" xmi:id="_2G3ZsPWZEemfAtwtn1nDBA" name="createObject" classifier="_JGCbsPTlEemYHI9to7fc9Q">
+          <result xmi:type="uml:OutputPin" xmi:id="_2HDm8PWZEemfAtwtn1nDBA" name="result" outgoing="_S6JiYPWbEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2HDm8fWZEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2HDm8vWZEemfAtwtn1nDBA" value="1"/>
+          </result>
+        </node>
+        <node xmi:type="uml:CreateObjectAction" xmi:id="__bCW8PWdEemfAtwtn1nDBA" name="CreateCountry" classifier="_iP-7oPTlEemYHI9to7fc9Q">
+          <result xmi:type="uml:OutputPin" xmi:id="__bEzMPWdEemfAtwtn1nDBA" name="result" outgoing="_NsI9sPWhEemfAtwtn1nDBA" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__bEzMfWdEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__bEzMvWdEemfAtwtn1nDBA" value="1"/>
+          </result>
+        </node>
+        <node xmi:type="uml:ValueSpecificationAction" xmi:id="_4Th20PWfEemfAtwtn1nDBA" name="Spain" visibility="public">
+          <result xmi:type="uml:OutputPin" xmi:id="_4TxHYPWfEemfAtwtn1nDBA" name="result" outgoing="_4jDOoPWhEemfAtwtn1nDBA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4TxHYfWfEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4TxHYvWfEemfAtwtn1nDBA" value="1"/>
+          </result>
+          <value xmi:type="uml:LiteralString" xmi:id="_KM8vcPWgEemfAtwtn1nDBA" value="Spain"/>
+        </node>
+        <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_DMg9IPWhEemfAtwtn1nDBA" name="setCountryName" structuralFeature="_G-zM8PTmEemYHI9to7fc9Q">
+          <object xmi:type="uml:InputPin" xmi:id="_DMmcsPWhEemfAtwtn1nDBA" name="object" incoming="_NsI9sPWhEemfAtwtn1nDBA" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DMmcsfWhEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DMmcsvWhEemfAtwtn1nDBA" value="1"/>
+          </object>
+          <result xmi:type="uml:OutputPin" xmi:id="_GJo1kPWhEemfAtwtn1nDBA" name="result" outgoing="_XQ2usPchEemqRsZuFTa-Kw" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GJo1kfWhEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GJo1kvWhEemfAtwtn1nDBA" value="1"/>
+          </result>
+          <value xmi:type="uml:InputPin" xmi:id="_GJu8MPWhEemfAtwtn1nDBA" name="value" incoming="_4jDOoPWhEemfAtwtn1nDBA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GJu8MfWhEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GJu8MvWhEemfAtwtn1nDBA" value="1"/>
+          </value>
+        </node>
+        <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_69f30PWhEemfAtwtn1nDBA" name="setCountry" structuralFeature="_W5IYIPTlEemYHI9to7fc9Q">
+          <object xmi:type="uml:InputPin" xmi:id="_69jiMPWhEemfAtwtn1nDBA" name="object" incoming="_Dz7tAPWiEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_69jiMfWhEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_69jiMvWhEemfAtwtn1nDBA" value="1"/>
+          </object>
+          <result xmi:type="uml:OutputPin" xmi:id="_Gf488PWiEemfAtwtn1nDBA" name="result" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gf488fWiEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gf488vWiEemfAtwtn1nDBA" value="1"/>
+          </result>
+          <value xmi:type="uml:InputPin" xmi:id="_Gf6LEPWiEemfAtwtn1nDBA" name="value" incoming="_70J4EPmIEem3HNoVaUnc0Q" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gf6LEfWiEemfAtwtn1nDBA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gf6LEvWiEemfAtwtn1nDBA" value="1"/>
+          </value>
+        </node>
+        <node xmi:type="uml:CreateObjectAction" xmi:id="_jH7pcPZoEemDuvAw_rNn1w" name="CreateCity" classifier="_wl1m4PTlEemYHI9to7fc9Q">
+          <result xmi:type="uml:OutputPin" xmi:id="_jITc4PZoEemDuvAw_rNn1w" name="result" outgoing="_yFf_gPZpEemDuvAw_rNn1w" type="_wl1m4PTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jITc4fZoEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jITc4vZoEemDuvAw_rNn1w" value="1"/>
+          </result>
+        </node>
+        <node xmi:type="uml:ValueSpecificationAction" xmi:id="_ZHseIPZpEemDuvAw_rNn1w" name="Madrid">
+          <result xmi:type="uml:OutputPin" xmi:id="_ZH7usPZpEemDuvAw_rNn1w" name="result" outgoing="_y8JToPZpEemDuvAw_rNn1w">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZH7usfZpEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZH7usvZpEemDuvAw_rNn1w" value="1"/>
+          </result>
+          <value xmi:type="uml:LiteralString" xmi:id="_dKVNIPZpEemDuvAw_rNn1w" value="Madrid"/>
+        </node>
+        <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_hiKJAPZpEemDuvAw_rNn1w" name="SetCityName" structuralFeature="_2LdLkPTlEemYHI9to7fc9Q">
+          <object xmi:type="uml:InputPin" xmi:id="_hicc4PZpEemDuvAw_rNn1w" name="object" incoming="_yFf_gPZpEemDuvAw_rNn1w" type="_wl1m4PTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hicc4fZpEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hicc4vZpEemDuvAw_rNn1w" value="1"/>
+          </object>
+          <result xmi:type="uml:OutputPin" xmi:id="_lDpSwPZpEemDuvAw_rNn1w" name="result" outgoing="_VqLHAPZsEemDuvAw_rNn1w" type="_wl1m4PTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lDpSwfZpEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lDpSwvZpEemDuvAw_rNn1w" value="1"/>
+          </result>
+          <value xmi:type="uml:InputPin" xmi:id="_lDvZYPZpEemDuvAw_rNn1w" name="value" incoming="_y8JToPZpEemDuvAw_rNn1w">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lDvZYfZpEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lDvZYvZpEemDuvAw_rNn1w" value="1"/>
+          </value>
+        </node>
+        <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="__WK5cPZrEemDuvAw_rNn1w" name="SetCity" structuralFeature="_qSjD4PTlEemYHI9to7fc9Q">
+          <object xmi:type="uml:InputPin" xmi:id="__WRnIPZrEemDuvAw_rNn1w" name="object" incoming="_XQ2usPchEemqRsZuFTa-Kw" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__WRnIfZrEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__WRnIvZrEemDuvAw_rNn1w" value="1"/>
+          </object>
+          <result xmi:type="uml:OutputPin" xmi:id="_NRPGIPZsEemDuvAw_rNn1w" name="result" outgoing="_4hueAPmIEem3HNoVaUnc0Q" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NRPGIfZsEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NRPGIvZsEemDuvAw_rNn1w" value="1"/>
+          </result>
+          <value xmi:type="uml:InputPin" xmi:id="_NRRiYPZsEemDuvAw_rNn1w" name="value" incoming="_VqLHAPZsEemDuvAw_rNn1w" type="_wl1m4PTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NRRiYfZsEemDuvAw_rNn1w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NRRiYvZsEemDuvAw_rNn1w" value="1"/>
+          </value>
+        </node>
+        <node xmi:type="uml:ValueSpecificationAction" xmi:id="_u08hkPmGEem3HNoVaUnc0Q" name="peninsula">
+          <result xmi:type="uml:OutputPin" xmi:id="_u1mo4PmGEem3HNoVaUnc0Q" name="result" outgoing="_1ofnEPmIEem3HNoVaUnc0Q" type="_3KsHsPcZEemqRsZuFTa-Kw">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u1mo4fmGEem3HNoVaUnc0Q" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u1mo4vmGEem3HNoVaUnc0Q" value="1"/>
+          </result>
+          <value xmi:type="uml:InstanceValue" xmi:id="_cypu4PmIEem3HNoVaUnc0Q" type="_3KsHsPcZEemqRsZuFTa-Kw" instance="_AAo0sPcaEemqRsZuFTa-Kw"/>
+        </node>
+        <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_lMVWoPmIEem3HNoVaUnc0Q" name="setGeographicType" structuralFeature="_t1oK4PcbEemqRsZuFTa-Kw">
+          <object xmi:type="uml:InputPin" xmi:id="_lMegkPmIEem3HNoVaUnc0Q" name="object" incoming="_4hueAPmIEem3HNoVaUnc0Q" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lMegkfmIEem3HNoVaUnc0Q" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lMegkvmIEem3HNoVaUnc0Q" value="1"/>
+          </object>
+          <result xmi:type="uml:OutputPin" xmi:id="_qSpJIPmIEem3HNoVaUnc0Q" name="result" outgoing="_70J4EPmIEem3HNoVaUnc0Q" type="_iP-7oPTlEemYHI9to7fc9Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qSpJIfmIEem3HNoVaUnc0Q" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qSpJIvmIEem3HNoVaUnc0Q" value="1"/>
+          </result>
+          <value xmi:type="uml:InputPin" xmi:id="_qSv20PmIEem3HNoVaUnc0Q" name="value" incoming="_1ofnEPmIEem3HNoVaUnc0Q" type="_3KsHsPcZEemqRsZuFTa-Kw">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qSv20fmIEem3HNoVaUnc0Q" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qSv20vmIEem3HNoVaUnc0Q" value="1"/>
+          </value>
+        </node>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_m-ylIPWKEemNlP1g0aH2Iw" name="Continent_Factory" node="_hgK7IPWcEemfAtwtn1nDBA _hgY9kPWcEemfAtwtn1nDBA _hgcn8fWcEemfAtwtn1nDBA _hgjVoPWcEemfAtwtn1nDBA _hgnAAfWcEemfAtwtn1nDBA">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m-zzQPWKEemNlP1g0aH2Iw" name="result" type="_JGCbsPTlEemYHI9to7fc9Q" direction="return"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_hgg5YvWcEemfAtwtn1nDBA" name="createObjectAction to callConstructor" target="_hggSUPWcEemfAtwtn1nDBA" source="_hgaLsPWcEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_hgu70PWcEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_hgx_IPWcEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_hgiukPWcEemfAtwtn1nDBA" name="callConstructor to returnParamNode" target="_hgK7IPWcEemfAtwtn1nDBA" source="_hgnAAfWcEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_hgx_IfWcEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_hgymMPWcEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_hgoOIPWcEemfAtwtn1nDBA" name="fork to startbehavior input pin" target="_hgmY8PWcEemfAtwtn1nDBA" source="_hgnAAfWcEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_hgymMfWcEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_hgymMvWcEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_hgsfkPWcEemfAtwtn1nDBA" name="callConstructor to startBehavior" target="_hgnAAfWcEemfAtwtn1nDBA" source="_hgg5YPWcEemfAtwtn1nDBA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_hgymM_WcEemfAtwtn1nDBA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_hgymNPWcEemfAtwtn1nDBA" value="1"/>
+        </edge>
+        <node xmi:type="uml:ActivityParameterNode" xmi:id="_hgK7IPWcEemfAtwtn1nDBA" name="resultParameterNode" incoming="_hgiukPWcEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q" parameter="_m-zzQPWKEemNlP1g0aH2Iw">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_hgWhUPWcEemfAtwtn1nDBA" value="1"/>
+        </node>
+        <node xmi:type="uml:CreateObjectAction" xmi:id="_hgY9kPWcEemfAtwtn1nDBA" name="createObject" classifier="_JGCbsPTlEemYHI9to7fc9Q">
+          <result xmi:type="uml:OutputPin" xmi:id="_hgaLsPWcEemfAtwtn1nDBA" name="result" outgoing="_hgg5YvWcEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_hgcn8PWcEemfAtwtn1nDBA" value="1"/>
+          </result>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_hgcn8fWcEemfAtwtn1nDBA" name="callConstructor" operation="_nDW8EPWKEemNlP1g0aH2Iw">
+          <result xmi:type="uml:OutputPin" xmi:id="_hgg5YPWcEemfAtwtn1nDBA" name="result" outgoing="_hgsfkPWcEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_hgg5YfWcEemfAtwtn1nDBA" value="1"/>
+          </result>
+          <target xmi:type="uml:InputPin" xmi:id="_hggSUPWcEemfAtwtn1nDBA" name="target" incoming="_hgg5YvWcEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_hggSUfWcEemfAtwtn1nDBA" value="1"/>
+          </target>
+        </node>
+        <node xmi:type="uml:StartObjectBehaviorAction" xmi:id="_hgjVoPWcEemfAtwtn1nDBA" name="start classifier behavior">
+          <object xmi:type="uml:InputPin" xmi:id="_hgmY8PWcEemfAtwtn1nDBA" name="object" incoming="_hgoOIPWcEemfAtwtn1nDBA" type="_JGCbsPTlEemYHI9to7fc9Q">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_hgnAAPWcEemfAtwtn1nDBA" value="1"/>
+          </object>
+        </node>
+        <node xmi:type="uml:ForkNode" xmi:id="_hgnAAfWcEemfAtwtn1nDBA" name="forkInstanciatedObject" incoming="_hgsfkPWcEemfAtwtn1nDBA" outgoing="_hgiukPWcEemfAtwtn1nDBA _hgoOIPWcEemfAtwtn1nDBA"/>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_nDW8EPWKEemNlP1g0aH2Iw" name="Continent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nDjJUPWKEemNlP1g0aH2Iw" name="return" type="_JGCbsPTlEemYHI9to7fc9Q" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_iP-7oPTlEemYHI9to7fc9Q" name="Country">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qSjD4PTlEemYHI9to7fc9Q" name="City" type="_wl1m4PTlEemYHI9to7fc9Q">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WH89YPTmEemYHI9to7fc9Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WIJKoPTmEemYHI9to7fc9Q" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_G-zM8PTmEemYHI9to7fc9Q" name="CountryName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_t1oK4PcbEemqRsZuFTa-Kw" name="GeographyType" type="_3KsHsPcZEemqRsZuFTa-Kw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_wl1m4PTlEemYHI9to7fc9Q" name="City">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2LdLkPTlEemYHI9to7fc9Q" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_3KsHsPcZEemqRsZuFTa-Kw" name="geographicEnum">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6lbJMPcZEemqRsZuFTa-Kw" name="ISLAND"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_AAo0sPcaEemqRsZuFTa-Kw" name="PENINSULA"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GSaUwPcaEemqRsZuFTa-Kw" name="CONTINENTAL"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_m_kBMPWKEemNlP1g0aH2Iw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m_qH0PWKEemNlP1g0aH2Iw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Create xmi:id="_nDoo4PWKEemNlP1g0aH2Iw" base_BehavioralFeature="_nDW8EPWKEemNlP1g0aH2Iw"/>
+</xmi:XMI>

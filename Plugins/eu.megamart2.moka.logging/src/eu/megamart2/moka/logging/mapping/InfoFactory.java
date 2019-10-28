@@ -8,28 +8,22 @@ import eu.megamart2.moka.logging.utils.HierarchyExplorer;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.debug.core.DebugException;
-import org.eclipse.debug.core.model.IVariable;
 import org.eclipse.papyrus.moka.composites.Semantics.impl.CompositeStructures.StructuredClasses.CS_Reference;
 import org.eclipse.papyrus.moka.fuml.Semantics.Activities.IntermediateActivities.IToken;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IFeatureValue;
+import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IObject_;
 import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IStructuredValue;
-import org.eclipse.debug.core.model.IValue;
+import org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Activities.IntermediateActivities.ObjectToken;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.BooleanValue;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.EnumerationValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.IntegerValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.RealValue;
+import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.Reference;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.StringValue;
 import org.eclipse.papyrus.moka.fuml.Semantics.impl.Classes.Kernel.UnlimitedNaturalValue;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.ValueSpecification;
-import org.eclipse.uml2.uml.internal.impl.LiteralBooleanImpl;
-import org.eclipse.uml2.uml.internal.impl.LiteralIntegerImpl;
-import org.eclipse.uml2.uml.internal.impl.LiteralRealImpl;
-import org.eclipse.uml2.uml.internal.impl.LiteralStringImpl;
-import org.eclipse.uml2.uml.internal.impl.LiteralUnlimitedNaturalImpl;;
 
-@SuppressWarnings("restriction")
 public class InfoFactory {
 	
 	
@@ -65,7 +59,7 @@ public class InfoFactory {
 						 String.valueOf(((UnlimitedNaturalValue)token.getValue()).getValue()));
 			 }
 			 
-			 if(token instanceof ObjectToken) {  // TODO check
+			 if(token instanceof ObjectToken) {  
 				MegamartAbstractInfoObject info = 
 						getReferenceValueInfo((ObjectToken)token);
 				if(info != null) return info;
@@ -75,40 +69,11 @@ public class InfoFactory {
 				 return getStructuredValueInfo(
 						 (IStructuredValue)token.getValue(),name); 
 			 }
-		/* else if(value instanceof IStructuredValue) {
-			return getStructuredValueInfo(
-					 (IStructuredValue)value,name);
-		 }*/
 		 return null; 
 	 }
-		protected MegamartAbstractInfoObject generateValue(ValueSpecification specification) {
-			
-			if(specification instanceof LiteralBooleanImpl) {
-				boolean boo = ((LiteralBooleanImpl)specification).booleanValue();
-                return new MegamartPrimitiveInfoObject("","Boolean",String.valueOf(boo));
-			}	
-			if(specification instanceof LiteralIntegerImpl) {
-				int v = ((LiteralIntegerImpl)specification).getValue();
-				return new MegamartPrimitiveInfoObject("","Integer",String.valueOf(v));
-			}
-			if(specification instanceof LiteralRealImpl) {
-				double v = ((LiteralRealImpl)specification).getValue();
-				return new MegamartPrimitiveInfoObject("","Real",String.valueOf(v));
-			}	
-			if(specification instanceof LiteralStringImpl)
-				return new MegamartPrimitiveInfoObject("",
-						"String",((LiteralStringImpl)specification).getValue());
-
-			if(specification instanceof LiteralUnlimitedNaturalImpl) {
-				int v = ((LiteralUnlimitedNaturalImpl)specification).integerValue();
-				return new MegamartPrimitiveInfoObject("","Unlimited natural",String.valueOf(v));
-			}
-			return null;
-		}
-		
+	 
 		private MegamartAbstractInfoObject getReferenceValueInfo(ObjectToken token) {
 			
-			// TODO use complex object instead primitive
 			if(!(token.getValue() instanceof CS_Reference))
 				return null;
 			 
@@ -121,6 +86,7 @@ public class InfoFactory {
 			
 			 List<MegamartAbstractInfoObject> innerObjects = 
 					 new LinkedList<MegamartAbstractInfoObject>();
+			 
 			 List<IFeatureValue> features = 
 					 ((CS_Reference)token.getValue()).getFeatureValues();
 			if(features != null)if(features.size() > 0)
@@ -144,7 +110,7 @@ public class InfoFactory {
 				else value += ", ";
 			value += getFeatureInfo(feature);
 			}
-			return new MegamartPrimitiveInfoObject(name,type,value); // TODO
+			return new MegamartPrimitiveInfoObject(name,type,value); 
 		}
 		
 		private String getStructuredTypeInfo(IStructuredValue structure) {
@@ -169,232 +135,99 @@ public class InfoFactory {
 			String name = feature.getFeature().getName();
 			String visibility = feature.getFeature().getVisibility().toString();
 			
-			List<org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue> values = feature.getValues();
+			List<IValue> values = feature.getValues();
 			
-			// TODO
+
 			if(values == null) {
-				String type = feature.getFeature().getType().getName(); // TODO add null checking
+				String type = feature.getFeature().getType().getName(); 
 				return new MegamartPrimitiveInfoObject(name,type,"null",visibility);
 			}
 			if(values.isEmpty()) {
-				String type = feature.getFeature().getType().getName(); // TODO add null checking
+				String type = feature.getFeature().getType().getName(); 
 				return new MegamartPrimitiveInfoObject(name,type,"null",visibility);
 			}
+			        
+			        FeatureInfoCreator infoCreator = new FeatureInfoCreator();
+					return infoCreator.examineFeature(feature);
+			}	
 			
-			if(values.size() == 1) {
-				MegamartAbstractInfoObject result = getFumlValueInfo(values.get(0),name);
-				if(result != null)
-				result.setVisibility(visibility);
-				return result;
-			}
-			     List<MegamartAbstractInfoObject> innerObjects =
-			    		 new LinkedList<MegamartAbstractInfoObject>();
-			     for(org.eclipse.papyrus.moka.fuml.Semantics
-			.Classes.Kernel.IValue value : values)
-			    	 innerObjects.add(getFumlValueInfo(value));
-			     String type = feature.getFeature().getType().getName(); // TODO add null checking
-			     return new MegamartComplexInfoObject(name,type,innerObjects,visibility);
-			}
 		
-		private MegamartAbstractInfoObject getFumlValueInfo(
-				org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value) {
+		private class FeatureInfoCreator {
 			
-			if(value == null) return null;
-			return null;
-		   // if(value.specify() == null) return null;
-		   // return getFumlValueInfo(value,value.specify().getName());
-		}
-		
-		private MegamartAbstractInfoObject getFumlValueInfo(
-				org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value,String name) {
-			return null;
-			/*
-			if(value == null) return null;
-		    if(value.specify() == null) return null;
-		    if(value.specify().getType() == null) return null;
-		    
-		    String type = value.specify().getType().getName();
-            String[] primitiveTypes = {"Boolean","Integer","Real","String","Unlimited natural"};
-            
-            String visibility = value.specify().getVisibility().getName();
-            
-            for(String primitiveType : primitiveTypes)if(type.equalsIgnoreCase(primitiveType))
-            	return new MegamartPrimitiveInfoObject(name,type,value.specify().stringValue(),visibility);
-		    
-			return null;*/
-		}
-		
-		private class RecurssionChecker {
-			int level;
-			boolean finish;
-			List<IValue> step;
+			List<Integer> hashes;
 			
-			RecurssionChecker(IValue value){
-				List<IValue> list = new LinkedList<IValue>();
-				list.add(value);
-				this.step = list;
-				level = 0;
-				finish = false;
+			
+			FeatureInfoCreator(){
+				hashes = new LinkedList<Integer>();
 			}
 			
-			boolean check() {
-				while(!finish){
-					try {
-						nextStep();
-					} catch (DebugException e) {
-						e.printStackTrace();
-						return false;
-					}
-					if(finish) return true;
-					if(level > 100) return false;
-				}
-				return true;
-			}
-			
-			void nextStep() throws DebugException {
-				List<IValue> list = new LinkedList<IValue>();
-				for(IValue value : step) {
-					IVariable[] variables = value.getVariables();
-					if(variables != null)for(IVariable variable : variables) {
-						list.add(variable.getValue());
-					}
-				}
-				step = list;
-				if(step.isEmpty())finish = true;
-				level++;
-			}
-			
-		}
-	
-	
-	
-	
-	/*
-	public MegamartAbstractInfoObject createInfoObject(IValue value,String name) {
-		if(value instanceof BooleanValue) {
-			String stringValue = ((BooleanValue)value).getValue().toString();
-			return new MegamartPrimitiveInfoObject(name,"Boolean",stringValue,"");
-		}
-		if(value instanceof IntegerValue) {
-			String stringValue = ((IntegerValue)value).getValue().toString();
-			return new MegamartPrimitiveInfoObject(name,"Integer",stringValue,"");
-		}
-		if(value instanceof RealValue) {
-			String stringValue = ((RealValue)value).getValue().toString();
-			return new MegamartPrimitiveInfoObject(name,"Real",stringValue,"");
-		}
-		if(value instanceof StringValue) {
-			String stringValue = ((StringValue)value).getValue();
-			return new MegamartPrimitiveInfoObject(name,"String",stringValue,"");
-		}
-		if(value instanceof StructuredValue) {
-			List<IFeatureValue> features = ((StructuredValue)value).getFeatureValues();
-		    List<MegamartAbstractInfoObject> innerObjects = new ArrayList<MegamartAbstractInfoObject>(features.size());
-		    for(IFeatureValue feature : features) innerObjects.add(getFeatureInfo(feature));
-		    // TODO recursion checker
-		}
-		return null;
-	}
-	
-	
-	private MegamartAbstractInfoObject getFeatureInfo(IFeatureValue feature) {
-		
-		String name = feature.getFeature().getName();
-		String visibility = feature.getFeature().getVisibility().toString();
-		
-		List<IValue> values = feature.getValues();
-		// TODO
-		if(values == null) {
-			String type = feature.getFeature().getType().getName(); // TODO add null checking
-			return new MegamartPrimitiveInfoObject(name,type,"null",visibility);
-		}
-		if(values.isEmpty()) {
-			String type = feature.getFeature().getType().getName(); // TODO add null checking
-			return new MegamartPrimitiveInfoObject(name,type,"null",visibility);
-		}
-		
-		if(values.size() == 1) {
-			MegamartAbstractInfoObject result = getFumlValueInfo(values.get(0),name);
-			if(result != null)
-			result.setVisibility(visibility);
-			return result;
-		}
-		
-		     List<MegamartAbstractInfoObject> innerObjects =
-		    		 new LinkedList<MegamartAbstractInfoObject>();
-		     for(org.eclipse.papyrus.moka.fuml.Semantics
-		.Classes.Kernel.IValue value : values)
-		    	 innerObjects.add(getFumlValueInfo(value));
-		     String type = feature.getFeature().getType().getName(); // TODO add null checking
-		     return new MegamartComplexInfoObject(name,type,innerObjects,visibility);
-		}
-	private MegamartAbstractInfoObject getFumlValueInfo(
-			org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value) {
-		
-		if(value == null) return null;
-	    if(value.specify() == null) return null;
-	    
-	    return getFumlValueInfo(value,value.specify().getName());
-	}
-	
-	private MegamartAbstractInfoObject getFumlValueInfo(
-			org.eclipse.papyrus.moka.fuml.Semantics.Classes.Kernel.IValue value,String name) {
-		
-		if(value == null) return null;
-	    if(value.specify() == null) return null;
-	    if(value.specify().getType() == null) return null;
-	    
-	    String type = value.specify().getType().getName();
-        String[] primitiveTypes = {"Boolean","Integer","Real","String","Unlimited natural"};
-        
-        String visibility = value.specify().getVisibility().getName();
-        
-        for(String primitiveType : primitiveTypes)if(type.equalsIgnoreCase(primitiveType))
-        	return new MegamartPrimitiveInfoObject(name,type,value.specify().stringValue(),visibility);
-	    
-		return null;
-	}
-	/*
-	private class RecurssionChecker {
-		int level;
-		boolean finish;
-		List<IValue> step;
-		
-		RecurssionChecker(IValue value){
-			List<IValue> list = new LinkedList<IValue>();
-			list.add(value);
-			this.step = list;
-			level = 0;
-			finish = false;
-		}
-		
-		boolean check() {
-			while(!finish){
-				try {
-					nextStep();
-				} catch (DebugException e) {
-					e.printStackTrace();
-					return false;
-				}
-				if(finish) return true;
-				if(level > 100) return false;
-			}
-			return true;
-		}
-		
-		void nextStep() throws DebugException {
-			List<IValue> list = new LinkedList<IValue>();
-			for(IValue value : step) {
+			MegamartAbstractInfoObject examineValue(IValue value,String name) {
 				
-				IVariable[] variables = value.getVariables();
-				if(variables != null)for(IVariable variable : variables) {
-					list.add(variable.getValue());
-				}
+				
+				 // boolean
+				 if(value instanceof BooleanValue) {
+					 return new MegamartPrimitiveInfoObject(name,"Boolean",
+							 String.valueOf(((BooleanValue)value).value));
+				 }
+				 
+				 // integer
+				 if(value instanceof IntegerValue) {
+					 return new MegamartPrimitiveInfoObject(name,"Integer",
+							 String.valueOf((((IntegerValue)value).value.intValue())));
+				 }
+				 
+				 // real
+				 if(value instanceof RealValue) {
+					 return new MegamartPrimitiveInfoObject(name,"Real",
+							 String.valueOf(((RealValue)value).getValue()));
+				 }
+				 
+				 // string
+				 if(value instanceof StringValue) {
+					 return new MegamartPrimitiveInfoObject(name,"String",
+							 String.valueOf(((StringValue)value).getValue()));
+				 }
+				 
+				 // unlimited natural
+				 if(value instanceof UnlimitedNaturalValue) {
+					 return new MegamartPrimitiveInfoObject(name,"Unlimited Natural",
+							 String.valueOf(((UnlimitedNaturalValue)value).getValue()));
+				 }
+				 
+				 if(value instanceof Reference) {
+					 hashes.add(new Integer(value.hashCode())); // add to the hashes list
+					 IObject_ referent = ((Reference)value).referent;
+					 List<IFeatureValue> features = referent.getFeatureValues();
+					 List<MegamartAbstractInfoObject> innerObjects = new LinkedList<MegamartAbstractInfoObject>();
+					 MegamartAbstractInfoObject infoObject;
+					 for(IFeatureValue feature : features) {
+						 infoObject = examineFeature(feature);
+						 if(infoObject != null)innerObjects.add(infoObject);
+					 }
+					return new MegamartComplexInfoObject(name,referent.getTypes().get(0).getName(),innerObjects);
+				 }
+				
+				 if(value instanceof EnumerationValue) {
+					return new MegamartPrimitiveInfoObject(name,value.getTypes().get(0).getName(),
+							((EnumerationValue)value).toString());
+				 }
+				 
+				return new MegamartPrimitiveInfoObject(name,value.getTypes().get(0).getName(),"Unknown");
+			}		
+			
+			MegamartAbstractInfoObject examineFeature(IFeatureValue feature) {
+				     
+				// check hash
+				int featureHash = feature.hashCode();
+				for(Integer hash : hashes)if(hash.intValue() == featureHash) return null;
+				
+				// create new info object
+				hashes.add(new Integer(featureHash)); // add to hashes list
+				if(feature.getValues() == null || feature.getValues().isEmpty())
+					  return new MegamartPrimitiveInfoObject(feature.getFeature().getName(),
+							                       feature.getFeature().getType().getName(),"null");
+			    return examineValue(feature.getValues().get(0),feature.getFeature().getName());
 			}
-			step = list;
-			if(step.isEmpty())finish = true;
-			level++;
+			
 		}
-		
-	}*/
 }
