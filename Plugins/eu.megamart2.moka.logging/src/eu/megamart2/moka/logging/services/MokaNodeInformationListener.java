@@ -40,6 +40,7 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	
 	@Override
 	public void nodeVisited(ISemanticVisitor nodeVisitor) {
+		try {
 		NodeElement nodeElement = null;
 		if(nodeVisitor instanceof ActionActivation) {
 			ActionActivation actionActivation = (ActionActivation)nodeVisitor;
@@ -60,13 +61,26 @@ extends AbstractMokaService implements IMokaExecutionListener {
 	     ModelMap.getInstance().update();
 	     List<MegamartAbstractInfoObject> infos = ModelMap.getInstance().getCompleteNodes();
 	     for(MegamartAbstractInfoObject info : infos) printSummary(info.getTime(),info);
+		} catch(NullPointerException e) {
+			System.out.println("[ERROR] : null pointer exception in nodeVisited");
+			e.printStackTrace();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void nodeLeft(ISemanticVisitor nodeVisitor) {
+		try {
 		ModelMap.getInstance().update();
 		List<MegamartAbstractInfoObject> infos = ModelMap.getInstance().getCompleteNodes();
 	    for(MegamartAbstractInfoObject info : infos) printSummary(info.getTime(),info);
+		} catch(NullPointerException e) {
+			System.out.println("[ERROR] : null pointer exception in nodeLeft");
+			e.printStackTrace();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

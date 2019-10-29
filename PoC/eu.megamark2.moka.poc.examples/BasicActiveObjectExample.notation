@@ -44,7 +44,7 @@
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_35KIxHXhEeKEDJ51kkuoUw" key="showTitle" value="true"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VL69QKKGEeKB6PiQ7fFSsA" key="visible" value="true"/>
         </eAnnotations>
-        <children xmi:type="notation:Shape" xmi:id="_X_VgEKKGEeKB6PiQ7fFSsA" type="Class_ClassNestedClassifierLabel">
+        <children xmi:type="notation:Shape" xmi:id="_X_VgEKKGEeKB6PiQ7fFSsA" type="Class_ClassNestedClassifierLabel" gradient="16777215, -1, 1">
           <element xmi:type="uml:Activity" href="BasicActiveObjectExample.uml#_Jq320HXiEeKEDJ51kkuoUw"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_X_VgEaKGEeKB6PiQ7fFSsA" x="76" y="-2"/>
         </children>
@@ -71,7 +71,7 @@
     <element xmi:type="uml:Package" href="BasicActiveObjectExample.uml#_wLFCsHXhEeKEDJ51kkuoUw"/>
   </notation:Diagram>
   <notation:Diagram xmi:id="_J3YBwHXiEeKEDJ51kkuoUw" type="PapyrusUMLActivityDiagram" name="IncrementClassifierBehavior diagram" measurementUnit="Pixel">
-    <children xmi:type="notation:Shape" xmi:id="_J3YBwXXiEeKEDJ51kkuoUw" type="Activity_Shape" fontName="Segoe UI" lineColor="0">
+    <children xmi:type="notation:Shape" xmi:id="_J3YBwXXiEeKEDJ51kkuoUw" type="Activity_Shape" fontName="Segoe UI" gradient="16777215, -1, 1" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J3YBwnXiEeKEDJ51kkuoUw" source="ShadowFigure">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J3YBw3XiEeKEDJ51kkuoUw" key="ShadowFigure_Value" value="false"/>
       </eAnnotations>

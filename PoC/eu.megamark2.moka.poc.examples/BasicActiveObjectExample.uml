@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:BackupProfile="http:///schemas/BackupProfile/_J7IFgKInEeS_KNX0nfvIVQ/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ http:///schemas/BackupProfile/_J7IFgKInEeS_KNX0nfvIVQ/1 pathmap://PAPYRUS_BACKUP_PROFILE/backup-profile.profile.uml#_J7IFgaInEeS_KNX0nfvIVQ">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:BackupProfile="http:///schemas/BackupProfile/_J7IFgKInEeS_KNX0nfvIVQ/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_TEGMIHIVEeKn_eMfgI85Zw" name="model">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_V0X9oJhwEeK3cdNlM09OZw">
       <importedPackage xmi:type="uml:Model" href="pathmap://PAPYRUS_fUML_LIBRARY/fUML_Library.uml#_0"/>
@@ -57,7 +57,7 @@ active class Increment {
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HwVJAJ0vEeK8rd5qZDq8MQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HwoD8J0vEeK8rd5qZDq8MQ" value="1"/>
         </ownedAttribute>
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_Jq320HXiEeKEDJ51kkuoUw" name="IncrementClassifierBehavior" node="_OTrN8HXiEeKEDJ51kkuoUw _e9zB4HXiEeKEDJ51kkuoUw _pp3jAHXiEeKEDJ51kkuoUw _8AcRsHXiEeKEDJ51kkuoUw _FlyJYHXlEeKEDJ51kkuoUw _MV1g4HXlEeKEDJ51kkuoUw">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_Jq320HXiEeKEDJ51kkuoUw" name="IncrementClassifierBehavior" visibility="public" node="_OTrN8HXiEeKEDJ51kkuoUw _e9zB4HXiEeKEDJ51kkuoUw _pp3jAHXiEeKEDJ51kkuoUw _8AcRsHXiEeKEDJ51kkuoUw _FlyJYHXlEeKEDJ51kkuoUw _MV1g4HXlEeKEDJ51kkuoUw">
           <edge xmi:type="uml:ObjectFlow" xmi:id="_6oXrgHXiEeKEDJ51kkuoUw" name="ObjectFlow1" target="_pqAs8nXiEeKEDJ51kkuoUw" source="_jGCCkHXiEeKEDJ51kkuoUw">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_6og1cHXiEeKEDJ51kkuoUw" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_6og1cXXiEeKEDJ51kkuoUw" value="1"/>
@@ -88,7 +88,7 @@ active class Increment {
               <upperBound xmi:type="uml:LiteralInteger" xmi:id="_jGCCkXXiEeKEDJ51kkuoUw" value="1"/>
             </result>
           </node>
-          <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_pp3jAHXiEeKEDJ51kkuoUw" name="Set counter" outgoing="_KqUFIHXjEeKEDJ51kkuoUw" structuralFeature="_RdkXEHXiEeKEDJ51kkuoUw">
+          <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_pp3jAHXiEeKEDJ51kkuoUw" name="Set counter" visibility="public" outgoing="_KqUFIHXjEeKEDJ51kkuoUw" structuralFeature="_RdkXEHXiEeKEDJ51kkuoUw">
             <object xmi:type="uml:InputPin" xmi:id="_pqAs8nXiEeKEDJ51kkuoUw" name="object" incoming="_6oXrgHXiEeKEDJ51kkuoUw" type="_343NwHXhEeKEDJ51kkuoUw">
               <upperBound xmi:type="uml:LiteralInteger" xmi:id="_pqAs83XiEeKEDJ51kkuoUw" value="1"/>
             </object>
@@ -118,7 +118,7 @@ active class Increment {
             </target>
           </node>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_cM6jwHXkEeKEDJ51kkuoUw" name="incrementMethod" specification="_LmEtUHXkEeKEDJ51kkuoUw" node="_jWsp4HXkEeKEDJ51kkuoUw _rxazcHXkEeKEDJ51kkuoUw _zMAVsHXkEeKEDJ51kkuoUw _wIrM8HX3EeKtD6JgZNlHOA _11e-wHX3EeKtD6JgZNlHOA _-At60HX3EeKtD6JgZNlHOA _6BdkYKeLEeikM4uVAw4ABw _EzGiAKeMEeikM4uVAw4ABw">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_cM6jwHXkEeKEDJ51kkuoUw" name="incrementMethod" visibility="package" specification="_LmEtUHXkEeKEDJ51kkuoUw" node="_jWsp4HXkEeKEDJ51kkuoUw _rxazcHXkEeKEDJ51kkuoUw _zMAVsHXkEeKEDJ51kkuoUw _wIrM8HX3EeKtD6JgZNlHOA _11e-wHX3EeKtD6JgZNlHOA _-At60HX3EeKtD6JgZNlHOA _6BdkYKeLEeikM4uVAw4ABw _EzGiAKeMEeikM4uVAw4ABw">
           <edge xmi:type="uml:ObjectFlow" xmi:id="_9SlkIHXkEeKEDJ51kkuoUw" name="ObjectFlow1" target="_wI-H4HX3EeKtD6JgZNlHOA" source="_4BnZwHXkEeKEDJ51kkuoUw">
             <guard xmi:type="uml:LiteralBoolean" xmi:id="_9SlkIXXkEeKEDJ51kkuoUw" value="true"/>
             <weight xmi:type="uml:LiteralInteger" xmi:id="_9SlkInXkEeKEDJ51kkuoUw" value="1"/>
