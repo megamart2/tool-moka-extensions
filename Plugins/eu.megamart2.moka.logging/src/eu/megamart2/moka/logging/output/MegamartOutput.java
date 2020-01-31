@@ -22,165 +22,179 @@ import org.eclipse.ui.console.IOConsole;
 import org.eclipse.ui.console.IOConsoleOutputStream;
 
 public class MegamartOutput {
-	
+
 	private static MegamartOutput INSTANCE;
 
 	private IOConsoleOutputStream outConsole;
-	
+
 	public File folder;
 	public boolean newExecution;
-	
+
 	private EObject modelElement;
 	private File file;
 	private BufferedWriter writer;
 	private String fileName;
-	
+
 	private boolean disposed;
-	
+
 	private static String OS = System.getProperty("os.name").toLowerCase();
+
 	public static boolean isWindows() {
 		return (OS.indexOf("win") >= 0);
 	}
-	
-	private MegamartOutput() { 
-        disposed = true;
+
+	private MegamartOutput() {
+		disposed = true;
 	}
-	
+
 	public static MegamartOutput getInstance() {
-		
-		if(INSTANCE == null) INSTANCE = new MegamartOutput();
+
+		if (INSTANCE == null)
+			INSTANCE = new MegamartOutput();
 		return INSTANCE;
 	}
-	
+
 	public void setModel(EObject model) {
 		this.modelElement = model;
 	}
-	
+
 	public void setFolder(File folder) {
 		this.folder = folder;
 	}
-	
+
 	public void reset() {
 		newExecution = true;
 	}
-	
+
 	public void write(String line) {
 
-		if(disposed) init(modelElement);
-		if(outConsole == null || writer == null) init(modelElement);
-		if(file != null && !file.exists())
+		if (disposed)
+			init(modelElement);
+		if (outConsole == null || writer == null)
+			init(modelElement);
+		if (file != null && !file.exists())
 			try {
 				file.createNewFile();
-				writer  = new BufferedWriter(new FileWriter(file));
+				writer = new BufferedWriter(new FileWriter(file));
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-		if(line == null) return; 
-		if(line.replaceAll(" ","").replaceAll("\n","").isEmpty()) return;
-		
+		if (line == null)
+			return;
+		if (line.replaceAll(" ", "").replaceAll("\n", "").isEmpty())
+			return;
+
 		try {
-			if(outConsole != null) outConsole.write(line + "\n");
-			if(writer != null) writer.write(line + "\n");
+			if (outConsole != null)
+				outConsole.write(line + "\n");
+			if (writer != null)
+				writer.write(line + "\n");
 			writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void init(EObject modelElement) {
-	   
+
 		this.modelElement = modelElement;
-		
+
 		// console
-		if(outConsole == null) {
+		if (outConsole == null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-			IConsole[] consoles = ConsolePlugin.getDefault()
-					.getConsoleManager().getConsoles();
-			IConsole iout = null; 
-			for(IConsole c : consoles)
-				if(c.getName().contains("fUML")) {
-					iout = c;
-					break;
-				}
-			if(iout instanceof IOConsole) {
-				outConsole = ((IOConsole) iout).newOutputStream();
-			}
+					IConsole[] consoles = ConsolePlugin.getDefault().getConsoleManager().getConsoles();
+					IConsole iout = null;
+					for (IConsole c : consoles)
+						if (c.getName().contains("fUML")) {
+							iout = c;
+							break;
+						}
+					if (iout instanceof IOConsole) {
+						outConsole = ((IOConsole) iout).newOutputStream();
+					}
 				}
 			});
 		}
-		
-	   // file
-	   if(newExecution || file == null) {  
-		   
+
+		// file
+		if (newExecution || file == null) {
+
 			// look for pr
-		if(modelElement == null) return;
+			if (modelElement == null)
+				return;
 			List<Adapter> adapters = modelElement.eAdapters();
-		
-		
-		String uri;
-		String projectPath = null;
-		ResourceSpy spy = new ResourceSpy();
-			for(Adapter adapter : adapters) {
-                    uri =  spy.getUriFromTracker(adapter);
-					if(uri != null) {
-						if(uri.contains("\\")) uri = uri.replaceAll("\\","/");
-						if(!uri.substring(0, "platform:/".length()).equalsIgnoreCase("platform:/")) {
-							if(uri.charAt(0) == '/')
-								uri = "platform:" + uri;
-							else uri = "platform:/" + uri;
-						}
-						uri = uri.substring(0,uri.lastIndexOf("/"));
-						try {
-							projectPath = (FileLocator.resolve(new URL(uri))).toURI().toString();
-							if(projectPath.substring(0, projectPath.indexOf('/')).equalsIgnoreCase("file:"))
-							projectPath = projectPath.replaceFirst("file:","");
-						} catch (URISyntaxException | IOException e) {
-							e.printStackTrace();
-						}
-					    
-						break;
+
+			String uri;
+			String projectPath = null;
+			ResourceSpy spy = new ResourceSpy();
+			for (Adapter adapter : adapters) {
+				uri = spy.getUriFromTracker(adapter);
+				if (uri != null) {
+					if (uri.contains("\\"))
+						uri = uri.replaceAll("\\", "/");
+					if (!uri.substring(0, "platform:/".length()).equalsIgnoreCase("platform:/")) {
+						if (uri.charAt(0) == '/')
+							uri = "platform:" + uri;
+						else
+							uri = "platform:/" + uri;
+					}
+					uri = uri.substring(0, uri.lastIndexOf("/"));
+					try {
+						projectPath = (FileLocator.resolve(new URL(uri))).toURI().toString();
+						if (projectPath.substring(0, projectPath.indexOf('/')).equalsIgnoreCase("file:"))
+							projectPath = projectPath.replaceFirst("file:", "");
+					} catch (URISyntaxException | IOException e) {
+						e.printStackTrace();
+					}
+
+					break;
+				}
+			}
+
+			if (projectPath != null) {
+				if (isWindows()) {
+					projectPath = convertPathToWindows(projectPath);
+				}
+
+				folder = new File(projectPath + "/simulations/");
+				if (!folder.exists())
+					folder.mkdirs();
+
+				SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy_hh-mm-ss");
+				fileName = dateFormat.format(new Date()) + "_Moka_Simulation.txt";
+
+				file = new File(projectPath + "/simulations/" + fileName);
+
+				if (!file.exists())
+					try {
+						file.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
 			}
-		   
-        if(projectPath != null) {
-        	if (isWindows()) {
-        		projectPath = convertPathToWindows(projectPath);
-        	}
-   
-        folder = new File(projectPath + "/simulations/");
-        if(!folder.exists()) folder.mkdirs();
-        
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy_hh-mm-ss");
-		fileName = dateFormat.format(new Date()) + "_Moka_Simulation.txt";
-        
-        file = new File(projectPath + "/simulations/" + fileName); 
-        
-        if(!file.exists())
-			try {
-				file.createNewFile();
-			} catch (IOException e) { e.printStackTrace(); }
-        }
-        newExecution = false;
-	   }
-		
+			newExecution = false;
+		}
+
 		// file writer
 		try {
-			if(file != null) writer = new BufferedWriter(new FileWriter(file));
+			if (file != null)
+				writer = new BufferedWriter(new FileWriter(file));
 		} catch (IOException e) {
-			e.printStackTrace(); 
-		  }
-		
+			e.printStackTrace();
+		}
+
 		disposed = false;
 	}
-	
+
 	private String convertPathToWindows(String projectPath) {
 		return projectPath.substring(projectPath.indexOf(':') + 1).replace('/', '\\');
 	}
 
 	public void dispose() {
-		if(writer == null) return;
+		if (writer == null)
+			return;
 		try {
 			writer.close();
 		} catch (IOException e) {
@@ -189,28 +203,29 @@ public class MegamartOutput {
 		writer = null;
 		disposed = true;
 	}
-	
-	public boolean isDisposed() { return disposed; }
-	
+
+	public boolean isDisposed() {
+		return disposed;
+	}
+
 	private class ResourceSpy extends ResourceImpl {
 		String getUriFromTracker(Adapter adapter) {
-			if(adapter instanceof ResourceImpl.ModificationTrackingAdapter) {
-				ResourceImpl.ModificationTrackingAdapter mod = 
-						((ResourceImpl.ModificationTrackingAdapter)adapter);
+			if (adapter instanceof ResourceImpl.ModificationTrackingAdapter) {
+				ResourceImpl.ModificationTrackingAdapter mod = ((ResourceImpl.ModificationTrackingAdapter) adapter);
 				try {
 					Field field = mod.getClass().getDeclaredField("this$0");
 					field.setAccessible(true);
 					Object resourceOb = field.get(mod);
-					ResourceImpl resource = (ResourceImpl)resourceOb;
+					ResourceImpl resource = (ResourceImpl) resourceOb;
 					return resource.getURI().devicePath();
-					
+
 				} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException
 						| SecurityException e) {
 					e.printStackTrace();
-				}	        
+				}
 			}
 			return null;
 		}
-          
-		}
+
+	}
 }
