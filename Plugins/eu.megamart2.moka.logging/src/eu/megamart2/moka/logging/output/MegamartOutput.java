@@ -37,6 +37,11 @@ public class MegamartOutput {
 	
 	private boolean disposed;
 	
+	private static String OS = System.getProperty("os.name").toLowerCase();
+	public static boolean isWindows() {
+		return (OS.indexOf("win") >= 0);
+	}
+	
 	private MegamartOutput() { 
         disposed = true;
 	}
@@ -140,6 +145,9 @@ public class MegamartOutput {
 			}
 		   
         if(projectPath != null) {
+        	if (isWindows()) {
+        		projectPath = convertPathToWindows(projectPath);
+        	}
    
         folder = new File(projectPath + "/simulations/");
         if(!folder.exists()) folder.mkdirs();
@@ -167,6 +175,10 @@ public class MegamartOutput {
 		disposed = false;
 	}
 	
+	private String convertPathToWindows(String projectPath) {
+		return projectPath.substring(projectPath.indexOf(':') + 1).replace('/', '\\');
+	}
+
 	public void dispose() {
 		if(writer == null) return;
 		try {
